@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="gu">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>String Creations 03 | International Luxury Art Platform</title>
+    <title>String Creations 03 | International Luxury Handmade String Art</title>
     
     <!-- SEO Master Configuration -->
     <meta name="description" content="Discover premium, international-quality handmade string art custom creations by String Creations 03. Elegant wooden frames, custom portraits, and luxury decor.">
@@ -32,6 +32,7 @@
                     fontFamily: {
                         serif: ['Cormorant Garamond', 'serif'],
                         sans: ['Montserrat', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif']
                     }
                 }
             }
@@ -43,13 +44,13 @@
         }
         .glass-header {
             background: rgba(10, 10, 10, 0.94);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
         .glass-card {
-            background: rgba(20, 20, 20, 0.75);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(22, 22, 22, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(212, 175, 55, 0.12);
         }
         .brand-string {
@@ -75,7 +76,7 @@
             width: 5px;
         }
         ::-webkit-scrollbar-track {
-            background: #0a0a0a;
+            background: #0d0d0d;
         }
         ::-webkit-scrollbar-thumb {
             background: #1a82e2;
@@ -200,29 +201,158 @@
         </section>
 
         <!-- Our Handcrafting Process Section -->
-        <section id="process-section" class="py-24 bg-luxuryBlack border-t border-luxuryGold/10">
+        <section id="process-section" class="py-24 bg-luxuryCharcoal/30 border-t border-luxuryGold/10">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="text-center mb-16 space-y-2">
-                    <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase">Unwavering Commitment</span>
-                    <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream">The Handcrafting Process</h2>
+                    <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase block">THE ART OF PRECISION</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream">Our Creation Process</h2>
                     <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="glass-card p-8 space-y-4">
-                        <span class="font-serif text-4xl text-luxuryGold font-light">01</span>
-                        <h3 class="font-serif text-xl text-luxuryCream uppercase tracking-wider">Board Selection & Priming</h3>
-                        <p class="text-xs text-gray-400 leading-relaxed">Each wooden base is hand-selected, verified for zero warping, sanded, and coated with protective matte sealers.</p>
+                <!-- Luxury Sub-Tabs for Process Navigation -->
+                <div class="flex justify-center gap-4 mb-12">
+                    <button onclick="switchProcessTab('step-by-step')" id="btn-proc-1" class="process-tab-btn active px-5 py-2 border border-[#1a82e2] text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition">Creation Philosophy</button>
+                    <button onclick="showCustomSpecsTab()" id="btn-proc-2" class="process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition">15-Step Master Craftsmanship</button>
+                </div>
+
+                <!-- Tab Content 1: The 7-Step Journey & Custom Portrait Blueprint -->
+                <div id="process-tab-content-1" class="space-y-16 animate-fadeIn">
+                    <!-- 7-Step Premium Web UX Journey -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Step 1 -->
+                        <div class="glass-card p-6 relative space-y-3">
+                            <span class="font-serif text-4xl text-brandTeal font-light">01</span>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-camera-retro"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">1. Upload Photo</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Provide your favorite high-resolution photo or corporate logo vector file.</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="glass-card p-6 relative space-y-3">
+                            <span class="font-serif text-4xl text-brandBlue font-light">02</span>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">2. Design Verification</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Our design team mathematically constructs and refines your custom string art preview grid.</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="glass-card p-6 relative space-y-3">
+                            <span class="font-serif text-4xl text-luxuryGold font-light">03</span>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-hammer"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">3. Precision Hammering</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Nails are placed and manually aligned on premium hardwood bases with absolute spatial accuracy.</p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="glass-card p-6 relative space-y-3">
+                            <span class="font-serif text-4xl text-brandTeal font-light">04</span>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-ring"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">4. Hand Weaving Process</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Thousands of structural thread loops are hand-woven to build photorealistic gradients.</p>
+                        </div>
+                        <!-- Step 5 -->
+                        <div class="glass-card p-6 relative space-y-3">
+                            <span class="font-serif text-4xl text-brandBlue font-light">05</span>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-crop-simple"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">5. Premium Framing</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">The final artwork is enclosed within a hand-crafted wooden or engineered luxury outer frame.</p>
+                        </div>
+                        <!-- Step 6 -->
+                        <div class="glass-card p-6 relative space-y-3">
+                            <span class="font-serif text-4xl text-luxuryGold font-light">06</span>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-box-open"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">6. Museum Packaging</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Secured with anti-static layers, foam protectors, and rigid multi-ply structural boxing.</p>
+                        </div>
+                        <!-- Step 7 -->
+                        <div class="glass-card p-6 relative col-span-1 md:col-span-2 lg:col-span-2 space-y-3 border-l-2 border-brandTeal/40">
+                            <span class="font-serif text-4xl text-[#3ad5e0] font-light">07</span>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-truck-fast"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">7. Doorstep Logistics</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Shipped worldwide via elite cargo couriers complete with dynamic tracking numbers.</p>
+                        </div>
                     </div>
-                    <div class="glass-card p-8 space-y-4">
-                        <span class="font-serif text-4xl text-luxuryGold font-light">02</span>
-                        <h3 class="font-serif text-xl text-luxuryCream uppercase tracking-wider">Manual Nail Mapping</h3>
-                        <p class="text-xs text-gray-400 leading-relaxed">Nails are placed with extreme mathematical layout accuracy, hammered by hand with optimal depth uniformity.</p>
+
+                    <!-- Portrait Custom Blueprint Workflow Chart -->
+                    <div class="glass-card p-8 rounded-lg border border-luxuryGold/10">
+                        <h3 class="font-serif text-xl text-luxuryGold tracking-widest text-center mb-10 uppercase">Custom Portrait Workflow Blueprint</h3>
+                        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center text-[10px] font-semibold uppercase tracking-widest text-gray-300">
+                            <div class="p-3 bg-neutral-900 border border-brandTeal/30 rounded w-full md:w-auto">Customer Photo</div>
+                            <div class="text-brandTeal hidden md:block"><i class="fa-solid fa-right-long text-lg"></i></div>
+                            <div class="p-3 bg-neutral-900 border border-brandBlue/30 rounded w-full md:w-auto">Background Remove</div>
+                            <div class="text-brandBlue hidden md:block"><i class="fa-solid fa-right-long text-lg"></i></div>
+                            <div class="p-3 bg-neutral-900 border border-luxuryGold/30 rounded w-full md:w-auto">Pattern Generate</div>
+                            <div class="text-[#d4af37] hidden md:block"><i class="fa-solid fa-right-long text-lg"></i></div>
+                            <div class="p-3 bg-neutral-900 border border-brandTeal/30 rounded w-full md:w-auto">Wood Preparation</div>
+                            <div class="text-brandTeal hidden md:block"><i class="fa-solid fa-right-long text-lg"></i></div>
+                            <div class="p-3 bg-neutral-900 border border-brandBlue/30 rounded w-full md:w-auto">Hand Hammering</div>
+                            <div class="text-brandBlue hidden md:block"><i class="fa-solid fa-right-long text-lg"></i></div>
+                            <div class="p-3 bg-neutral-900 border border-luxuryGold/30 rounded w-full md:w-auto">Weaving & Packaging</div>
+                        </div>
                     </div>
-                    <div class="glass-card p-8 space-y-4">
-                        <span class="font-serif text-4xl text-luxuryGold font-light">03</span>
-                        <h3 class="font-serif text-xl text-luxuryCream uppercase tracking-wider">Threading & Sealing</h3>
-                        <p class="text-xs text-gray-400 leading-relaxed">The delicate process of string weaving, using thousands of loops to formulate shadows, tone depth, and precision imagery.</p>
+                </div>
+
+                <!-- Tab Content 2: 15-Step Professional Heritage Checklist -->
+                <div id="process-tab-content-2" class="hidden animate-fadeIn">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Step 1 to 15 Checklist Cards -->
+                        <div class="glass-card p-6 border-l-2 border-brandTeal/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 1: Design Mapping</h4>
+                            <p class="text-xs text-gray-400 mt-2">Converting design structures mathematically into high-density coordinates.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-2 border-brandBlue/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 2: Base Selection</h4>
+                            <p class="text-xs text-gray-400 mt-2">Selecting premium warp-resistant MDF or sustainable natural pine wood sheets.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-2 border-[#d4af37]/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 3: Surface Treatment</h4>
+                            <p class="text-xs text-gray-400 mt-2">Executing precision sanding followed by matte obsidian prime coat applications.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-2 border-brandTeal/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 4: Grid Transfer</h4>
+                            <p class="text-xs text-gray-400 mt-2">Securing vector alignments onto wood boards to guide nail insertion maps.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-2 border-brandBlue/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 5: Nail Calibration</h4>
+                            <p class="text-xs text-gray-400 mt-2">Individually hammering nails to matching depth parameters.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-2 border-[#d4af37]/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 6: Fiber Formulation</h4>
+                            <p class="text-xs text-gray-400 mt-2">Choosing cotton, metallic wires, or silk strings to match aesthetic guidelines.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-2 border-brandTeal/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 7: Structural Anchoring</h4>
+                            <p class="text-xs text-gray-400 mt-2">Securing the base starter knot onto anchor nails.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-2 border-brandBlue/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 8: Geometric Weaving</h4>
+                            <p class="text-xs text-gray-400 mt-2">Interlacing threads across coordinates over long artisan sessions.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-2 border-[#d4af37]/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 9: Layer Splitting</h4>
+                            <p class="text-xs text-gray-400 mt-2">Individually overlaying dark and light layers to finalize shadow densities.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-2 border-brandTeal/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 10: Tension Realignment</h4>
+                            <p class="text-xs text-gray-400 mt-2">Tightening loose strands and concealing final structural knots.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-2 border-brandBlue/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 11: Surface Restoration</h4>
+                            <p class="text-xs text-gray-400 mt-2">Vacuuming lint and applying finishing polishes onto wood margins.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-2 border-[#d4af37]/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 12: Protective Framing</h4>
+                            <p class="text-xs text-gray-400 mt-2">Encasing the board with premium custom wooden configurations.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-2 border-brandTeal/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 13: Mounting Setup</h4>
+                            <p class="text-xs text-gray-400 mt-2">Affixing heavy-duty steel mounting fixtures and hanging wires.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-2 border-brandBlue/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 14: Certificate Registry</h4>
+                            <p class="text-xs text-gray-400 mt-2">Validating thread tightness and pasting the signed Certificate of Authenticity seal.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-2 border-[#d4af37]/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 15: Museum Packing</h4>
+                            <p class="text-xs text-gray-400 mt-2">Wrapping in protective paper layers and shipping in secure, shockproof boxing.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -303,9 +433,9 @@
             <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
         </div>
 
-        <div class="max-w-2xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <!-- Form Specs Panel -->
-            <div class="glass-card p-8 space-y-6">
+            <div class="lg:col-span-5 glass-card p-8 space-y-6">
                 <h3 class="font-serif text-xl text-luxuryGold tracking-wide">Configure Specifications</h3>
                 
                 <div>
@@ -318,7 +448,7 @@
                 <div>
                     <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Frame Aesthetics</label>
                     <select id="custom-frame" onchange="updateLiveStudio()" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
-                        <option value="wood-black">Wood - Black</option>
+                        <option value="wood-black" selected>Wood - Black</option>
                         <option value="wood-white">Wood - White</option>
                         <option value="pvc-black">PVC - Black</option>
                         <option value="pvc-white">PVC - White</option>
@@ -362,6 +492,19 @@
                     </button>
                 </div>
             </div>
+
+            <!-- Visualizer Placeholder (Visual only, Simulator canvas removed as requested) -->
+            <div class="lg:col-span-7 flex flex-col items-center justify-center space-y-6">
+                <span class="text-[11px] uppercase tracking-widest text-gray-400">Visualizer Layout Frame</span>
+                <div id="mockup-frame-border" class="relative w-full max-w-[420px] aspect-[3/4] bg-neutral-900 border-[18px] border-neutral-800 shadow-2xl transition-all duration-300 flex items-center justify-center overflow-hidden">
+                    <div class="absolute inset-0 bg-neutral-950 flex items-center justify-center p-2">
+                        <div class="text-center p-4">
+                            <i class="fa-solid fa-bezier-curve text-luxuryGold text-3xl mb-4 animate-pulse"></i>
+                            <p class="font-serif text-sm text-gray-400 italic">Configure your parameters. Pricing and execution schedules will be custom calculated.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -373,7 +516,6 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <!-- Analytics Overview widget -->
             <div class="lg:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-6 mb-4">
                 <div class="glass-card p-6">
                     <p class="text-[10px] text-gray-500 uppercase tracking-widest">Simulated Revenue</p>
@@ -393,7 +535,7 @@
                 </div>
             </div>
 
-            <!-- Product Manager & Import/Export -->
+            <!-- Product Manager -->
             <div class="lg:col-span-6 glass-card p-8 space-y-6">
                 <div class="flex justify-between items-center border-b border-luxuryGold/10 pb-4">
                     <h3 class="font-serif text-lg text-luxuryGold">Add Portfolio Artwork</h3>
@@ -452,7 +594,7 @@
             <!-- In-Memory Catalog List -->
             <div class="lg:col-span-6 glass-card p-8 space-y-4">
                 <h3 class="font-serif text-lg text-luxuryGold border-b border-luxuryGold/10 pb-4">Manage Catalog (Click trash to delete)</h3>
-                <div id="admin-products-list" class="space-y-2 max-h-[350px] overflow-y-auto pr-2">
+                <div id="admin-products-list" class="space-y-2 max-h-[450px] overflow-y-auto pr-2">
                     <!-- Listed dynamically -->
                 </div>
             </div>
@@ -467,7 +609,6 @@
             
             <div class="flex flex-col items-center justify-center bg-neutral-900 rounded border border-luxuryGold/10 p-2 relative">
                 <img id="modal-img" src="" class="w-full aspect-square object-cover" alt="Art Detail">
-                <!-- Certificate generator trigger overlay -->
                 <button onclick="generateDigitalCertificate()" class="mt-4 text-[10px] uppercase bg-luxuryGold/15 hover:bg-luxuryGold/30 text-luxuryGold border border-luxuryGold/40 py-2 px-4 tracking-widest w-full">
                     <i class="fa-solid fa-file-signature mr-1"></i> Download Certificate of Authenticity
                 </button>
@@ -503,7 +644,6 @@
         </div>
         
         <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
-            <!-- Empty message -->
             <p id="cart-empty-msg" class="text-xs text-gray-500 text-center py-8">Your collection container is empty.</p>
         </div>
 
@@ -522,7 +662,6 @@
     <div id="certificate-modal" class="fixed inset-0 bg-luxuryBlack/95 z-50 hidden flex flex-col items-center justify-center p-6">
         <button onclick="closeCertificate()" class="absolute top-8 right-8 text-3xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
         <div class="max-w-2xl w-full bg-[#fcfbf9] text-[#111111] p-12 border-[12px] border-[#d4af37] shadow-2xl space-y-8 relative font-serif text-center">
-            <!-- Decorative corner elements -->
             <div class="absolute top-2 left-2 text-[#d4af37] text-2xl">⚜</div>
             <div class="absolute top-2 right-2 text-[#d4af37] text-2xl">⚜</div>
             <div class="absolute bottom-2 left-2 text-[#d4af37] text-2xl">⚜</div>
@@ -533,7 +672,7 @@
             
             <p class="text-xs uppercase tracking-widest text-gray-500">This certifies that the original thread-mapping creation entitled</p>
             <h4 id="cert-title" class="text-3xl font-bold my-4">Symphony of Grace</h4>
-            <p class="text-xs max-w-md mx-auto leading-relaxed text-gray-600">is a authentic hand-hammered and woven string art formulation under registry of String Creations 03, incorporating premium threads, custom wooden profiles, and lifetime archival pigments.</p>
+            <p class="text-xs max-w-md mx-auto leading-relaxed text-gray-600">is an authentic hand-hammered and woven string art formulation under registry of String Creations 03, incorporating premium threads, custom wooden profiles, and lifetime archival pigments.</p>
             
             <div class="grid grid-cols-2 gap-8 pt-8 border-t border-gray-200 text-xs">
                 <div>
@@ -553,7 +692,7 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Footer with Round Logo, Metallic Text & Instagram QR Code Placement -->
+    <!-- Footer -->
     <footer class="bg-luxuryBlack border-t border-luxuryGold/10 py-16">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
             
@@ -619,7 +758,7 @@
         // Dimensions Matrix - Ranging purely from 3 Feet (36 Inches) up to 8 Feet (96 Inches)
         const dimensions = [36, 40, 42, 44, 48, 54, 60, 66, 72, 78, 80, 84, 90, 96];
         
-      // Replaced with exact requested thread types
+        // Exact requested thread types list
         const threadTypes = [
             "Cotton Thread",
             "Silk Thread",
@@ -801,6 +940,7 @@
                 threadSelector.appendChild(option);
             });
         }
+        
         // Currency Switcher Logic
         function switchCurrency() {
             activeCurrency = document.getElementById('currency-switcher').value;
@@ -836,6 +976,7 @@
             renderGalleryGrid(products);
         }
 
+        // Generate Gallery Elements
         function renderGalleryGrid(items) {
             const grid = document.getElementById('gallery-grid');
             grid.innerHTML = '';
@@ -888,7 +1029,7 @@
             }
         }
 
-        // Simplified Live Specs calculation
+        // Simplified Live Specs calculation (Priceless, adjusted for giant 3ft - 8ft canvases)
         function updateLiveStudio() {
             const sizeSelector = document.getElementById('custom-size');
             if (!sizeSelector.value) return;
@@ -898,6 +1039,7 @@
             const h = parseInt(dims[0]);
             const l = parseInt(dims[1]);
 
+            // Formulate scaling specs specifically tailored to large luxury models
             const estimatedNails = Math.round((h + l) * 5 + 100);
             const estimatedThreads = Math.round(estimatedNails * 12);
 
@@ -1101,6 +1243,23 @@
             document.getElementById('review-form-name').value = '';
             document.getElementById('review-form-text').value = '';
             showToast('Review submitted successfully');
+        }
+
+        // Tab Switchers for Our Process Section
+        function switchProcessTab(tabName) {
+            document.getElementById('process-tab-content-1').classList.remove('hidden');
+            document.getElementById('process-tab-content-2').classList.add('hidden');
+            
+            document.getElementById('btn-proc-1').className = "process-tab-btn active px-5 py-2 border border-[#1a82e2] text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition";
+            document.getElementById('btn-proc-2').className = "process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition";
+        }
+
+        function showCustomSpecsTab() {
+            document.getElementById('process-tab-content-1').classList.add('hidden');
+            document.getElementById('process-tab-content-2').classList.remove('hidden');
+            
+            document.getElementById('btn-proc-1').className = "process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition";
+            document.getElementById('btn-proc-2').className = "process-tab-btn active px-5 py-2 border border-[#1a82e2] text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition";
         }
 
         // Admin Security Access & Panel Logic
