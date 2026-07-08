@@ -100,23 +100,23 @@
             animation-play-state: paused;
         }
         /* Steps progressive fade-in animation style */
-.process-step-card {
-    opacity: 0.15;
-    transform: scale(0.95);
-    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    border-color: rgba(212, 175, 55, 0.05);
-}
-.process-step-card.active-reveal {
-    opacity: 1;
-    transform: scale(1.03);
-    border-color: rgba(212, 175, 55, 0.7);
-    box-shadow: 0 12px 30px -5px rgba(212, 175, 55, 0.25);
-}
-.process-step-card.past-reveal {
-    opacity: 0.85;
-    transform: scale(1);
-    border-color: rgba(212, 175, 55, 0.15);
-}
+        .process-step-card {
+            opacity: 0.15;
+            transform: scale(0.95);
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-color: rgba(212, 175, 55, 0.05);
+        }
+        .process-step-card.active-reveal {
+            opacity: 1;
+            transform: scale(1.03);
+            border-color: rgba(212, 175, 55, 0.7);
+            box-shadow: 0 12px 30px -5px rgba(212, 175, 55, 0.25);
+        }
+        .process-step-card.past-reveal {
+            opacity: 0.85;
+            transform: scale(1);
+            border-color: rgba(212, 175, 55, 0.15);
+        }
     </style>
 </head>
 <body class="bg-luxuryBlack text-luxuryCream font-sans leading-relaxed selection:bg-luxuryGold selection:text-luxuryBlack">
@@ -256,57 +256,60 @@
                 </div>
 
                 <!-- 7-Step Premium Web UX Journey with dynamic progressive classes -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-    <!-- Step 1 -->
-    <div class="process-step-card glass-card p-6 relative space-y-3">
-        <span class="font-serif text-4xl text-brandTeal font-light">01</span>
-        <div class="text-luxuryGold text-lg"><i class="fa-solid fa-camera-retro"></i></div>
-        <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">1. Upload Photo</h4>
-        <p class="text-xs text-gray-400 leading-relaxed">Provide your favorite high-resolution photo or corporate logo vector file.</p>
-    </div>
-    <!-- Step 2 -->
-    <div class="process-step-card glass-card p-6 relative space-y-3">
-        <span class="font-serif text-4xl text-brandBlue font-light">02</span>
-        <div class="text-luxuryGold text-lg"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-        <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">2. Design Verification</h4>
-        <p class="text-xs text-gray-400 leading-relaxed">Our design team mathematically constructs and refines your custom string art preview grid.</p>
-    </div>
-    <!-- Step 3 -->
-    <div class="process-step-card glass-card p-6 relative space-y-3">
-        <span class="font-serif text-4xl text-luxuryGold font-light">03</span>
-        <div class="text-luxuryGold text-lg"><i class="fa-solid fa-hammer"></i></div>
-        <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">3. Precision Hammering</h4>
-        <p class="text-xs text-gray-400 leading-relaxed">Nails are placed and manually aligned on premium hardwood bases with absolute spatial accuracy.</p>
-    </div>
-    <!-- Step 4 -->
-    <div class="process-step-card glass-card p-6 relative space-y-3">
-        <span class="font-serif text-4xl text-brandTeal font-light">04</span>
-        <div class="text-luxuryGold text-lg"><i class="fa-solid fa-ring"></i></div>
-        <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">4. Hand Weaving Process</h4>
-        <p class="text-xs text-gray-400 leading-relaxed">Thousands of structural thread loops are hand-woven to build photorealistic gradients.</p>
-    </div>
-    <!-- Step 5 -->
-    <div class="process-step-card glass-card p-6 relative space-y-3">
-        <span class="font-serif text-4xl text-brandBlue font-light">05</span>
-        <div class="text-luxuryGold text-lg"><i class="fa-solid fa-crop-simple"></i></div>
-        <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">5. Premium Framing</h4>
-        <p class="text-xs text-gray-400 leading-relaxed">The final artwork is enclosed within a hand-crafted wooden or engineered luxury outer frame.</p>
-    </div>
-    <!-- Step 6 -->
-    <div class="process-step-card glass-card p-6 relative space-y-3">
-        <span class="font-serif text-4xl text-luxuryGold font-light">06</span>
-        <div class="text-luxuryGold text-lg"><i class="fa-solid fa-box-open"></i></div>
-        <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">6. Museum Packaging</h4>
-        <p class="text-xs text-gray-400 leading-relaxed">Secured with anti-static layers, foam protectors, and rigid multi-ply structural boxing.</p>
-    </div>
-    <!-- Step 7 (Merged/Span 2 columns) -->
-    <div class="process-step-card glass-card p-6 relative col-span-1 md:col-span-2 lg:col-span-2 space-y-3 border-l-2 border-brandTeal/40">
-        <span class="font-serif text-4xl text-[#3ad5e0] font-light">07</span>
-        <div class="text-luxuryGold text-lg"><i class="fa-solid fa-truck-fast"></i></div>
-        <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">7. Doorstep Logistics</h4>
-        <p class="text-xs text-gray-400 leading-relaxed">Shipped worldwide via elite cargo couriers complete with dynamic tracking numbers.</p>
-    </div>
-</div>
+                <div id="process-tab-content-1" class="animate-fadeIn">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Step 1 -->
+                        <div class="process-step-card glass-card p-6 relative space-y-3">
+                            <span class="font-serif text-4xl text-brandTeal font-light">01</span>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-camera-retro"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">1. Upload Photo</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Provide your favorite high-resolution photo or corporate logo vector file.</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="process-step-card glass-card p-6 relative space-y-3">
+                            <span class="font-serif text-4xl text-brandBlue font-light">02</span>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">2. Design Verification</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Our design team mathematically constructs and refines your custom string art preview grid.</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="process-step-card glass-card p-6 relative space-y-3">
+                            <span class="font-serif text-4xl text-luxuryGold font-light">03</span>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-hammer"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">3. Precision Hammering</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Nails are placed and manually aligned on premium hardwood bases with absolute spatial accuracy.</p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="process-step-card glass-card p-6 relative space-y-3">
+                            <span class="font-serif text-4xl text-brandTeal font-light">04</span>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-ring"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">4. Hand Weaving Process</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Thousands of structural thread loops are hand-woven to build photorealistic gradients.</p>
+                        </div>
+                        <!-- Step 5 -->
+                        <div class="process-step-card glass-card p-6 relative space-y-3">
+                            <span class="font-serif text-4xl text-brandBlue font-light">05</span>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-crop-simple"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">5. Premium Framing</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">The final artwork is enclosed within a hand-crafted wooden or engineered luxury outer frame.</p>
+                        </div>
+                        <!-- Step 6 -->
+                        <div class="process-step-card glass-card p-6 relative space-y-3">
+                            <span class="font-serif text-4xl text-luxuryGold font-light">06</span>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-box-open"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">6. Museum Packaging</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Secured with anti-static layers, foam protectors, and rigid multi-ply structural boxing.</p>
+                        </div>
+                        <!-- Step 7 (Merged/Span 2 columns) -->
+                        <div class="process-step-card glass-card p-6 relative col-span-1 md:col-span-2 lg:col-span-2 space-y-3 border-l-2 border-brandTeal/40">
+                            <span class="font-serif text-4xl text-[#3ad5e0] font-light">07</span>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-truck-fast"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">7. Doorstep Logistics</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Shipped worldwide via elite cargo couriers complete with dynamic tracking numbers.</p>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Tab Content 2: 15-Step Professional Heritage Checklist -->
                 <div id="process-tab-content-2" class="hidden animate-fadeIn">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -409,146 +412,21 @@
             <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <!-- Form Specs Panel -->
-            <!-- Form Specs Panel -->
-<div class="lg:col-span-5 glass-card p-8 space-y-6">
-    <h3 class="font-serif text-xl text-luxuryGold tracking-wide">Configure Specifications</h3>
-    
-    <div>
-        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Canvas Archetype & Size (From 3ft to 8ft)</label>
-        <select id="custom-size" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
-            <!-- Populated dynamically via JS loop -->
-        </select>
-    </div>
-
-    <div>
-        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Frame Aesthetics</label>
-        <select id="custom-frame" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
-            <option value="wood-black" selected>Wood - Black</option>
-            <option value="wood-white">Wood - White</option>
-            <option value="pvc-brown">PVC - Brown</option>
-            <option value="pvc-white">PVC - White</option>
-            <option value="without-frame">No Frame (Without Frame)</option>
-        </select>
-    </div>
-
-    <!-- Multi-Select Thread Types Options -->
-    <div>
-        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Select Thread Types (Multiple Select)</label>
-        <div class="grid grid-cols-2 gap-2 bg-luxuryBlack/50 p-3 border border-luxuryGold/10 max-h-36 overflow-y-auto text-[11px]">
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-threads" value="Cotton Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Cotton Thread</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-threads" value="Silk Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Silk Thread</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-threads" value="Polyester Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Polyester Thread</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-threads" value="Embroidery Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Embroidery Thread</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-threads" value="Metallic Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Metallic Thread</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-threads" value="Jute Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Jute Thread</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-threads" value="Nylon Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Nylon Thread</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-threads" value="Glow in the Dark Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Glow in the Dark</span>
-            </label>
-        </div>
-    </div>
-
-    <!-- Multi-Select Color Options -->
-    <div>
-        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Select Art Colors (Multiple Select)</label>
-        <div class="grid grid-cols-2 gap-2 bg-luxuryBlack/50 p-3 border border-luxuryGold/10 max-h-36 overflow-y-auto text-[11px]">
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-colors" value="Gold" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Gold</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-colors" value="Silver" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Silver</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-colors" value="Copper" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Copper</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-colors" value="Black" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Black</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-colors" value="White" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>White</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-colors" value="Red" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Red</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-colors" value="Blue" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Blue</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-colors" value="Glow-in-the-dark" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Glow in dark</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                <input type="checkbox" name="custom-colors" value="Multi-Color / Rainbow" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
-                <span>Multi-Color/Rainbow</span>
-            </label>
-        </div>
-    </div>
-
-    <!-- Upload Reference with dynamic name tracker -->
-    <div>
-        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Upload Reference Portrait</label>
-        <div class="border border-dashed border-luxuryGold/20 hover:border-luxuryGold p-6 text-center cursor-pointer relative transition duration-300 bg-luxuryBlack/50">
-            <input type="file" id="custom-image-input" accept="image/*" onchange="handleFileSelection(event)" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
-            <i class="fa-solid fa-cloud-arrow-up text-luxuryGold text-2xl mb-2"></i>
-            <p id="file-upload-label" class="text-[10px] text-gray-400 uppercase tracking-widest">Select Image File</p>
-        </div>
-    </div>
-
-    <!-- Additional Message Details Textarea -->
-    <div>
-        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Additional Custom Details & Instructions</label>
-        <textarea id="custom-details-msg" rows="3" placeholder="Enter custom names, dates, or specific requirements here..." class="w-full bg-luxuryBlack border border-luxuryGold/20 p-3 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold placeholder-gray-600"></textarea>
-    </div>
-
-    <!-- Note: Nail points and thread loop details completely removed as per screenshot -->
-
-    <div class="border-t border-luxuryGold/10 pt-4">
-        <div class="flex justify-between items-center mb-4">
-            <span class="text-xs uppercase tracking-wider text-gray-400">Pricing Formulation:</span>
-            <span class="font-serif text-sm text-luxuryGold font-bold uppercase tracking-widest">Custom Quote on WhatsApp</span>
-        </div>
-        <button onclick="dispatchCustomOrder()" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack text-center py-4 font-bold text-xs uppercase tracking-widest transition">
-            Submit Design to Artist
-        </button>
-    </div>
-</div>                        <!-- Populated dynamically via JS loop -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Left Half Screen: Form Specs Panel (lg:col-span-6) -->
+            <div class="lg:col-span-6 glass-card p-8 space-y-6">
+                <h3 class="font-serif text-xl text-luxuryGold tracking-wide">Configure Specifications</h3>
+                
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Canvas Archetype & Size (From 3ft to 8ft)</label>
+                    <select id="custom-size" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
+                        <!-- Populated dynamically via JS loop -->
                     </select>
                 </div>
 
                 <div>
                     <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Frame Aesthetics</label>
-                    <select id="custom-frame" onchange="updateLiveStudio()" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
+                    <select id="custom-frame" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
                         <option value="wood-black" selected>Wood - Black</option>
                         <option value="wood-white">Wood - White</option>
                         <option value="pvc-brown">PVC - Brown</option>
@@ -557,31 +435,92 @@
                     </select>
                 </div>
 
+                <!-- Multi-Select Thread Types Options -->
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Thread Formulation Profile</label>
-                    <select id="custom-thread" onchange="updateLiveStudio()" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
-                        <!-- Populated dynamically via JS -->
-                    </select>
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Select Thread Types (Multiple Select)</label>
+                    <div class="grid grid-cols-2 gap-2 bg-luxuryBlack/50 p-3 border border-luxuryGold/10 max-h-36 overflow-y-auto text-[11px]">
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Cotton Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Cotton Thread</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Silk Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Silk Thread</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Polyester Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Polyester Thread</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Embroidery Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Embroidery Thread</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Metallic Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Metallic Thread</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Jute Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Jute Thread</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Nylon Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Nylon Thread</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Glow in the Dark Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Glow in the Dark</span>
+                        </label>
+                    </div>
                 </div>
 
+                <!-- Multi-Select Color Options -->
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Upload Reference Portrait</label>
-                    <div class="border border-dashed border-luxuryGold/20 hover:border-luxuryGold p-6 text-center cursor-pointer relative transition duration-300 bg-luxuryBlack/50">
-                        <input type="file" id="custom-image-input" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
-                        <i class="fa-solid fa-cloud-arrow-up text-luxuryGold text-2xl mb-2"></i>
-                        <p class="text-[10px] text-gray-400 uppercase tracking-widest">Select Image File</p>
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Select Art Colors (Multiple Select)</label>
+                    <div class="grid grid-cols-2 gap-2 bg-luxuryBlack/50 p-3 border border-luxuryGold/10 max-h-36 overflow-y-auto text-[11px]">
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Gold" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Gold</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Silver" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Silver</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Copper" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Copper</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Black" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Black</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="White" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>White</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Red" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Red</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Blue" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Blue</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Glow-in-the-dark" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Glow in dark</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Multi-Color / Rainbow" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Multi-Color/Rainbow</span>
+                        </label>
                     </div>
                 </div>
 
-                <div class="border-t border-luxuryGold/10 pt-4 space-y-2 text-[11px] uppercase tracking-wider text-gray-400">
-                    <div class="flex justify-between">
-                        <span>Approx. Nail Points:</span>
-                        <span id="studio-nails" class="text-luxuryCream font-bold">-</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>Thread Loop Density:</span>
-                        <span id="studio-threads" class="text-luxuryCream font-bold">-</span>
-                    </div>
+                <!-- Additional Message Details Textarea -->
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Additional Custom Details & Instructions</label>
+                    <textarea id="custom-details-msg" rows="4" placeholder="Enter custom names, dates, references or specific color gradient requirements here..." class="w-full bg-luxuryBlack border border-luxuryGold/20 p-3 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold placeholder-gray-600"></textarea>
                 </div>
 
                 <div class="border-t border-luxuryGold/10 pt-4">
@@ -595,15 +534,18 @@
                 </div>
             </div>
 
-            <!-- Detailed Main Types of String Art Directory Section (Replaced 4th photo visualizer) -->
-            <div class="lg:col-span-7 space-y-6">
-                <div class="border-b border-luxuryGold/10 pb-4 flex justify-between items-center">
-                    <h3 class="font-serif text-xl text-luxuryGold uppercase tracking-wide">Main Types of String Art</h3>
-                    <span class="text-[10px] uppercase text-gray-500 tracking-widest">Interactive Index</span>
+            <!-- Right Half Screen: Detailed Main Types of String Art Directory Section (lg:col-span-6) (Symmetric Split) -->
+            <div class="lg:col-span-6 glass-card p-8 space-y-6 flex flex-col justify-between min-h-[600px]">
+                <div class="space-y-4">
+                    <div class="border-b border-luxuryGold/15 pb-4 flex justify-between items-center">
+                        <h3 class="font-serif text-lg text-luxuryGold uppercase tracking-wider">Main Types of String Art</h3>
+                        <span class="text-[9px] uppercase text-gray-500 tracking-widest">Interactive Index</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">Explore different handcrafted dynamic patterns. Click on any specific subtype to open its original sample photograph.</p>
                 </div>
                 
-                <div id="string-art-index-accordion" class="space-y-3 max-h-[600px] overflow-y-auto pr-2">
-                    <!-- Populated dynamically with detailed tree below -->
+                <div id="string-art-index-accordion" class="space-y-3 max-h-[500px] overflow-y-auto pr-2">
+                    <!-- Populated dynamically with sub-buttons -->
                 </div>
             </div>
         </div>
@@ -762,57 +704,19 @@
         </div>
     </div>
 
-    <!-- Dynamic Product Details Popup Modal -->
-    <div id="product-modal" class="fixed inset-0 bg-luxuryBlack/90 z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
-        <div class="glass-card max-w-4xl w-full p-6 sm:p-8 relative grid grid-cols-1 md:grid-cols-2 gap-8 my-8 max-h-[90vh] overflow-y-auto">
-            <button onclick="closeProductModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
-            
-            <div class="flex flex-col items-center justify-center bg-neutral-900 rounded border border-luxuryGold/10 p-2 relative">
-                <img id="modal-img" src="" class="w-full aspect-square object-cover" alt="Art Detail">
-                <button onclick="generateDigitalCertificate()" class="mt-4 text-[10px] uppercase bg-luxuryGold/15 hover:bg-luxuryGold/30 text-luxuryGold border border-luxuryGold/40 py-2 px-4 tracking-widest w-full">
-                    <i class="fa-solid fa-file-signature mr-1"></i> Download Certificate of Authenticity
-                </button>
-            </div>
-            
-            <div class="space-y-6 flex flex-col justify-between">
-                <div>
-                    <span id="modal-tag" class="text-luxuryGold font-serif tracking-widest text-[10px] uppercase">Original Masterpiece</span>
-                    <h3 id="modal-title" class="font-serif text-3xl text-luxuryCream mt-1">Symphony of Grace</h3>
-                    <p id="modal-price" class="text-2xl text-luxuryGold font-bold font-serif mt-2">₹4,499</p>
-                    <p id="modal-desc" class="text-xs text-gray-400 mt-4 leading-relaxed"></p>
-                </div>
-                
-                <div class="border-t border-luxuryGold/10 pt-4 space-y-2 text-[10px] uppercase tracking-wider text-gray-500">
-                    <div class="flex justify-between"><span>Precision Nails:</span><span id="modal-nails" class="text-luxuryCream font-bold"></span></div>
-                    <div class="flex justify-between"><span>Threading Hours:</span><span id="modal-hours" class="text-luxuryCream font-bold"></span></div>
-                    <div class="flex justify-between"><span>Thread Length:</span><span id="modal-threads" class="text-luxuryCream font-bold"></span></div>
-                    <div class="flex justify-between"><span>Certification:</span><span class="text-emerald-500 font-bold"><i class="fa-solid fa-square-check mr-1"></i> Authentic Signed Seal Included</span></div>
-                </div>
-
-                <div class="flex space-x-4 pt-4 border-t border-luxuryGold/10">
-                    <button id="modal-add-to-cart-btn" class="flex-1 bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack py-3 text-xs uppercase tracking-widest font-bold transition">Add to Bag</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Category Visualizer Mock Popup -->
+    <!-- Art Style Curated Image Modal (Displays real sample photo requested by user!) -->
     <div id="art-class-modal" class="fixed inset-0 bg-luxuryBlack/95 z-50 hidden flex items-center justify-center p-6">
-        <div class="glass-card max-w-md w-full p-8 relative text-center space-y-6 border border-luxuryGold/30">
+        <div class="glass-card max-w-xl w-full p-6 sm:p-8 relative text-center space-y-6 border border-luxuryGold/30 rounded-lg">
             <button onclick="toggleArtClassModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
             <h3 id="class-modal-title" class="font-serif text-2xl text-luxuryGold uppercase tracking-wider">Geometric Art</h3>
-            <p id="class-modal-desc" class="text-xs text-gray-300 leading-relaxed">Sample specification parameters and luxury string pattern previews.</p>
+            <p id="class-modal-desc" class="text-xs text-gray-300 leading-relaxed max-w-md mx-auto">Sample specification parameters and luxury string pattern previews.</p>
             
-            <div class="w-48 h-48 mx-auto rounded-full bg-neutral-900 border border-luxuryGold/20 flex items-center justify-center p-2">
-                <svg viewBox="0 0 100 100" class="w-full h-full text-luxuryGold" fill="none" stroke="currentColor">
-                    <circle cx="50" cy="50" r="45" stroke-dasharray="2 2" />
-                    <polygon points="50,12 85,80 15,80" stroke-width="0.7"/>
-                    <line x1="50" y1="12" x2="50" y2="80" stroke-width="0.3"/>
-                    <line x1="85" y1="80" x2="15" y2="80" stroke-width="0.3"/>
-                </svg>
+            <!-- Real visual sample photo displayed in high resolution in modal popup -->
+            <div class="w-full max-h-[300px] aspect-video sm:aspect-square sm:max-h-[360px] mx-auto rounded overflow-hidden bg-neutral-900 border border-luxuryGold/20 shadow-2xl flex items-center justify-center">
+                <img id="class-modal-img" src="" class="w-full h-full object-cover transition duration-500" alt="Sample String Art Creation">
             </div>
             
-            <button onclick="toggleArtClassModal()" class="border border-luxuryGold/30 hover:border-luxuryGold px-6 py-2 text-xs uppercase tracking-widest text-luxuryGold transition">Dismiss Preview</button>
+            <button onclick="toggleArtClassModal()" class="border border-luxuryGold/30 hover:border-luxuryGold px-8 py-2 text-xs uppercase tracking-widest text-luxuryGold font-bold transition">Dismiss Preview</button>
         </div>
     </div>
 
@@ -872,172 +776,150 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Footer -->
-    <footer class="bg-luxuryBlack border-t border-luxuryGold/10 py-16">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
-            
-            <div class="space-y-4">
-                <div class="flex items-center space-x-3 group">
-                    <div class="h-10 w-10 rounded-full overflow-hidden border border-luxuryGold/40 bg-luxuryCharcoal flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                        <img src="logo.jpg" alt="String Creations 03 Logo" class="h-full w-full object-cover" onerror="this.src='https://via.placeholder.com/150/161616/d4af37?text=SC03'">
-                    </div>
-                    <div class="font-serif text-base lg:text-lg font-bold tracking-[0.08em] flex items-center space-x-1 logo-glowing-effect">
-                        <span class="brand-string">STRING</span>
-                        <span class="brand-creations italic font-normal">Creations</span>
-                        <span class="brand-03">03</span>
-                    </div>
-                </div>
-                <p class="text-[11px] text-gray-500 leading-relaxed">International-caliber handcrafted luxury string art pieces based out of India, crafted for modern interiors and elite collectors.</p>
-                <div class="text-[11px] text-gray-400 space-y-1">
-                    <p><i class="fa-solid fa-envelope text-luxuryGold mr-2"></i> <a href="mailto:stringcreations03@gmail.com" class="hover:text-luxuryGold">stringcreations03@gmail.com</a></p>
-                    <p><i class="fa-solid fa-phone text-luxuryGold mr-2"></i> <a href="https://wa.me/918140125772" target="_blank" class="hover:text-luxuryGold">+91 81401 25772</a></p>
-                </div>
-            </div>
-            
-            <div>
-                <h4 class="text-xs uppercase tracking-widest font-bold text-luxuryGold mb-4">Aesthetics Directory</h4>
-                <ul class="space-y-2 text-xs text-gray-400">
-                    <li><a href="#gallery-section" class="hover:text-luxuryGold">Custom Portraits</a></li>
-                    <li><a href="#gallery-section" class="hover:text-luxuryGold">Sacred Mandala Art</a></li>
-                    <li><a href="#gallery-section" class="hover:text-luxuryGold">Couple Milestones</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h4 class="text-xs uppercase tracking-widest font-bold text-luxuryGold mb-4">Collector Support</h4>
-                <ul class="space-y-2 text-xs text-gray-400">
-                    <li><a href="#" onclick="toggleTrackModal()" class="hover:text-luxuryGold">Track Order</a></li>
-                    <li><a href="https://wa.me/918140125772" target="_blank" class="hover:text-luxuryGold font-semibold text-luxuryGold"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp Inquiry</a></li>
-                    <li><button onclick="requestAdminAccess()" class="hover:text-luxuryGold text-left focus:outline-none">🔒 Admin Console</button></li>
-                </ul>
-            </div>
-            
-            <!-- Instagram Connect Box with QR Code -->
-            <div class="space-y-4">
-                <h4 class="text-xs uppercase tracking-widest font-bold text-luxuryGold">Follow Our Art</h4>
-                <div class="flex items-start space-x-4">
-                    <div class="w-20 h-20 bg-white p-1 rounded-md shadow-lg flex items-center justify-center shrink-0">
-                        <img src="instagram_qr.jpg" alt="Scan Instagram QR Code" class="w-full h-full object-contain" onerror="this.src='https://via.placeholder.com/150/ffffff/000000?text=Instagram'">
-                    </div>
-                    <div>
-                        <p class="text-[10px] text-gray-400 leading-tight">Scan the QR code with your camera or click below to explore reels & daily designs.</p>
-                        <a href="https://instagram.com/stringcreations03" target="_blank" class="inline-flex items-center space-x-1 text-xs text-luxuryGold hover:text-luxuryGoldHover font-semibold mt-2">
-                            <i class="fa-brands fa-instagram text-sm"></i>
-                            <span>@string_creations03</span>
-                        </a>
-                    </div>
-                </div>
-                <p class="text-[10px] text-gray-500 pt-2">© 2026 String Creations 03. All Rights Reserved.</p>
-            </div>
-            
-        </div>
-    </footer>
-
     <!-- JavaScript Core Script -->
     <script>
         // Dimensions Matrix - Ranging purely from 3 Feet (36 Inches) up to 8 Feet (96 Inches)
         const dimensions = [36, 40, 42, 44, 48, 54, 60, 66, 72, 78, 80, 84, 90, 96];
         
-        // Exact requested thread types list
-        const threadTypes = [
-            "Cotton Thread",
-            "Silk Thread",
-            "Polyester Thread",
-            "Embroidery Thread",
-            "Metallic Thread",
-            "Jute Thread",
-            "Nylon Thread",
-            "Glow in the Dark Thread"
-        ];
-
-        // Comprehensive Hierarchical String Art Types Database (Rule 2)
+        // Comprehensive String Art Types Category and Subtype Database (Rule 2) with real sample photo matching
         const artTypesDirectory = [
             {
                 category: "Geometric String Art",
-                subtypes: ["Triangle", "Square", "Polygon", "Hexagon"]
+                subtypes: [
+                    { name: "Triangle", img: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Square", img: "https://images.unsplash.com/photo-1508898578281-774ac4893c0c?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Polygon", img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Hexagon", img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600" }
+                ]
             },
             {
                 category: "Portrait String Art",
-                subtypes: ["Human Face", "Celebrity", "Couple", "Family", "Pet"]
+                subtypes: [
+                    { name: "Human Face", img: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Celebrity", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Couple", img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Family", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Pet", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" }
+                ]
             },
             {
                 category: "Silhouette String Art",
-                subtypes: ["Animal", "Bird", "Tree", "City Skyline"]
+                subtypes: [
+                    { name: "Animal", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Bird", img: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Tree", img: "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&q=80&w=600" },
+                    { name: "City Skyline", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=600" }
+                ]
             },
             {
                 category: "Mandala String Art",
-                subtypes: ["Classic Geometric", "Lotus Symmetrical Core"]
+                subtypes: [
+                    { name: "Classic Geometric Mandala", img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Lotus Symmetrical Core Mandala", img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600" }
+                ]
             },
             {
                 category: "Spiral / Curve String Art",
-                subtypes: ["Circle Illusion", "Parabolic Curves", "Wave Patterns"]
+                subtypes: [
+                    { name: "Circle Illusion", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Parabolic Curves", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Wave Patterns", img: "https://images.unsplash.com/photo-1508898578281-774ac4893c0c?auto=format&fit=crop&q=80&w=600" }
+                ]
             },
             {
                 category: "Abstract String Art",
-                subtypes: ["Modern Abstract", "Kinetic Illusions"]
+                subtypes: [
+                    { name: "Abstract Multi-Angle", img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Aesthetic Line Flows", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600" }
+                ]
             },
             {
                 category: "Typography / Name String Art",
-                subtypes: ["Name", "Initial", "Quote", "Logo"]
+                subtypes: [
+                    { name: "Name", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Initial", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Quote", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Logo", img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600" }
+                ]
             },
             {
                 category: "Heart & Love String Art",
-                subtypes: ["Interlocking Hearts", "Love Symbols"]
+                subtypes: [
+                    { name: "Double Heart", img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Love Quote Background", "img": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" }
+                ]
             },
             {
                 category: "Nature String Art",
-                subtypes: ["Flower", "Leaf", "Mountain", "Forest"]
+                subtypes: [
+                    { name: "Flower", img: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Leaf", img: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Mountain", img: "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Forest", img: "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&q=80&w=600" }
+                ]
             },
             {
                 category: "Animal String Art",
-                subtypes: ["Lion", "Horse", "Elephant", "Wolf", "Deer"]
+                subtypes: [
+                    { name: "Lion", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Horse", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Elephant", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Wolf", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Deer", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" }
+                ]
             },
             {
                 category: "Religious String Art",
-                subtypes: ["Om", "Ganesh", "Krishna", "Cross", "Allah Calligraphy"]
+                subtypes: [
+                    { name: "Om", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Ganesh", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Krishna", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Cross", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Allah Calligraphy", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" }
+                ]
             },
             {
-                category: "3D Layered String Art",
-                subtypes: ["Multi-plane Depth Formations"]
-            },
-            {
-                category: "Negative Space String Art",
-                subtypes: ["Inverted Pattern Weaving"]
-            },
-            {
-                category: "Gradient / Multi-Color String Art",
-                subtypes: ["Chroma Shifts", "Spectral Blending"]
-            },
-            {
-                category: "Glow / LED String Art",
-                subtypes: ["Active Backlit Designs"]
-            },
-            {
-                category: "Low Poly String Art",
-                subtypes: ["Angular Geodesic Structures"]
-            },
-            {
-                category: "Radial String Art",
-                subtypes: ["Spoke and Pivot Formations"]
-            },
-            {
-                category: "Circular String Art",
-                subtypes: ["Infinite Circle Matrix Loops"]
+                category: "Specialty Formulations",
+                subtypes: [
+                    { name: "3D Layered String Art", img: "https://images.unsplash.com/photo-1502224562085-639556652f33?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Negative Space String Art", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Gradient / Multi-Color String Art", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Glow / LED String Art", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Low Poly String Art", img: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Radial String Art", img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Circular String Art", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=600" }
+                ]
             },
             {
                 category: "Mixed Media String Art",
-                subtypes: ["Wood + Resin", "Wood + LED", "Wood + Paint"]
+                subtypes: [
+                    { name: "Wood + Resin", img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Wood + LED", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Wood + Paint", img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=600" }
+                ]
             },
             {
                 category: "Custom AI Generated String Art",
-                subtypes: ["Photo to String Art", "Logo to String Art", "QR Code String Art"]
+                subtypes: [
+                    { name: "Photo to String Art", img: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Logo to String Art", img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600" },
+                    { name: "QR Code String Art", img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=600" }
+                ]
             },
             {
-                category: "Classification by Thread Formulation",
+                category: "Thread Formulations & Aesthetics",
                 subtypes: [
-                    "Single Color", "Dual Color", "Multi Color", "Metallic", "Neon", 
-                    "Matte", "Glossy", "Cotton", "Silk", "Polyester", "Reflective", 
-                    "Glow in Dark", "Gradient", "Rainbow", "UV Reactive"
+                    { name: "Single Color Thread", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Dual Color Thread", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Multi Color Thread", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Metallic Gold/Silver Spools", img: "https://images.unsplash.com/photo-1508898578281-774ac4893c0c?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Neon / Fluorescent Highlights", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Matte Spun Cotton", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Glossy Luxury Silk", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Cotton / Sustainable Fibers", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Reflective Threads", img: "https://images.unsplash.com/photo-1508898578281-774ac4893c0c?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Glow in Dark Weaving", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" },
+                    { name: "Rainbow / UV Reactive Spun", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" }
                 ]
             }
         ];
@@ -1133,8 +1015,20 @@
             renderGallery();
             renderReviews();
             renderStringArtDirectory();
-            updateLiveStudio();
             updateCartCount();
+
+            // Scroll Detection for Sequential Reveal Animation
+            const processSection = document.getElementById('process-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startProcessSequentialReveal();
+                        observer.unobserve(processSection); 
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            if (processSection) observer.observe(processSection);
         });
 
         // Format Inches to Feet (Helper)
@@ -1182,74 +1076,72 @@
                 }
                 sizeSelector.appendChild(option);
             });
-
-            // Populate Thread Selector
-            const threadSelector = document.getElementById('custom-thread');
-            threadSelector.innerHTML = '';
-            threadTypes.forEach((th, idx) => {
-                const option = document.createElement('option');
-                option.value = `thread-style-${idx + 1}`;
-                option.innerText = th;
-                threadSelector.appendChild(option);
-            });
         }
+
         // ૧. સ્ટેપ્સને એક પછી એક ૨.૫ સેકન્ડના સમય અંતરે હાઇલાઇટ કરવાનું ફંક્શન
-function startProcessSequentialReveal() {
-    const cards = document.querySelectorAll('.process-step-card');
-    if (cards.length === 0) return;
+        function startProcessSequentialReveal() {
+            const cards = document.querySelectorAll('.process-step-card');
+            if (cards.length === 0) return;
 
-    // શરૂઆતમાં બધાને ડિમ (ઝાંખા) કરો
-    cards.forEach(card => {
-        card.classList.remove('active-reveal', 'past-reveal');
-    });
-
-    let index = 0;
-
-    function nextStep() {
-        // અગાઉના સ્ટેપને સેમી-હાઇલાઇટેડ રાખો
-        if (index > 0) {
-            cards[index - 1].classList.remove('active-reveal');
-            cards[index - 1].classList.add('past-reveal');
-        }
-
-        // ચાલુ સ્ટેપને ફૂલ ગોલ્ડન ગ્લો સાથે હાઇલાઇટ કરો
-        if (index < cards.length) {
-            cards[index].classList.add('active-reveal');
-            index++;
-            setTimeout(nextStep, 2500); // ૨.૫ સેકન્ડનો સમયગાળો
-        } else {
-            // તમામ સ્ટેપ પૂર્ણ થયા પછી બધાને કમ્પ્લીટ વિઝીબલ રાખો જેથી યુઝર સરળતાથી વાંચી શકે
+            // શરૂઆતમાં બધાને ડિમ (ઝાંખા) કરો
             cards.forEach(card => {
-                card.classList.add('past-reveal');
+                card.classList.remove('active-reveal', 'past-reveal');
             });
-        }
-    }
-    nextStep();
-}
 
-// ૨. પેજ લોડ થતા જ અને ટેબ ચેન્જ થાય ત્યારે એનિમેશન આપોઆપ રન થશે
-window.addEventListener('DOMContentLoaded', () => {
-    // Scroll Detection (જ્યારે યુઝર Creation Process સેક્શન પર પહોંચે ત્યારે એનિમેશન શરૂ થશે)
-    const processSection = document.getElementById('process-section');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                startProcessSequentialReveal();
-                observer.unobserve(processSection); // એકવાર એનિમેશન પૂરું થયા પછી ફરીથી લોડ નહિ થાય
+            let index = 0;
+
+            function nextStep() {
+                // અગાઉના સ્ટેપને સેમી-હાઇલાઇટેડ રાખો
+                if (index > 0) {
+                    cards[index - 1].classList.remove('active-reveal');
+                    cards[index - 1].classList.add('past-reveal');
+                }
+
+                // ચાલુ સ્ટેપને ફૂલ ગોલ્ડન ગ્લો સાથે હાઇલાઇટ કરો
+                if (index < cards.length) {
+                    cards[index].classList.add('active-reveal');
+                    index++;
+                    setTimeout(nextStep, 2500); // ૨.૫ સેકન્ડનો સમયગાળો
+                } else {
+                    // તમામ સ્ટેપ પૂર્ણ થયા પછી બધાને કમ્પ્લીટ વિઝીબલ રાખો જેથી યુઝર સરળતાથી વાંચી શકે
+                    cards.forEach(card => {
+                        card.classList.add('past-reveal');
+                    });
+                }
             }
-        });
-    }, { threshold: 0.15 });
+            nextStep();
+        }
 
-    if (processSection) observer.observe(processSection);
-});
+        // ૨. નવું સુધારેલું dispatchCustomOrder ફંક્શન (WhatsApp બટન માટે)
+        function dispatchCustomOrder() {
+            const sizeSelector = document.getElementById('custom-size');
+            const sizeText = sizeSelector.options[sizeSelector.selectedIndex].text;
+            
+            const frameSelector = document.getElementById('custom-frame');
+            const frameText = frameSelector.options[frameSelector.selectedIndex].text;
+            
+            // મલ્ટીપલ સિલેક્ટેડ થ્રેડ મેળવો
+            const checkedThreads = Array.from(document.querySelectorAll('input[name="custom-threads"]:checked')).map(el => el.value);
+            const selectedThreadsText = checkedThreads.length > 0 ? checkedThreads.join(", ") : "None Selected";
 
-// ૩. ટેબ સ્વિચિંગ ફંક્શન (જ્યારે યુઝર "Creation Philosophy" બટન ક્લિક કરે ત્યારે એનિમેશન ફરી રન થશે)
-const originalSwitchProcessTab = switchProcessTab;
-switchProcessTab = function(tabName) {
-    originalSwitchProcessTab(tabName);
-    startProcessSequentialReveal();
-}
-        
+            // મલ્ટીપલ સિલેક્ટેડ કલર મેળવો
+            const checkedColors = Array.from(document.querySelectorAll('input[name="custom-colors"]:checked')).map(el => el.value);
+            const selectedColorsText = checkedColors.length > 0 ? checkedColors.join(", ") : "None Selected";
+
+            // વધારાની વિગતો મેળવો
+            const customDetails = document.getElementById('custom-details-msg').value.trim() || "No extra details provided.";
+
+            const msg = `Hello String Creations 03! I am interested in ordering a Custom Masterpiece with these configurations:\n\n` + 
+                        `• Dimension: ${sizeText}\n` +
+                        `• Frame Style: ${frameText}\n` +
+                        `• Thread Formulation(s): ${selectedThreadsText}\n` +
+                        `• Color Selection(s): ${selectedColorsText}\n\n` +
+                        `• Extra Custom Details:\n"${customDetails}"\n\n` +
+                        `Please calculate the pricing structure and design layout based on these parameters.`;
+            
+            window.open("https://wa.me/918140125772?text=" + encodeURIComponent(msg), '_blank');
+        }
+
         // Currency Switcher Logic
         function switchCurrency() {
             activeCurrency = document.getElementById('currency-switcher').value;
@@ -1338,7 +1230,7 @@ switchProcessTab = function(tabName) {
             }
         }
 
-        // Render Dynamic String Art Classification Index (Rule 2)
+        // Render Dynamic String Art Classification Index (Rule 2) with real Sample Photos displayed on click!
         function renderStringArtDirectory() {
             const container = document.getElementById('string-art-index-accordion');
             container.innerHTML = '';
@@ -1348,14 +1240,14 @@ switchProcessTab = function(tabName) {
                 itemDiv.className = 'glass-card p-4 transition-all duration-300 border border-luxuryGold/10 hover:border-luxuryGold/35';
                 
                 let subButtonsHTML = item.subtypes.map(sub => `
-                    <button onclick="triggerArtClassPreview('${sub}', '${item.category}')" class="bg-neutral-900 hover:bg-luxuryGold hover:text-luxuryBlack text-[11px] text-gray-300 font-semibold uppercase px-3 py-1.5 rounded transition tracking-wider border border-luxuryGold/5">
-                        ${sub}
+                    <button onclick="triggerArtClassPreview('${sub.name.replace(/'/g, "\\'")}', '${sub.img}')" class="bg-neutral-900 hover:bg-luxuryGold hover:text-luxuryBlack text-[11px] text-gray-300 font-semibold uppercase px-3 py-2 rounded transition tracking-wider border border-luxuryGold/5">
+                        ${sub.name}
                     </button>
                 `).join('');
 
                 itemDiv.innerHTML = `
                     <div class="flex justify-between items-center cursor-pointer select-none pb-2 border-b border-luxuryGold/5" onclick="toggleAccordionSection(${index})">
-                        <span class="font-serif text-base text-luxuryGold font-semibold uppercase tracking-wider">${item.category}</span>
+                        <span class="font-serif text-sm lg:text-base text-luxuryGold font-semibold uppercase tracking-wider">${item.category}</span>
                         <span id="accordion-icon-${index}" class="text-luxuryGold text-xs"><i class="fa-solid fa-chevron-down"></i></span>
                     </div>
                     <div id="accordion-content-${index}" class="hidden pt-4 flex flex-wrap gap-2 animate-fadeIn">
@@ -1377,102 +1269,19 @@ switchProcessTab = function(tabName) {
             }
         }
 
-        function triggerArtClassPreview(name, parentCategory) {
+        // Custom Popup with Real Sample Photos assigned dynamically (As requested by user!)
+        function triggerArtClassPreview(name, imgUrl) {
             document.getElementById('class-modal-title').innerText = name;
-            document.getElementById('class-modal-desc').innerText = `Handcrafted custom loops specifically calibrated for modern ${parentCategory}. Fully customizable dynamic thread densities.`;
+            document.getElementById('class-modal-desc').innerText = `Beautiful custom-engineered fibers and manual coordinate configurations mapped with pristine tension details.`;
+            
+            const modalImg = document.getElementById('class-modal-img');
+            modalImg.src = imgUrl;
+
             document.getElementById('art-class-modal').classList.remove('hidden');
         }
 
         function toggleArtClassModal() {
             document.getElementById('art-class-modal').classList.toggle('hidden');
-        }
-
-        // Simplified Live Specs calculation
-        function updateLiveStudio() {
-            const sizeSelector = document.getElementById('custom-size');
-            if (!sizeSelector.value) return;
-
-            const sizeVal = sizeSelector.value;
-            const dims = sizeVal.split('x');
-            const h = parseInt(dims[0]);
-            const l = parseInt(dims[1]);
-
-            // Formulate scaling specs specifically tailored to large luxury models
-            const estimatedNails = Math.round((h + l) * 5 + 100);
-            const estimatedThreads = Math.round(estimatedNails * 12);
-
-            document.getElementById('studio-nails').innerText = `${estimatedNails} Nails`;
-            document.getElementById('studio-threads').innerText = `~${estimatedThreads.toLocaleString()} Meters`;
-        }
-// ૧. ફાઇલનું નામ ટ્રેક કરવા માટેનું નવું ફંક્શન
-let selectedFileName = "";
-function handleFileSelection(event) {
-    const file = event.target.files[0];
-    if (file) {
-        selectedFileName = file.name;
-        document.getElementById('file-upload-label').innerText = `Selected: ${file.name}`;
-        document.getElementById('file-upload-label').classList.remove('text-gray-400');
-        document.getElementById('file-upload-label').classList.add('text-luxuryGold', 'font-bold');
-    } else {
-        selectedFileName = "";
-        document.getElementById('file-upload-label').innerText = "Select Image File";
-    }
-}
-
-// ૨. નવું સુધારેલું dispatchCustomOrder ફંક્શન (WhatsApp બટન માટે)
-function dispatchCustomOrder() {
-    const sizeSelector = document.getElementById('custom-size');
-    const sizeText = sizeSelector.options[sizeSelector.selectedIndex].text;
-    
-    const frameSelector = document.getElementById('custom-frame');
-    const frameText = frameSelector.options[frameSelector.selectedIndex].text;
-    
-    // મલ્ટીપલ સિલેક્ટેડ થ્રેડ મેળવો
-    const checkedThreads = Array.from(document.querySelectorAll('input[name="custom-threads"]:checked')).map(el => el.value);
-    const selectedThreadsText = checkedThreads.length > 0 ? checkedThreads.join(", ") : "None Selected";
-
-    // મલ્ટીપલ સિલેક્ટેડ કલર મેળવો
-    const checkedColors = Array.from(document.querySelectorAll('input[name="custom-colors"]:checked')).map(el => el.value);
-    const selectedColorsText = checkedColors.length > 0 ? checkedColors.join(", ") : "None Selected";
-
-    // વધારાની વિગતો મેળવો
-    const customDetails = document.getElementById('custom-details-msg').value.trim() || "No extra details provided.";
-
-    // ઈમેજ ફાઈલનું નામ અને સૂચના
-    const imageInfo = selectedFileName ? `• Selected Reference File: ${selectedFileName}\n⚠️ Please attach this photo in this chat! ⚠️` : "• Selected Reference File: None";
-
-    const msg = `Hello String Creations 03! I am interested in ordering a Custom Masterpiece with these configurations:\n\n` + 
-                `• Dimension: ${sizeText}\n` +
-                `• Frame Style: ${frameText}\n` +
-                `• Thread Formulation(s): ${selectedThreadsText}\n` +
-                `• Color Selection(s): ${selectedColorsText}\n` +
-                `${imageInfo}\n\n` +
-                `• Extra Custom Details:\n"${customDetails}"\n\n` +
-                `Please calculate the pricing structure and design layout based on these parameters.`;
-    
-    window.open("https://wa.me/918140125772?text=" + encodeURIComponent(msg), '_blank');
-}
-        function dispatchCustomOrder() {
-            const sizeSelector = document.getElementById('custom-size');
-            const sizeText = sizeSelector.options[sizeSelector.selectedIndex].text;
-            
-            const frameSelector = document.getElementById('custom-frame');
-            const frameText = frameSelector.options[frameSelector.selectedIndex].text;
-            
-            const threadSelector = document.getElementById('custom-thread');
-            const threadText = threadSelector.options[threadSelector.selectedIndex].text;
-
-            const nails = document.getElementById('studio-nails').innerText;
-            const threads = document.getElementById('studio-threads').innerText;
-
-            const msg = `Hello String Creations 03! I am interested in ordering a Custom Masterpiece with these configurations:\n\n` + 
-                        `• Selected Dimension: ${sizeText}\n` +
-                        `• Selected Frame Style: ${frameText}\n` +
-                        `• Selected Thread Formulation: ${threadText}\n` +
-                        `• Estimated Structure: ${nails} / ${threads}\n\n` +
-                        `Please share details about reference photos, custom design rendering, and custom quotation.`;
-            
-            window.open("https://wa.me/918140125772?text=" + encodeURIComponent(msg), '_blank');
         }
 
         // Header Track Modal (Rule 1)
@@ -1670,6 +1479,7 @@ function dispatchCustomOrder() {
             
             document.getElementById('btn-proc-1').className = "process-tab-btn active px-5 py-2 border border-[#1a82e2] text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition";
             document.getElementById('btn-proc-2').className = "process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition";
+            startProcessSequentialReveal();
         }
 
         function showCustomSpecsTab() {
@@ -1807,3 +1617,4 @@ function dispatchCustomOrder() {
     </script>
 </body>
 </html>
+```
