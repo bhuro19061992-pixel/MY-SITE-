@@ -4,47 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>String Creations 03 | International Luxury Handmade String Art</title>
+    
+    <!-- SEO Master Configuration -->
+    <meta name="description" content="Discover premium, international-quality handmade string art custom creations by String Creations 03. Elegant wooden frames, custom portraits, and luxury decor.">
+    <meta name="keywords" content="String Art, Handmade Art, Premium Decor, Custom String Art, String Creations 03, Luxury Art India">
+    
+    <!-- Premium Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght=0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS & FontAwesome Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { luxuryBlack: '#0d0d0d', luxuryCharcoal: '#161616', luxuryGold: '#d4af37', luxuryGoldHover: '#b89428', luxuryCream: '#fbf9f5' },
-                    fontFamily: { serif: ['Cormorant Garamond', 'serif'], sans: ['Montserrat', 'sans-serif'], cinzel: ['Cinzel', 'serif'] }
+                    colors: {
+                        luxuryBlack: '#0d0d0d',
+                        luxuryCharcoal: '#161616',
+                        luxuryGold: '#d4af37',
+                        luxuryGoldHover: '#b89428',
+                        luxuryCream: '#fbf9f5'
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif']
+                    }
                 }
             }
         }
     </script>
     <style>
-        html { scroll-behavior: smooth; }
-        .glass-header { background: rgba(10, 10, 10, 0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .glass-card { background: rgba(22, 22, 22, 0.75); backdrop-filter: blur(8px); border: 1px solid rgba(212, 175, 55, 0.12); }
-        .brand-string { background: linear-gradient(135deg, #3ad5e0 0%, #1a82e2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .brand-creations { background: linear-gradient(135deg, #1a82e2 0%, #7a1ae2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .brand-03 { background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 50%, #71717a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .logo-glowing-effect { filter: drop-shadow(0px 2px 10px rgba(26, 130, 226, 0.3)); }
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #0d0d0d; }
-        ::-webkit-scrollbar-thumb { background: #1a82e2; }
-        .marquee-container { overflow: hidden; white-space: nowrap; position: relative; width: 100%; }
-        .marquee-content { display: inline-flex; animation: marquee 30s linear infinite; }
-        .marquee-content:hover { animation-play-state: paused; }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .process-step-card, .heritage-step-card { display: none !important; }
+        html {
+            scroll-behavior: smooth;
+        }
+        .glass-header {
+            background: rgba(10, 10, 10, 0.94);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-card {
+            background: rgba(22, 22, 22, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.12);
+        }
+        .brand-string {
+            background: linear-gradient(135deg, #3ad5e0 0%, #1a82e2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .brand-creations {
+            background: linear-gradient(135deg, #1a82e2 0%, #7a1ae2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .brand-03 {
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 50%, #71717a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo-glowing-effect {
+            filter: drop-shadow(0px 2px 10px rgba(26, 130, 226, 0.3));
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0d0d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a82e2;
+        }
+        /* Continuous Infinite Horizontal Scrolling Reviews */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+        }
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 35s linear infinite;
+        }
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+        /* Looping sequential transition reveal for step modules in both tabs */
+        .process-step-card, .heritage-step-card {
+            opacity: 0.15;
+            transform: scale(0.96);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            border-color: rgba(212, 175, 55, 0.05);
+        }
         .process-step-card.active-reveal, .heritage-step-card.active-reveal {
-            display: block !important; margin: 0 auto; opacity: 1 !important; transform: scale(1) !important; animation: fadeIn 0.5s ease-in-out; grid-column: 1 / -1; max-width: 450px;
+            opacity: 1 !important;
+            transform: scale(1.03) !important;
+            border-color: rgba(212, 175, 55, 0.7) !important;
+            box-shadow: 0 12px 30px -5px rgba(212, 175, 55, 0.25) !important;
         }
     </style>
 </head>
 <body class="bg-luxuryBlack text-luxuryCream font-sans leading-relaxed selection:bg-luxuryGold selection:text-luxuryBlack">
 
+    <!-- Toast Notification System -->
     <div id="toast-container" class="fixed top-24 right-6 z-50 space-y-3 pointer-events-none"></div>
 
-    <!-- Header Navigation -->
+    <!-- Sticky Header -->
     <header class="fixed top-0 inset-x-0 z-50 glass-header border-b border-luxuryGold/10 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" onclick="showSection('home-view')" class="flex items-center space-x-3 group">
@@ -57,261 +132,296 @@
                         <span class="brand-creations italic font-normal">Creations</span>
                         <span class="brand-03">03</span>
                     </div>
-                    <span class="text-[8px] tracking-[0.25em] text-gray-400 uppercase font-medium" data-i18n="tagline">Masterpiece In Every Thread</span>
+                    <span class="text-[8px] tracking-[0.25em] text-gray-400 uppercase font-medium">Masterpiece In Every Thread</span>
                 </div>
             </a>
             
-            <nav class="hidden md:flex space-x-8 text-xs uppercase tracking-[0.2em] font-medium font-sans">
-                <a href="#" onclick="showSection('home-view')" class="hover:text-luxuryGold transition" data-i18n="nav_home">Home</a>
-                <a href="#gallery-section" onclick="showSection('home-view')" class="hover:text-luxuryGold transition" data-i18n="nav_gallery">Gallery</a>
-                <a href="#" onclick="showSection('custom-view')" class="hover:text-luxuryGold transition text-brandTeal font-bold" data-i18n="custom_studio_nav">Custom Studio</a>
-                <a href="#process-section" onclick="showSection('home-view')" class="hover:text-luxuryGold transition" data-i18n="nav_process">Our Process</a>
-                <a href="#reviews-section" onclick="showSection('home-view')" class="hover:text-luxuryGold transition" data-i18n="nav_reviews">Reviews</a>
+            <nav class="hidden md:flex space-x-8 text-xs uppercase tracking-[0.2em] font-medium">
+                <a href="#" onclick="showSection('home-view')" class="hover:text-luxuryGold transition">Home</a>
+                <a href="#gallery-section" onclick="showSection('home-view')" class="hover:text-luxuryGold transition">Gallery</a>
+                <a href="#" onclick="showSection('custom-view')" class="hover:text-luxuryGold transition text-brandTeal font-bold">Custom Studio</a>
+                <a href="#process-section" onclick="showSection('home-view')" class="hover:text-luxuryGold transition">Our Process</a>
+                <a href="#reviews-section" onclick="showSection('home-view')" class="hover:text-luxuryGold transition">Reviews</a>
             </nav>
 
-            <div class="flex items-center space-x-3 lg:space-x-4">
-                <div class="flex items-center space-x-1 text-[10px] uppercase tracking-wider text-gray-400 border-r border-luxuryGold/20 pr-3">
-                    <select id="language-switcher" onchange="switchLanguage()" class="bg-transparent text-luxuryCream focus:outline-none cursor-pointer font-bold font-sans">
-                        <option value="EN" class="bg-luxuryBlack">🇺🇸 EN</option>
-                        <option value="GU" class="bg-luxuryBlack">🇮🇳 ગુજ</option>
-                        <option value="HI" class="bg-luxuryBlack">🇮🇳 हिन्दी</option>
-                    </select>
-                </div>
-                <div class="flex items-center space-x-1 text-[10px] uppercase tracking-wider text-gray-400 border-r border-luxuryGold/20 pr-3">
-                    <select id="currency-switcher" onchange="switchCurrency()" class="bg-transparent text-luxuryCream focus:outline-none cursor-pointer font-sans">
+            <div class="flex items-center space-x-4 lg:space-x-6">
+                <!-- International Language & Currency Switchers -->
+                <div class="flex items-center space-x-2 text-[10px] uppercase tracking-wider text-gray-400 border-r border-luxuryGold/20 pr-4">
+                    <select id="currency-switcher" onchange="switchCurrency()" class="bg-transparent text-luxuryCream focus:outline-none cursor-pointer">
                         <option value="INR" class="bg-luxuryBlack">₹ INR</option>
                         <option value="USD" class="bg-luxuryBlack">$ USD</option>
                         <option value="EUR" class="bg-luxuryBlack">€ EUR</option>
                     </select>
                 </div>
-                <button onclick="toggleTrackModal()" class="text-[10px] uppercase tracking-wider text-luxuryGold font-bold hover:text-luxuryCream transition font-sans">
-                    <i class="fa-solid fa-truck-fast mr-1"></i> <span data-i18n="track_order_btn">Track Order</span>
+                <!-- Relocated Track Order Link in Header Action Area -->
+                <button onclick="toggleTrackModal()" class="text-[10px] uppercase tracking-wider text-luxuryGold font-bold hover:text-luxuryCream transition">
+                    <i class="fa-solid fa-truck-fast mr-1"></i> Track Order
                 </button>
-                <button onclick="toggleSearch()" class="hover:text-luxuryGold transition text-lg"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button onclick="toggleSearch()" class="hover:text-luxuryGold transition text-lg">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
                 <button onclick="toggleCart()" class="relative hover:text-luxuryGold transition text-lg">
                     <i class="fa-solid fa-bag-shopping"></i>
-                    <span id="cart-count" class="absolute -top-2 -right-2 bg-luxuryGold text-luxuryBlack text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center font-sans">0</span>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-luxuryGold text-luxuryBlack text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
                 </button>
             </div>
         </div>
     </header>
 
+    <!-- Global Search Overlay -->
     <div id="search-overlay" class="fixed inset-0 bg-luxuryBlack/95 z-50 hidden flex flex-col justify-center items-center px-6">
         <button onclick="toggleSearch()" class="absolute top-8 right-8 text-3xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
         <div class="w-full max-w-2xl text-center space-y-4">
-            <h3 class="font-serif text-2xl text-luxuryGold" data-i18n="search_title">Search Curated Creations</h3>
-            <input type="text" id="search-input" onkeyup="handleSearch(event)" placeholder="Search by name, category, size..." data-i18n-placeholder="search_placeholder" class="w-full bg-transparent border-b-2 border-luxuryGold/40 text-2xl text-center py-4 text-luxuryCream focus:outline-none focus:border-luxuryGold tracking-wide">
-            <p class="text-xs text-gray-500 uppercase tracking-widest" data-i18n="search_hint">Press Enter to search</p>
+            <h3 class="font-serif text-2xl text-luxuryGold">Search Curated Creations</h3>
+            <input type="text" id="search-input" onkeyup="handleSearch(event)" placeholder="Search by name, category, size..." class="w-full bg-transparent border-b-2 border-luxuryGold/40 text-2xl text-center py-4 text-luxuryCream focus:outline-none focus:border-luxuryGold tracking-wide">
+            <p class="text-xs text-gray-500 uppercase tracking-widest">Press Enter to search</p>
         </div>
     </div>
 
-    <!-- VIEW A: MAIN HOMEPAGE -->
-    <div id="home-view" class="app-route-view font-sans">
+    <!-- MAIN APP ROUTING VIEWS -->
+    
+    <!-- VIEW A: HOME & MAIN LANDING -->
+    <div id="home-view" class="app-route-view">
+        <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             <div class="absolute inset-0 z-0">
                 <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=1600" class="w-full h-full object-cover filter brightness-[0.22] blur-[1px]" alt="Background Art">
                 <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack via-transparent to-luxuryBlack/55"></div>
             </div>
+
             <div class="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-8">
                 <div class="flex justify-center mb-2">
-                    <div class="h-24 w-24 rounded-full border-2 border-luxuryGold/40 bg-luxuryCharcoal/55 p-1 shadow-2xl">
+                    <div class="h-24 w-24 rounded-full overflow-hidden border-2 border-luxuryGold/40 bg-luxuryCharcoal/55 p-1 shadow-2xl">
                         <img src="logo.jpg" alt="Logo" class="h-full w-full rounded-full object-cover" onerror="this.src='https://via.placeholder.com/150/161616/d4af37?text=SC03'">
                     </div>
                 </div>
-                <span class="text-luxuryGold font-serif tracking-[0.4em] text-xs uppercase block" data-i18n="tagline">MASTERPIECE IN EVERY THREAD</span>
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-luxuryCream leading-none font-medium" data-i18n="hero_title">Luxury Handmade <br><span class="italic font-light">String Art</span></h1>
-                <p class="text-gray-300 max-w-3xl mx-auto text-sm md:text-base tracking-wide font-light leading-relaxed" data-i18n="hero_desc font-sans">Crafting timeless portraits and abstract designs with thousands of threads and unwavering passion.</p>
+                <span class="text-luxuryGold font-serif tracking-[0.4em] text-xs uppercase block">MASTERPIECE IN EVERY THREAD</span>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-luxuryCream leading-none font-medium">
+                    Luxury Handmade <br><span class="italic font-light">String Art</span>
+                </h1>
+                <p class="text-gray-300 max-w-3xl mx-auto text-sm md:text-base tracking-wide font-light leading-relaxed">
+                    Crafting timeless portraits and abstract designs with thousands of threads and unwavering passion.
+                </p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-6 pt-4">
-                    <a href="#gallery-section" class="w-full sm:w-auto bg-[#d4af37] hover:bg-[#b89428] text-luxuryBlack px-8 py-4 uppercase tracking-[0.2em] text-xs font-bold transition duration-300 text-center" data-i18n="explore_coll">Explore Collection</a>
-                    <button onclick="showSection('custom-view')" class="w-full sm:w-auto border border-luxuryGold/50 hover:border-luxuryGold text-luxuryGold hover:text-luxuryCream px-8 py-4 uppercase tracking-[0.2em] text-xs font-bold transition duration-300" data-i18n="commission_art">Commission Artwork</button>
+                    <a href="#gallery-section" class="w-full sm:w-auto bg-[#d4af37] hover:bg-[#b89428] text-luxuryBlack px-8 py-4 uppercase tracking-[0.2em] text-xs font-bold transition duration-300 text-center">
+                        Explore Collection
+                    </a>
+                    <button onclick="showSection('custom-view')" class="w-full sm:w-auto border border-luxuryGold/50 hover:border-luxuryGold text-luxuryGold hover:text-luxuryCream px-8 py-4 uppercase tracking-[0.2em] text-xs font-bold transition duration-300">
+                        Commission Artwork
+                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- Dynamic Gallery Grid -->
+        <!-- Curated Gallery & Portfolio -->
         <section id="gallery-section" class="py-24 bg-luxuryCharcoal/30">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="text-center mb-16 space-y-2">
-                    <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase" data-i18n="gallery_subtitle">Curated Catalog</span>
-                    <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream" data-i18n="gallery_title">The Masterpiece Gallery</h2>
+                    <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase">Curated Catalog</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream">The Masterpiece Gallery</h2>
                     <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
                 </div>
-                <div class="flex flex-wrap justify-center gap-4 mb-12 items-center">
-                    <button onclick="filterGallery('all')" class="gallery-filter-btn active px-6 py-2 border border-luxuryGold text-[11px] uppercase tracking-widest text-luxuryGold bg-luxuryGold/10 transition" data-i18n="filter_all">All Masterpieces</button>
-                    <button onclick="filterGallery('portrait')" class="gallery-filter-btn px-6 py-2 border border-transparent text-[11px] uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition" data-i18n="filter_portraits">Portraits</button>
-                    <button onclick="filterGallery('mandala')" class="gallery-filter-btn px-6 py-2 border border-transparent text-[11px] uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition" data-i18n="filter_mandalas">Mandalas</button>
-                    <button onclick="filterGallery('custom')" class="gallery-filter-btn px-6 py-2 border border-transparent text-[11px] uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition" data-i18n="filter_corporate">Corporate & Custom</button>
-                    
-                    <!-- Symmetrical Dropdown element connected inside search criteria (Rule 1) -->
-                    <div class="relative inline-block text-left" id="more-styles-wrapper">
-                        <button onclick="toggleMoreStylesDropdown(event)" class="gallery-filter-btn px-6 py-2 border border-transparent text-[11px] uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition flex items-center gap-1.5 focus:outline-none">
-                            <span data-i18n="more_styles">More Art Styles</span> <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-200" id="dropdown-arrow"></i>
-                        </button>
-                        <div id="more-styles-dropdown" class="hidden absolute left-0 sm:right-0 mt-3 w-72 sm:w-80 max-h-96 overflow-y-auto bg-luxuryCharcoal border border-luxuryGold/25 rounded-md shadow-2xl z-50 p-4 space-y-4"></div>
-                    </div>
+
+                <!-- Filter Controls -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button onclick="filterGallery('all')" class="gallery-filter-btn active px-6 py-2 border border-luxuryGold text-[11px] uppercase tracking-widest text-luxuryGold bg-luxuryGold/10 transition">All Masterpieces</button>
+                    <button onclick="filterGallery('portrait')" class="gallery-filter-btn px-6 py-2 border border-transparent text-[11px] uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition">Portraits</button>
+                    <button onclick="filterGallery('mandala')" class="gallery-filter-btn px-6 py-2 border border-transparent text-[11px] uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition">Mandalas</button>
+                    <button onclick="filterGallery('custom')" class="gallery-filter-btn px-6 py-2 border border-transparent text-[11px] uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition">Corporate & Custom</button>
                 </div>
-                <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 font-sans"></div>
+
+                <!-- Dynamic Grid -->
+                <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
             </div>
         </section>
 
-        <!-- Our Creation Process auto loop animations -->
+        <!-- Our Handcrafting Process Section -->
         <section id="process-section" class="py-24 bg-luxuryCharcoal/30 border-t border-luxuryGold/10">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="text-center mb-16 space-y-2">
-                    <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase block" data-i18n="precision_label">THE ART OF PRECISION</span>
-                    <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream" data-i18n="process_title">Our Creation Process</h2>
+                    <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase block">THE ART OF PRECISION</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream">Our Creation Process</h2>
                     <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
                 </div>
+
+                <!-- Luxury Sub-Tabs for Process Navigation -->
                 <div class="flex justify-center gap-4 mb-12">
-                    <button onclick="switchProcessTab('step-by-step')" id="btn-proc-1" class="process-tab-btn active px-5 py-2 border border-[#1a82e2] text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition" data-i18n="philosophy_btn">Creation Philosophy</button>
-                    <button onclick="showCustomSpecsTab()" id="btn-proc-2" class="process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition" data-i18n="mastery_btn">15-Step Master Craftsmanship</button>
+                    <button onclick="switchProcessTab('step-by-step')" id="btn-proc-1" class="process-tab-btn active px-5 py-2 border border-[#1a82e2] text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition">Creation Philosophy</button>
+                    <button onclick="showCustomSpecsTab()" id="btn-proc-2" class="process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition">15-Step Master Craftsmanship</button>
                 </div>
 
-                <!-- Philosophy Cards -->
+                <!-- Tab Content 1: The 7-Step Journey with dynamic progressive classes -->
                 <div id="process-tab-content-1" class="animate-fadeIn">
-                    <div class="grid grid-cols-1 gap-8">
-                        <div class="process-step-card glass-card p-8 text-center space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Step 1 -->
+                        <div class="process-step-card glass-card p-6 relative space-y-3">
                             <span class="font-serif text-4xl text-brandTeal font-light">01</span>
-                            <h4 class="font-serif text-xl text-luxuryCream uppercase tracking-wider">1. Upload Photo</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed max-w-md mx-auto">Provide your favorite high-resolution photo or corporate logo vector file.</p>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-camera-retro"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">1. Upload Photo</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Provide your favorite high-resolution photo or corporate logo vector file.</p>
                         </div>
-                        <div class="process-step-card glass-card p-8 text-center space-y-4">
+                        <!-- Step 2 -->
+                        <div class="process-step-card glass-card p-6 relative space-y-3">
                             <span class="font-serif text-4xl text-brandBlue font-light">02</span>
-                            <h4 class="font-serif text-xl text-luxuryCream uppercase tracking-wider">2. Design Verification</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed max-w-md mx-auto">Our design team mathematically constructs and refines your custom string art preview grid.</p>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">2. Design Verification</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Our design team mathematically constructs and refines your custom string art preview grid.</p>
                         </div>
-                        <div class="process-step-card glass-card p-8 text-center space-y-4">
+                        <!-- Step 3 -->
+                        <div class="process-step-card glass-card p-6 relative space-y-3">
                             <span class="font-serif text-4xl text-luxuryGold font-light">03</span>
-                            <h4 class="font-serif text-xl text-luxuryCream uppercase tracking-wider">3. Precision Hammering</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed max-w-md mx-auto">Nails are placed and manually aligned on premium hardwood bases with absolute spatial accuracy.</p>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-hammer"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">3. Precision Hammering</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Nails are placed and manually aligned on premium hardwood bases with absolute spatial accuracy.</p>
                         </div>
-                        <div class="process-step-card glass-card p-8 text-center space-y-4">
+                        <!-- Step 4 -->
+                        <div class="process-step-card glass-card p-6 relative space-y-3">
                             <span class="font-serif text-4xl text-brandTeal font-light">04</span>
-                            <h4 class="font-serif text-xl text-luxuryCream uppercase tracking-wider">4. Hand Weaving Process</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed max-w-md mx-auto">Thousands of structural thread loops are hand-woven to build photorealistic gradients.</p>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-ring"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">4. Hand Weaving Process</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Thousands of structural thread loops are hand-woven to build photorealistic gradients.</p>
                         </div>
-                        <div class="process-step-card glass-card p-8 text-center space-y-4">
+                        <!-- Step 5 -->
+                        <div class="process-step-card glass-card p-6 relative space-y-3">
                             <span class="font-serif text-4xl text-brandBlue font-light">05</span>
-                            <h4 class="font-serif text-xl text-luxuryCream uppercase tracking-wider">5. Premium Framing</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed max-w-md mx-auto">The final artwork is enclosed within a hand-crafted wooden or engineered luxury outer frame.</p>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-crop-simple"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">5. Premium Framing</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">The final artwork is enclosed within a hand-crafted wooden or engineered luxury outer frame.</p>
                         </div>
-                        <div class="process-step-card glass-card p-8 text-center space-y-4">
+                        <!-- Step 6 -->
+                        <div class="process-step-card glass-card p-6 relative space-y-3">
                             <span class="font-serif text-4xl text-luxuryGold font-light">06</span>
-                            <h4 class="font-serif text-xl text-luxuryCream uppercase tracking-wider">6. Museum Packaging</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed max-w-md mx-auto">Secured with anti-static layers, foam protectors, and rigid multi-ply structural boxing.</p>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-box-open"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">6. Museum Packaging</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Secured with anti-static layers, foam protectors, and rigid multi-ply structural boxing.</p>
                         </div>
-                        <div class="process-step-card glass-card p-8 text-center space-y-4">
+                        <!-- Step 7 (Merged/Span 2 columns) -->
+                        <div class="process-step-card glass-card p-6 relative col-span-1 md:col-span-2 lg:col-span-2 space-y-3 border-l-2 border-brandTeal/40">
                             <span class="font-serif text-4xl text-[#3ad5e0] font-light">07</span>
-                            <h4 class="font-serif text-xl text-luxuryCream uppercase tracking-wider">7. Doorstep Logistics</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed max-w-md mx-auto">Shipped worldwide via elite cargo couriers complete with dynamic tracking numbers.</p>
+                            <div class="text-luxuryGold text-lg"><i class="fa-solid fa-truck-fast"></i></div>
+                            <h4 class="font-serif text-lg text-luxuryCream uppercase tracking-wider">7. Doorstep Logistics</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Shipped worldwide via elite cargo couriers complete with dynamic tracking numbers.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 15-Step Heritage -->
+                <!-- Tab Content 2: 15-Step Professional Heritage Checklist with Loop Animation Target Classes -->
                 <div id="process-tab-content-2" class="hidden animate-fadeIn">
-                    <div class="grid grid-cols-1 gap-8">
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 1: Design Mapping</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Converting design structures mathematically into high-density coordinates.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandTeal/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 1: Design Mapping</h4>
+                            <p class="text-xs text-gray-400 mt-2">Converting design structures mathematically into high-density coordinates.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 2: Base Selection</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Selecting premium warp-resistant MDF or sustainable natural pine wood sheets.</p>
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandBlue/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 2: Base Selection</h4>
+                            <p class="text-xs text-gray-400 mt-2">Selecting premium warp-resistant MDF or sustainable natural pine wood sheets.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 3: Surface Treatment</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Executing precision sanding followed by matte obsidian prime coat applications.</p>
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 3: Surface Treatment</h4>
+                            <p class="text-xs text-gray-400 mt-2">Executing precision sanding followed by matte obsidian prime coat applications.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 4: Grid Transfer</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Securing vector alignments onto wood boards to guide nail insertion maps.</p>
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandTeal/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 4: Grid Transfer</h4>
+                            <p class="text-xs text-gray-400 mt-2">Securing vector alignments onto wood boards to guide nail insertion maps.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 5: Nail Calibration</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Individually hammering nails to matching depth parameters.</p>
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandBlue/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 5: Nail Calibration</h4>
+                            <p class="text-xs text-gray-400 mt-2">Individually hammering nails to matching depth parameters.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 6: Fiber Formulation</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Choosing cotton, metallic wires, or silk strings to match aesthetic guidelines.</p>
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 6: Fiber Formulation</h4>
+                            <p class="text-xs text-gray-400 mt-2">Choosing cotton, metallic wires, or silk strings to match aesthetic guidelines.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 7: Structural Anchoring</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Securing the base starter knot onto anchor nails.</p>
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandTeal/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 7: Structural Anchoring</h4>
+                            <p class="text-xs text-gray-400 mt-2">Securing the base starter knot onto anchor nails.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 8: Geometric Weaving</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Interlacing threads across coordinates over long artisan sessions.</p>
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandBlue/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 8: Geometric Weaving</h4>
+                            <p class="text-xs text-gray-400 mt-2">Interlacing threads across coordinates over long artisan sessions.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 9: Layer Splitting</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Individually overlaying dark and light layers to finalize shadow densities.</p>
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 9: Layer Splitting</h4>
+                            <p class="text-xs text-gray-400 mt-2">Individually overlaying dark and light layers to finalize shadow densities.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 10: Tension Realignment</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Tightening loose strands and concealing final structural knots.</p>
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandTeal/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 10: Tension Realignment</h4>
+                            <p class="text-xs text-gray-400 mt-2">Tightening loose strands and concealing final structural knots.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 11: Surface Restoration</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Vacuuming lint and applying finishing polishes onto wood margins.</p>
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandBlue/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 11: Surface Restoration</h4>
+                            <p class="text-xs text-gray-400 mt-2">Vacuuming lint and applying finishing polishes onto wood margins.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 12: Protective Framing</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Encasing the board with premium custom wooden configurations.</p>
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 12: Protective Framing</h4>
+                            <p class="text-xs text-gray-400 mt-2">Encasing the board with premium custom wooden configurations.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 13: Mounting Setup</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Affixing heavy-duty steel mounting fixtures and hanging wires.</p>
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandTeal/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 13: Mounting Setup</h4>
+                            <p class="text-xs text-gray-400 mt-2">Affixing heavy-duty steel mounting fixtures and hanging wires.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 14: Certificate Registry</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Validating thread tightness and pasting the signed Certificate of Authenticity seal.</p>
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandBlue/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 14: Certificate Registry</h4>
+                            <p class="text-xs text-gray-400 mt-2">Validating thread tightness and pasting the signed Certificate of Authenticity seal.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 15: Museum Packing</h4>
-                            <p class="text-xs text-gray-300 max-w-md mx-auto">Wrapping in protective paper layers and shipping in secure, shockproof boxing.</p>
+                        <div class="heritage-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
+                            <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 15: Museum Packing</h4>
+                            <p class="text-xs text-gray-400 mt-2">Wrapping in protective paper layers and shipping in secure, shockproof boxing.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Reviews -->
-        <section id="reviews-section" class="py-24 bg-luxuryCharcoal/30 border-t border-luxuryGold/10 overflow-hidden font-sans">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center mb-12">
-                <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase" data-i18n="collector_stories_sub">Collector Testimonials</span>
-                <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream" data-i18n="reviews_title">Collector Stories</h2>
-                <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
+        <!-- Verified Reviews / Continuous Infinite Left to Right Horizontal Scroller -->
+        <section id="reviews-section" class="py-24 bg-luxuryCharcoal/30 border-t border-luxuryGold/10 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16 space-y-2">
+                    <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase">Collector Testimonials</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream">Collector Stories</h2>
+                    <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
+                </div>
             </div>
+
+            <!-- Horizontal Infinite Marquee Wrapper -->
             <div class="marquee-container w-full py-4">
-                <div class="marquee-content space-x-8" id="reviews-container"></div>
+                <div class="marquee-content space-x-8" id="reviews-container">
+                    <!-- Loaded dynamically in loop via JavaScript -->
+                </div>
             </div>
+
+            <!-- Submit Review Action Button under the review line -->
             <div class="text-center mt-12">
-                <button onclick="toggleReviewModal()" class="bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack px-8 py-3 text-xs uppercase tracking-widest font-bold transition font-sans" data-i18n="write_review">Submit Your Experience</button>
+                <button onclick="toggleReviewModal()" class="bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack px-8 py-3 text-xs uppercase tracking-widest font-bold transition">
+                    <i class="fa-solid fa-pen-nib mr-2"></i> Submit Your Experience
+                </button>
             </div>
         </section>
     </div>
 
-    <!-- VIEW B: CUSTOM STUDIO -->
+    <!-- VIEW B: INTERACTIVE CUSTOM PORTRAIT STUDIO -->
     <div id="custom-view" class="app-route-view hidden min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-16 space-y-2">
-            <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase" data-i18n="studio_sub">THREAD VISUALIZATION STUDIO</span>
-            <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream" data-i18n="custom_studio_nav">Interactive Creation Studio</h2>
+            <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase">THREAD VISUALIZATION STUDIO</span>
+            <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream">Interactive Creation Studio</h2>
             <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Left Half Screen: Form Specs Panel (lg:col-span-6) -->
             <div class="lg:col-span-6 glass-card p-8 space-y-6">
-                <h3 class="font-serif text-xl text-luxuryGold tracking-wide" data-i18n="specs_title">Configure Specifications</h3>
+                <h3 class="font-serif text-xl text-luxuryGold tracking-wide">Configure Specifications</h3>
                 
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2 font-sans" data-i18n="size_label">Canvas Archetype & Size</label>
-                    <select id="custom-size" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold font-sans"></select>
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Canvas Archetype & Size (From 3ft to 8ft)</label>
+                    <select id="custom-size" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
+                        <!-- Populated dynamically via JS loop -->
+                    </select>
                 </div>
 
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2 font-sans" data-i18n="frame_label">Frame Aesthetics</label>
-                    <select id="custom-frame" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold font-sans">
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Frame Aesthetics</label>
+                    <select id="custom-frame" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
                         <option value="wood-black" selected>Wood - Black</option>
                         <option value="wood-white">Wood - White</option>
                         <option value="pvc-brown">PVC - Brown</option>
@@ -320,117 +430,127 @@
                     </select>
                 </div>
 
+                <!-- Multi-Select Thread Types Options -->
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2 font-sans" data-i18n="thread_label">Select Thread Types</label>
-                    <div class="grid grid-cols-2 gap-2 bg-luxuryBlack/50 p-3 border border-luxuryGold/10 max-h-36 overflow-y-auto text-[11px] font-sans">
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Select Thread Types (Multiple Select)</label>
+                    <div class="grid grid-cols-2 gap-2 bg-luxuryBlack/50 p-3 border border-luxuryGold/10 max-h-36 overflow-y-auto text-[11px]">
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-threads" value="Cotton Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Cotton Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Cotton Thread</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-threads" value="Silk Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Silk Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Silk Thread</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-threads" value="Polyester Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Polyester Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Polyester Thread</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-threads" value="Embroidery Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Embroidery Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Embroidery Thread</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-threads" value="Metallic Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Metallic Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Metallic Thread</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-threads" value="Jute Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Jute Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Jute Thread</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-threads" value="Nylon Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-threads" value="Nylon Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Nylon Thread</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-threads" value="Glow in the Dark Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
-                            <span>Glow in Dark</span>
+                            <input type="checkbox" name="custom-threads" value="Glow in the Dark Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
+                            <span>Glow in the Dark</span>
                         </label>
                     </div>
                 </div>
 
+                <!-- Multi-Select Color Options -->
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2 font-sans" data-i18n="color_label">Select Art Colors</label>
-                    <div class="grid grid-cols-2 gap-2 bg-luxuryBlack/50 p-3 border border-luxuryGold/10 max-h-36 overflow-y-auto text-[11px] font-sans">
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Select Art Colors (Multiple Select)</label>
+                    <div class="grid grid-cols-2 gap-2 bg-luxuryBlack/50 p-3 border border-luxuryGold/10 max-h-36 overflow-y-auto text-[11px]">
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-colors" value="Gold" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Gold" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Gold</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-colors" value="Silver" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Silver" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Silver</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-colors" value="Copper" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Copper" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Copper</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-colors" value="Black" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Black" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Black</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-colors" value="White" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="White" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>White</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-colors" value="Red" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Red" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Red</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-colors" value="Blue" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Blue" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Blue</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-colors" value="Glow-in-the-dark" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Glow-in-the-dark" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Glow in dark</span>
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
-                            <input type="checkbox" name="custom-colors" value="Multi-Color / Rainbow" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
+                            <input type="checkbox" name="custom-colors" value="Multi-Color / Rainbow" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold focus:ring-0">
                             <span>Multi-Color/Rainbow</span>
                         </label>
                     </div>
                 </div>
 
+                <!-- Additional Message Details Textarea -->
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2 font-sans" data-i18n="details_label">Additional Custom Details & Instructions</label>
-                    <textarea id="custom-details-msg" rows="4" placeholder="Enter custom requirements..." data-i18n-placeholder="details_placeholder" class="w-full bg-luxuryBlack border border-luxuryGold/20 p-3 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold placeholder-gray-600 font-sans"></textarea>
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Additional Custom Details & Instructions</label>
+                    <textarea id="custom-details-msg" rows="4" placeholder="Enter custom names, dates, references or specific color requirements here..." class="w-full bg-luxuryBlack border border-luxuryGold/20 p-3 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold placeholder-gray-600"></textarea>
                 </div>
 
                 <div class="border-t border-luxuryGold/10 pt-4">
                     <div class="flex justify-between items-center mb-4">
-                        <span class="text-xs uppercase tracking-wider text-gray-400" data-i18n="pricing_form">Pricing Formulation:</span>
-                        <span class="font-serif text-sm text-luxuryGold font-bold uppercase tracking-widest font-sans" data-i18n="pricing_val">Custom Quote on WhatsApp</span>
+                        <span class="text-xs uppercase tracking-wider text-gray-400">Pricing Formulation:</span>
+                        <span class="font-serif text-sm text-luxuryGold font-bold uppercase tracking-widest">Custom Quote on WhatsApp</span>
                     </div>
-                    <button onclick="dispatchCustomOrder()" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack text-center py-4 font-bold text-xs uppercase tracking-widest transition" data-i18n="submit_to_artist">Submit Design to Artist</button>
+                    <button onclick="dispatchCustomOrder()" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack text-center py-4 font-bold text-xs uppercase tracking-widest transition">
+                        Submit Design to Artist
+                    </button>
                 </div>
             </div>
 
+            <!-- Detailed Main Types of String Art Directory Section (Side-by-Side with specs panel) -->
             <div class="lg:col-span-6 space-y-6 glass-card p-8">
                 <div class="border-b border-luxuryGold/10 pb-4 flex justify-between items-center">
-                    <h3 class="font-serif text-xl text-luxuryGold uppercase tracking-wide" data-i18n="directory_title">Main Types of String Art</h3>
-                    <span class="text-[10px] uppercase text-gray-500 tracking-widest" data-i18n="interactive_index">Interactive Index</span>
+                    <h3 class="font-serif text-xl text-luxuryGold uppercase tracking-wide">Main Types of String Art</h3>
+                    <span class="text-[10px] uppercase text-gray-500 tracking-widest">Interactive Index</span>
                 </div>
-                <div id="string-art-index-accordion" class="space-y-3 max-h-[600px] overflow-y-auto pr-2"></div>
+                
+                <div id="string-art-index-accordion" class="space-y-3 max-h-[600px] overflow-y-auto pr-2">
+                    <!-- Populated dynamically with detailed tree below -->
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Secure Admin Suite -->
+    <!-- VIEW C: SECURED ADMINISTRATIVE CONTROL CENTRE -->
     <div id="admin-view" class="app-route-view hidden min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto">
         <div class="flex justify-between items-center mb-10 border-b border-luxuryGold/20 pb-4">
             <h2 class="font-serif text-2xl text-luxuryGold tracking-wider uppercase">Secured Executive Admin Suite</h2>
-            <button onclick="showSection('home-view')" class="text-xs border border-luxuryGold/30 hover:border-luxuryGold px-4 py-2 text-luxuryGold transition font-sans">Back to Site</button>
+            <button onclick="showSection('home-view')" class="text-xs border border-luxuryGold/30 hover:border-luxuryGold px-4 py-2 text-luxuryGold transition">Back to Site</button>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start font-sans">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div class="lg:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-6 mb-4">
                 <div class="glass-card p-6">
                     <p class="text-[10px] text-gray-500 uppercase tracking-widest">Simulated Revenue</p>
@@ -449,16 +569,26 @@
                     <p class="text-2xl text-emerald-500 font-bold mt-1">4.8% Rate</p>
                 </div>
             </div>
+
+            <!-- Product Manager -->
             <div class="lg:col-span-6 glass-card p-8 space-y-6">
-                <h3 class="font-serif text-lg text-luxuryGold border-b border-luxuryGold/10 pb-4">Add Portfolio Artwork</h3>
-                <form onsubmit="handleAdminAddProduct(event)" class="space-y-3 font-sans">
+                <div class="flex justify-between items-center border-b border-luxuryGold/10 pb-4">
+                    <h3 class="font-serif text-lg text-luxuryGold">Add Portfolio Artwork</h3>
+                    <div class="flex space-x-2">
+                        <button onclick="exportCatalog()" class="text-[9px] bg-neutral-800 text-luxuryCream hover:text-luxuryGold px-3 py-1.5 uppercase font-bold tracking-widest border border-luxuryGold/10">Export CSV</button>
+                        <button onclick="triggerCSVImport()" class="text-[9px] bg-neutral-800 text-luxuryCream hover:text-luxuryGold px-3 py-1.5 uppercase font-bold tracking-widest border border-luxuryGold/10">Import CSV</button>
+                        <input type="file" id="csv-import-file" accept=".csv" onchange="importCatalog(event)" class="hidden">
+                    </div>
+                </div>
+                
+                <form onsubmit="handleAdminAddProduct(event)" class="space-y-3">
                     <div>
                         <label class="block text-[10px] uppercase text-gray-400">Artwork Name</label>
-                        <input type="text" id="admin-p-name" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream">
+                        <input type="text" id="admin-p-name" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
                     </div>
                     <div>
                         <label class="block text-[10px] uppercase text-gray-400">Category</label>
-                        <select id="admin-p-cat" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream">
+                        <select id="admin-p-cat" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
                             <option value="portrait">Portrait</option>
                             <option value="mandala">Mandala</option>
                             <option value="custom">Corporate & Custom</option>
@@ -467,959 +597,60 @@
                     <div class="grid grid-cols-2 gap-2">
                         <div>
                             <label class="block text-[10px] uppercase text-gray-400">Price (₹)</label>
-                            <input type="number" id="admin-p-price" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream">
+                            <input type="number" id="admin-p-price" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
                         </div>
                         <div>
                             <label class="block text-[10px] uppercase text-gray-400">Hours Taken</label>
-                            <input type="text" id="admin-p-hours" required placeholder="e.g. 18 Hours" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream">
+                            <input type="text" id="admin-p-hours" required placeholder="e.g. 18 Hours" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-2">
                         <div>
                             <label class="block text-[10px] uppercase text-gray-400">Nail Count</label>
-                            <input type="number" id="admin-p-nails" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream">
+                            <input type="number" id="admin-p-nails" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
                         </div>
                         <div>
                             <label class="block text-[10px] uppercase text-gray-400">Thread Length (meters)</label>
-                            <input type="number" id="admin-p-threads" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream">
+                            <input type="number" id="admin-p-threads" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
                         </div>
                     </div>
                     <div>
                         <label class="block text-[10px] uppercase text-gray-400">Image URL</label>
-                        <input type="text" id="admin-p-img" required placeholder="https://images.unsplash.com/..." class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream">
+                        <input type="text" id="admin-p-img" required placeholder="https://images.unsplash.com/... or base64" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
                     </div>
                     <div>
                         <label class="block text-[10px] uppercase text-gray-400">Description</label>
-                        <textarea id="admin-p-desc" required rows="2" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream"></textarea>
+                        <textarea id="admin-p-desc" required rows="2" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold"></textarea>
                     </div>
                     <button type="submit" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack py-2.5 text-xs uppercase tracking-widest font-bold transition">Publish to Catalog</button>
                 </form>
             </div>
+
+            <!-- In-Memory Catalog List -->
             <div class="lg:col-span-6 glass-card p-8 space-y-4">
                 <h3 class="font-serif text-lg text-luxuryGold border-b border-luxuryGold/10 pb-4">Manage Catalog (Click trash to delete)</h3>
-                <div id="admin-products-list" class="space-y-2 max-h-[450px] overflow-y-auto pr-2"></div>
+                <div id="admin-products-list" class="space-y-2 max-h-[450px] overflow-y-auto pr-2">
+                    <!-- Listed dynamically -->
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Track Order Modal -->
+    <!-- Interactive Track Order Popup Modal (Rule 1) -->
     <div id="track-modal" class="fixed inset-0 bg-luxuryBlack/90 z-50 hidden flex items-center justify-center p-4">
         <div class="glass-card max-w-lg w-full p-8 relative space-y-6 rounded-lg border border-luxuryGold/20">
             <button onclick="toggleTrackModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
-            <div class="text-center space-y-2 font-serif">
-                <h3 class="text-2xl text-luxuryGold uppercase tracking-widest" data-i18n="track_modal_title">Track Order Phase</h3>
-                <p class="text-[10px] text-gray-400 uppercase tracking-widest font-sans" data-i18n="track_modal_subtitle">Enter reference code to view spatial loops</p>
+            <div class="text-center space-y-2">
+                <h3 class="font-serif text-2xl text-luxuryGold uppercase tracking-widest">Track Order Phase</h3>
+                <p class="text-[10px] text-gray-400 uppercase tracking-widest">Enter reference code to view spatial loops</p>
             </div>
-            <div class="space-y-4 font-sans">
+            
+            <div class="space-y-4">
                 <input type="text" id="order-track-id" placeholder="e.g. SC03-2415" class="w-full bg-luxuryBlack border border-luxuryGold/25 px-4 py-3 text-sm focus:outline-none focus:border-luxuryGold text-center uppercase tracking-widest text-luxuryCream">
-                <button onclick="trackArtwork()" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack py-3 text-xs uppercase tracking-widest font-bold transition" data-i18n="verify_btn">Verify Status</button>
+                <button onclick="trackArtwork()" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack py-3 text-xs uppercase tracking-widest font-bold transition">Verify Status</button>
             </div>
-            <div id="track-result" class="hidden glass-card p-4 space-y-4 border border-luxuryGold/20 rounded font-sans">
+
+            <!-- Dynamic Track Results -->
+            <div id="track-result" class="hidden glass-card p-4 space-y-4 border border-luxuryGold/20 rounded">
                 <div class="flex justify-between text-xs pb-2 border-b border-luxuryGold/10">
-                    <span class="text-gray-400">Order Ref: <b id="track-display-id" class="text-luxuryGold"></b></span>
-                    <span class="text-luxuryGold font-bold">Phase: <span id="track-display-phase" class="text-luxuryCream">Threading</span></span>
-                </div>
-                <div class="grid grid-cols-3 gap-2 text-center text-[9px] uppercase tracking-wider">
-                    <div class="p-2 bg-luxuryGold/10 border border-luxuryGold/30 text-luxuryGold rounded">1. Mapping</div>
-                    <div id="track-step-2" class="p-2 bg-luxuryGold/10 border border-luxuryGold/30 text-luxuryGold rounded">2. Weaving</div>
-                    <div id="track-step-3" class="p-2 bg-neutral-900 text-gray-600 rounded">3. Dispatch</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- JavaScript Core Execution System -->
-    <script>
-        // Global variables & Default database lists
-        const defaultReviews = [
-            { name: "Jaymin Patel", rating: 5, text: "The portrait string art looks remarkably detailed. Perfectly custom crafted and delivered with immense protective packaging." },
-            { name: "Hepin Kumar", rating: 5, text: "Very satisfied with the customer response and final execution. The clean nail patterns are extremely artistic!" },
-            { name: "Rajiv Ji", rating: 4, text: "Highly recommended brand. Outstanding symmetry in the mandala pattern. Premium class look." },
-            { name: "Nakum", rating: 5, text: "The metallic gold string finish catches the light beautifully on the wall. Exceptional quality." },
-            { name: "Kavar K", rating: 5, text: "Immensely detailed couple portrait. Excellent support during photo review selection on WhatsApp." }
-        ];
-
-        const defaultProductsList = [
-            {
-                id: 1,
-                name: "Symphony of Grace",
-                category: "portrait",
-                price: 4499,
-                hours: "18 Hours",
-                nails: 360,
-                threads: 2400,
-                img: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=600",
-                desc: "An intricate portrait that utilizes premium threads to build photorealistic shadows."
-            },
-            {
-                id: 2,
-                name: "Eternal Lotus Mandala",
-                category: "mandala",
-                price: 6999,
-                hours: "28 Hours",
-                nails: 500,
-                threads: 4000,
-                img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600",
-                desc: "Symmetrical golden lotus mandala formulated with high-tensile metallic wires."
-            },
-            {
-                id: 3,
-                name: "Corporate Crest Legacy",
-                category: "custom",
-                price: 9999,
-                hours: "35 Hours",
-                nails: 650,
-                threads: 5200,
-                img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600",
-                desc: "Specialized dynamic branding layout handcrafted on dark sustainable base wood sheets."
-            }
-        ];
-
-        const translations = {
-            "EN": {
-                "tagline": "Masterpiece In Every Thread",
-                "hero_title": "Luxury Handmade <br><span class=\"italic font-light\">String Art</span>",
-                "hero_desc": "Crafting timeless portraits and abstract designs with thousands of threads.",
-                "explore_coll": "Explore Collection", "commission_art": "Commission Artwork",
-                "gallery_title": "The Masterpiece Gallery", "gallery_subtitle": "Curated Catalog",
-                "filter_all": "All Masterpieces", "filter_portraits": "Portraits", "filter_mandalas": "Mandalas", "filter_corporate": "Corporate & Custom",
-                "more_styles": "More Art Styles", "precision_label": "THE ART OF PRECISION", "process_title": "Our Creation Process",
-                "philosophy_btn": "Creation Philosophy", "mastery_btn": "15-Step Master Craftsmanship",
-                "collector_stories_sub": "Collector Testimonials", "reviews_title": "Collector Stories", "write_review": "Submit Your Experience",
-                "track_order_btn": "Track Order", "custom_studio_nav": "Custom Studio", "studio_sub": "THREAD VISUALIZATION STUDIO",
-                "specs_title": "Configure Specifications", "size_label": "Canvas Archetype & Size", "frame_label": "Frame Aesthetics",
-                "thread_label": "Select Thread Types", "color_label": "Select Art Colors", "details_label": "Additional Custom Details & Instructions",
-                "details_placeholder": "Enter custom requirements...", "pricing_form": "Pricing Formulation:", "pricing_val": "Custom Quote on WhatsApp",
-                "submit_to_artist": "Submit Design to Artist", "directory_title": "Main Types of String Art", "interactive_index": "Interactive Index",
-                "search_title": "Search Curated Creations", "search_placeholder": "Search by name, category...", "search_hint": "Press Enter to search",
-                "nav_home": "Home", "nav_gallery": "Gallery", "nav_process": "Our Process", "nav_reviews": "Reviews",
-                "track_modal_title": "Track Order Phase", "track_modal_subtitle": "Enter reference code", "verify_btn": "Verify Status",
-                "form_name": "Your Name", "form_rating": "Stars", "form_review": "Your Review", "publish_btn": "Publish Experience",
-                "dismiss_btn": "Dismiss Preview", "selected_masterpieces": "Selected Masterpieces", "cart_empty": "Your collection is empty.",
-                "cart_total_label": "Value:", "proceed_checkout": "Proceed Order to WhatsApp"
-            },
-            "GU": {
-                "tagline": "દરેક દોરામાં એક ઉત્કૃષ્ટ કૃતિ",
-                "hero_title": "લક્ઝરી હેન્ડમેડ <br><span class=\"italic font-light\">સ્ટ્રિંગ આર્ટ</span>",
-                "hero_desc": "હજારો દોરાઓ અને અખંડ જુસ્સા સાથે સુંદર આર્ટવર્ક.",
-                "explore_coll": "કલેક્શન જુઓ", "commission_art": "ઓર્ડર કરો",
-                "gallery_title": "માસ્ટરપીસ ગેલેરી", "gallery_subtitle": "પસંદગીનું કલેક્શન",
-                "filter_all": "બધી આર્ટવર્ક", "filter_portraits": "પોટ્રેટ", "filter_mandalas": "મંડલા", "filter_corporate": "કોર્પોરેટ",
-                "more_styles": "વધુ આર્ટ સ્ટાઇલ્સ", "precision_label": "ચોકસાઈની કળા", "process_title": "અમારી પ્રક્રિયા",
-                "philosophy_btn": "નિર્માણ ફિલસૂફી", "mastery_btn": "૧૫-પગલાંની કારીગરી",
-                "collector_stories_sub": "ગ્રાહકોના પ્રતિભાવો", "reviews_title": "ગ્રાહકોના અનુભવો", "write_review": "અનુભવ શેર કરો",
-                "track_order_btn": "ઓર્ડર ટ્રેક કરો", "custom_studio_nav": "કસ્ટમ સ્ટુડિયો", "studio_sub": "દોરા વિઝ્યુલાઇઝેશન સ્ટુડિયો",
-                "specs_title": "પસંદગી કન્ફિગર કરો", "size_label": "કેનવાસ કદ", "frame_label": "ફ્રેમ લુક",
-                "thread_label": "દોરા પસંદ કરો", "color_label": "રંગો પસંદ કરો", "details_label": "વધારાની સૂચનાઓ",
-                "details_placeholder": "કસ્ટમ નામ, તારીખો વિગતો લખો...", "pricing_form": "કિંમત ગણતરી:", "pricing_val": "વોટ્સએપ પર કસ્ટમ ક્વોટ",
-                "submit_to_artist": "ડિઝાઇન મોકલો", "directory_title": "સ્ટ્રિંગ આર્ટના પ્રકારો", "interactive_index": "ઇન્ટરેક્ટિવ ઇન્ડેક્સ",
-                "search_title": "કલાકૃતિ શોધો", "search_placeholder": "નામ, કદ દ્વારા શોધો...", "search_hint": "Enter દબાવો",
-                "nav_home": "હોમ", "nav_gallery": "ગેલેરી", "nav_process": "પ્રક્રિયા", "nav_reviews": "રિવ્યુઝ",
-                "track_modal_title": "ઓર્ડર સ્ટેટસ", "track_modal_subtitle": "આઈડી દાખલ કરો", "verify_btn": "તપાસો",
-                "form_name": "નામ", "form_rating": "રેટિંગ પસંદ કરો", "form_review": "પ્રતિભાવ", "publish_btn": "મોકલો",
-                "dismiss_btn": "પ્રીવ્યૂ બંધ કરો", "selected_masterpieces": "પસંદ કરેલી આર્ટવર્ક", "cart_empty": "ખાલી છે.",
-                "cart_total_label": "કિંમત:", "proceed_checkout": "ઓર્ડર વોટ્સએપ પર મોકલો"
-            },
-            "HI": {
-                "tagline": "हर धागे में एक उत्कृष्ट कृति",
-                "hero_title": "लक्जरी हस्तनिर्मित <br><span class=\"italic font-light\">स्ट्रिंग आर्ट</span>",
-                "hero_desc": "हजारों धागों और अटूट जुनून के साथ किया गया उत्कृष्ट काम।",
-                "explore_coll": "कलेक्शन देखें", "commission_art": "ऑर्डर करें",
-                "gallery_title": "मास्टरपीस गैलरी", "gallery_subtitle": "चुनिंदा कैटलॉग",
-                "filter_all": "सभी कलाकृतियां", "filter_portraits": "पोर्ट्रेट", "filter_mandalas": "मंडला", "filter_corporate": "कॉर्पोरेट",
-                "more_styles": "और अधिक शैलियाँ", "precision_label": "सटीकता की कला", "process_title": "हमारी निर्माण प्रक्रिया",
-                "philosophy_btn": "निर्माण दर्शन", "mastery_btn": "१५-चरण शिल्प कौशल",
-                "collector_stories_sub": "ग्राहकों के अनुभव", "reviews_title": "ग्राहकों के अनुभव", "write_review": "अपना अनुभव साझा करें",
-                "track_order_btn": "स्थिति ट्रैक करें", "custom_studio_nav": "कस्टम स्टूडियो", "studio_sub": "थ्रेड विज़ुअलाइज़ेशन स्टूडियो",
-                "specs_title": "विकल्प चुनें", "size_label": "कैनवास आकार", "frame_label": "फ्रेम स्टाइल",
-                "thread_label": "धागे चुनें", "color_label": "कला के रंग", "details_label": "अतिरिक्त निर्देश",
-                "details_placeholder": "विवरण दर्ज करें...", "pricing_form": "मूल्य निर्धारण:", "pricing_val": "व्हाट्सएप पर... कोट",
-                "submit_to_artist": "डिज़ाइन भेजें", "directory_title": "स्ट्रिंग आर्ट के प्रकार", "interactive_index": "इंटरएक्टिव इंडेक्स",
-                "search_title": "खोजें", "search_placeholder": "खोजें...", "search_hint": "Enter बताएं",
-                "nav_home": "होम", "nav_gallery": "गैलरी", "nav_process": "निर्माण प्रक्रिया", "nav_reviews": "समीक्षाएं",
-                "track_modal_title": "स्थिति ट्रैक करें", "track_modal_subtitle": "आईडी दर्ज करें", "verify_btn": "सत्यापित करें",
-                "form_name": "नाम", "form_rating": "रेटिंग चुनें", "form_review": "आपकी समीक्षा", "publish_btn": "साझा करें",
-                "dismiss_btn": "बंद करें", "selected_masterpieces": "चयनित कलाकृतियां", "cart_empty": "बैग खाली है।",
-                "cart_total_label": "कुल मूल्य:", "proceed_checkout": "ऑर्डर भेजें"
-            }
-        };
-
-        const artTypesDirectory = [
-            { category: "Geometric String Art", subtypes: [ { name: "Triangle", img: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&q=80&w=600" }, { name: "Square", img: "https://images.unsplash.com/photo-1508898578281-774ac4893c0c?auto=format&fit=crop&q=80&w=600" }, { name: "Polygon", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600" }, { name: "Hexagon", img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=600" } ] },
-            { category: "Portrait String Art", subtypes: [ { name: "Human Face", img: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=600" }, { name: "Celebrity", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" }, { name: "Couple", img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600" }, { name: "Family", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" }, { name: "Pet", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" } ] },
-            { category: "Silhouette String Art", subtypes: [ { name: "Animal", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" }, { name: "Bird", img: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=600" }, { name: "Tree", img: "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&q=80&w=600" }, { name: "City Skyline", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=600" } ] },
-            { category: "Mandala String Art", subtypes: [ { name: "Classic Geometric Mandala", img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600" }, { name: "Lotus Symmetrical Core Mandala", img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600" } ] },
-            { category: "Spiral / Curve String Art", subtypes: [ { name: "Circle Illusion", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=600" }, { name: "Parabolic Curves", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600" }, { name: "Wave Patterns", img: "https://images.unsplash.com/photo-1508898578281-774ac4893c0c?auto=format&fit=crop&q=80&w=600" } ] },
-            { category: "Abstract String Art", subtypes: [ { name: "Abstract Multi-Angle", img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600" }, { name: "Aesthetic Line Flows", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600" } ] },
-            { category: "Typography / Name String Art", subtypes: [ { name: "Name", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" }, { name: "Initial", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" }, { name: "Quote", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" }, { name: "Logo", img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600" } ] },
-            { category: "Heart & Love String Art", subtypes: [ { name: "Double Heart", img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600" }, { name: "Love Quote Background", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" } ] },
-            { category: "Nature String Art", subtypes: [ { name: "Flower", img: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=600" }, { name: "Leaf", img: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=600" }, { name: "Mountain", img: "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&q=80&w=600" }, { name: "Forest", img: "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&q=80&w=600" } ] },
-            { category: "Animal String Art", subtypes: [ { name: "Lion", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" }, { name: "Horse", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" }, { name: "Elephant", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" }, { name: "Wolf", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" }, { name: "Deer", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" } ] },
-            { category: "Religious String Art", subtypes: [ { name: "Om", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" }, { name: "Ganesh", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" }, { name: "Krishna", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" }, { name: "Cross", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" }, { name: "Allah Calligraphy", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" } ] },
-            { category: "Specialty Formulations", subtypes: [ { name: "3D Layered String Art", img: "https://images.unsplash.com/photo-1502224562085-639556652f33?auto=format&fit=crop&q=80&w=600" }, { name: "Negative Space String Art", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=600" }, { name: "Gradient / Multi-Color String Art", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=600" }, { name: "Glow / LED String Art", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" }, { name: "Low Poly String Art", img: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&q=80&w=600" }, { name: "Radial String Art", img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=600" }, { name: "Circular String Art", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=600" } ] },
-            { category: "Mixed Media String Art", subtypes: [ { name: "Wood + Resin", img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=600" }, { name: "Wood + LED", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" }, { name: "Wood + Paint", img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=600" } ] },
-            { category: "Custom AI Generated String Art", subtypes: [ { name: "Photo to String Art", img: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=600" }, { name: "Logo to String Art", img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600" }, { name: "QR Code String Art", img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=600" } ] },
-            { category: "Thread Formulations & Aesthetics", subtypes: [ { name: "Single Color Thread", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" }, { name: "Dual Color Thread", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" }, { name: "Multi Color Thread", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" }, { name: "Metallic Gold Spools", img: "https://images.unsplash.com/photo-1508898578281-774ac4893c0c?auto=format&fit=crop&q=80&w=600" }, { name: "Neon Highlights", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" }, { name: "Matte Spun Cotton", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" }, { name: "Glossy Luxury Silk", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" }, { name: "Cotton / Sustainable Fibers", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" }, { name: "Reflective Threads", img: "https://images.unsplash.com/photo-1508898578281-774ac4893c0c?auto=format&fit=crop&q=80&w=600" }, { name: "Glow in Dark Weaving", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" }, { name: "Rainbow / UV Reactive Spun", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" } ] }
-        ];
-
-        // Safety Cache Cleaner Version
-        let products, reviews, cart;
-        const currentStorageVer = '7.0'; 
-        try {
-            if (localStorage.getItem('sc03_storage_ver') !== currentStorageVer) {
-                localStorage.removeItem('sc03_products');
-                localStorage.removeItem('sc03_reviews');
-                localStorage.setItem('sc03_storage_ver', currentStorageVer);
-            }
-        } catch(e) {}
-
-        try {
-            products = JSON.parse(localStorage.getItem('sc03_products'));
-            if (!products || !Array.isArray(products) || products.length === 0) products = defaultProductsList;
-        } catch(e) { products = defaultProductsList; }
-
-        try {
-            reviews = JSON.parse(localStorage.getItem('sc03_reviews'));
-            if (!reviews || !Array.isArray(reviews) || reviews.length === 0) reviews = defaultReviews;
-        } catch(e) { reviews = defaultReviews; }
-
-        try {
-            cart = JSON.parse(localStorage.getItem('sc03_cart')) || [];
-        } catch(e) { cart = []; }
-
-        let activeCurrency = "INR";
-        const currencySymbols = { INR: "₹", USD: "$", EUR: "€" };
-        const exchangeRates = { INR: 1, USD: 0.012, EUR: 0.011 }; 
-
-        // Interval references
-        let processLoopInterval = null;
-        let heritageLoopInterval = null;
-
-        function startPhilosophyLoop() {
-            stopAllProcessLoops();
-            const cards = document.querySelectorAll('.process-step-card');
-            if (cards.length === 0) return;
-            cards.forEach(card => card.classList.remove('active-reveal'));
-            let index = 0;
-            cards[index].classList.add('active-reveal');
-            processLoopInterval = setInterval(() => {
-                cards[index].classList.remove('active-reveal');
-                index = (index + 1) % cards.length;
-                cards[index].classList.add('active-reveal');
-            }, 2500);
-        }
-
-        function startHeritageLoop() {
-            stopAllProcessLoops();
-            const cards = document.querySelectorAll('.heritage-step-card');
-            if (cards.length === 0) return;
-            cards.forEach(card => card.classList.remove('active-reveal'));
-            let index = 0;
-            cards[index].classList.add('active-reveal');
-            heritageLoopInterval = setInterval(() => {
-                cards[index].classList.remove('active-reveal');
-                index = (index + 1) % cards.length;
-                cards[index].classList.add('active-reveal');
-            }, 2500);
-        }
-
-        function stopAllProcessLoops() {
-            if (processLoopInterval) clearInterval(processLoopInterval);
-            if (heritageLoopInterval) clearInterval(heritageLoopInterval);
-        }
-
-        // Initialize App Container (Using strict try-catch to keep code extremely solid)
-        window.addEventListener('DOMContentLoaded', () => {
-            try {
-                if (!localStorage.getItem('sc03_products')) {
-                    saveToStorage();
-                }
-            } catch(e) {}
-
-            try { populateCustomSelectors(); } catch(e) { console.error('populateCustomSelectors crashed:', e); }
-            try { renderGallery(); } catch(e) { console.error('renderGallery crashed:', e); }
-            try { renderReviews(); } catch(e) { console.error('renderReviews crashed:', e); }
-            try { renderStringArtDirectory(); } catch(e) { console.error('renderStringArtDirectory crashed:', e); }
-            try { renderDropdownList(); } catch(e) { console.error('renderDropdownList crashed:', e); }
-            try { updateCartCount(); } catch(e) { console.error('updateCartCount crashed:', e); }
-
-            // Loop Philosophy Start
-            try { startPhilosophyLoop(); } catch(e) { console.error('startPhilosophyLoop crashed:', e); }
-
-            try {
-                const savedLang = localStorage.getItem('sc03_lang') || 'EN';
-                const switcher = document.getElementById('language-switcher');
-                if (switcher) {
-                    switcher.value = savedLang;
-                    switchLanguage();
-                }
-            } catch(e) { console.error('switchLanguage bootstrap error:', e); }
-        });
-
-        // Toggle More Art Styles Dropdown
-        function toggleMoreStylesDropdown(event) {
-            event.stopPropagation();
-            const dropdown = document.getElementById('more-styles-dropdown');
-            const arrow = document.getElementById('dropdown-arrow');
-            if (dropdown) dropdown.classList.toggle('hidden');
-            if (arrow) arrow.classList.toggle('rotate-180');
-        }
-
-        // Close dropdown upon outside click triggers
-        window.addEventListener('click', function(e) {
-            const dropdown = document.getElementById('more-styles-dropdown');
-            const arrow = document.getElementById('dropdown-arrow');
-            if (dropdown && !dropdown.contains(e.target)) {
-                dropdown.classList.add('hidden');
-                if (arrow) arrow.classList.remove('rotate-180');
-            }
-        });
-
-        // Render "More Art Styles" Dropdown Hierarchy inside Gallery
-        function renderDropdownList() {
-            const container = document.getElementById('more-styles-dropdown');
-            if (!container) return;
-            container.innerHTML = '';
-
-            artTypesDirectory.forEach(item => {
-                const groupDiv = document.createElement('div');
-                groupDiv.className = 'space-y-1 pb-2 border-b border-luxuryGold/10 last:border-b-0';
-                
-                const groupTitle = document.createElement('h4');
-                groupTitle.className = 'text-[10px] text-luxuryGold font-serif tracking-wider uppercase font-bold';
-                groupTitle.innerText = item.category;
-                groupDiv.appendChild(groupTitle);
-
-                const listDiv = document.createElement('div');
-                listDiv.className = 'grid grid-cols-2 gap-x-2 gap-y-1 pt-1';
-
-                item.subtypes.forEach(sub => {
-                    const btn = document.createElement('button');
-                    btn.className = 'text-left text-[11px] text-gray-300 hover:text-luxuryGold transition py-0.5 whitespace-nowrap overflow-hidden text-ellipsis font-sans';
-                    btn.innerText = sub.name;
-                    btn.onclick = () => triggerArtClassPreview(sub.name, sub.img);
-                    listDiv.appendChild(btn);
-                });
-
-                groupDiv.appendChild(listDiv);
-                container.appendChild(groupDiv);
-            });
-        }
-
-        // Multi Language Switcher Processor
-        function switchLanguage() {
-            const switcher = document.getElementById('language-switcher');
-            if (!switcher) return;
-            const lang = switcher.value;
-            localStorage.setItem('sc03_lang', lang);
-            
-            const trans = translations[lang] || translations['EN'];
-            
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (trans[key]) {
-                    if (el.innerHTML.includes('<span') || el.innerHTML.includes('<br>')) {
-                        el.innerHTML = trans[key];
-                    } else {
-                        el.textContent = trans[key];
-                    }
-                }
-            });
-
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-i18n-placeholder');
-                if (trans[key]) {
-                    el.placeholder = trans[key];
-                }
-            });
-        }
-
-        // Populate Customization Selectors dynamically
-        function populateCustomSelectors() {
-            const sizeSelector = document.getElementById('custom-size');
-            if (!sizeSelector) return;
-            sizeSelector.innerHTML = '';
-            
-            let list = [];
-            dimensions.forEach(h => {
-                dimensions.forEach(l => {
-                    const ratio = h / l;
-                    if (ratio >= 0.5 && ratio <= 2) {
-                        list.push({ h, l, area: h * l });
-                    }
-                });
-            });
-
-            list.sort((a, b) => a.area - b.area);
-
-            list.forEach(item => {
-                const h = item.h;
-                const l = item.l;
-                const option = document.createElement('option');
-                option.value = `${h}x${l}`;
-                
-                let type = "Custom Canvas";
-                if (h === l) {
-                    type = "Square Profile";
-                } else if (h > l) {
-                    type = "Portrait Aspect";
-                } else {
-                    type = "Landscape Aspect";
-                }
-                
-                option.innerText = `${type} - ${h}"x${l}" (${formatToFt(h)} x ${formatToFt(l)}) (H${h}" x L${l}")`;
-                
-                if (h === 36 && l === 36) {
-                    option.selected = true;
-                }
-                sizeSelector.appendChild(option);
-            });
-        }
-
-        // dispatchCustomOrder (WhatsApp બટન માટે)
-        function dispatchCustomOrder() {
-            const sizeSelector = document.getElementById('custom-size');
-            const sizeText = sizeSelector ? sizeSelector.options[sizeSelector.selectedIndex].text : "Custom Size";
-            
-            const frameSelector = document.getElementById('custom-frame');
-            const frameText = frameSelector ? frameSelector.options[frameSelector.selectedIndex].text : "Standard Frame";
-            
-            const checkedThreads = Array.from(document.querySelectorAll('input[name="custom-threads"]:checked')).map(el => el.value);
-            const selectedThreadsText = checkedThreads.length > 0 ? checkedThreads.join(", ") : "None Selected";
-
-            const checkedColors = Array.from(document.querySelectorAll('input[name="custom-colors"]:checked')).map(el => el.value);
-            const selectedColorsText = checkedColors.length > 0 ? checkedColors.join(", ") : "None Selected";
-
-            const customDetailsEl = document.getElementById('custom-details-msg');
-            const customDetails = customDetailsEl ? customDetailsEl.value.trim() : "No extra details provided.";
-
-            const msg = `Hello String Creations 03! I am interested in ordering a Custom String Art Masterpiece with these configurations:\n\n` + 
-                        `• Dimension: ${sizeText}\n` +
-                        `• Frame Style: ${frameText}\n` +
-                        `• Thread Formulation(s): ${selectedThreadsText}\n` +
-                        `• Color Selection(s): ${selectedColorsText}\n\n` +
-                        `• Extra Custom Details:\n"${customDetails}"\n\n` +
-                        `Please calculate the pricing structure and design layout based on these parameters.`;
-            
-            window.open("https://wa.me/918140125772?text=" + encodeURIComponent(msg), '_blank');
-        }
-
-        // Currency Switcher Logic
-        function switchCurrency() {
-            const switcher = document.getElementById('currency-switcher');
-            if (switcher) activeCurrency = switcher.value;
-            renderGallery();
-            renderCart();
-            showToast(`Currency switched to ${activeCurrency}`);
-        }
-
-        // Format Currency Values
-        function formatVal(inrVal) {
-            const rate = exchangeRates[activeCurrency] || 1;
-            const converted = inrVal * rate;
-            return `${currencySymbols[activeCurrency] || '₹'}${Math.round(converted).toLocaleString('en-IN')}`;
-        }
-
-        // Search Handlers
-        function toggleSearch() {
-            const overlay = document.getElementById('search-overlay');
-            if (overlay) overlay.classList.toggle('hidden');
-        }
-
-        function handleSearch(event) {
-            if (event.key === 'Enter') {
-                const query = document.getElementById('search-input').value.toLowerCase();
-                const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
-                renderGalleryGrid(filtered);
-                toggleSearch();
-                const galSec = document.getElementById('gallery-section');
-                if (galSec) galSec.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        // Gallery Rendering & Filter
-        function renderGallery() {
-            renderGalleryGrid(products);
-        }
-
-        // Generate Gallery Elements
-        function renderGalleryGrid(items) {
-            const grid = document.getElementById('gallery-grid');
-            if (!grid) return;
-            grid.innerHTML = '';
-            
-            if (items.length === 0) {
-                grid.innerHTML = `<p class="col-span-full text-center text-xs text-gray-500 uppercase tracking-widest py-12">No masterpieces match your criteria.</p>`;
-                return;
-            }
-
-            items.forEach(p => {
-                const card = document.createElement('div');
-                card.className = `gallery-item ${p.category} glass-card group overflow-hidden relative transition-all duration-300`;
-                card.innerHTML = `
-                    <div class="relative overflow-hidden aspect-square bg-neutral-900 cursor-pointer" onclick="openProductModal(${p.id})">
-                        <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/600/161616/d4af37?text=SC03'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack via-transparent opacity-60"></div>
-                        <div class="absolute top-4 right-4 bg-luxuryBlack/85 border border-luxuryGold/20 text-luxuryGold text-[9px] px-3 py-1 uppercase tracking-widest">Handcrafted</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-xl text-luxuryCream group-hover:text-luxuryGold transition cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h3>
-                        <p class="text-[9px] text-gray-500 uppercase tracking-widest mt-1">${p.nails} Nails • ${p.hours} • ${p.threads}m Thread</p>
-                        <div class="flex justify-between items-center mt-6 font-sans">
-                            <span class="text-luxuryGold font-serif text-lg font-bold">${formatVal(p.price)}</span>
-                            <div class="flex space-x-2">
-                                <button onclick="addToCart(${p.id})" class="bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack text-[10px] uppercase tracking-wider font-semibold px-4 py-2 transition">
-                                    Add to Bag
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        function filterGallery(category) {
-            const buttons = document.querySelectorAll('.gallery-filter-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('active', 'bg-luxuryGold/10', 'text-luxuryGold', 'border-luxuryGold');
-                btn.classList.add('border-transparent', 'text-gray-400');
-            });
-            event.target.classList.add('active', 'bg-luxuryGold/10', 'text-luxuryGold', 'border-luxuryGold');
-            event.target.classList.remove('border-transparent', 'text-gray-400');
-
-            if (category === 'all') {
-                renderGalleryGrid(products);
-            } else {
-                const filtered = products.filter(p => p.category === category);
-                renderGalleryGrid(filtered);
-            }
-        }
-
-        // Render Dynamic String Art Classification Index with real Sample Photos displayed on click
-        function renderStringArtDirectory() {
-            const container = document.getElementById('string-art-index-accordion');
-            if (!container) return;
-            container.innerHTML = '';
-
-            artTypesDirectory.forEach((item, index) => {
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'glass-card p-4 transition-all duration-300 border border-luxuryGold/10 hover:border-luxuryGold/35';
-                
-                let subButtonsHTML = item.subtypes.map(sub => `
-                    <button onclick="triggerArtClassPreview('${sub.name.replace(/'/g, "\\'")}', '${sub.img}')" class="bg-neutral-900 hover:bg-luxuryGold hover:text-luxuryBlack text-[11px] text-gray-300 font-semibold uppercase px-3 py-2 rounded transition tracking-wider border border-luxuryGold/5">
-                        ${sub.name}
-                    </button>
-                `).join('');
-
-                itemDiv.innerHTML = `
-                    <div class="flex justify-between items-center cursor-pointer select-none pb-2 border-b border-luxuryGold/5" onclick="toggleAccordionSection(${index})">
-                        <span class="font-serif text-sm lg:text-base text-luxuryGold font-semibold uppercase tracking-wider">${item.category}</span>
-                        <span id="accordion-icon-${index}" class="text-luxuryGold text-xs"><i class="fa-solid fa-chevron-down"></i></span>
-                    </div>
-                    <div id="accordion-content-${index}" class="hidden pt-4 flex flex-wrap gap-2 animate-fadeIn font-sans">
-                        ${subButtonsHTML}
-                    </div>
-                `;
-                container.appendChild(itemDiv);
-            });
-        }
-
-        function toggleAccordionSection(idx) {
-            const block = document.getElementById(`accordion-content-${idx}`);
-            const icon = document.getElementById(`accordion-icon-${idx}`);
-            if (block) block.classList.toggle('hidden');
-            if (icon) {
-                if (block.classList.contains('hidden')) {
-                    icon.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
-                } else {
-                    icon.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
-                }
-            }
-        }
-
-        // Custom Popup with Real Sample Photos assigned dynamically
-        function triggerArtClassPreview(name, imgUrl) {
-            const title = document.getElementById('class-modal-title');
-            const desc = document.getElementById('class-modal-desc');
-            const img = document.getElementById('class-modal-img');
-            const modal = document.getElementById('art-class-modal');
-
-            if (title) title.innerText = name;
-            if (desc) desc.innerText = `Beautiful custom-engineered fibers and manual coordinate configurations mapped with pristine tension details.`;
-            if (img) img.src = imgUrl;
-            if (modal) modal.classList.remove('hidden');
-        }
-
-        function toggleArtClassModal() {
-            const modal = document.getElementById('art-class-modal');
-            if (modal) modal.classList.toggle('hidden');
-        }
-
-        // Header Track Order Modal
-        function toggleTrackModal() {
-            const modal = document.getElementById('track-modal');
-            if (modal) modal.classList.toggle('hidden');
-            const result = document.getElementById('track-result');
-            if (result) result.classList.add('hidden');
-        }
-
-        function trackArtwork() {
-            const idVal = document.getElementById('order-track-id');
-            const id = idVal ? idVal.value.trim() : "";
-            if (!id) {
-                alert('Please enter an Order ID.');
-                return;
-            }
-            document.getElementById('track-display-id').innerText = id;
-            document.getElementById('track-result').classList.remove('hidden');
-        }
-
-        // Review Modal Operations
-        function toggleReviewModal() {
-            const modal = document.getElementById('review-modal');
-            if (modal) modal.classList.toggle('hidden');
-        }
-
-        // Product Details Modal
-        let activeProductForCertificate = null;
-        function openProductModal(id) {
-            const item = products.find(p => p.id === id);
-            if (!item) return;
-
-            activeProductForCertificate = item;
-            
-            const modalImg = document.getElementById('modal-img');
-            const title = document.getElementById('modal-title');
-            const price = document.getElementById('modal-price');
-            const desc = document.getElementById('modal-desc');
-            const nails = document.getElementById('modal-nails');
-            const hours = document.getElementById('modal-hours');
-            const threads = document.getElementById('modal-threads');
-            const modal = document.getElementById('product-modal');
-
-            if (modalImg) modalImg.src = item.img;
-            if (title) title.innerText = item.name;
-            if (price) price.innerText = formatVal(item.price);
-            if (desc) desc.innerText = item.desc;
-            if (nails) nails.innerText = item.nails;
-            if (hours) hours.innerText = item.hours;
-            if (threads) threads.innerText = `${item.threads} Meters`;
-
-            const addBtn = document.getElementById('modal-add-to-cart-btn');
-            if (addBtn) {
-                addBtn.onclick = () => { addToCart(item.id); closeProductModal(); };
-            }
-
-            if (modal) modal.classList.remove('hidden');
-        }
-
-        function closeProductModal() {
-            document.getElementById('product-modal').classList.add('hidden');
-        }
-
-        // Digital Certificate Generator Popup
-        function generateDigitalCertificate() {
-            if (!activeProductForCertificate) return;
-            const certTitle = document.getElementById('cert-title');
-            const certReg = document.getElementById('cert-registry-id');
-            const modal = document.getElementById('certificate-modal');
-
-            if (certTitle) certTitle.innerText = activeProductForCertificate.name;
-            if (certReg) certReg.innerText = `REGISTRY SECURE NO: SC03-${Math.floor(Math.random() * 900000 + 100000)}`;
-            if (modal) modal.classList.remove('hidden');
-        }
-
-        function closeCertificate() {
-            const modal = document.getElementById('certificate-modal');
-            if (modal) modal.classList.add('hidden');
-        }
-
-        // Cart Drawer Operations
-        function toggleCart() {
-            const drawer = document.getElementById('cart-drawer');
-            if (drawer) drawer.classList.toggle('translate-x-full');
-            renderCart();
-        }
-
-        // Admin Security Access
-        function requestAdminAccess() {
-            const password = prompt('Please enter your Admin Console Password:');
-            if (password === 'admin123') {
-                showSection('admin-view');
-                renderAdminProducts();
-            } else {
-                alert('Access Denied. Incorrect credentials.');
-            }
-        }
-
-        function addToCart(id) {
-            const item = products.find(p => p.id === id);
-            if (!item) return;
-
-            const exists = cart.find(cartItem => cartItem.id === id);
-            if (!exists) {
-                cart.push(item);
-                saveToStorage();
-                updateCartCount();
-                showToast(`"${item.name}" added to bag`);
-            } else {
-                alert('Item is already added.');
-            }
-        }
-
-        function removeFromCart(id) {
-            cart = cart.filter(item => item.id !== id);
-            saveToStorage();
-            updateCartCount();
-            renderCart();
-        }
-
-        // Update Cart Indicator Badge Count
-        function updateCartCount() {
-            const count = document.getElementById('cart-count');
-            if (count) count.innerText = cart.length;
-        }
-
-        function renderCart() {
-            const container = document.getElementById('cart-items-container');
-            const emptyMsg = document.getElementById('cart-empty-msg');
-            const totalVal = document.getElementById('cart-total-price');
-            if (!container) return;
-
-            container.innerHTML = '';
-
-            if (cart.length === 0) {
-                if (emptyMsg) emptyMsg.classList.remove('hidden');
-                container.appendChild(emptyMsg);
-                if (totalVal) totalVal.innerText = formatVal(0);
-                return;
-            }
-
-            if (emptyMsg) emptyMsg.classList.add('hidden');
-            let sum = 0;
-
-            cart.forEach(item => {
-                sum += item.price;
-                const div = document.createElement('div');
-                div.className = 'flex justify-between items-center bg-luxuryBlack/40 p-4 border border-luxuryGold/10 font-sans';
-                div.innerHTML = `
-                    <div>
-                        <h4 class="text-xs uppercase font-bold text-luxuryCream tracking-wider">${item.name}</h4>
-                        <p class="text-xs text-luxuryGold font-serif font-semibold mt-1">${formatVal(item.price)}</p>
-                    </div>
-                    <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700 text-sm"><i class="fa-regular fa-trash-can"></i></button>
-                `;
-                container.appendChild(div);
-            });
-
-            if (totalVal) totalVal.innerText = formatVal(sum);
-        }
-
-        function dispatchCartCheckout() {
-            if (cart.length === 0) {
-                alert('Cart is empty.');
-                return;
-            }
-
-            let orderList = cart.map(item => `• ${item.name} (${formatVal(item.price)})`).join('\n');
-            const total = cart.reduce((sum, item) => sum + item.price, 0);
-
-            const msg = `Greetings String Creations 03! I would like to order the following masterpieces:\n\n` + 
-                        `${orderList}\n\n` + 
-                        `Grand Total Value: ${formatVal(total)}\n\n` + 
-                        `Please verify delivery times and shipping coordinates.`;
-            
-            window.open("https://wa.me/918140125772?text=" + encodeURIComponent(msg), '_blank');
-        }
-
-        // Infinite Horizontal Reviews Render Loop
-        function renderReviews() {
-            const container = document.getElementById('reviews-container');
-            if (!container) return;
-            container.innerHTML = '';
-
-            const doubleList = [...reviews, ...reviews, ...reviews];
-
-            doubleList.forEach(r => {
-                const card = document.createElement('div');
-                card.className = 'glass-card p-8 space-y-4 shrink-0 w-80 inline-block whitespace-normal';
-                
-                let stars = '';
-                for (let i = 0; i < r.rating; i++) stars += '<i class="fa-solid fa-star"></i>';
-
-                card.innerHTML = `
-                    <div class="flex items-center justify-between font-sans">
-                        <div class="flex text-luxuryGold gap-1 text-xs">${stars}</div>
-                        <span class="text-[9px] uppercase tracking-widest text-emerald-500 flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> Verified</span>
-                    </div>
-                    <p class="font-serif text-base text-gray-300 italic">"${r.text}"</p>
-                    <div class="font-sans">
-                        <h4 class="text-xs uppercase tracking-wider font-bold">${r.name}</h4>
-                        <p class="text-[9px] text-gray-500">Verified Collector</p>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function handleReviewSubmit(event) {
-            event.preventDefault();
-            const name = document.getElementById('review-form-name').value;
-            const rating = parseInt(document.getElementById('review-form-rating').value);
-            const text = document.getElementById('review-form-text').value;
-
-            reviews.push({ name, rating, text });
-            saveToStorage();
-            renderReviews();
-
-            document.getElementById('review-form-name').value = '';
-            document.getElementById('review-form-text').value = '';
-            toggleReviewModal();
-            showToast('Review submitted successfully');
-        }
-
-        // Tab Switchers for Our Process Section
-        function switchProcessTab(tabName) {
-            const c1 = document.getElementById('process-tab-content-1');
-            const c2 = document.getElementById('process-tab-content-2');
-            const b1 = document.getElementById('btn-proc-1');
-            const b2 = document.getElementById('btn-proc-2');
-
-            if (c1) c1.classList.remove('hidden');
-            if (c2) c2.classList.add('hidden');
-            if (b1) b1.className = "process-tab-btn active px-5 py-2 border border-[#1a82e2] text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition font-sans";
-            if (b2) b2.className = "process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition font-sans";
-            startPhilosophyLoop();
-        }
-
-        function showCustomSpecsTab() {
-            const c1 = document.getElementById('process-tab-content-1');
-            const c2 = document.getElementById('process-tab-content-2');
-            const b1 = document.getElementById('btn-proc-1');
-            const b2 = document.getElementById('btn-proc-2');
-
-            if (c1) c1.classList.add('hidden');
-            if (c2) c2.classList.remove('hidden');
-            if (b1) b1.className = "process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition font-sans";
-            if (b2) b2.className = "process-tab-btn active px-5 py-2 border border-[#1a82e2] text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition font-sans";
-            startHeritageLoop();
-        }
-
-        function renderAdminProducts() {
-            const list = document.getElementById('admin-products-list');
-            if (!list) return;
-            list.innerHTML = '';
-
-            products.forEach(p => {
-                const div = document.createElement('div');
-                div.className = 'flex justify-between items-center bg-luxuryBlack/50 p-3 border border-luxuryGold/15 font-sans';
-                div.innerHTML = `
-                    <div>
-                        <h4 class="text-xs font-bold text-luxuryCream">${p.name}</h4>
-                        <p class="text-[10px] text-luxuryGold">${formatVal(p.price)}</p>
-                    </div>
-                    <button onclick="deleteProductFromAdmin(${p.id})" class="text-red-500 hover:text-red-700 text-xs uppercase font-bold tracking-wider"><i class="fa-regular fa-trash-can"></i></button>
-                `;
-                list.appendChild(div);
-            });
-        }
-
-        // Add Product from Admin
-        function handleAdminAddProduct(event) {
-            event.preventDefault();
-            const name = document.getElementById('admin-p-name').value;
-            const category = document.getElementById('admin-p-cat').value;
-            const price = parseInt(document.getElementById('admin-p-price').value);
-            const hours = document.getElementById('admin-p-hours').value;
-            const nails = parseInt(document.getElementById('admin-p-nails').value);
-            const threads = parseInt(document.getElementById('admin-p-threads').value);
-            const img = document.getElementById('admin-p-img').value;
-            const desc = document.getElementById('admin-p-desc').value;
-
-            const newProduct = { id: Date.now(), name, category, price, hours, nails, threads, img, desc };
-
-            products.push(newProduct);
-            saveToStorage();
-            renderGallery();
-            renderAdminProducts();
-
-            event.target.reset();
-            showToast('Published new artwork to live catalog');
-        }
-
-        function deleteProductFromAdmin(id) {
-            if (confirm('Are you sure you want to remove this art piece from your live catalog?')) {
-                products = products.filter(p => p.id !== id);
-                saveToStorage();
-                renderGallery();
-                renderAdminProducts();
-            }
-        }
-
-        // CSV DATA EXPORT / IMPORT ENGINE
-        function exportCatalog() {
-            let csvContent = "data:text/csv;charset=utf-8,ID,Name,Category,Price,Hours,Nails,Threads,ImageURL,Description\n";
-            products.forEach(p => {
-                let escapedDesc = `"${p.desc.replace(/"/g, '""')}"`;
-                csvContent += `${p.id},"${p.name}",${p.category},${p.price},"${p.hours}",${p.nails},${p.threads},"${p.img}",${escapedDesc}\n`;
-            });
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "SC03_Catalog_Backup.csv");
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            showToast("Catalog backup downloaded");
-        }
-
-        function triggerCSVImport() {
-            document.getElementById('csv-import-file').click();
-        }
-
-        function importCatalog(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const text = e.target.result;
-                const lines = text.split('\n');
-                const importedList = [];
-                
-                for (let i = 1; i < lines.length; i++) {
-                    const row = lines[i].trim();
-                    if (!row) continue;
-                    
-                    const cols = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
-                    if (cols.length >= 8) {
-                        importedList.push({
-                            id: parseInt(cols[0]) || Date.now() + i,
-                            name: cols[1].replace(/"/g, ''),
-                            category: cols[2],
-                            price: parseInt(cols[3]),
-                            hours: cols[4].replace(/"/g, ''),
-                            nails: parseInt(cols[5]),
-                            threads: parseInt(cols[6]),
-                            img: cols[7].replace(/"/g, ''),
-                            desc: cols[8] ? cols[8].replace(/"/g, '') : ""
-                        });
-                    }
-                }
-                
-                if (importedList.length > 0) {
-                    products = importedList;
-                    saveToStorage();
-                    renderGallery();
-                    renderAdminProducts();
-                    showToast(`Imported ${products.length} products`);
-                } else {
-                    alert("Invalid CSV Format. Ensure matching schema header.");
-                }
-            };
-            reader.readAsText(file);
-        }
-    </script>
-</body>
-</html>
+                    <span class="text
