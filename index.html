@@ -81,7 +81,6 @@
         ::-webkit-scrollbar-thumb {
             background: #1a82e2;
         }
-
         /* Continuous Infinite Horizontal Scrolling Reviews */
         @keyframes marquee {
             0% { transform: translateX(0); }
@@ -95,17 +94,10 @@
         }
         .marquee-content {
             display: inline-flex;
-            animation: marquee 25s linear infinite;
+            animation: marquee 35s linear infinite;
         }
         .marquee-content:hover {
             animation-play-state: paused;
-        }
-
-        /* Abstract Line String Pattern Background */
-        .hero-string-pattern {
-            background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 1px, transparent 1px),
-                              linear-gradient(rgba(212, 175, 55, 0.02) 1px, transparent 1px);
-            background-size: 40px 40px, 100% 2px;
         }
     </style>
 </head>
@@ -118,13 +110,8 @@
     <header class="fixed top-0 inset-x-0 z-50 glass-header border-b border-luxuryGold/10 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" onclick="showSection('home-view')" class="flex items-center space-x-3 group">
-                <div class="h-12 w-12 rounded-full border border-luxuryGold/40 bg-luxuryCharcoal flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                    <!-- SVG Geometric String Logo instead of image -->
-                    <svg class="h-8 w-8 text-luxuryGold" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2">
-                        <circle cx="50" cy="50" r="42" stroke-dasharray="2 2" class="opacity-50" />
-                        <path d="M 50 8 L 86 72 L 14 72 Z" />
-                        <path d="M 50 92 L 14 28 L 86 28 Z" />
-                    </svg>
+                <div class="h-12 w-12 rounded-full overflow-hidden border border-luxuryGold/40 bg-luxuryCharcoal flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                    <img src="logo.jpg" alt="String Creations 03 Logo" class="h-full w-full object-cover" onerror="this.src='https://via.placeholder.com/150/161616/d4af37?text=SC03'">
                 </div>
                 <div class="flex flex-col logo-glowing-effect">
                     <div class="font-serif text-xl lg:text-2xl font-bold tracking-[0.08em] flex items-center space-x-1.5">
@@ -144,7 +131,7 @@
                 <a href="#reviews-section" onclick="showSection('home-view')" class="hover:text-luxuryGold transition">Reviews</a>
             </nav>
 
-            <div class="flex items-center space-x-6">
+            <div class="flex items-center space-x-4 lg:space-x-6">
                 <!-- International Language & Currency Switchers -->
                 <div class="flex items-center space-x-2 text-[10px] uppercase tracking-wider text-gray-400 border-r border-luxuryGold/20 pr-4">
                     <select id="currency-switcher" onchange="switchCurrency()" class="bg-transparent text-luxuryCream focus:outline-none cursor-pointer">
@@ -153,6 +140,10 @@
                         <option value="EUR" class="bg-luxuryBlack">€ EUR</option>
                     </select>
                 </div>
+                <!-- Relocated Track Order Link in Header Action Area -->
+                <button onclick="toggleTrackModal()" class="text-[10px] uppercase tracking-wider text-luxuryGold font-bold hover:text-luxuryCream transition">
+                    <i class="fa-solid fa-truck-fast mr-1"></i> Track Order
+                </button>
                 <button onclick="toggleSearch()" class="hover:text-luxuryGold transition text-lg">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
@@ -178,30 +169,17 @@
     
     <!-- VIEW A: HOME & MAIN LANDING -->
     <div id="home-view" class="app-route-view">
-        <!-- Hero Section with Relocated Track Order & CSS Pattern -->
-        <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-28 pb-16 hero-string-pattern">
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             <div class="absolute inset-0 z-0">
-                <!-- Mathematical String Grid Vector Overlay -->
-                <svg class="absolute w-full h-full opacity-[0.06] text-luxuryGold" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
-                            <path d="M 80 0 L 0 80 M 0 0 L 80 80" fill="none" stroke="currentColor" stroke-width="0.5"/>
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#grid)" />
-                </svg>
-                <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack via-transparent to-luxuryBlack/85"></div>
+                <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=1600" class="w-full h-full object-cover filter brightness-[0.22] blur-[1px]" alt="Background Art">
+                <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack via-transparent to-luxuryBlack/55"></div>
             </div>
 
-            <div class="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-6">
+            <div class="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-8">
                 <div class="flex justify-center mb-2">
-                    <div class="h-20 w-20 rounded-full border-2 border-luxuryGold/40 bg-luxuryCharcoal flex items-center justify-center shadow-2xl">
-                        <!-- Custom vector icon instead of image logo -->
-                        <svg class="h-12 w-12 text-luxuryGold" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="50" cy="50" r="40" stroke-dasharray="3 3"/>
-                            <path d="M 50 10 L 90 50 L 50 90 L 10 50 Z" />
-                            <path d="M 50 10 L 10 50 L 90 50 Z" />
-                        </svg>
+                    <div class="h-24 w-24 rounded-full overflow-hidden border-2 border-luxuryGold/40 bg-luxuryCharcoal/55 p-1 shadow-2xl">
+                        <img src="logo.jpg" alt="Logo" class="h-full w-full rounded-full object-cover" onerror="this.src='https://via.placeholder.com/150/161616/d4af37?text=SC03'">
                     </div>
                 </div>
                 <span class="text-luxuryGold font-serif tracking-[0.4em] text-xs uppercase block">MASTERPIECE IN EVERY THREAD</span>
@@ -211,35 +189,13 @@
                 <p class="text-gray-300 max-w-3xl mx-auto text-sm md:text-base tracking-wide font-light leading-relaxed">
                     Crafting timeless portraits and abstract designs with thousands of threads and unwavering passion.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-6 pt-2">
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6 pt-4">
                     <a href="#gallery-section" class="w-full sm:w-auto bg-[#d4af37] hover:bg-[#b89428] text-luxuryBlack px-8 py-4 uppercase tracking-[0.2em] text-xs font-bold transition duration-300 text-center">
                         Explore Collection
                     </a>
                     <button onclick="showSection('custom-view')" class="w-full sm:w-auto border border-luxuryGold/50 hover:border-luxuryGold text-luxuryGold hover:text-luxuryCream px-8 py-4 uppercase tracking-[0.2em] text-xs font-bold transition duration-300">
                         Commission Artwork
                     </button>
-                </div>
-
-                <!-- Clean Minimalist Track Order Section integrated into Hero -->
-                <div class="max-w-lg mx-auto glass-card p-6 mt-12 text-center space-y-4 rounded-lg">
-                    <h3 class="font-serif text-lg text-luxuryGold uppercase tracking-widest">Track Your Artwork</h3>
-                    <div class="flex flex-col sm:flex-row gap-2">
-                        <input type="text" id="order-track-id" placeholder="ENTER ORDER REFERENCE ID (e.g., SC03-2415)" class="flex-1 bg-luxuryBlack border border-luxuryGold/20 px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold text-center uppercase tracking-widest text-luxuryCream">
-                        <button onclick="trackArtwork()" class="bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack px-6 py-3 text-xs uppercase tracking-widest font-bold transition">Track Status</button>
-                    </div>
-                    
-                    <!-- Result Area -->
-                    <div id="track-result" class="hidden text-left space-y-4 animate-fadeIn mt-2">
-                        <div class="flex justify-between items-center border-b border-luxuryGold/15 pb-2">
-                            <span class="text-[10px] text-gray-400">Order ID: <b class="text-luxuryGold uppercase" id="track-display-id"></b></span>
-                            <span class="text-[10px] text-luxuryGold font-semibold">Phase: <span id="track-display-phase" class="text-luxuryCream font-bold">Threading Loop</span></span>
-                        </div>
-                        <div class="grid grid-cols-3 gap-2 text-center text-[9px] uppercase tracking-wider">
-                            <div class="p-2 bg-luxuryGold/10 border border-luxuryGold/30 text-luxuryGold rounded">1. Board Mapping</div>
-                            <div id="track-step-2" class="p-2 bg-luxuryGold/10 border border-luxuryGold/30 text-luxuryGold rounded">2. Weaving Threads</div>
-                            <div id="track-step-3" class="p-2 bg-neutral-900 text-gray-600 rounded">3. Packing & Seal</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -281,9 +237,8 @@
                     <button onclick="showCustomSpecsTab()" id="btn-proc-2" class="process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition">15-Step Master Craftsmanship</button>
                 </div>
 
-                <!-- Tab Content 1: The 7-Step Journey & Custom Portrait Blueprint -->
+                <!-- Tab Content 1: The 7-Step Journey (Workflow chart screenshot removed as requested) -->
                 <div id="process-tab-content-1" class="space-y-16 animate-fadeIn">
-                    <!-- 7-Step Premium Web UX Journey -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <!-- Step 1 -->
                         <div class="glass-card p-6 relative space-y-3">
@@ -335,30 +290,11 @@
                             <p class="text-xs text-gray-400 leading-relaxed">Shipped worldwide via elite cargo couriers complete with dynamic tracking numbers.</p>
                         </div>
                     </div>
-
-                    <!-- Portrait Custom Blueprint Workflow Chart -->
-                    <div class="glass-card p-8 rounded-lg border border-luxuryGold/10">
-                        <h3 class="font-serif text-xl text-luxuryGold tracking-widest text-center mb-10 uppercase">Custom Portrait Workflow Blueprint</h3>
-                        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center text-[10px] font-semibold uppercase tracking-widest text-gray-300">
-                            <div class="p-3 bg-neutral-900 border border-brandTeal/30 rounded w-full md:w-auto">Customer Photo</div>
-                            <div class="text-brandTeal hidden md:block"><i class="fa-solid fa-right-long text-lg"></i></div>
-                            <div class="p-3 bg-neutral-900 border border-brandBlue/30 rounded w-full md:w-auto">Background Remove</div>
-                            <div class="text-brandBlue hidden md:block"><i class="fa-solid fa-right-long text-lg"></i></div>
-                            <div class="p-3 bg-neutral-900 border border-luxuryGold/30 rounded w-full md:w-auto">Pattern Generate</div>
-                            <div class="text-[#d4af37] hidden md:block"><i class="fa-solid fa-right-long text-lg"></i></div>
-                            <div class="p-3 bg-neutral-900 border border-brandTeal/30 rounded w-full md:w-auto">Wood Preparation</div>
-                            <div class="text-brandTeal hidden md:block"><i class="fa-solid fa-right-long text-lg"></i></div>
-                            <div class="p-3 bg-neutral-900 border border-brandBlue/30 rounded w-full md:w-auto">Hand Hammering</div>
-                            <div class="text-brandBlue hidden md:block"><i class="fa-solid fa-right-long text-lg"></i></div>
-                            <div class="p-3 bg-neutral-900 border border-luxuryGold/30 rounded w-full md:w-auto">Weaving & Packaging</div>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Tab Content 2: 15-Step Professional Heritage Checklist -->
                 <div id="process-tab-content-2" class="hidden animate-fadeIn">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Step 1 to 15 Checklist Cards -->
                         <div class="glass-card p-6 border-l-2 border-brandTeal/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 1: Design Mapping</h4>
                             <p class="text-xs text-gray-400 mt-2">Converting design structures mathematically into high-density coordinates.</p>
@@ -424,47 +360,28 @@
             </div>
         </section>
 
-        <!-- Verified Reviews (Automatic Continuous Right to Left Scroll) -->
+        <!-- Verified Reviews / Continuous Infinite Left to Right Horizontal Scroller -->
         <section id="reviews-section" class="py-24 bg-luxuryCharcoal/30 border-t border-luxuryGold/10 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-12 text-center">
-                <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase">Collector Testimonials</span>
-                <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream">Collector Stories</h2>
-                <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
-            </div>
-
-            <!-- Auto Scrolling Container -->
-            <div class="marquee-container w-full py-4">
-                <div class="marquee-content gap-8" id="reviews-container">
-                    <!-- Loaded dynamically via JavaScript inside infinite scroll wrapper -->
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16 space-y-2">
+                    <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase">Collector Testimonials</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream">Collector Stories</h2>
+                    <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
                 </div>
             </div>
 
-            <!-- Submit Review Form -->
-            <div class="max-w-xl mx-auto glass-card p-8 mt-16 px-6">
-                <h3 class="font-serif text-xl text-luxuryGold text-center mb-6">Submit Your Experience</h3>
-                <form onsubmit="handleReviewSubmit(event)" class="space-y-4">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Your Name</label>
-                            <input type="text" id="review-form-name" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-4 py-2 text-xs focus:outline-none focus:border-luxuryGold text-luxuryCream">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Stars Selection</label>
-                            <select id="review-form-rating" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-4 py-2 text-xs focus:outline-none focus:border-luxuryGold text-luxuryCream">
-                                <option value="5">⭐⭐⭐⭐⭐ 5 Stars</option>
-                                <option value="4">⭐⭐⭐⭐ 4 Stars</option>
-                                <option value="3">⭐⭐⭐ 3 Stars</option>
-                                <option value="2">⭐⭐ 2 Stars</option>
-                                <option value="1">⭐ 1 Star</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Your Review</label>
-                        <textarea id="review-form-text" required rows="4" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-4 py-2 text-xs focus:outline-none focus:border-luxuryGold text-luxuryCream"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack py-3 text-xs uppercase tracking-widest font-bold transition">Publish Experience</button>
-                </form>
+            <!-- Horizontal Infinite Marquee Wrapper -->
+            <div class="marquee-container w-full py-4">
+                <div class="marquee-content space-x-8" id="reviews-container">
+                    <!-- Loaded dynamically in loop via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Submit Review Action Button under the review line -->
+            <div class="text-center mt-12">
+                <button onclick="toggleReviewModal()" class="bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack px-8 py-3 text-xs uppercase tracking-widest font-bold transition">
+                    <i class="fa-solid fa-pen-nib mr-2"></i> Submit Your Experience
+                </button>
             </div>
         </section>
     </div>
@@ -494,8 +411,9 @@
                     <select id="custom-frame" onchange="updateLiveStudio()" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
                         <option value="wood-black" selected>Wood - Black</option>
                         <option value="wood-white">Wood - White</option>
-                        <option value="pvc-black">PVC - Black</option>
+                        <option value="pvc-brown">PVC - Brown</option>
                         <option value="pvc-white">PVC - White</option>
+                        <option value="without-frame">No Frame (Without Frame)</option>
                     </select>
                 </div>
 
@@ -537,14 +455,15 @@
                 </div>
             </div>
 
-            <!-- Types of String Art Directory (Replacing 4th Visualizer Photo) -->
-            <div class="lg:col-span-7 flex flex-col space-y-6">
-                <span class="text-xs uppercase tracking-widest text-luxuryGold font-serif">Curated Creations Directory</span>
-                <h3 class="font-serif text-2xl text-luxuryCream">Explore Premium String Art Typologies</h3>
-                <p class="text-xs text-gray-400">We craft different custom design methodologies. Click on any classification below to view its physical layout pattern template:</p>
+            <!-- Detailed Main Types of String Art Directory Section (Replaced 4th photo visualizer) -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="border-b border-luxuryGold/10 pb-4 flex justify-between items-center">
+                    <h3 class="font-serif text-xl text-luxuryGold uppercase tracking-wide">Main Types of String Art</h3>
+                    <span class="text-[10px] uppercase text-gray-500 tracking-widest">Interactive Index</span>
+                </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="string-art-types-container">
-                    <!-- Populated via JavaScript dynamically -->
+                <div id="string-art-index-accordion" class="space-y-3 max-h-[600px] overflow-y-auto pr-2">
+                    <!-- Populated dynamically with detailed tree below -->
                 </div>
             </div>
         </div>
@@ -622,6 +541,10 @@
                         </div>
                     </div>
                     <div>
+                        <label class="block text-[10px] uppercase text-gray-400">Image URL</label>
+                        <input type="text" id="admin-p-img" required placeholder="https://images.unsplash.com/... or base64" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
+                    </div>
+                    <div>
                         <label class="block text-[10px] uppercase text-gray-400">Description</label>
                         <textarea id="admin-p-desc" required rows="2" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold"></textarea>
                     </div>
@@ -639,15 +562,73 @@
         </div>
     </div>
 
+    <!-- Interactive Track Order Popup Modal (Rule 1) -->
+    <div id="track-modal" class="fixed inset-0 bg-luxuryBlack/90 z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full p-8 relative space-y-6 rounded-lg border border-luxuryGold/20">
+            <button onclick="toggleTrackModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center space-y-2">
+                <h3 class="font-serif text-2xl text-luxuryGold uppercase tracking-widest">Track Order Phase</h3>
+                <p class="text-[10px] text-gray-400 uppercase tracking-widest">Enter reference code to view spatial loops</p>
+            </div>
+            
+            <div class="space-y-4">
+                <input type="text" id="order-track-id" placeholder="e.g. SC03-2415" class="w-full bg-luxuryBlack border border-luxuryGold/25 px-4 py-3 text-sm focus:outline-none focus:border-luxuryGold text-center uppercase tracking-widest text-luxuryCream">
+                <button onclick="trackArtwork()" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack py-3 text-xs uppercase tracking-widest font-bold transition">Verify Status</button>
+            </div>
+
+            <!-- Dynamic Track Results -->
+            <div id="track-result" class="hidden glass-card p-4 space-y-4 border border-luxuryGold/20 rounded">
+                <div class="flex justify-between text-xs pb-2 border-b border-luxuryGold/10">
+                    <span class="text-gray-400">Order Ref: <b id="track-display-id" class="text-luxuryGold"></b></span>
+                    <span class="text-luxuryGold font-bold">Phase: <span id="track-display-phase" class="text-luxuryCream">Threading</span></span>
+                </div>
+                <div class="grid grid-cols-3 gap-2 text-center text-[9px] uppercase tracking-wider">
+                    <div class="p-2 bg-luxuryGold/10 border border-luxuryGold/30 text-luxuryGold rounded">1. Mapping</div>
+                    <div id="track-step-2" class="p-2 bg-luxuryGold/10 border border-luxuryGold/30 text-luxuryGold rounded">2. Weaving</div>
+                    <div id="track-step-3" class="p-2 bg-neutral-900 text-gray-600 rounded">3. Dispatch</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review Submission Form Modal (Rule 3) -->
+    <div id="review-modal" class="fixed inset-0 bg-luxuryBlack/90 z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full p-8 relative rounded-lg border border-luxuryGold/20">
+            <button onclick="toggleReviewModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="font-serif text-2xl text-luxuryGold text-center mb-6">Submit Your Experience</h3>
+            <form onsubmit="handleReviewSubmit(event)" class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Your Name</label>
+                        <input type="text" id="review-form-name" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-4 py-2 text-xs focus:outline-none focus:border-luxuryGold text-luxuryCream">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Stars Selection</label>
+                        <select id="review-form-rating" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-4 py-2 text-xs focus:outline-none focus:border-luxuryGold text-luxuryCream">
+                            <option value="5">⭐⭐⭐⭐⭐ 5 Stars</option>
+                            <option value="4">⭐⭐⭐⭐ 4 Stars</option>
+                            <option value="3">⭐⭐⭐ 3 Stars</option>
+                            <option value="2">⭐⭐ 2 Stars</option>
+                            <option value="1">⭐ 1 Star</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Your Review</label>
+                    <textarea id="review-form-text" required rows="4" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-4 py-2 text-xs focus:outline-none focus:border-luxuryGold text-luxuryCream"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack py-3 text-xs uppercase tracking-widest font-bold transition">Publish Experience</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Dynamic Product Details Popup Modal -->
     <div id="product-modal" class="fixed inset-0 bg-luxuryBlack/90 z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
         <div class="glass-card max-w-4xl w-full p-6 sm:p-8 relative grid grid-cols-1 md:grid-cols-2 gap-8 my-8 max-h-[90vh] overflow-y-auto">
             <button onclick="closeProductModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
             
-            <div class="flex flex-col items-center justify-center bg-neutral-900 rounded border border-luxuryGold/10 p-4 relative" id="modal-art-render-container">
-                <!-- SVG Masterpiece Vector replaces images inside the product modal -->
-                <div id="modal-vector-slot" class="w-full aspect-square flex items-center justify-center"></div>
+            <div class="flex flex-col items-center justify-center bg-neutral-900 rounded border border-luxuryGold/10 p-2 relative">
+                <img id="modal-img" src="" class="w-full aspect-square object-cover" alt="Art Detail">
                 <button onclick="generateDigitalCertificate()" class="mt-4 text-[10px] uppercase bg-luxuryGold/15 hover:bg-luxuryGold/30 text-luxuryGold border border-luxuryGold/40 py-2 px-4 tracking-widest w-full">
                     <i class="fa-solid fa-file-signature mr-1"></i> Download Certificate of Authenticity
                 </button>
@@ -675,16 +656,23 @@
         </div>
     </div>
 
-    <!-- Sample Pattern Viewer Modal (For types list popup) -->
-    <div id="pattern-sample-modal" class="fixed inset-0 bg-luxuryBlack/95 z-50 hidden flex items-center justify-center p-6">
-        <div class="glass-card max-w-xl w-full p-8 relative space-y-6 text-center">
-            <button onclick="closePatternSampleModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="font-serif text-2xl text-luxuryGold uppercase tracking-wider" id="pattern-modal-title">Sample Portrait</h3>
-            <p class="text-xs text-gray-400" id="pattern-modal-desc">Detailed sample rendering of mathematically woven fibers.</p>
-            <div id="pattern-vector-view" class="w-64 h-64 mx-auto flex items-center justify-center bg-neutral-950 border border-luxuryGold/20 rounded-full p-4 shadow-xl">
-                <!-- SVG loaded dynamically -->
+    <!-- Category Visualizer Mock Popup -->
+    <div id="art-class-modal" class="fixed inset-0 bg-luxuryBlack/95 z-50 hidden flex items-center justify-center p-6">
+        <div class="glass-card max-w-md w-full p-8 relative text-center space-y-6 border border-luxuryGold/30">
+            <button onclick="toggleArtClassModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="class-modal-title" class="font-serif text-2xl text-luxuryGold uppercase tracking-wider">Geometric Art</h3>
+            <p id="class-modal-desc" class="text-xs text-gray-300 leading-relaxed">Sample specification parameters and luxury string pattern previews.</p>
+            
+            <div class="w-48 h-48 mx-auto rounded-full bg-neutral-900 border border-luxuryGold/20 flex items-center justify-center p-2">
+                <svg viewBox="0 0 100 100" class="w-full h-full text-luxuryGold" fill="none" stroke="currentColor">
+                    <circle cx="50" cy="50" r="45" stroke-dasharray="2 2" />
+                    <polygon points="50,12 85,80 15,80" stroke-width="0.7"/>
+                    <line x1="50" y1="12" x2="50" y2="80" stroke-width="0.3"/>
+                    <line x1="85" y1="80" x2="15" y2="80" stroke-width="0.3"/>
+                </svg>
             </div>
-            <button onclick="closePatternSampleModal()" class="border border-luxuryGold/30 hover:border-luxuryGold px-6 py-2 text-xs uppercase tracking-widest text-luxuryGold transition">Close Pattern View</button>
+            
+            <button onclick="toggleArtClassModal()" class="border border-luxuryGold/30 hover:border-luxuryGold px-6 py-2 text-xs uppercase tracking-widest text-luxuryGold transition">Dismiss Preview</button>
         </div>
     </div>
 
@@ -750,11 +738,8 @@
             
             <div class="space-y-4">
                 <div class="flex items-center space-x-3 group">
-                    <div class="h-10 w-10 rounded-full border border-luxuryGold/40 bg-luxuryCharcoal flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                        <svg class="h-6 w-6 text-luxuryGold" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2">
-                            <circle cx="50" cy="50" r="42" stroke-dasharray="2 2" />
-                            <path d="M 50 8 L 86 72 L 14 72 Z" />
-                        </svg>
+                    <div class="h-10 w-10 rounded-full overflow-hidden border border-luxuryGold/40 bg-luxuryCharcoal flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                        <img src="logo.jpg" alt="String Creations 03 Logo" class="h-full w-full object-cover" onerror="this.src='https://via.placeholder.com/150/161616/d4af37?text=SC03'">
                     </div>
                     <div class="font-serif text-base lg:text-lg font-bold tracking-[0.08em] flex items-center space-x-1 logo-glowing-effect">
                         <span class="brand-string">STRING</span>
@@ -781,26 +766,21 @@
             <div>
                 <h4 class="text-xs uppercase tracking-widest font-bold text-luxuryGold mb-4">Collector Support</h4>
                 <ul class="space-y-2 text-xs text-gray-400">
-                    <li><a href="#" onclick="showSection('home-view')" class="hover:text-luxuryGold">Track Order</a></li>
+                    <li><a href="#" onclick="toggleTrackModal()" class="hover:text-luxuryGold">Track Order</a></li>
                     <li><a href="https://wa.me/918140125772" target="_blank" class="hover:text-luxuryGold font-semibold text-luxuryGold"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp Inquiry</a></li>
                     <li><button onclick="requestAdminAccess()" class="hover:text-luxuryGold text-left focus:outline-none">🔒 Admin Console</button></li>
                 </ul>
             </div>
             
-            <!-- Follow Box with Stylized SVG Instagram icon -->
+            <!-- Instagram Connect Box with QR Code -->
             <div class="space-y-4">
                 <h4 class="text-xs uppercase tracking-widest font-bold text-luxuryGold">Follow Our Art</h4>
                 <div class="flex items-start space-x-4">
-                    <div class="w-16 h-16 bg-neutral-900 border border-luxuryGold/20 rounded flex items-center justify-center shrink-0">
-                        <!-- Custom Stylized Instagram Vector Graphic -->
-                        <svg class="w-10 h-10 text-luxuryGold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="2" y="2" width="20" height="20" rx="5" />
-                            <circle cx="12" cy="12" r="5" />
-                            <circle cx="18" cy="6" r="1.5" fill="currentColor" />
-                        </svg>
+                    <div class="w-20 h-20 bg-white p-1 rounded-md shadow-lg flex items-center justify-center shrink-0">
+                        <img src="instagram_qr.jpg" alt="Scan Instagram QR Code" class="w-full h-full object-contain" onerror="this.src='https://via.placeholder.com/150/ffffff/000000?text=Instagram'">
                     </div>
                     <div>
-                        <p class="text-[10px] text-gray-400 leading-tight">Explore daily design updates, weaving progress, and live master reels on our official channel.</p>
+                        <p class="text-[10px] text-gray-400 leading-tight">Scan the QR code with your camera or click below to explore reels & daily designs.</p>
                         <a href="https://instagram.com/stringcreations03" target="_blank" class="inline-flex items-center space-x-1 text-xs text-luxuryGold hover:text-luxuryGoldHover font-semibold mt-2">
                             <i class="fa-brands fa-instagram text-sm"></i>
                             <span>@string_creations03</span>
@@ -830,97 +810,99 @@
             "Glow in the Dark Thread"
         ];
 
-        // Custom String Art Types Directory
-        const stringArtTypes = [
+        // Comprehensive Hierarchical String Art Types Database (Rule 2)
+        const artTypesDirectory = [
             {
-                name: "Personalized Portraits",
-                desc: "Highly detailed faces, pets, or multi-subject photographs converted mathematically.",
-                nails: "350 - 550 Nails",
-                threads: "3000m - 5000m",
-                icon: "fa-solid fa-user-tie",
-                typeKey: "portrait"
+                category: "Geometric String Art",
+                subtypes: ["Triangle", "Square", "Polygon", "Hexagon"]
             },
             {
-                name: "Sacred Geometric Mandalas",
-                desc: "Symmetrical visual meditation anchors formulated using gold, bronze, and luxury wire tones.",
-                nails: "400 - 650 Nails",
-                threads: "4000m - 6000m",
-                icon: "fa-solid fa-shapes",
-                typeKey: "mandala"
+                category: "Portrait String Art",
+                subtypes: ["Human Face", "Celebrity", "Couple", "Family", "Pet"]
             },
             {
-                name: "Couple Milestones & Weddings",
-                desc: "Commemorative romantic art celebrating weddings, rings, and matrimonial dates.",
-                nails: "300 - 450 Nails",
-                threads: "2500m - 4000m",
-                icon: "fa-solid fa-ring",
-                typeKey: "couple"
+                category: "Silhouette String Art",
+                subtypes: ["Animal", "Bird", "Tree", "City Skyline"]
             },
             {
-                name: "Corporate Crests & Logos",
-                desc: "Prestige-commanding corporate identifiers mapped on obsidian-matte hardwood bases.",
-                nails: "500 - 800 Nails",
-                threads: "4500m - 7000m",
-                icon: "fa-solid fa-briefcase",
-                typeKey: "custom"
+                category: "Mandala String Art",
+                subtypes: ["Classic Geometric", "Lotus Symmetrical Core"]
             },
             {
-                name: "Linear Minimalist Landscapes",
-                desc: "Sleek contemporary thread horizons, mountain ranges, and architectural line-works.",
-                nails: "250 - 400 Nails",
-                threads: "2000m - 3500m",
-                icon: "fa-solid fa-mountain-sun",
-                typeKey: "landscape"
+                category: "Spiral / Curve String Art",
+                subtypes: ["Circle Illusion", "Parabolic Curves", "Wave Patterns"]
             },
             {
-                name: "Kinetic Abstract Layers",
-                desc: "Interactive optical illusions utilizing dual-color overlapping thread angles.",
-                nails: "600 - 900 Nails",
-                threads: "5000m - 8000m",
-                icon: "fa-solid fa-wand-magic-sparkles",
-                typeKey: "abstract"
+                category: "Abstract String Art",
+                subtypes: ["Modern Abstract", "Kinetic Illusions"]
+            },
+            {
+                category: "Typography / Name String Art",
+                subtypes: ["Name", "Initial", "Quote", "Logo"]
+            },
+            {
+                category: "Heart & Love String Art",
+                subtypes: ["Interlocking Hearts", "Love Symbols"]
+            },
+            {
+                category: "Nature String Art",
+                subtypes: ["Flower", "Leaf", "Mountain", "Forest"]
+            },
+            {
+                category: "Animal String Art",
+                subtypes: ["Lion", "Horse", "Elephant", "Wolf", "Deer"]
+            },
+            {
+                category: "Religious String Art",
+                subtypes: ["Om", "Ganesh", "Krishna", "Cross", "Allah Calligraphy"]
+            },
+            {
+                category: "3D Layered String Art",
+                subtypes: ["Multi-plane Depth Formations"]
+            },
+            {
+                category: "Negative Space String Art",
+                subtypes: ["Inverted Pattern Weaving"]
+            },
+            {
+                category: "Gradient / Multi-Color String Art",
+                subtypes: ["Chroma Shifts", "Spectral Blending"]
+            },
+            {
+                category: "Glow / LED String Art",
+                subtypes: ["Active Backlit Designs"]
+            },
+            {
+                category: "Low Poly String Art",
+                subtypes: ["Angular Geodesic Structures"]
+            },
+            {
+                category: "Radial String Art",
+                subtypes: ["Spoke and Pivot Formations"]
+            },
+            {
+                category: "Circular String Art",
+                subtypes: ["Infinite Circle Matrix Loops"]
+            },
+            {
+                category: "Mixed Media String Art",
+                subtypes: ["Wood + Resin", "Wood + LED", "Wood + Paint"]
+            },
+            {
+                category: "Custom AI Generated String Art",
+                subtypes: ["Photo to String Art", "Logo to String Art", "QR Code String Art"]
+            },
+            {
+                category: "Classification by Thread Formulation",
+                subtypes: [
+                    "Single Color", "Dual Color", "Multi Color", "Metallic", "Neon", 
+                    "Matte", "Glossy", "Cotton", "Silk", "Polyester", "Reflective", 
+                    "Glow in Dark", "Gradient", "Rainbow", "UV Reactive"
+                ]
             }
         ];
 
-        // Dynamic Mathematical SVG String Art Generator (Instead of using images)
-        function generateStringArtVector(seedKey, dimensionsClass = 'w-full h-full') {
-            const colors = ['#d4af37', '#3ad5e0', '#1a82e2', '#7a1ae2', '#ffffff'];
-            let strokeColor = colors[Math.floor(Math.sin(seedKey.length) * 10) % colors.length] || '#d4af37';
-            
-            // Generate multiple radial intersecting threads based on ID
-            let threads = '';
-            const steps = 36;
-            const radius = 42;
-            const cx = 50;
-            const cy = 50;
-
-            for (let i = 0; i < steps; i++) {
-                const angle1 = (i * 2 * Math.PI) / steps;
-                const x1 = cx + radius * Math.cos(angle1);
-                const y1 = cy + radius * Math.sin(angle1);
-                
-                // Formulate connections across coordinate matrices
-                const stepSkip = Math.floor(seedKey.length) || 12;
-                const angle2 = (((i + stepSkip) % steps) * 2 * Math.PI) / steps;
-                const x2 = cx + radius * Math.cos(angle2);
-                const y2 = cy + radius * Math.sin(angle2);
-
-                threads += `<line x1="${x1.toFixed(2)}" y1="${y1.toFixed(2)}" x2="${x2.toFixed(2)}" y2="${y2.toFixed(2)}" stroke="${strokeColor}" stroke-width="0.35" opacity="0.6"/>`;
-            }
-
-            return `
-                <svg viewBox="0 0 100 100" class="${dimensionsClass} filter drop-shadow(0px 2px 8px rgba(212, 175, 55, 0.2))" fill="none" stroke="currentColor">
-                    <circle cx="50" cy="50" r="44" stroke="#1c1c1c" stroke-width="2"/>
-                    <!-- Nail Pins Represented Dynamically -->
-                    <circle cx="50" cy="50" r="42" stroke="#d4af37" stroke-width="0.5" stroke-dasharray="1 2.5"/>
-                    ${threads}
-                    <!-- Abstract core signature -->
-                    <polygon points="48,48 52,48 50,53" fill="${strokeColor}" opacity="0.8"/>
-                </svg>
-            `;
-        }
-
-        // Default Catalog Data Base (We will render with our beautiful vectors)
+        // Default Catalog Data Base
         const defaultProducts = [
             {
                 id: 1,
@@ -930,6 +912,7 @@
                 hours: "18 Hours",
                 nails: 360,
                 threads: 2400,
+                img: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=600",
                 desc: "An intricate monochrome portrait that utilizes varying degrees of string thickness and shadows to generate a photorealistic depth. Highly recommended as a premium personalized masterpiece."
             },
             {
@@ -940,6 +923,7 @@
                 hours: "28 Hours",
                 nails: 500,
                 threads: 4000,
+                img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600",
                 desc: "A mesmerizing sacred mandala formulated with gold & bronze metallic wire threads. Symbolizes absolute calmness and symmetry."
             },
             {
@@ -950,6 +934,7 @@
                 hours: "35 Hours",
                 nails: 650,
                 threads: 5200,
+                img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600",
                 desc: "Specialized corporate logo art handcrafted on obsidian-coated premium pine wood sheets. Built to command prestige inside business spaces."
             }
         ];
@@ -969,7 +954,7 @@
         let cart = JSON.parse(localStorage.getItem('sc03_cart')) || [];
         let activeCurrency = "INR";
         const currencySymbols = { INR: "₹", USD: "$", EUR: "€" };
-        const exchangeRates = { INR: 1, USD: 0.012, EUR: 0.011 }; // Simplified rates
+        const exchangeRates = { INR: 1, USD: 0.012, EUR: 0.011 }; 
 
         // Toast alert helper
         function showToast(message) {
@@ -1007,7 +992,7 @@
             populateCustomSelectors();
             renderGallery();
             renderReviews();
-            renderStringArtTypesList();
+            renderStringArtDirectory();
             updateLiveStudio();
             updateCartCount();
         });
@@ -1058,7 +1043,7 @@
                 sizeSelector.appendChild(option);
             });
 
-            // Populate Thread Selector using the threadTypes array
+            // Populate Thread Selector
             const threadSelector = document.getElementById('custom-thread');
             threadSelector.innerHTML = '';
             threadTypes.forEach((th, idx) => {
@@ -1104,7 +1089,7 @@
             renderGalleryGrid(products);
         }
 
-        // Generate Gallery Elements with Mathematical Vectors
+        // Generate Gallery Elements
         function renderGalleryGrid(items) {
             const grid = document.getElementById('gallery-grid');
             grid.innerHTML = '';
@@ -1117,14 +1102,10 @@
             items.forEach(p => {
                 const card = document.createElement('div');
                 card.className = `gallery-item ${p.category} glass-card group overflow-hidden relative transition-all duration-300`;
-                
-                // Formulate custom localized visual vector string representation for catalog card
-                const vectorContent = generateStringArtVector(p.id.toString(), 'w-full h-full scale-[0.8] group-hover:scale-[0.88] transition-transform duration-700');
-
                 card.innerHTML = `
-                    <div class="relative overflow-hidden aspect-square bg-neutral-900 cursor-pointer flex items-center justify-center p-6" onclick="openProductModal(${p.id})">
-                        ${vectorContent}
-                        <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack/80 via-transparent opacity-60"></div>
+                    <div class="relative overflow-hidden aspect-square bg-neutral-900 cursor-pointer" onclick="openProductModal(${p.id})">
+                        <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/600/161616/d4af37?text=SC03'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack via-transparent opacity-60"></div>
                         <div class="absolute top-4 right-4 bg-luxuryBlack/85 border border-luxuryGold/20 text-luxuryGold text-[9px] px-3 py-1 uppercase tracking-widest">Handcrafted</div>
                     </div>
                     <div class="p-6">
@@ -1161,7 +1142,56 @@
             }
         }
 
-        // Live Specs calculation
+        // Render Dynamic String Art Classification Index (Rule 2)
+        function renderStringArtDirectory() {
+            const container = document.getElementById('string-art-index-accordion');
+            container.innerHTML = '';
+
+            artTypesDirectory.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'glass-card p-4 transition-all duration-300 border border-luxuryGold/10 hover:border-luxuryGold/35';
+                
+                let subButtonsHTML = item.subtypes.map(sub => `
+                    <button onclick="triggerArtClassPreview('${sub}', '${item.category}')" class="bg-neutral-900 hover:bg-luxuryGold hover:text-luxuryBlack text-[11px] text-gray-300 font-semibold uppercase px-3 py-1.5 rounded transition tracking-wider border border-luxuryGold/5">
+                        ${sub}
+                    </button>
+                `).join('');
+
+                itemDiv.innerHTML = `
+                    <div class="flex justify-between items-center cursor-pointer select-none pb-2 border-b border-luxuryGold/5" onclick="toggleAccordionSection(${index})">
+                        <span class="font-serif text-base text-luxuryGold font-semibold uppercase tracking-wider">${item.category}</span>
+                        <span id="accordion-icon-${index}" class="text-luxuryGold text-xs"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <div id="accordion-content-${index}" class="hidden pt-4 flex flex-wrap gap-2 animate-fadeIn">
+                        ${subButtonsHTML}
+                    </div>
+                `;
+                container.appendChild(itemDiv);
+            });
+        }
+
+        function toggleAccordionSection(idx) {
+            const block = document.getElementById(`accordion-content-${idx}`);
+            const icon = document.getElementById(`accordion-icon-${idx}`);
+            block.classList.toggle('hidden');
+            if (block.classList.contains('hidden')) {
+                icon.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+            } else {
+                icon.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+            }
+        }
+
+        function triggerArtClassPreview(name, parentCategory) {
+            document.getElementById('class-modal-title').innerText = name;
+            document.getElementById('class-modal-desc').innerText = `Handcrafted custom loops specifically calibrated for modern ${parentCategory}. Fully customizable dynamic thread densities.`;
+            document.getElementById('art-class-modal').classList.remove('hidden');
+        }
+
+        function toggleArtClassModal() {
+            document.getElementById('art-class-modal').classList.toggle('hidden');
+        }
+
+        // Simplified Live Specs calculation
         function updateLiveStudio() {
             const sizeSelector = document.getElementById('custom-size');
             if (!sizeSelector.value) return;
@@ -1202,58 +1232,25 @@
             window.open("https://wa.me/918140125772?text=" + encodeURIComponent(msg), '_blank');
         }
 
-        // Render String Art Types List & Modal Triggers
-        function renderStringArtTypesList() {
-            const container = document.getElementById('string-art-types-container');
-            container.innerHTML = '';
-
-            stringArtTypes.forEach((type, index) => {
-                const item = document.createElement('div');
-                item.className = 'glass-card p-5 space-y-3 cursor-pointer hover:border-luxuryGold/40 transition duration-300 flex flex-col justify-between';
-                item.onclick = () => openPatternSampleModal(index);
-                item.innerHTML = `
-                    <div class="space-y-2">
-                        <div class="flex items-center space-x-3">
-                            <span class="text-luxuryGold text-xl"><i class="${type.icon}"></i></span>
-                            <h4 class="font-serif text-base uppercase text-luxuryCream tracking-wide font-bold">${type.name}</h4>
-                        </div>
-                        <p class="text-[11px] text-gray-400 leading-relaxed">${type.desc}</p>
-                    </div>
-                    <div class="flex justify-between items-center pt-3 border-t border-luxuryGold/10 text-[10px] text-gray-400">
-                        <span>${type.nails}</span>
-                        <span class="text-luxuryGold font-semibold uppercase tracking-wider">View Sample <i class="fa-solid fa-angle-right ml-1"></i></span>
-                    </div>
-                `;
-                container.appendChild(item);
-            });
+        // Header Track Modal (Rule 1)
+        function toggleTrackModal() {
+            document.getElementById('track-modal').classList.toggle('hidden');
+            document.getElementById('track-result').classList.add('hidden');
         }
 
-        function openPatternSampleModal(index) {
-            const target = stringArtTypes[index];
-            document.getElementById('pattern-modal-title').innerText = target.name;
-            document.getElementById('pattern-modal-desc').innerText = target.desc;
-            
-            // Render an dynamic high density geometric mathematical sample string inside the circular preview box
-            const previewContainer = document.getElementById('pattern-vector-view');
-            previewContainer.innerHTML = generateStringArtVector(target.name + "seed_token_xyz");
-
-            document.getElementById('pattern-sample-modal').classList.remove('hidden');
-        }
-
-        function closePatternSampleModal() {
-            document.getElementById('pattern-sample-modal').classList.add('hidden');
-        }
-
-        // Tracking Simulation
         function trackArtwork() {
             const id = document.getElementById('order-track-id').value.trim();
             if (!id) {
                 alert('Please enter an Order ID.');
                 return;
             }
-
             document.getElementById('track-display-id').innerText = id;
             document.getElementById('track-result').classList.remove('hidden');
+        }
+
+        // Review Modal Operations (Rule 3)
+        function toggleReviewModal() {
+            document.getElementById('review-modal').classList.toggle('hidden');
         }
 
         // Product Details Modal
@@ -1263,10 +1260,7 @@
             if (!item) return;
 
             activeProductForCertificate = item;
-            
-            // Insert dynamic math vector visualization in slot
-            document.getElementById('modal-vector-slot').innerHTML = generateStringArtVector(item.id.toString(), 'w-4/5 aspect-square');
-
+            document.getElementById('modal-img').src = item.img;
             document.getElementById('modal-title').innerText = item.name;
             document.getElementById('modal-price').innerText = formatVal(item.price);
             document.getElementById('modal-desc').innerText = item.desc;
@@ -1380,30 +1374,30 @@
             window.open("https://wa.me/918140125772?text=" + encodeURIComponent(msg), '_blank');
         }
 
-        // Reviews System with Infinite Duplicated Loop for Continuous Scroller
+        // Infinite Horizontal Reviews Render Loop
         function renderReviews() {
             const container = document.getElementById('reviews-container');
             container.innerHTML = '';
 
-            // Double the list to maintain seamless infinite scroll animation loop without breaks
-            const dualList = [...reviews, ...reviews, ...reviews];
+            // Double data items to secure continuous loop with CSS marquee
+            const doubleList = [...reviews, ...reviews, ...reviews];
 
-            dualList.forEach(r => {
+            doubleList.forEach(r => {
                 const card = document.createElement('div');
-                card.className = 'glass-card p-6 space-y-3 shrink-0 w-80 inline-block whitespace-normal';
+                card.className = 'glass-card p-8 space-y-4 shrink-0 w-80 inline-block whitespace-normal';
                 
                 let stars = '';
                 for (let i = 0; i < r.rating; i++) stars += '<i class="fa-solid fa-star"></i>';
 
                 card.innerHTML = `
                     <div class="flex items-center justify-between">
-                        <div class="flex text-luxuryGold gap-1 text-[10px]">${stars}</div>
-                        <span class="text-[8px] uppercase tracking-widest text-emerald-500 flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> Verified</span>
+                        <div class="flex text-luxuryGold gap-1 text-xs">${stars}</div>
+                        <span class="text-[9px] uppercase tracking-widest text-emerald-500 flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> Verified</span>
                     </div>
-                    <p class="font-serif text-sm text-gray-300 italic">"${r.text}"</p>
+                    <p class="font-serif text-base text-gray-300 italic">"${r.text}"</p>
                     <div>
                         <h4 class="text-xs uppercase tracking-wider font-bold">${r.name}</h4>
-                        <p class="text-[8px] text-gray-500">Verified Collector</p>
+                        <p class="text-[9px] text-gray-500">Verified Collector</p>
                     </div>
                 `;
                 container.appendChild(card);
@@ -1422,6 +1416,7 @@
 
             document.getElementById('review-form-name').value = '';
             document.getElementById('review-form-text').value = '';
+            toggleReviewModal();
             showToast('Review submitted successfully');
         }
 
@@ -1453,10 +1448,6 @@
             }
         }
 
-        function toggleAdminPanel() {
-            showSection('home-view');
-        }
-
         function renderAdminProducts() {
             const list = document.getElementById('admin-products-list');
             list.innerHTML = '';
@@ -1484,9 +1475,10 @@
             const hours = document.getElementById('admin-p-hours').value;
             const nails = parseInt(document.getElementById('admin-p-nails').value);
             const threads = parseInt(document.getElementById('admin-p-threads').value);
+            const img = document.getElementById('admin-p-img').value;
             const desc = document.getElementById('admin-p-desc').value;
 
-            const newProduct = { id: Date.now(), name, category, price, hours, nails, threads, desc };
+            const newProduct = { id: Date.now(), name, category, price, hours, nails, threads, img, desc };
 
             products.push(newProduct);
             saveToStorage();
@@ -1508,10 +1500,10 @@
 
         // CSV DATA EXPORT / IMPORT ENGINE
         function exportCatalog() {
-            let csvContent = "data:text/csv;charset=utf-8,ID,Name,Category,Price,Hours,Nails,Threads,Description\n";
+            let csvContent = "data:text/csv;charset=utf-8,ID,Name,Category,Price,Hours,Nails,Threads,ImageURL,Description\n";
             products.forEach(p => {
                 let escapedDesc = `"${p.desc.replace(/"/g, '""')}"`;
-                csvContent += `${p.id},"${p.name}",${p.category},${p.price},"${p.hours}",${p.nails},${p.threads},${escapedDesc}\n`;
+                csvContent += `${p.id},"${p.name}",${p.category},${p.price},"${p.hours}",${p.nails},${p.threads},"${p.img}",${escapedDesc}\n`;
             });
             const encodedUri = encodeURI(csvContent);
             const link = document.createElement("a");
@@ -1542,7 +1534,7 @@
                     if (!row) continue;
                     
                     const cols = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
-                    if (cols.length >= 7) {
+                    if (cols.length >= 8) {
                         importedList.push({
                             id: parseInt(cols[0]) || Date.now() + i,
                             name: cols[1].replace(/"/g, ''),
@@ -1551,7 +1543,8 @@
                             hours: cols[4].replace(/"/g, ''),
                             nails: parseInt(cols[5]),
                             threads: parseInt(cols[6]),
-                            desc: cols[7] ? cols[7].replace(/"/g, '') : ""
+                            img: cols[7].replace(/"/g, ''),
+                            desc: cols[8] ? cols[8].replace(/"/g, '') : ""
                         });
                     }
                 }
