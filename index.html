@@ -638,20 +638,62 @@
 
     <!-- JavaScript Core Script -->
     <script>
-        // Dimensions Matrix - Ranging purely from 3 Feet (36 Inches) up to 12 Feet (144 Inches)
-        const dimensions = [36, 40, 42, 44, 48, 54, 60, 66, 72, 78, 80, 84, 90, 96, 108, 120, 132, 144];
+        // Dimensions Matrix - Ranging purely from 3 Feet (36 Inches) up to 8 Feet (96 Inches)
+        const dimensions = [36, 40, 42, 44, 48, 54, 60, 66, 72, 78, 80, 84, 90, 96];
         
         // 50+ Premium Thread formulation profiles
         const premiumThreads = [
-          const threadTypes = [
-    "Cotton Thread",
-    "Silk Thread",
-    "Polyester Thread",
-    "Embroidery Thread",
-    "Metallic Thread",
-    "Jute Thread",
-    "Nylon Thread",
-    "Glow in the Dark Thread"
+            "Pure Monochrome Obsidian (Matte Black Silk)",
+            "Alabaster White Organic Cotton Silk",
+            "Satin Silver lining Filament",
+            "Platinum Metallic Fine Wire",
+            "Imperial Brushed Gold Wire Formulation",
+            "Gilded Yellow Brass Thread",
+            "Burnished Antique Copper Wire",
+            "Rose Gold Copper Shimmer Blend",
+            "Saffron Orange Pure Spool",
+            "Royal Emerald Green Linen",
+            "Deep Jade Silk Spool",
+            "Sage Green Organic Weave",
+            "Teal Turquoise Symphony Spool",
+            "Midnight Sapphire Silk Cord",
+            "Cobalt Blue High-tension String",
+            "Prussian Sky Blue Cotton",
+            "Imperial Ruby Crimson Weave",
+            "Sunset Coral Dual-Tone formulation",
+            "Plum Purple Velvet Strand",
+            "Amethyst Violet Weave",
+            "Lavender Dusk Silk Spool",
+            "Warm Amber Linen Fiber",
+            "Espresso Oak Natural Cord",
+            "Rustic Unbleached Jute Strand",
+            "Warm Alabaster Silk Spool",
+            "Vintage Gold & Charcoal Hybrid Weave",
+            "Bronze & Platinum Dual-Spindle Strand",
+            "Smoked Quartz Gray Thread",
+            "Phosphorescent Neon Glow string",
+            "Holographic Aurora Spectral Fiber",
+            "Eggshell Cream Organic Woolen Blend",
+            "Pearl White Luster Monofilament",
+            "Gilded Topaz Yellow Weave",
+            "Chrysolite Green Metallic Weave",
+            "Azure Sky High-strength Thread",
+            "Deep Indigo Shadow-Map Cord",
+            "Burgundy Velvet Rich Formulation",
+            "Sienna Brown Earth Cotton",
+            "Tuscan Ochre Linen Spool",
+            "Duo-Tone Forest Mint & Teal",
+            "Tri-Tone Desert Clay Symphony",
+            "Prismatic Rainbow Silk Blend",
+            "Titanium Gray Tough Core Line",
+            "Platinum Plated Copper Wire Core",
+            "Warm Sand Luxury Linen",
+            "Ethereal Silver-Gold Hybrid String",
+            "Pitch Black High-Absorption Thread",
+            "Soft Rose Petal Silk Thread",
+            "Aegis Deep Sea Blue Protection String",
+            "Crystalline Clear Reflective Monofilament",
+            "Obsidian Black & Silver Core Duo"
         ];
 
         // Default Catalog Data Base (Used if localStorage is empty)
@@ -715,7 +757,7 @@
             },
             {
                 name: "Kavar K",
-                rating: 4,
+                rating: 5,
                 text: "Immensely detailed couple portrait. Excellent support during photo review selection on WhatsApp."
             }
         ];
@@ -932,10 +974,20 @@
             const previewBorder = document.getElementById('mockup-frame-border');
             const frameVal = frameSelector.value;
             
-       <option value="wood-black">Wood - Black</option>
-<option value="wood-white">Wood - White</option>
-<option value="pvc-black">PVC - Black</option>
-<option value="pvc-white">PVC - White</option>
+            if (frameVal === 'black') {
+                previewBorder.style.borderColor = '#111';
+            } else if (frameVal === 'gold') {
+                previewBorder.style.borderColor = '#d4af37';
+            } else if (frameVal === 'white') {
+                previewBorder.style.borderColor = '#eaeaea';
+            } else if (frameVal === 'walnut') {
+                previewBorder.style.borderColor = '#4a2c11';
+            } else if (frameVal === 'oak') {
+                previewBorder.style.borderColor = '#c29d66';
+            } else {
+                previewBorder.style.borderColor = '#333';
+            }
+        }
 
         // HIGH-FIDELITY LIVE VECTOR CHROMATIC SIMULATOR
         function generateSimulator(event) {
