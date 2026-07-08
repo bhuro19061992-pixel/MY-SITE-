@@ -1,285 +1,384 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="gu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>String Creations 03 | Premium Handmade Art</title>
-    <meta name="description" content="International Level Premium String Art & Custom Portraits">
+    <title>String Creations 03 | Elite Handmade String Art Portfolio</title>
     
-    <!-- SEO & Open Graph -->
-    <meta property="og:title" content="String Creations 03">
-    <meta property="og:image" content="hero-image-url.jpg">
-
-    <!-- Tailwind CSS (Direct CDN for GitHub) -->
+    <!-- SEO Master Configuration -->
+    <meta name="description" content="Discover premium, international-quality handmade string art custom creations. Elegant wooden frames, custom portraits, mandalas, and premium decor.">
+    <meta name="keywords" content="String Art, Handmade Art, Premium Decor, Custom String Art, String Creations 03, Luxury Art India">
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS & FontAwesome Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Premium Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Animation Library (AOS) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        black: '#0a0a0a',
-                        gold: '#D4AF37',
-                        darkgray: '#1a1a1a',
-                        cream: '#FDFBF7'
+                        luxuryBlack: '#0d0d0d',
+                        luxuryCharcoal: '#161616',
+                        luxuryGold: '#d4af37',
+                        luxuryGoldHover: '#b89428',
+                        luxuryCream: '#fbf9f5'
                     },
                     fontFamily: {
-                        sans: ['Marcellus', 'serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-
     <style>
-        /* Smooth Scroll & Custom Scrollbar */
-        html { scroll-behavior: smooth; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0a0a0a; }
-        ::-webkit-scrollbar-thumb { background: #D4AF37; }
-        
-        /* Glassmorphism Header */
+        html {
+            scroll-behavior: smooth;
+        }
         .glass-header {
-            background: rgba(10, 10, 10, 0.7);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            background: rgba(13, 13, 13, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-
-        /* Masonry Gallery */
-        .masonry {
-            column-count: 1;
-            column-gap: 1.5rem;
+        .glass-card {
+            background: rgba(22, 22, 22, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
         }
-        @media (min-width: 640px) { .masonry { column-count: 2; } }
-        @media (min-width: 1024px) { .masonry { column-count: 3; } }
-        .masonry-item {
-            break-inside: avoid;
-            margin-bottom: 1.5rem;
-            position: relative;
-            overflow: hidden;
-            border-radius: 4px;
+        ::-webkit-scrollbar {
+            width: 6px;
         }
-        .masonry-item img {
-            width: 100%;
-            transition: transform 0.7s ease;
+        ::-webkit-scrollbar-track {
+            background: #0d0d0d;
         }
-        .masonry-item:hover img {
-            transform: scale(1.05);
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
         }
-        .overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
-        }
-        .masonry-item:hover .overlay { opacity: 1; }
     </style>
 </head>
-<body class="bg-black text-cream antialiased selection:bg-gold selection:text-black">
+<body class="bg-luxuryBlack text-luxuryCream font-sans leading-relaxed selection:bg-luxuryGold selection:text-luxuryBlack">
 
-    <!-- Sticky Header -->
-    <header class="fixed w-full top-0 z-50 glass-header transition-all duration-300 py-4">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="text-2xl font-serif text-gold tracking-widest uppercase">String Creations 03</a>
-            <nav class="hidden md:flex space-x-8 text-sm tracking-widest text-gray-300">
-                <a href="#home" class="hover:text-gold transition">Home</a>
-                <a href="#gallery" class="hover:text-gold transition">Gallery</a>
-                <a href="#process" class="hover:text-gold transition">Our Process</a>
-                <a href="#custom-order" class="hover:text-gold transition">Custom Order</a>
+    <!-- Sticky Header (Matches Screen Shot Exactly) -->
+    <header class="fixed top-0 inset-x-0 z-50 glass-header border-b border-luxuryGold/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex flex-col">
+                <span class="font-serif text-2xl lg:text-3xl tracking-[0.15em] text-luxuryGold font-bold">STRING CREATIONS 03</span>
+                <span class="text-[9px] tracking-[0.3em] text-gray-400 uppercase">Masterpiece In Every Thread</span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8 text-xs uppercase tracking-[0.2em] font-medium">
+                <a href="#" class="hover:text-luxuryGold transition">Home</a>
+                <a href="#gallery-section" class="hover:text-luxuryGold transition">Gallery</a>
+                <a href="#custom-section" class="hover:text-luxuryGold transition">Custom Order</a>
+                <a href="#process-section" class="hover:text-luxuryGold transition">Our Process</a>
+                <a href="#reviews-section" class="hover:text-luxuryGold transition">Reviews</a>
             </nav>
-            <div class="flex space-x-4">
-                <a href="#" class="text-gray-300 hover:text-gold"><i class="fas fa-search"></i></a>
-                <a href="#" class="text-gray-300 hover:text-gold"><i class="fas fa-shopping-bag"></i></a>
+
+            <div class="flex items-center space-x-6">
+                <!-- Search Trigger -->
+                <button onclick="toggleSearch()" class="hover:text-luxuryGold transition text-lg">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <!-- Cart Trigger -->
+                <button onclick="toggleCart()" class="relative hover:text-luxuryGold transition text-lg">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-luxuryGold text-luxuryBlack text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- Fullscreen Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center text-center">
-        <!-- Background Image with Overlay -->
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=2070')] bg-cover bg-center opacity-40"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-        
-        <div class="relative z-10 px-6 max-w-4xl" data-aos="fade-up" data-aos-duration="1500">
-            <h4 class="text-gold tracking-[0.3em] uppercase text-sm mb-4">Masterpiece in Every Thread</h4>
-            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 text-white leading-tight">Luxury Handmade <br> String Art</h1>
-            <p class="text-gray-300 text-lg md:text-xl mb-10 font-sans">Crafting timeless portraits and abstract designs with thousands of threads and unwavering passion.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#gallery" class="px-8 py-4 bg-gold text-black font-bold uppercase tracking-wider hover:bg-white transition duration-300">Explore Collection</a>
-                <a href="#custom-order" class="px-8 py-4 border border-gold text-gold uppercase tracking-wider hover:bg-gold hover:text-black transition duration-300">Commission Artwork</a>
-            </div>
+    <!-- Global Search Overlay -->
+    <div id="search-overlay" class="fixed inset-0 bg-luxuryBlack/95 z-50 hidden flex flex-col justify-center items-center px-6">
+        <button onclick="toggleSearch()" class="absolute top-8 right-8 text-3xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
+        <div class="w-full max-w-2xl text-center space-y-4">
+            <h3 class="font-serif text-2xl text-luxuryGold">Search Curated Creations</h3>
+            <input type="text" id="search-input" onkeyup="handleSearch(event)" placeholder="Search by name, category, size..." class="w-full bg-transparent border-b-2 border-luxuryGold/40 text-2xl text-center py-4 text-luxuryCream focus:outline-none focus:border-luxuryGold tracking-wide">
+            <p class="text-xs text-gray-500 uppercase tracking-widest">Press Enter to search</p>
         </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i class="fas fa-chevron-down text-gold text-2xl"></i>
+    </div>
+
+    <!-- Hero Section (Visual Replica of Screenshot) -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Wallpaper Image with Dark Blur Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=1600" class="w-full h-full object-cover filter brightness-[0.25] blur-[2px]" alt="Background Art">
+            <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack via-transparent to-luxuryBlack/50"></div>
         </div>
-    </section>
 
-    <!-- Premium Trust Features -->
-    <section class="py-12 bg-darkgray border-y border-gray-800">
-        <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div data-aos="fade-up" data-aos-delay="100">
-                <i class="fas fa-gem text-gold text-3xl mb-3"></i>
-                <h3 class="text-sm tracking-widest uppercase">Premium Materials</h3>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="200">
-                <i class="fas fa-palette text-gold text-3xl mb-3"></i>
-                <h3 class="text-sm tracking-widest uppercase">100% Handmade</h3>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="300">
-                <i class="fas fa-certificate text-gold text-3xl mb-3"></i>
-                <h3 class="text-sm tracking-widest uppercase">Authenticity Certified</h3>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="400">
-                <i class="fas fa-globe text-gold text-3xl mb-3"></i>
-                <h3 class="text-sm tracking-widest uppercase">Global Shipping</h3>
-            </div>
-        </div>
-    </section>
-
-    <!-- Masonry Gallery Section -->
-    <section id="gallery" class="py-24 bg-black">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-in">
-                <h2 class="text-4xl md:text-5xl font-serif text-white mb-4">Curated Gallery</h2>
-                <div class="w-16 h-1 bg-gold mx-auto mb-6"></div>
-                <p class="text-gray-400">Limited edition and custom commissioned artworks.</p>
-                
-                <!-- Category Filter -->
-                <div class="flex flex-wrap justify-center gap-4 mt-8">
-                    <button class="text-gold border-b-2 border-gold pb-1 px-2">All</button>
-                    <button class="text-gray-500 hover:text-gold transition px-2">Portraits</button>
-                    <button class="text-gray-500 hover:text-gold transition px-2">Mandala</button>
-                    <button class="text-gray-500 hover:text-gold transition px-2">Logos</button>
-                </div>
-            </div>
-
-            <!-- CSS Masonry Grid -->
-            <div class="masonry">
-                <!-- Art Item 1 -->
-                <div class="masonry-item" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=800" alt="String Art 1">
-                    <div class="overlay">
-                        <div>
-                            <h3 class="text-white text-xl font-serif">Royal Mandala</h3>
-                            <p class="text-gold text-sm">₹8,500 / $105</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Art Item 2 -->
-                <div class="masonry-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1600174297956-c6d4d9998f14?q=80&w=800" alt="String Art 2">
-                    <div class="overlay">
-                        <div>
-                            <h3 class="text-white text-xl font-serif">Custom Couple Portrait</h3>
-                            <p class="text-gold text-sm">Custom Order</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Art Item 3 -->
-                <div class="masonry-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800" alt="String Art 3">
-                    <div class="overlay">
-                        <div>
-                            <h3 class="text-white text-xl font-serif">Abstract Geometry</h3>
-                            <p class="text-gold text-sm">₹5,000 / $60</p>
-                        </div>
-                    </div>
-                </div>
-                 <!-- Art Item 4 -->
-                 <div class="masonry-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800" alt="String Art 4">
-                    <div class="overlay">
-                        <div>
-                            <h3 class="text-white text-xl font-serif">Corporate Logo</h3>
-                            <p class="text-gold text-sm">Custom Order</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-8">
+            <span class="text-luxuryGold font-serif tracking-[0.4em] text-xs uppercase block">MASTERPIECE IN EVERY THREAD</span>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-luxuryCream leading-none font-medium">
+                Luxury Handmade <br><span class="italic font-light">String Art</span>
+            </h1>
+            <p class="text-gray-300 max-w-3xl mx-auto text-sm md:text-base tracking-wide font-light leading-relaxed">
+                Crafting timeless portraits and abstract designs with thousands of threads and unwavering passion.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 pt-4">
+                <a href="#gallery-section" class="w-full sm:w-auto bg-[#d4af37] hover:bg-[#b89428] text-luxuryBlack px-8 py-4 uppercase tracking-[0.2em] text-xs font-bold transition duration-300">
+                    Explore Collection
+                </a>
+                <a href="#custom-section" class="w-full sm:w-auto border border-luxuryGold/50 hover:border-luxuryGold text-luxuryGold hover:text-luxuryCream px-8 py-4 uppercase tracking-[0.2em] text-xs font-bold transition duration-300">
+                    Commission Artwork
+                </a>
             </div>
             
-            <div class="text-center mt-12">
-                <a href="#" class="inline-block border border-gray-600 text-white px-8 py-3 uppercase tracking-widest hover:border-gold hover:text-gold transition">View Full Gallery</a>
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+                <a href="#gallery-section" class="text-luxuryGold hover:text-luxuryCream transition text-2xl">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Custom Order Call to Action -->
-    <section id="custom-order" class="py-24 bg-darkgray relative overflow-hidden">
-        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2" data-aos="fade-right">
-                <h2 class="text-4xl font-serif text-white mb-6">Commission Your Own Masterpiece</h2>
-                <p class="text-gray-400 mb-8 leading-relaxed">Turn your favorite memories, photos, or logos into a stunning, one-of-a-kind string art. Perfect for luxury gifting or premium home decor.</p>
-                <ul class="space-y-4 mb-8 text-gray-300">
-                    <li><i class="fas fa-check text-gold mr-3"></i> AI Pre-visualization Available</li>
-                    <li><i class="fas fa-check text-gold mr-3"></i> Choose Custom Frame & Size</li>
-                    <li><i class="fas fa-check text-gold mr-3"></i> Certificate of Authenticity Included</li>
-                </ul>
-                <a href="https://wa.me/918140125772?text=Hello%20String%20Creations%2003,%20I%20want%20to%20place%20a%20custom%20order." class="bg-gold text-black px-8 py-4 font-bold uppercase tracking-wider hover:bg-white transition inline-block">Start Custom Order</a>
+    <!-- Curated Gallery & Portfolio -->
+    <section id="gallery-section" class="py-24 bg-luxuryCharcoal/30">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 space-y-2">
+                <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase">Curated Catalog</span>
+                <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream">The Masterpiece Gallery</h2>
+                <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
             </div>
-            <div class="md:w-1/2" data-aos="fade-left">
-                <div class="border border-gold p-4 relative">
-                    <div class="absolute -inset-4 border border-gray-700"></div>
-                    <img src="https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=800" alt="Making Process" class="w-full grayscale hover:grayscale-0 transition duration-500">
+
+            <!-- Filter Controls -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button onclick="filterGallery('all')" class="gallery-filter-btn active px-6 py-2 border border-luxuryGold text-[11px] uppercase tracking-widest text-luxuryGold bg-luxuryGold/10 transition">All Masterpieces</button>
+                <button onclick="filterGallery('portrait')" class="gallery-filter-btn px-6 py-2 border border-transparent text-[11px] uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition">Portraits</button>
+                <button onclick="filterGallery('mandala')" class="gallery-filter-btn px-6 py-2 border border-transparent text-[11px] uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition">Mandalas</button>
+                <button onclick="filterGallery('custom')" class="gallery-filter-btn px-6 py-2 border border-transparent text-[11px] uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition">Corporate & Custom</button>
+            </div>
+
+            <!-- Dynamic Grid (Updated from local storage if admin updates it) -->
+            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Fallback items if storage is empty - dynamically built by script -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Customization Suite (AI / Live Mockup Studio) -->
+    <section id="custom-section" class="py-24 bg-luxuryBlack border-t border-luxuryGold/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 space-y-2">
+                <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase">Interactive Creation Studio</span>
+                <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream">Commission Custom Art</h2>
+                <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- Customization Form -->
+                <div class="lg:col-span-5 glass-card p-8 space-y-6">
+                    <h3 class="font-serif text-xl text-luxuryGold tracking-wide">Configure Specifications</h3>
+                    
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Canvas Archetype & Size</label>
+                        <select id="custom-size" onchange="updateLiveStudio()" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
+                            <option value="A4" data-price="2500" data-nails="220" data-threads="1500">Premium Portrait A4 (8" x 12")</option>
+                            <option value="A3" data-price="4500" data-nails="350" data-threads="2500" selected>Premium Portrait A3 (12" x 16")</option>
+                            <option value="Square" data-price="6500" data-nails="420" data-threads="3800">Sacred Square Mandala (18" x 18")</option>
+                            <option value="Grand" data-price="12000" data-nails="600" data-threads="6500">Grand Legacy Canvas (24" x 36")</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Frame Aesthetics</label>
+                        <select id="custom-frame" onchange="updateLiveStudio()" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
+                            <option value="none" data-price="0">No Frame (Hand-wrapped Edge)</option>
+                            <option value="black" data-price="500" selected>Matte Obsidian Black (+ ₹500)</option>
+                            <option value="gold" data-price="850">Brushed Imperial Gold (+ ₹850)</option>
+                            <option value="white" data-price="500">Warm Alabaster White (+ ₹500)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Thread Formulation</label>
+                        <select id="custom-thread" onchange="updateLiveStudio()" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
+                            <option value="monochrome" data-price="0">Monochrome Silk Finish</option>
+                            <option value="color" data-price="1000">Vibrant Symphony (+ ₹1,000)</option>
+                            <option value="metallic" data-price="1500">Gilded Metallic Wire Finish (+ ₹1,500)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Upload Reference Portrait</label>
+                        <div class="border border-dashed border-luxuryGold/20 hover:border-luxuryGold p-6 text-center cursor-pointer relative transition duration-300 bg-luxuryBlack/50">
+                            <input type="file" id="custom-image-input" accept="image/*" onchange="handleMockupUpload(event)" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                            <i class="fa-solid fa-cloud-arrow-up text-luxuryGold text-2xl mb-2"></i>
+                            <p class="text-[10px] text-gray-400 uppercase tracking-widest">Upload Portrait Image</p>
+                        </div>
+                    </div>
+
+                    <!-- Tech Specs -->
+                    <div class="border-t border-luxuryGold/10 pt-4 space-y-2 text-[11px] uppercase tracking-wider text-gray-400">
+                        <div class="flex justify-between">
+                            <span>Precision Nail Points:</span>
+                            <span id="studio-nails" class="text-luxuryCream font-bold">350 Nails</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Calculated Thread Loop:</span>
+                            <span id="studio-threads" class="text-luxuryCream font-bold">~2,500 Meters</span>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-luxuryGold/10 pt-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs uppercase tracking-wider text-gray-400">Total Estimate:</span>
+                            <span id="studio-price" class="font-serif text-3xl text-luxuryGold font-bold">₹5,000</span>
+                        </div>
+                        <button onclick="dispatchCustomOrder()" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack text-center py-4 font-bold text-xs uppercase tracking-widest transition">
+                            Submit Design to Artist
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Virtualizer Preview -->
+                <div class="lg:col-span-7 flex flex-col items-center justify-center space-y-6">
+                    <span class="text-[11px] uppercase tracking-widest text-gray-400">Visualizer Mockup Frame</span>
+                    
+                    <div id="mockup-frame-border" class="relative w-full max-w-[420px] aspect-[3/4] bg-neutral-900 border-[18px] border-neutral-800 shadow-2xl transition-all duration-300 flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-neutral-800 to-neutral-950 flex items-center justify-center p-6">
+                            <!-- Visualizer Grid Canvas -->
+                            <div class="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,_transparent_1px),_linear-gradient(90deg,_rgba(255,255,255,0.05)_1px,_transparent_1px)] bg-[size:10px_10px]"></div>
+                            
+                            <div class="relative w-full h-full flex items-center justify-center">
+                                <div id="mockup-placeholder" class="text-center p-4">
+                                    <i class="fa-solid fa-bezier-curve text-luxuryGold text-3xl mb-4 animate-pulse"></i>
+                                    <p class="font-serif text-sm text-gray-400 italic">Please upload an image to simulate manual thread looping representation.</p>
+                                </div>
+                                <img id="mockup-img" class="hidden w-full h-full object-cover filter grayscale contrast-125 opacity-75 mix-blend-screen" src="" alt="Art Mockup">
+                                
+                                <!-- Thread simulation SVG overlay -->
+                                <div id="mockup-svg-overlay" class="absolute inset-0 pointer-events-none opacity-40 mix-blend-overlay hidden">
+                                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="10%" y1="10%" x2="90%" y2="90%" stroke="#fff" stroke-width="0.3"/>
+                                        <line x1="90%" y1="10%" x2="10%" y2="90%" stroke="#fff" stroke-width="0.3"/>
+                                        <line x1="50%" y1="0%" x2="50%" y2="100%" stroke="#fff" stroke-width="0.3"/>
+                                        <line x1="0%" y1="50%" x2="100%" y2="50%" stroke="#fff" stroke-width="0.3"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-black py-12 border-t border-gray-900">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-2xl font-serif text-gold tracking-widest uppercase mb-6">String Creations 03</h2>
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="#" class="text-gray-500 hover:text-gold text-xl transition"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-gray-500 hover:text-gold text-xl transition"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="text-gray-500 hover:text-gold text-xl transition"><i class="fab fa-youtube"></i></a>
+    <!-- Our Handcrafting Process Section -->
+    <section id="process-section" class="py-24 bg-luxuryCharcoal/30 border-t border-luxuryGold/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 space-y-2">
+                <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase">Unwavering Commitment</span>
+                <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream">The Handcrafting Process</h2>
+                <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
             </div>
-            <p class="text-gray-600 text-sm tracking-widest">© 2024 STRING CREATIONS 03. ALL RIGHTS RESERVED.</p>
-            <p class="text-gray-700 text-xs mt-2">Premium Artworks Shipped Worldwide</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="glass-card p-8 space-y-4">
+                    <span class="font-serif text-4xl text-luxuryGold font-light">01</span>
+                    <h3 class="font-serif text-xl text-luxuryCream uppercase tracking-wider">Board Selection & Priming</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Each wooden base is hand-selected, verified for zero warping, sanded, and coated with protective matte sealers.</p>
+                </div>
+                <div class="glass-card p-8 space-y-4">
+                    <span class="font-serif text-4xl text-luxuryGold font-light">02</span>
+                    <h3 class="font-serif text-xl text-luxuryCream uppercase tracking-wider">Manual Nail Mapping</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Nails are placed with extreme mathematical layout accuracy, hammered by hand with optimal depth uniformity.</p>
+                </div>
+                <div class="glass-card p-8 space-y-4">
+                    <span class="font-serif text-4xl text-luxuryGold font-light">03</span>
+                    <h3 class="font-serif text-xl text-luxuryCream uppercase tracking-wider">Threading & Sealing</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">The delicate process of string weaving, using thousands of loops to formulate shadows, tone depth, and precision imagery.</p>
+                </div>
+            </div>
         </div>
-    </footer>
+    </section>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/91YOURNUMBER" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_0_15px_rgba(34,197,94,0.5)] hover:scale-110 transition z-50">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- Track Order Progress Simulation -->
+    <section class="py-20 bg-luxuryBlack border-y border-luxuryGold/10">
+        <div class="max-w-3xl mx-auto px-6 text-center space-y-6">
+            <h3 class="font-serif text-2xl text-luxuryGold">Track Artwork Progress</h3>
+            <p class="text-xs text-gray-400 uppercase tracking-widest">Enter your custom order reference ID to view real-time threading phases.</p>
+            <div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <input type="text" id="order-track-id" placeholder="e.g., SC03-2415" class="flex-1 bg-luxuryCharcoal border border-luxuryGold/20 px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold text-center uppercase tracking-widest text-luxuryCream">
+                <button onclick="trackArtwork()" class="bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack px-8 py-3 text-xs uppercase tracking-widest font-bold transition">Track Status</button>
+            </div>
+            
+            <!-- Result Area -->
+            <div id="track-result" class="hidden glass-card p-6 text-left space-y-6 animate-fadeIn">
+                <div class="flex justify-between items-center border-b border-luxuryGold/15 pb-4">
+                    <span class="text-xs text-gray-400">Order ID: <b class="text-luxuryGold uppercase" id="track-display-id"></b></span>
+                    <span class="text-xs text-luxuryGold font-semibold">Current Phase: <span id="track-display-phase" class="text-luxuryCream font-bold">Threading Loop</span></span>
+                </div>
+                <div class="grid grid-cols-3 gap-2 text-center text-[10px] uppercase tracking-wider">
+                    <div class="p-3 bg-luxuryGold/10 border border-luxuryGold/30 text-luxuryGold rounded">1. Board Mapping</div>
+                    <div id="track-step-2" class="p-3 bg-luxuryGold/10 border border-luxuryGold/30 text-luxuryGold rounded">2. Weaving Threads</div>
+                    <div id="track-step-3" class="p-3 bg-neutral-900 text-gray-600 rounded">3. Packing & Seal</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize Animations
-        AOS.init({
-            once: true, // Animation happens only once
-            offset: 100,
-        });
+    <!-- Verified Reviews / Collector Stories Section -->
+    <section id="reviews-section" class="py-24 bg-luxuryCharcoal/30">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 space-y-2">
+                <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase">Collector Testimonials</span>
+                <h2 class="font-serif text-3xl md:text-5xl text-luxuryCream">Collector Stories</h2>
+                <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
+            </div>
 
-        // Sticky Header Effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if(window.scrollY > 50) {
-                header.classList.add('py-2');
-                header.classList.remove('py-4');
-            } else {
-                header.classList.add('py-4');
-                header.classList.remove('py-2');
-            }
-        });
-    </script>
-</body>
-</html>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="reviews-container">
+                <!-- Built dynamically from script -->
+            </div>
+
+            <!-- Submit Review Form -->
+            <div class="max-w-xl mx-auto glass-card p-8 mt-16">
+                <h3 class="font-serif text-xl text-luxuryGold text-center mb-6">Submit Your Experience</h3>
+                <form onsubmit="handleReviewSubmit(event)" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Your Name</label>
+                            <input type="text" id="review-form-name" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-4 py-2 text-xs focus:outline-none focus:border-luxuryGold text-luxuryCream">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Stars Selection</label>
+                            <select id="review-form-rating" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-4 py-2 text-xs focus:outline-none focus:border-luxuryGold text-luxuryCream">
+                                <option value="5">⭐⭐⭐⭐⭐ 5 Stars</option>
+                                <option value="4">⭐⭐⭐⭐ 4 Stars</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Detailed Review</label>
+                        <textarea id="review-form-text" required rows="4" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-4 py-2 text-xs focus:outline-none focus:border-luxuryGold text-luxuryCream"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack py-3 text-xs uppercase tracking-widest font-bold transition">Publish Experience</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Product Details Popup Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-luxuryBlack/90 z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="glass-card max-w-4xl w-full p-6 sm:p-8 relative grid grid-cols-1 md:grid-cols-2 gap-8 my-8 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="flex items-center justify-center bg-neutral-900 rounded border border-luxuryGold/10 p-2">
+                <img id="modal-img" src="" class="w-full aspect-square object-cover" alt="Art Detail">
+            </div>
+            
+            <div class="space-y-6 flex flex-col justify-between">
+                <div>
+                    <span id="modal-tag" class="text-luxuryGold font-serif tracking-widest text-[10px] uppercase">Original Masterpiece</span>
+                    <h3 id="modal-title" class="font-serif text-3xl text-luxuryCream mt-1">Symphony of Grace</h3>
+                    <p id="modal-price" class="text-2xl text-luxuryGold font-bold font-serif mt-2">₹4,499</p>
+                    <p id="modal-desc" class="text-xs text-gray-400 mt-4 leading-relaxed"></p>
+                </div>
+                
+                <div class="border-t border-luxuryGold/10 pt-4
