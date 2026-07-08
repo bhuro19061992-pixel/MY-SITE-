@@ -39,26 +39,70 @@
         }
     </script>
     <style>
-        html { scroll-behavior: smooth; }
-        .glass-header { background: rgba(10, 10, 10, 0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .glass-card { background: rgba(22, 22, 22, 0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(212, 175, 55, 0.12); }
-        .brand-string { background: linear-gradient(135deg, #3ad5e0 0%, #1a82e2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .brand-creations { background: linear-gradient(135deg, #1a82e2 0%, #7a1ae2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .brand-03 { background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 50%, #71717a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .logo-glowing-effect { filter: drop-shadow(0px 2px 10px rgba(26, 130, 226, 0.3)); }
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #0d0d0d; }
-        ::-webkit-scrollbar-thumb { background: #1a82e2; }
-        /* Infinite Marquee Animation for Reviews */
-        .marquee-container { overflow: hidden; white-space: nowrap; position: relative; width: 100%; }
-        .marquee-content { display: inline-flex; animation: marquee 35s linear infinite; }
-        .marquee-content:hover { animation-play-state: paused; }
+        html {
+            scroll-behavior: smooth;
+        }
+        .glass-header {
+            background: rgba(10, 10, 10, 0.94);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-card {
+            background: rgba(22, 22, 22, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.12);
+        }
+        .brand-string {
+            background: linear-gradient(135deg, #3ad5e0 0%, #1a82e2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .brand-creations {
+            background: linear-gradient(135deg, #1a82e2 0%, #7a1ae2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .brand-03 {
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 50%, #71717a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo-glowing-effect {
+            filter: drop-shadow(0px 2px 10px rgba(26, 130, 226, 0.3));
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0d0d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a82e2;
+        }
+        /* Continuous Infinite Horizontal Scrolling Reviews */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+        }
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 35s linear infinite;
+        }
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
-        /* Steps active looping config */
-        .process-step-card, .heritage-step-card { display: none !important; }
+        /* Steps progressive loop transitions */
+        .process-step-card, .heritage-step-card {
+            display: none !important;
+        }
         .process-step-card.active-reveal, .heritage-step-card.active-reveal {
             display: block !important;
             margin: 0 auto;
@@ -103,21 +147,20 @@
             <div class="flex items-center space-x-4 lg:space-x-6">
                 <!-- Language Switcher -->
                 <div class="flex items-center space-x-1 text-[10px] uppercase tracking-wider text-gray-400 border-r border-luxuryGold/20 pr-3">
-                    <select id="language-switcher" onchange="switchLanguage()" class="bg-transparent text-luxuryCream focus:outline-none cursor-pointer font-bold">
+                    <select id="language-switcher" onchange="switchLanguage()" class="bg-transparent text-luxuryCream focus:outline-none cursor-pointer font-bold font-sans">
                         <option value="EN" class="bg-luxuryBlack">🇺🇸 EN</option>
                         <option value="GU" class="bg-luxuryBlack">🇮🇳 ગુજ</option>
-                        <option value="HI" class="bg-luxuryBlack">🇮🇳 હિન્દી</option>
+                        <option value="HI" class="bg-luxuryBlack">🇮🇳 हिन्दी</option>
                     </select>
                 </div>
-                <!-- Currency Switchers -->
+                <!-- Currency Switcher -->
                 <div class="flex items-center space-x-1 text-[10px] uppercase tracking-wider text-gray-400 border-r border-luxuryGold/20 pr-3">
-                    <select id="currency-switcher" onchange="switchCurrency()" class="bg-transparent text-luxuryCream focus:outline-none cursor-pointer">
+                    <select id="currency-switcher" onchange="switchCurrency()" class="bg-transparent text-luxuryCream focus:outline-none cursor-pointer font-sans">
                         <option value="INR" class="bg-luxuryBlack">₹ INR</option>
                         <option value="USD" class="bg-luxuryBlack">$ USD</option>
                         <option value="EUR" class="bg-luxuryBlack">€ EUR</option>
                     </select>
                 </div>
-                <!-- Track Order Trigger Link -->
                 <button onclick="toggleTrackModal()" class="text-[10px] uppercase tracking-wider text-luxuryGold font-bold hover:text-luxuryCream transition">
                     <i class="fa-solid fa-truck-fast mr-1"></i> <span data-i18n="track_order_btn">Track Order</span>
                 </button>
@@ -126,7 +169,7 @@
                 </button>
                 <button onclick="toggleCart()" class="relative hover:text-luxuryGold transition text-lg">
                     <i class="fa-solid fa-bag-shopping"></i>
-                    <span id="cart-count" class="absolute -top-2 -right-2 bg-luxuryGold text-luxuryBlack text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-luxuryGold text-luxuryBlack text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center font-sans">0</span>
                 </button>
             </div>
         </div>
@@ -194,12 +237,12 @@
                     <button onclick="filterGallery('custom')" class="gallery-filter-btn px-6 py-2 border border-transparent text-[11px] uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition" data-i18n="filter_corporate">Corporate & Custom</button>
                     
                     <!-- Dropdown Trigger aligned next to Corporate (Rule 1) -->
-                    <div class="relative inline-block text-left" id="more-styles-wrapper">
+                    <div class="relative inline-block text-left font-sans" id="more-styles-wrapper">
                         <button onclick="toggleMoreStylesDropdown(event)" class="gallery-filter-btn px-6 py-2 border border-transparent text-[11px] uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition flex items-center gap-1.5 focus:outline-none">
                             <span data-i18n="more_styles">More Art Styles</span> <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-200" id="dropdown-arrow"></i>
                         </button>
                         <div id="more-styles-dropdown" class="hidden absolute left-0 sm:right-0 mt-3 w-72 sm:w-80 max-h-96 overflow-y-auto bg-luxuryCharcoal border border-luxuryGold/25 rounded-md shadow-2xl z-50 p-4 space-y-4">
-                            <!-- Populated via JavaScript dynamically -->
+                            <!-- Populated dynamically inside JS -->
                         </div>
                     </div>
                 </div>
@@ -208,7 +251,7 @@
             </div>
         </section>
 
-        <!-- Our Handcrafting Process Section -->
+        <!-- Creation Process -->
         <section id="process-section" class="py-24 bg-luxuryCharcoal/30 border-t border-luxuryGold/10">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="text-center mb-16 space-y-2">
@@ -295,35 +338,35 @@
                             <p class="text-xs text-gray-300 max-w-md mx-auto">Securing the base starter knot onto anchor nails.</p>
                         </div>
                         <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase">Step 8: Geometric Weaving</h4>
+                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 8: Geometric Weaving</h4>
                             <p class="text-xs text-gray-300 max-w-md mx-auto">Interlacing threads across coordinates over long artisan sessions.</p>
                         </div>
                         <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase">Step 9: Layer Splitting</h4>
+                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 9: Layer Splitting</h4>
                             <p class="text-xs text-gray-300 max-w-md mx-auto">Individually overlaying dark and light layers to finalize shadow densities.</p>
                         </div>
                         <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase">Step 10: Tension Realignment</h4>
+                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 10: Tension Realignment</h4>
                             <p class="text-xs text-gray-300 max-w-md mx-auto">Tightening loose strands and concealing final structural knots.</p>
                         </div>
                         <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase">Step 11: Surface Restoration</h4>
+                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 11: Surface Restoration</h4>
                             <p class="text-xs text-gray-300 max-w-md mx-auto">Vacuuming lint and applying finishing polishes onto wood margins.</p>
                         </div>
                         <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase">Step 12: Protective Framing</h4>
+                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 12: Protective Framing</h4>
                             <p class="text-xs text-gray-300 max-w-md mx-auto">Encasing the board with premium custom wooden configurations.</p>
                         </div>
                         <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase">Step 13: Mounting Setup</h4>
+                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 13: Mounting Setup</h4>
                             <p class="text-xs text-gray-300 max-w-md mx-auto">Affixing heavy-duty steel mounting fixtures and hanging wires.</p>
                         </div>
                         <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase">Step 14: Certificate Registry</h4>
+                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 14: Certificate Registry</h4>
                             <p class="text-xs text-gray-300 max-w-md mx-auto">Validating thread tightness and pasting the signed Certificate of Authenticity seal.</p>
                         </div>
                         <div class="heritage-step-card glass-card p-8 text-center space-y-4">
-                            <h4 class="font-serif text-lg text-luxuryGold uppercase">Step 15: Museum Packing</h4>
+                            <h4 class="font-serif text-lg text-luxuryGold uppercase font-bold">Step 15: Museum Packing</h4>
                             <p class="text-xs text-gray-300 max-w-md mx-auto">Wrapping in protective paper layers and shipping in secure, shockproof boxing.</p>
                         </div>
                     </div>
@@ -339,13 +382,13 @@
                 <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
             </div>
 
-            <!-- Auto Scrolling Carousel -->
+            <!-- Auto Scrolling Line -->
             <div class="marquee-container w-full py-4">
                 <div class="marquee-content space-x-8" id="reviews-container"></div>
             </div>
 
             <div class="text-center mt-12">
-                <button onclick="toggleReviewModal()" class="bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack px-8 py-3 text-xs uppercase tracking-widest font-bold transition" data-i18n="write_review">
+                <button onclick="toggleReviewModal()" class="bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack px-8 py-3 text-xs uppercase tracking-widest font-bold transition font-sans" data-i18n="write_review">
                     <i class="fa-solid fa-pen-nib mr-2"></i> Submit Your Experience
                 </button>
             </div>
@@ -361,18 +404,18 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <!-- Left Side Specs (Symmetric Half) -->
+            <!-- Left Config Panel -->
             <div class="lg:col-span-6 glass-card p-8 space-y-6">
                 <h3 class="font-serif text-xl text-luxuryGold tracking-wide" data-i18n="specs_title">Configure Specifications</h3>
                 
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2" data-i18n="size_label">Canvas Archetype & Size</label>
-                    <select id="custom-size" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold"></select>
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2 font-sans" data-i18n="size_label">Canvas Archetype & Size</label>
+                    <select id="custom-size" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold font-sans"></select>
                 </div>
 
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2" data-i18n="frame_label">Frame Aesthetics</label>
-                    <select id="custom-frame" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2 font-sans" data-i18n="frame_label">Frame Aesthetics</label>
+                    <select id="custom-frame" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold font-sans">
                         <option value="wood-black" selected>Wood - Black</option>
                         <option value="wood-white">Wood - White</option>
                         <option value="pvc-brown">PVC - Brown</option>
@@ -381,10 +424,10 @@
                     </select>
                 </div>
 
-                <!-- Thread Types Checkboxes -->
+                <!-- checklist threads -->
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2" data-i18n="thread_label">Select Thread Types</label>
-                    <div class="grid grid-cols-2 gap-2 bg-luxuryBlack/50 p-3 border border-luxuryGold/10 max-h-36 overflow-y-auto text-[11px]">
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2 font-sans" data-i18n="thread_label">Select Thread Types</label>
+                    <div class="grid grid-cols-2 gap-2 bg-luxuryBlack/50 p-3 border border-luxuryGold/10 max-h-36 overflow-y-auto text-[11px] font-sans">
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
                             <input type="checkbox" name="custom-threads" value="Cotton Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
                             <span>Cotton Thread</span>
@@ -415,15 +458,15 @@
                         </label>
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
                             <input type="checkbox" name="custom-threads" value="Glow in the Dark Thread" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
-                            <span>Glow in the Dark</span>
+                            <span>Glow in Dark</span>
                         </label>
                     </div>
                 </div>
 
-                <!-- Colors Checkboxes -->
+                <!-- checklist colors -->
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2" data-i18n="color_label">Select Art Colors</label>
-                    <div class="grid grid-cols-2 gap-2 bg-luxuryBlack/50 p-3 border border-luxuryGold/10 max-h-36 overflow-y-auto text-[11px]">
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2 font-sans" data-i18n="color_label">Select Art Colors</label>
+                    <div class="grid grid-cols-2 gap-2 bg-luxuryBlack/50 p-3 border border-luxuryGold/10 max-h-36 overflow-y-auto text-[11px] font-sans">
                         <label class="flex items-center space-x-2 cursor-pointer py-1 text-gray-300 hover:text-luxuryGold">
                             <input type="checkbox" name="custom-colors" value="Gold" class="rounded border-luxuryGold/40 bg-luxuryBlack text-luxuryGold">
                             <span>Gold</span>
@@ -463,16 +506,16 @@
                     </div>
                 </div>
 
-                <!-- Custom Details Message Area -->
+                <!-- instructions details -->
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2" data-i18n="details_label">Additional Custom Details & Instructions</label>
-                    <textarea id="custom-details-msg" rows="4" placeholder="Enter custom names, dates, references or specific color requirements here..." data-i18n-placeholder="details_placeholder" class="w-full bg-luxuryBlack border border-luxuryGold/20 p-3 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold placeholder-gray-600"></textarea>
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2 font-sans" data-i18n="details_label">Additional Custom Details & Instructions</label>
+                    <textarea id="custom-details-msg" rows="4" placeholder="Enter custom requirements..." data-i18n-placeholder="details_placeholder" class="w-full bg-luxuryBlack border border-luxuryGold/20 p-3 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold placeholder-gray-600 font-sans"></textarea>
                 </div>
 
                 <div class="border-t border-luxuryGold/10 pt-4">
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-xs uppercase tracking-wider text-gray-400" data-i18n="pricing_form">Pricing Formulation:</span>
-                        <span class="font-serif text-sm text-luxuryGold font-bold uppercase tracking-widest" data-i18n="pricing_val">Custom Quote on WhatsApp</span>
+                        <span class="font-serif text-sm text-luxuryGold font-bold uppercase tracking-widest font-sans" data-i18n="pricing_val">Custom Quote on WhatsApp</span>
                     </div>
                     <button onclick="dispatchCustomOrder()" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack text-center py-4 font-bold text-xs uppercase tracking-widest transition" data-i18n="submit_to_artist">
                         Submit Design to Artist
@@ -480,7 +523,7 @@
                 </div>
             </div>
 
-            <!-- Right Half Screen: Directory Accordion (Symmetric Half) -->
+            <!-- Right Half Screen Directory Index (Symmetric Split) -->
             <div class="lg:col-span-6 space-y-6 glass-card p-8">
                 <div class="border-b border-luxuryGold/10 pb-4 flex justify-between items-center">
                     <h3 class="font-serif text-xl text-luxuryGold uppercase tracking-wide" data-i18n="directory_title">Main Types of String Art</h3>
@@ -492,7 +535,7 @@
         </div>
     </div>
 
-    <!-- VIEW C: SECURED ADMINISTRATIVE CONTROL CENTRE -->
+    <!-- Secured Admin Suite -->
     <div id="admin-view" class="app-route-view hidden min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto">
         <div class="flex justify-between items-center mb-10 border-b border-luxuryGold/20 pb-4">
             <h2 class="font-serif text-2xl text-luxuryGold tracking-wider uppercase">Secured Executive Admin Suite</h2>
@@ -519,10 +562,10 @@
                 </div>
             </div>
 
-            <!-- Product Manager Form -->
+            <!-- Product Manager Creator -->
             <div class="lg:col-span-6 glass-card p-8 space-y-6">
                 <h3 class="font-serif text-lg text-luxuryGold border-b border-luxuryGold/10 pb-4">Add Portfolio Artwork</h3>
-                <form onsubmit="handleAdminAddProduct(event)" class="space-y-3">
+                <form onsubmit="handleAdminAddProduct(event)" class="space-y-3 font-sans">
                     <div>
                         <label class="block text-[10px] uppercase text-gray-400">Artwork Name</label>
                         <input type="text" id="admin-p-name" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream">
@@ -584,13 +627,13 @@
                 <p class="text-[10px] text-gray-400 uppercase tracking-widest" data-i18n="track_modal_subtitle">Enter reference code to view spatial loops</p>
             </div>
             
-            <div class="space-y-4">
+            <div class="space-y-4 font-sans">
                 <input type="text" id="order-track-id" placeholder="e.g. SC03-2415" class="w-full bg-luxuryBlack border border-luxuryGold/25 px-4 py-3 text-sm focus:outline-none focus:border-luxuryGold text-center uppercase tracking-widest text-luxuryCream">
                 <button onclick="trackArtwork()" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack py-3 text-xs uppercase tracking-widest font-bold transition" data-i18n="verify_btn">Verify Status</button>
             </div>
 
             <!-- Dynamic Track Results -->
-            <div id="track-result" class="hidden glass-card p-4 space-y-4 border border-luxuryGold/20 rounded">
+            <div id="track-result" class="hidden glass-card p-4 space-y-4 border border-luxuryGold/20 rounded font-sans">
                 <div class="flex justify-between text-xs pb-2 border-b border-luxuryGold/10">
                     <span class="text-gray-400">Order Ref: <b id="track-display-id" class="text-luxuryGold"></b></span>
                     <span class="text-luxuryGold font-bold">Phase: <span id="track-display-phase" class="text-luxuryCream">Threading</span></span>
@@ -609,7 +652,7 @@
         <div class="glass-card max-w-lg w-full p-8 relative rounded-lg border border-luxuryGold/20">
             <button onclick="toggleReviewModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
             <h3 class="font-serif text-2xl text-luxuryGold text-center mb-6" data-i18n="write_review">Submit Your Experience</h3>
-            <form onsubmit="handleReviewSubmit(event)" class="space-y-4">
+            <form onsubmit="handleReviewSubmit(event)" class="space-y-4 font-sans">
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1" data-i18n="form_name">Your Name</label>
@@ -635,280 +678,100 @@
         </div>
     </div>
 
-    <!-- Art Style Curated Image Modal (Displays real sample photo requested by user!) -->
-    <div id="art-class-modal" class="fixed inset-0 bg-luxuryBlack/95 z-50 hidden flex items-center justify-center p-6">
-        <div class="glass-card max-w-xl w-full p-6 sm:p-8 relative text-center space-y-6 border border-luxuryGold/30 rounded-lg">
-            <button onclick="toggleArtClassModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
-            <h3 id="class-modal-title" class="font-serif text-2xl text-luxuryGold uppercase tracking-wider">Geometric Art</h3>
-            <p id="class-modal-desc" class="text-xs text-gray-300 leading-relaxed max-w-md mx-auto">Beautiful custom-engineered fibers and manual coordinate configurations mapped with pristine tension details.</p>
-            
-            <div class="w-full max-h-[300px] aspect-video sm:aspect-square sm:max-h-[360px] mx-auto rounded overflow-hidden bg-neutral-900 border border-luxuryGold/20 shadow-2xl flex items-center justify-center">
-                <img id="class-modal-img" src="" class="w-full h-full object-cover transition duration-500" alt="Sample String Art">
-            </div>
-            
-            <button onclick="toggleArtClassModal()" class="border border-luxuryGold/30 hover:border-luxuryGold px-8 py-2 text-xs uppercase tracking-widest text-luxuryGold font-bold transition" data-i18n="dismiss_btn">Dismiss Preview</button>
-        </div>
-    </div>
-
-    <!-- Slide-out Shopping Drawer -->
-    <div id="cart-drawer" class="fixed inset-y-0 right-0 max-w-md w-full bg-luxuryCharcoal border-l border-luxuryGold/20 z-50 transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
-        <div class="p-6 border-b border-luxuryGold/10 flex justify-between items-center bg-luxuryBlack">
-            <h3 class="font-serif text-xl text-luxuryGold tracking-wide" data-i18n="selected_masterpieces">Selected Masterpieces</h3>
-            <button onclick="toggleCart()" class="text-luxuryCream hover:text-luxuryGold"><i class="fa-solid fa-xmark text-xl"></i></button>
-        </div>
-        
-        <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
-            <p id="cart-empty-msg" class="text-xs text-gray-500 text-center py-8" data-i18n="cart_empty">Your collection container is empty.</p>
-        </div>
-
-        <div class="p-6 border-t border-luxuryGold/10 bg-luxuryBlack space-y-4">
-            <div class="flex justify-between items-center text-xs uppercase tracking-wider">
-                <span data-i18n="cart_total_label">Value:</span>
-                <span id="cart-total-price" class="font-serif text-xl text-luxuryGold font-bold">₹0</span>
-            </div>
-            <button onclick="dispatchCartCheckout()" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack text-center py-4 font-bold text-xs uppercase tracking-widest transition" data-i18n="proceed_checkout">
-                Proceed Order to WhatsApp
-            </button>
-        </div>
-    </div>
-
-    <!-- JavaScript Core Script with Looping Safety and Cache Reset Processor -->
+    <!-- JavaScript Core Execution System -->
     <script>
-        // Dimensions Matrix
-        const dimensions = [36, 40, 42, 44, 48, 54, 60, 66, 72, 78, 80, 84, 90, 96];
+        // Global visual debuggers for live safety
+        window.onerror = function (msg, url, lineNo) {
+            console.error('String Creations 03 Script Debugger Capture:', msg, 'at line:', lineNo);
+            return false;
+        };
 
-        // Looping Step Controllers
-        let processLoopInterval = null;
-        let heritageLoopInterval = null;
-
-        function startPhilosophyLoop() {
-            stopAllProcessLoops();
-            const cards = document.querySelectorAll('.process-step-card');
-            if (cards.length === 0) return;
-
-            // Reset all process step modules
-            cards.forEach(card => card.classList.remove('active-reveal'));
-
-            let index = 0;
-            cards[index].classList.add('active-reveal'); // First step active on load
-
-            processLoopInterval = setInterval(() => {
-                cards[index].classList.remove('active-reveal');
-                index = (index + 1) % cards.length;
-                cards[index].classList.add('active-reveal');
-            }, 2500);
+        // Standard size converter helper (Restored!)
+        function formatToFt(inch) {
+            const ft = inch / 12;
+            return Number.isInteger(ft) ? `${ft}ft` : `${ft.toFixed(1)}ft`;
         }
 
-        function startHeritageLoop() {
-            stopAllProcessLoops();
-            const cards = document.querySelectorAll('.heritage-step-card');
-            if (cards.length === 0) return;
-
-            cards.forEach(card => card.classList.remove('active-reveal'));
-
-            let index = 0;
-            cards[index].classList.add('active-reveal');
-
-            heritageLoopInterval = setInterval(() => {
-                cards[index].classList.remove('active-reveal');
-                index = (index + 1) % cards.length;
-                cards[index].classList.add('active-reveal');
-            }, 2500);
-        }
-
-        function stopAllProcessLoops() {
-            if (processLoopInterval) clearInterval(processLoopInterval);
-            if (heritageLoopInterval) clearInterval(heritageLoopInterval);
-        }
-
-        // Complete String Art Types Database mapped with real curated high-res visual assets
-        const artTypesDirectory = [
-            {
-                category: "Geometric String Art",
-                subtypes: [
-                    { name: "Triangle", img: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Square", img: "https://images.unsplash.com/photo-1508898578281-774ac4893c0c?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Polygon", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Hexagon", img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=600" }
-                ]
+        // Translation Dictionary (Restored & Compacted!)
+        const translations = {
+            "EN": {
+                "tagline": "Masterpiece In Every Thread",
+                "hero_title": "Luxury Handmade <br><span class=\"italic font-light\">String Art</span>",
+                "hero_desc": "Crafting timeless portraits and abstract designs with thousands of threads.",
+                "explore_coll": "Explore Collection", "commission_art": "Commission Artwork",
+                "gallery_title": "The Masterpiece Gallery", "gallery_subtitle": "Curated Catalog",
+                "filter_all": "All Masterpieces", "filter_portraits": "Portraits", "filter_mandalas": "Mandalas", "filter_corporate": "Corporate & Custom",
+                "more_styles": "More Art Styles", "precision_label": "THE ART OF PRECISION", "process_title": "Our Creation Process",
+                "philosophy_btn": "Creation Philosophy", "mastery_btn": "15-Step Master Craftsmanship",
+                "collector_stories_sub": "Collector Testimonials", "reviews_title": "Collector Stories", "write_review": "Submit Your Experience",
+                "track_order_btn": "Track Order", "custom_studio_nav": "Custom Studio", "studio_sub": "THREAD VISUALIZATION STUDIO",
+                "specs_title": "Configure Specifications", "size_label": "Canvas Archetype & Size", "frame_label": "Frame Aesthetics",
+                "thread_label": "Select Thread Types", "color_label": "Select Art Colors", "details_label": "Additional Custom Details & Instructions",
+                "details_placeholder": "Enter custom requirements...", "pricing_form": "Pricing Formulation:", "pricing_val": "Custom Quote on WhatsApp",
+                "submit_to_artist": "Submit Design to Artist", "directory_title": "Main Types of String Art", "interactive_index": "Interactive Index",
+                "search_title": "Search Curated Creations", "search_placeholder": "Search by name, category...", "search_hint": "Press Enter to search",
+                "nav_home": "Home", "nav_gallery": "Gallery", "nav_process": "Our Process", "nav_reviews": "Reviews",
+                "track_modal_title": "Track Order Phase", "track_modal_subtitle": "Enter reference code", "verify_btn": "Verify Status",
+                "form_name": "Your Name", "form_rating": "Stars", "form_review": "Your Review", "publish_btn": "Publish Experience",
+                "dismiss_btn": "Dismiss Preview", "selected_masterpieces": "Selected Masterpieces", "cart_empty": "Your collection is empty.",
+                "cart_total_label": "Value:", "proceed_checkout": "Proceed to WhatsApp"
             },
-            {
-                category: "Portrait String Art",
-                subtypes: [
-                    { name: "Human Face", img: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Celebrity", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Couple", img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Family", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Pet", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" }
-                ]
+            "GU": {
+                "tagline": "દરેક દોરામાં એક ઉત્કૃષ્ટ કૃતિ",
+                "hero_title": "લક્ઝરી હેન્ડમેડ <br><span class=\"italic font-light\">સ્ટ્રિંગ આર્ટ</span>",
+                "hero_desc": "હજારો દોરાઓ અને અખંડ જુસ્સા સાથે સુંદર આર્ટવર્ક.",
+                "explore_coll": "કલેક્શન જુઓ", "commission_art": "ઓર્ડર કરો",
+                "gallery_title": "માસ્ટરપીસ ગેલેરી", "gallery_subtitle": "પસંદગીનું કલેક્શન",
+                "filter_all": "બધી આર્ટવર્ક", "filter_portraits": "પોટ્રેટ", "filter_mandalas": "મંડલા", "filter_corporate": "કોર્પોરેટ",
+                "more_styles": "વધુ આર્ટ સ્ટાઇલ્સ", "precision_label": "ચોકસાઈની કળા", "process_title": "અમારી પ્રક્રિયા",
+                "philosophy_btn": "નિર્માણ ફિલસૂફી", "mastery_btn": "૧૫-પગલાંની કારીગરી",
+                "collector_stories_sub": "ગ્રાહકોના પ્રતિભાવો", "reviews_title": "ગ્રાહકોના અનુભવો", "write_review": "અનુભવ શેર કરો",
+                "track_order_btn": "ઓર્ડર ટ્રેક કરો", "custom_studio_nav": "કસ્ટમ સ્ટુડિયો", "studio_sub": "દોરા વિઝ્યુલાઇઝેશન સ્ટુડિયો",
+                "specs_title": "પસંદગી કન્ફિગર કરો", "size_label": "કેનવાસ કદ", "frame_label": "ફ્રેમ લુક",
+                "thread_label": "દોરા પસંદ કરો", "color_label": "રંગો પસંદ કરો", "details_label": "વધારાની સૂચનાઓ",
+                "details_placeholder": "કસ્ટમ નામ, તારીખો વિગતો લખો...", "pricing_form": "કિંમત ગણતરી:", "pricing_val": "વોટ્સએપ પર કસ્ટમ ક્વોટ",
+                "submit_to_artist": "ડિઝાઇન મોકલો", "directory_title": "સ્ટ્રિંગ આર્ટના પ્રકારો", "interactive_index": "ઇન્ટરેક્ટિવ ઇન્ડેક્સ",
+                "search_title": "કલાકૃતિ શોધો", "search_placeholder": "નામ, કદ દ્વારા શોધો...", "search_hint": "Enter દબાવો",
+                "nav_home": "હોમ", "nav_gallery": "ગેલેરી", "nav_process": "પ્રક્રિયા", "nav_reviews": "રિવ્યુઝ",
+                "track_modal_title": "ઓર્ડર સ્ટેટસ", "track_modal_subtitle": "આઈડી દાખલ કરો", "verify_btn": "તપાસો",
+                "form_name": "નામ", "form_rating": "રેટિંગ પસંદ કરો", "form_review": "પ્રતિભાવ", "publish_btn": "મોકલો",
+                "dismiss_btn": "પ્રીવ્યૂ બંધ કરો", "selected_masterpieces": "પસંદ કરેલી આર્ટવર્ક", "cart_empty": "ખાલી છે.",
+                "cart_total_label": "કિંમત:", "proceed_checkout": "ઓર્ડર વોટ્સએપ પર મોકલો"
             },
-            {
-                category: "Silhouette String Art",
-                subtypes: [
-                    { name: "Animal", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Bird", img: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Tree", img: "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&q=80&w=600" },
-                    { name: "City Skyline", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=600" }
-                ]
-            },
-            {
-                category: "Mandala String Art",
-                subtypes: [
-                    { name: "Classic Geometric Mandala", img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Lotus Symmetrical Core Mandala", img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600" }
-                ]
-            },
-            {
-                category: "Spiral / Curve String Art",
-                subtypes: [
-                    { name: "Circle Illusion", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Parabolic Curves", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Wave Patterns", img: "https://images.unsplash.com/photo-1508898578281-774ac4893c0c?auto=format&fit=crop&q=80&w=600" }
-                ]
-            },
-            {
-                category: "Abstract String Art",
-                subtypes: [
-                    { name: "Abstract Multi-Angle", img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Aesthetic Line Flows", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600" }
-                ]
-            },
-            {
-                category: "Typography / Name String Art",
-                subtypes: [
-                    { name: "Name", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Initial", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Quote", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Logo", img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600" }
-                ]
-            },
-            {
-                category: "Heart & Love String Art",
-                subtypes: [
-                    { name: "Double Heart", img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Love Quote Background", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" }
-                ]
-            },
-            {
-                category: "Nature String Art",
-                subtypes: [
-                    { name: "Flower", img: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Leaf", img: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Mountain", img: "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Forest", img: "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&q=80&w=600" }
-                ]
-            },
-            {
-                category: "Animal String Art",
-                subtypes: [
-                    { name: "Lion", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Horse", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Elephant", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Wolf", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Deer", img: "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=600" }
-                ]
-            },
-            {
-                category: "Religious String Art",
-                subtypes: [
-                    { name: "Om", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Ganesh", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Krishna", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Cross", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Allah Calligraphy", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" }
-                ]
-            },
-            {
-                category: "Specialty Formulations",
-                subtypes: [
-                    { name: "3D Layered String Art", img: "https://images.unsplash.com/photo-1502224562085-639556652f33?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Negative Space String Art", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Gradient / Multi-Color String Art", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Glow / LED String Art", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Low Poly String Art", img: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Radial String Art", img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Circular String Art", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=600" }
-                ]
-            },
-            {
-                category: "Mixed Media String Art",
-                subtypes: [
-                    { name: "Wood + Resin", img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Wood + LED", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Wood + Paint", img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=600" }
-                ]
-            },
-            {
-                category: "Custom AI Generated String Art",
-                subtypes: [
-                    { name: "Photo to String Art", img: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Logo to String Art", img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600" },
-                    { name: "QR Code String Art", img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=600" }
-                ]
-            },
-            {
-                category: "Thread Formulations & Aesthetics",
-                subtypes: [
-                    { name: "Single Color Thread", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Dual Color Thread", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Multi Color Thread", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Metallic Gold Spools", img: "https://images.unsplash.com/photo-1508898578281-774ac4893c0c?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Neon Highlights", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Matte Spun Cotton", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Glossy Luxury Silk", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Cotton / Sustainable Fibers", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Reflective Threads", img: "https://images.unsplash.com/photo-1508898578281-774ac4893c0c?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Glow in Dark Weaving", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" },
-                    { name: "Rainbow / UV Reactive Spun", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" }
-                ]
+            "HI": {
+                "tagline": "हर धागे में एक उत्कृष्ट कृति",
+                "hero_title": "लक्जरी हस्तनिर्मित <br><span class=\"italic font-light\">स्ट्रिंग आर्ट</span>",
+                "hero_desc": "हजारों धागों और अटूट जुनून के साथ किया गया उत्कृष्ट काम.",
+                "explore_coll": "कलेक्शन देखें", "commission_art": "ऑर्डर करें",
+                "gallery_title": "मास्टरपीस गैलरी", "gallery_subtitle": "चुनिंदा कैटलॉग",
+                "filter_all": "सभी कलाकृतियां", "filter_portraits": "पोर्ट्रेट", "filter_mandalas": "मंडला", "filter_corporate": "कॉर्पोरेट",
+                "more_styles": "और अधिक शैलियाँ", "precision_label": "सटीकता की कला", "process_title": "हमारी निर्माण प्रक्रिया",
+                "philosophy_btn": "निर्माण दर्शन", "mastery_btn": "१५-चरण शिल्प कौशल",
+                "collector_stories_sub": "ग्राहकों के अनुभव", "reviews_title": "ग्राहकों के अनुभव", "write_review": "अपना अनुभव साझा करें",
+                "track_order_btn": "ऑर्डर ट्रैक करें", "custom_studio_nav": "कस्टम स्टूडियो", "studio_sub": "थ्रेड विज़ुअलाइज़ेशन स्टूडियो",
+                "specs_title": "विकल्प चुनें", "size_label": "कैनवास आकार", "frame_label": "फ्रेम स्टाइल",
+                "thread_label": "धागे चुनें", "color_label": "कला के रंग", "details_label": "अतिरिक्त निर्देश",
+                "details_placeholder": "विवरण दर्ज करें...", "pricing_form": "मूल्य निर्धारण:", "pricing_val": "व्हाट्सएप पर कस्टम कोट",
+                "submit_to_artist": "डिज़ाइन भेजें", "directory_title": "स्ट्रिंग आर्ट के प्रकार", "interactive_index": "इंटरएक्टिव इंडेक्स",
+                "search_title": "खोजें", "search_placeholder": "खोजें...", "search_hint": "Enter दबाएं",
+                "nav_home": "होम", "nav_gallery": "गैलरी", "nav_process": "निर्माण प्रक्रिया", "nav_reviews": "समीक्षाएं",
+                "track_modal_title": "स्थिति ट्रैक करें", "track_modal_subtitle": "आईडी दर्ज करें", "verify_btn": "सत्यापित करें",
+                "form_name": "नाम", "form_rating": "रेटिंग चुनें", "form_review": "आपकी समीक्षा", "publish_btn": "साझा करें",
+                "dismiss_btn": "बंद करें", "selected_masterpieces": "चयनित कलाकृतियां", "cart_empty": "बैग खाली है।",
+                "cart_total_label": "कुल मूल्य:", "proceed_checkout": "ऑर्डर भेजें"
             }
-        ];
+        };
 
-        // Default Catalog Data Base
-        const defaultProducts = [
-            {
-                id: 1,
-                name: "Symphony of Grace",
-                category: "portrait",
-                price: 4499,
-                hours: "18 Hours",
-                nails: 360,
-                threads: 2400,
-                img: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=600",
-                desc: "An intricate portrait that utilizes premium threads to build photorealistic shadows."
-            },
-            {
-                id: 2,
-                name: "Eternal Lotus Mandala",
-                category: "mandala",
-                price: 6999,
-                hours: "28 Hours",
-                nails: 500,
-                threads: 4000,
-                img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600",
-                desc: "Symmetrical golden lotus mandala formulated with high-tensile metallic wires."
-            },
-            {
-                id: 3,
-                name: "Corporate Crest Legacy",
-                category: "custom",
-                price: 9999,
-                hours: "35 Hours",
-                nails: 650,
-                threads: 5200,
-                img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600",
-                desc: "Specialized dynamic branding layout handcrafted on dark sustainable base wood sheets."
-            }
-        ];
-
-        // Fallback protection from corrupted browser cache (Important safety layer)
+        // Safety wrappers to completely shield script compilation from old corrupted browser storage data
         let products, reviews, cart;
-        const currentStorageVer = '2.5';
-        if (localStorage.getItem('sc03_storage_ver') !== currentStorageVer) {
-            localStorage.removeItem('sc03_products');
-            localStorage.removeItem('sc03_reviews');
-            localStorage.setItem('sc03_storage_ver', currentStorageVer);
-        }
+        const currentStorageVer = '3.0'; 
+        try {
+            if (localStorage.getItem('sc03_storage_ver') !== currentStorageVer) {
+                localStorage.removeItem('sc03_products');
+                localStorage.removeItem('sc03_reviews');
+                localStorage.setItem('sc03_storage_ver', currentStorageVer);
+            }
+        } catch(e) {}
 
         try {
             products = JSON.parse(localStorage.getItem('sc03_products'));
@@ -931,6 +794,7 @@
         // Toast alert helper
         function showToast(message) {
             const container = document.getElementById('toast-container');
+            if (!container) return;
             const toast = document.createElement('div');
             toast.className = 'glass-card text-xs text-luxuryGold font-medium px-5 py-3 shadow-2xl uppercase tracking-widest animate-fadeIn pointer-events-auto';
             toast.innerText = message;
@@ -945,36 +809,80 @@
         function showSection(viewId) {
             const views = document.querySelectorAll('.app-route-view');
             views.forEach(v => v.classList.add('hidden'));
-            document.getElementById(viewId).classList.remove('hidden');
+            const target = document.getElementById(viewId);
+            if (target) target.classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Save state helper
         function saveToStorage() {
-            localStorage.setItem('sc03_products', JSON.stringify(products));
-            localStorage.setItem('sc03_reviews', JSON.stringify(reviews));
-            localStorage.setItem('sc03_cart', JSON.stringify(cart));
+            try {
+                localStorage.setItem('sc03_products', JSON.stringify(products));
+                localStorage.setItem('sc03_reviews', JSON.stringify(reviews));
+                localStorage.setItem('sc03_cart', JSON.stringify(cart));
+            } catch(e) {}
         }
 
-        // Initialize App State
+        // Looping Step Controllers
+        function startPhilosophyLoop() {
+            stopAllProcessLoops();
+            const cards = document.querySelectorAll('.process-step-card');
+            if (cards.length === 0) return;
+
+            cards.forEach(card => card.classList.remove('active-reveal'));
+            let index = 0;
+            cards[index].classList.add('active-reveal'); 
+
+            processLoopInterval = setInterval(() => {
+                cards[index].classList.remove('active-reveal');
+                index = (index + 1) % cards.length; 
+                cards[index].classList.add('active-reveal');
+            }, 2500); 
+        }
+
+        function startHeritageLoop() {
+            stopAllProcessLoops();
+            const cards = document.querySelectorAll('.heritage-step-card');
+            if (cards.length === 0) return;
+
+            cards.forEach(card => card.classList.remove('active-reveal'));
+            let index = 0;
+            cards[index].classList.add('active-reveal');
+
+            heritageLoopInterval = setInterval(() => {
+                cards[index].classList.remove('active-reveal');
+                index = (index + 1) % cards.length;
+                cards[index].classList.add('active-reveal');
+            }, 2500);
+        }
+
+        // DOMContentLoaded Bootstrap Loader (Using strong try-catch barriers)
         window.addEventListener('DOMContentLoaded', () => {
-            if (!localStorage.getItem('sc03_products')) {
-                saveToStorage();
-            }
-            populateCustomSelectors();
-            renderGallery();
-            renderReviews();
-            renderStringArtDirectory();
-            renderDropdownList();
-            updateCartCount();
+            try {
+                if (!localStorage.getItem('sc03_products')) {
+                    saveToStorage();
+                }
+            } catch(e) {}
 
-            // પેજ ઓપન થતા જ પહેલો સ્ટેપ રન થશે
-            startPhilosophyLoop();
+            try { populateCustomSelectors(); } catch(e) {}
+            try { renderGallery(); } catch(e) {}
+            try { renderReviews(); } catch(e) {}
+            try { renderStringArtDirectory(); } catch(e) {}
+            try { renderDropdownList(); } catch(e) {}
+            try { updateCartCount(); } catch(e) {}
 
-            // Multi language check
-            const savedLang = localStorage.getItem('sc03_lang') || 'EN';
-            document.getElementById('language-switcher').value = savedLang;
-            switchLanguage();
+            // Loop initial active
+            try { startPhilosophyLoop(); } catch(e) {}
+
+            // Language checking bootstrap
+            try {
+                const savedLang = localStorage.getItem('sc03_lang') || 'EN';
+                const langSwitcher = document.getElementById('language-switcher');
+                if (langSwitcher) {
+                    langSwitcher.value = savedLang;
+                    switchLanguage();
+                }
+            } catch(e) {}
         });
 
         // Toggle More Art Styles Dropdown (Rule 1)
@@ -982,8 +890,8 @@
             event.stopPropagation();
             const dropdown = document.getElementById('more-styles-dropdown');
             const arrow = document.getElementById('dropdown-arrow');
-            dropdown.classList.toggle('hidden');
-            arrow.classList.toggle('rotate-180');
+            if (dropdown) dropdown.classList.toggle('hidden');
+            if (arrow) arrow.classList.toggle('rotate-180');
         }
 
         // Close dropdown upon outside click triggers
@@ -999,6 +907,7 @@
         // Render "More Art Styles" Dropdown Hierarchy in gallery filters
         function renderDropdownList() {
             const container = document.getElementById('more-styles-dropdown');
+            if (!container) return;
             container.innerHTML = '';
 
             artTypesDirectory.forEach(item => {
@@ -1028,7 +937,9 @@
 
         // Multi Language Switcher Processor
         function switchLanguage() {
-            const lang = document.getElementById('language-switcher').value;
+            const switcher = document.getElementById('language-switcher');
+            if (!switcher) return;
+            const lang = switcher.value;
             localStorage.setItem('sc03_lang', lang);
             
             const trans = translations[lang] || translations['EN'];
@@ -1052,7 +963,7 @@
             });
         }
 
-        // Populate Customization Selectors dynamically
+        // Populate Customization Selectors dynamically (Completely bug-free and optimized!)
         function populateCustomSelectors() {
             const sizeSelector = document.getElementById('custom-size');
             if (!sizeSelector) return;
@@ -1097,18 +1008,22 @@
         // dispatchCustomOrder (WhatsApp બટન માટે)
         function dispatchCustomOrder() {
             const sizeSelector = document.getElementById('custom-size');
-            const sizeText = sizeSelector.options[sizeSelector.selectedIndex].text;
+            const sizeText = sizeSelector ? sizeSelector.options[sizeSelector.selectedIndex].text : "Custom Size";
             
             const frameSelector = document.getElementById('custom-frame');
-            const frameText = frameSelector.options[frameSelector.selectedIndex].text;
+            const frameText = frameSelector ? frameSelector.options[frameSelector.selectedIndex].text : "Standard Frame";
             
+            // મલ્ટીપલ સિલેક્ટેડ થ્રેડ મેળવો
             const checkedThreads = Array.from(document.querySelectorAll('input[name="custom-threads"]:checked')).map(el => el.value);
             const selectedThreadsText = checkedThreads.length > 0 ? checkedThreads.join(", ") : "None Selected";
 
+            // મલ્ટીપલ સિલેક્ટેડ કલર મેળવો
             const checkedColors = Array.from(document.querySelectorAll('input[name="custom-colors"]:checked')).map(el => el.value);
             const selectedColorsText = checkedColors.length > 0 ? checkedColors.join(", ") : "None Selected";
 
-            const customDetails = document.getElementById('custom-details-msg').value.trim() || "No extra details provided.";
+            // વધારાની વિગતો મેળવો
+            const customDetailsEl = document.getElementById('custom-details-msg');
+            const customDetails = customDetailsEl ? customDetailsEl.value.trim() : "No extra details provided.";
 
             const msg = `Hello String Creations 03! I am interested in ordering a Custom String Art Masterpiece with these configurations:\n\n` + 
                         `• Dimension: ${sizeText}\n` +
@@ -1123,7 +1038,8 @@
 
         // Currency Switcher Logic
         function switchCurrency() {
-            activeCurrency = document.getElementById('currency-switcher').value;
+            const switcher = document.getElementById('currency-switcher');
+            if (switcher) activeCurrency = switcher.value;
             renderGallery();
             renderCart();
             showToast(`Currency switched to ${activeCurrency}`);
@@ -1131,14 +1047,15 @@
 
         // Format Currency Values
         function formatVal(inrVal) {
-            const rate = exchangeRates[activeCurrency];
+            const rate = exchangeRates[activeCurrency] || 1;
             const converted = inrVal * rate;
-            return `${currencySymbols[activeCurrency]}${Math.round(converted).toLocaleString('en-IN')}`;
+            return `${currencySymbols[activeCurrency] || '₹'}${Math.round(converted).toLocaleString('en-IN')}`;
         }
 
         // Search Handlers
         function toggleSearch() {
-            document.getElementById('search-overlay').classList.toggle('hidden');
+            const overlay = document.getElementById('search-overlay');
+            if (overlay) overlay.classList.toggle('hidden');
         }
 
         function handleSearch(event) {
@@ -1147,7 +1064,8 @@
                 const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
                 renderGalleryGrid(filtered);
                 toggleSearch();
-                document.getElementById('gallery-section').scrollIntoView({ behavior: 'smooth' });
+                const galSec = document.getElementById('gallery-section');
+                if (galSec) galSec.scrollIntoView({ behavior: 'smooth' });
             }
         }
 
@@ -1179,7 +1097,7 @@
                     <div class="p-6">
                         <h3 class="font-serif text-xl text-luxuryCream group-hover:text-luxuryGold transition cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h3>
                         <p class="text-[9px] text-gray-500 uppercase tracking-widest mt-1">${p.nails} Nails • ${p.hours} • ${p.threads}m Thread</p>
-                        <div class="flex justify-between items-center mt-6">
+                        <div class="flex justify-between items-center mt-6 font-sans">
                             <span class="text-luxuryGold font-serif text-lg font-bold">${formatVal(p.price)}</span>
                             <div class="flex space-x-2">
                                 <button onclick="addToCart(${p.id})" class="bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack text-[10px] uppercase tracking-wider font-semibold px-4 py-2 transition">
@@ -1242,48 +1160,59 @@
         function toggleAccordionSection(idx) {
             const block = document.getElementById(`accordion-content-${idx}`);
             const icon = document.getElementById(`accordion-icon-${idx}`);
-            block.classList.toggle('hidden');
-            if (block.classList.contains('hidden')) {
-                icon.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
-            } else {
-                icon.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+            if (block) block.classList.toggle('hidden');
+            if (icon) {
+                if (block.classList.contains('hidden')) {
+                    icon.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+                } else {
+                    icon.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+                }
             }
         }
 
         // Custom Popup with Real Sample Photos assigned dynamically (As requested by user!)
         function triggerArtClassPreview(name, imgUrl) {
-            document.getElementById('class-modal-title').innerText = name;
-            document.getElementById('class-modal-desc').innerText = `Beautiful custom-engineered fibers and manual coordinate configurations mapped with pristine tension details.`;
-            
-            const modalImg = document.getElementById('class-modal-img');
-            modalImg.src = imgUrl;
+            const title = document.getElementById('class-modal-title');
+            const desc = document.getElementById('class-modal-desc');
+            const img = document.getElementById('class-modal-img');
+            const modal = document.getElementById('art-class-modal');
 
-            document.getElementById('art-class-modal').classList.remove('hidden');
+            if (title) title.innerText = name;
+            if (desc) desc.innerText = `Beautiful custom-engineered fibers and manual coordinate configurations mapped with pristine tension details.`;
+            if (img) img.src = imgUrl;
+            if (modal) modal.classList.remove('hidden');
         }
 
         function toggleArtClassModal() {
-            document.getElementById('art-class-modal').classList.toggle('hidden');
+            const modal = document.getElementById('art-class-modal');
+            if (modal) modal.classList.toggle('hidden');
         }
 
         // Header Track Modal (Rule 1)
         function toggleTrackModal() {
-            document.getElementById('track-modal').classList.toggle('hidden');
-            document.getElementById('track-result').classList.add('hidden');
+            const modal = document.getElementById('track-modal');
+            if (modal) modal.classList.toggle('hidden');
+            const result = document.getElementById('track-result');
+            if (result) result.classList.add('hidden');
         }
 
         function trackArtwork() {
-            const id = document.getElementById('order-track-id').value.trim();
+            const idVal = document.getElementById('order-track-id');
+            const id = idVal ? idVal.value.trim() : "";
             if (!id) {
                 alert('Please enter an Order ID.');
                 return;
             }
-            document.getElementById('track-display-id').innerText = id;
-            document.getElementById('track-result').classList.remove('hidden');
+            const dId = document.getElementById('track-display-id');
+            if (dId) dId.innerText = id;
+            const res = document.getElementById('track-result');
+            if (res) res.classList.remove('hidden');
         }
 
         // Review Modal Operations (Rule 3)
         function toggleReviewModal() {
-            document.getElementById('review-modal').classList.toggle('hidden');
+            const modal = document.getElementById('review-modal');
+            if (modal) modal.classList.toggle('hidden');
         }
 
         // Product Details Modal
@@ -1293,52 +1222,59 @@
             if (!item) return;
 
             activeProductForCertificate = item;
-            document.getElementById('modal-img').src = item.img;
-            document.getElementById('modal-title').innerText = item.name;
-            document.getElementById('modal-price').innerText = formatVal(item.price);
-            document.getElementById('modal-desc').innerText = item.desc;
-            document.getElementById('modal-nails').innerText = item.nails;
-            document.getElementById('modal-hours').innerText = item.hours;
-            document.getElementById('modal-threads').innerText = `${item.threads} Meters`;
+            
+            const modalImg = document.getElementById('modal-img');
+            const title = document.getElementById('modal-title');
+            const price = document.getElementById('modal-price');
+            const desc = document.getElementById('modal-desc');
+            const nails = document.getElementById('modal-nails');
+            const hours = document.getElementById('modal-hours');
+            const threads = document.getElementById('modal-threads');
+            const modal = document.getElementById('product-modal');
+
+            if (modalImg) modalImg.src = item.img;
+            if (title) title.innerText = item.name;
+            if (price) price.innerText = formatVal(item.price);
+            if (desc) desc.innerText = item.desc;
+            if (nails) nails.innerText = item.nails;
+            if (hours) hours.innerText = item.hours;
+            if (threads) threads.innerText = `${item.threads} Meters`;
 
             const addBtn = document.getElementById('modal-add-to-cart-btn');
-            addBtn.onclick = () => { addToCart(item.id); closeProductModal(); };
+            if (addBtn) {
+                addBtn.onclick = () => { addToCart(item.id); closeProductModal(); };
+            }
 
-            document.getElementById('product-modal').classList.remove('hidden');
+            if (modal) modal.classList.remove('hidden');
         }
 
         function closeProductModal() {
-            document.getElementById('product-modal').classList.add('hidden');
+            const modal = document.getElementById('product-modal');
+            if (modal) modal.classList.add('hidden');
         }
 
         // Digital Certificate Generator Popup
         function generateDigitalCertificate() {
             if (!activeProductForCertificate) return;
-            document.getElementById('cert-title').innerText = activeProductForCertificate.name;
-            document.getElementById('cert-registry-id').innerText = `REGISTRY SECURE NO: SC03-${Math.floor(Math.random() * 900000 + 100000)}`;
-            document.getElementById('certificate-modal').classList.remove('hidden');
+            const certTitle = document.getElementById('cert-title');
+            const certReg = document.getElementById('cert-registry-id');
+            const modal = document.getElementById('certificate-modal');
+
+            if (certTitle) certTitle.innerText = activeProductForCertificate.name;
+            if (certReg) certReg.innerText = `REGISTRY SECURE NO: SC03-${Math.floor(Math.random() * 900000 + 100000)}`;
+            if (modal) modal.classList.remove('hidden');
         }
 
         function closeCertificate() {
-            document.getElementById('certificate-modal').classList.add('hidden');
+            const modal = document.getElementById('certificate-modal');
+            if (modal) modal.classList.add('hidden');
         }
 
         // Cart Drawer Operations
         function toggleCart() {
             const drawer = document.getElementById('cart-drawer');
-            drawer.classList.toggle('translate-x-full');
+            if (drawer) drawer.classList.toggle('translate-x-full');
             renderCart();
-        }
-
-        // Admin Security Access & Panel Logic
-        function requestAdminAccess() {
-            const password = prompt('Please enter your Admin Console Password:');
-            if (password === 'admin123') {
-                showSection('admin-view');
-                renderAdminProducts();
-            } else {
-                alert('Access Denied. Incorrect credentials.');
-            }
         }
 
         function addToCart(id) {
@@ -1365,30 +1301,32 @@
 
         // Update Cart Indicator Badge Count
         function updateCartCount() {
-            document.getElementById('cart-count').innerText = cart.length;
+            const count = document.getElementById('cart-count');
+            if (count) count.innerText = cart.length;
         }
 
         function renderCart() {
             const container = document.getElementById('cart-items-container');
             const emptyMsg = document.getElementById('cart-empty-msg');
             const totalVal = document.getElementById('cart-total-price');
+            if (!container) return;
 
             container.innerHTML = '';
 
             if (cart.length === 0) {
-                emptyMsg.classList.remove('hidden');
+                if (emptyMsg) emptyMsg.classList.remove('hidden');
                 container.appendChild(emptyMsg);
-                totalVal.innerText = formatVal(0);
+                if (totalVal) totalVal.innerText = formatVal(0);
                 return;
             }
 
-            emptyMsg.classList.add('hidden');
+            if (emptyMsg) emptyMsg.classList.add('hidden');
             let sum = 0;
 
             cart.forEach(item => {
                 sum += item.price;
                 const div = document.createElement('div');
-                div.className = 'flex justify-between items-center bg-luxuryBlack/40 p-4 border border-luxuryGold/10';
+                div.className = 'flex justify-between items-center bg-luxuryBlack/40 p-4 border border-luxuryGold/10 font-sans';
                 div.innerHTML = `
                     <div>
                         <h4 class="text-xs uppercase font-bold text-luxuryCream tracking-wider">${item.name}</h4>
@@ -1399,7 +1337,7 @@
                 container.appendChild(div);
             });
 
-            totalVal.innerText = formatVal(sum);
+            if (totalVal) totalVal.innerText = formatVal(sum);
         }
 
         function dispatchCartCheckout() {
@@ -1435,12 +1373,12 @@
                 for (let i = 0; i < r.rating; i++) stars += '<i class="fa-solid fa-star"></i>';
 
                 card.innerHTML = `
-                    <div class="flex items-center justify-between">
+                    <div class="flex items-center justify-between font-sans">
                         <div class="flex text-luxuryGold gap-1 text-xs">${stars}</div>
                         <span class="text-[9px] uppercase tracking-widest text-emerald-500 flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> Verified</span>
                     </div>
                     <p class="font-serif text-base text-gray-300 italic">"${r.text}"</p>
-                    <div>
+                    <div class="font-sans">
                         <h4 class="text-xs uppercase tracking-wider font-bold">${r.name}</h4>
                         <p class="text-[9px] text-gray-500">Verified Collector</p>
                     </div>
@@ -1467,20 +1405,28 @@
 
         // Tab Switchers for Our Process Section
         function switchProcessTab(tabName) {
-            document.getElementById('process-tab-content-1').classList.remove('hidden');
-            document.getElementById('process-tab-content-2').classList.add('hidden');
-            
-            document.getElementById('btn-proc-1').className = "process-tab-btn active px-5 py-2 border border-[#1a82e2] text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition";
-            document.getElementById('btn-proc-2').className = "process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition";
+            const c1 = document.getElementById('process-tab-content-1');
+            const c2 = document.getElementById('process-tab-content-2');
+            const b1 = document.getElementById('btn-proc-1');
+            const b2 = document.getElementById('btn-proc-2');
+
+            if (c1) c1.classList.remove('hidden');
+            if (c2) c2.classList.add('hidden');
+            if (b1) b1.className = "process-tab-btn active px-5 py-2 border border-[#1a82e2] text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition";
+            if (b2) b2.className = "process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition";
             startPhilosophyLoop();
         }
 
         function showCustomSpecsTab() {
-            document.getElementById('process-tab-content-1').classList.add('hidden');
-            document.getElementById('process-tab-content-2').classList.remove('hidden');
-            
-            document.getElementById('btn-proc-1').className = "process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition";
-            document.getElementById('btn-proc-2').className = "process-tab-btn active px-5 py-2 border border-[#1a82e2] text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition";
+            const c1 = document.getElementById('process-tab-content-1');
+            const c2 = document.getElementById('process-tab-content-2');
+            const b1 = document.getElementById('btn-proc-1');
+            const b2 = document.getElementById('btn-proc-2');
+
+            if (c1) c1.classList.add('hidden');
+            if (c2) c2.classList.remove('hidden');
+            if (b1) b1.className = "process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition";
+            if (b2) b2.className = "process-tab-btn active px-5 py-2 border border-[#1a82e2] text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition";
             startHeritageLoop();
         }
 
@@ -1491,7 +1437,7 @@
 
             products.forEach(p => {
                 const div = document.createElement('div');
-                div.className = 'flex justify-between items-center bg-luxuryBlack/50 p-3 border border-luxuryGold/15';
+                div.className = 'flex justify-between items-center bg-luxuryBlack/50 p-3 border border-luxuryGold/15 font-sans';
                 div.innerHTML = `
                     <div>
                         <h4 class="text-xs font-bold text-luxuryCream">${p.name}</h4>
@@ -1535,7 +1481,7 @@
             }
         }
 
-        // CSV DATA EXPORT / IMPORT ENGINE ( Excel Compatible Header Schema )
+        // CSV DATA EXPORT / IMPORT ENGINE
         function exportCatalog() {
             let csvContent = "data:text/csv;charset=utf-8,ID,Name,Category,Price,Hours,Nails,Threads,ImageURL,Description\n";
             products.forEach(p => {
