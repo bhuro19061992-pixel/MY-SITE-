@@ -295,7 +295,7 @@
         </section>
     </div>
 
-    <!-- VIEW B: INTERACTIVE CUSTOM PORTRAIT STUDIO (WITH LIVE VECTOR GENERATOR) -->
+    <!-- VIEW B: INTERACTIVE CUSTOM PORTRAIT STUDIO -->
     <div id="custom-view" class="app-route-view hidden min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-16 space-y-2">
             <span class="text-luxuryGold font-serif tracking-[0.3em] text-xs uppercase">THREAD VISUALIZATION STUDIO</span>
@@ -303,9 +303,9 @@
             <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="max-w-2xl mx-auto">
             <!-- Form Specs Panel -->
-            <div class="lg:col-span-5 glass-card p-8 space-y-6">
+            <div class="glass-card p-8 space-y-6">
                 <h3 class="font-serif text-xl text-luxuryGold tracking-wide">Configure Specifications</h3>
                 
                 <div>
@@ -318,12 +318,10 @@
                 <div>
                     <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Frame Aesthetics</label>
                     <select id="custom-frame" onchange="updateLiveStudio()" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
-                        <option value="none" selected>No Frame (Hand-wrapped Canvas Edge)</option>
-                        <option value="black">Matte Obsidian Black Frame</option>
-                        <option value="gold">Brushed Imperial Gold Frame</option>
-                        <option value="white">Warm Alabaster White Frame</option>
-                        <option value="walnut">Rich Roasted Walnut Wood Frame</option>
-                        <option value="oak">Natural Swedish Oak Frame</option>
+                        <option value="wood-black">Wood - Black</option>
+                        <option value="wood-white">Wood - White</option>
+                        <option value="pvc-black">PVC - Black</option>
+                        <option value="pvc-white">PVC - White</option>
                     </select>
                 </div>
 
@@ -335,9 +333,9 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Upload Reference Image (Generates Thread Preview)</label>
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Upload Reference Portrait</label>
                     <div class="border border-dashed border-luxuryGold/20 hover:border-luxuryGold p-6 text-center cursor-pointer relative transition duration-300 bg-luxuryBlack/50">
-                        <input type="file" id="custom-image-input" accept="image/*" onchange="generateSimulator(event)" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                        <input type="file" id="custom-image-input" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
                         <i class="fa-solid fa-cloud-arrow-up text-luxuryGold text-2xl mb-2"></i>
                         <p class="text-[10px] text-gray-400 uppercase tracking-widest">Select Image File</p>
                     </div>
@@ -362,26 +360,6 @@
                     <button onclick="dispatchCustomOrder()" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack text-center py-4 font-bold text-xs uppercase tracking-widest transition">
                         Submit Design to Artist
                     </button>
-                </div>
-            </div>
-
-            <!-- Thread Simulator Visualizer Panel -->
-            <div class="lg:col-span-7 flex flex-col items-center justify-center space-y-6">
-                <span class="text-[11px] uppercase tracking-widest text-gray-400">🧵 REAL-TIME 3D STRING ART RECONSTRUCTION</span>
-                
-                <div id="mockup-frame-border" class="relative w-full max-w-[420px] aspect-[1/1] sm:aspect-[3/4] bg-neutral-900 border-[18px] border-neutral-800 shadow-2xl transition-all duration-300 flex items-center justify-center overflow-hidden">
-                    <div class="absolute inset-0 bg-neutral-950 flex items-center justify-center p-2">
-                        <!-- Simulated Canvas Context -->
-                        <canvas id="simulator-canvas" class="w-full h-full object-contain hidden"></canvas>
-                        
-                        <div id="mockup-placeholder" class="text-center p-4">
-                            <i class="fa-solid fa-bezier-curve text-luxuryGold text-3xl mb-4 animate-pulse"></i>
-                            <p class="font-serif text-sm text-gray-400 italic">Please upload an image to reconstruct an elite, high-fidelity thread rendering preview.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center text-[10px] text-gray-500 max-w-sm italic">
-                    Note: Our simulator renders vector line overlays in client memory to showcase threading densities. The physical artwork will have real depth.
                 </div>
             </div>
         </div>
@@ -526,7 +504,7 @@
         
         <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
             <!-- Empty message -->
-            <p id="cart-empty-msg" class="text-xs text-gray-400 text-center py-8">Your collection container is empty.</p>
+            <p id="cart-empty-msg" class="text-xs text-gray-500 text-center py-8">Your collection container is empty.</p>
         </div>
 
         <div class="p-6 border-t border-luxuryGold/10 bg-luxuryBlack space-y-4">
@@ -641,59 +619,16 @@
         // Dimensions Matrix - Ranging purely from 3 Feet (36 Inches) up to 8 Feet (96 Inches)
         const dimensions = [36, 40, 42, 44, 48, 54, 60, 66, 72, 78, 80, 84, 90, 96];
         
-        // 50+ Premium Thread formulation profiles
-        const premiumThreads = [
-            "Pure Monochrome Obsidian (Matte Black Silk)",
-            "Alabaster White Organic Cotton Silk",
-            "Satin Silver lining Filament",
-            "Platinum Metallic Fine Wire",
-            "Imperial Brushed Gold Wire Formulation",
-            "Gilded Yellow Brass Thread",
-            "Burnished Antique Copper Wire",
-            "Rose Gold Copper Shimmer Blend",
-            "Saffron Orange Pure Spool",
-            "Royal Emerald Green Linen",
-            "Deep Jade Silk Spool",
-            "Sage Green Organic Weave",
-            "Teal Turquoise Symphony Spool",
-            "Midnight Sapphire Silk Cord",
-            "Cobalt Blue High-tension String",
-            "Prussian Sky Blue Cotton",
-            "Imperial Ruby Crimson Weave",
-            "Sunset Coral Dual-Tone formulation",
-            "Plum Purple Velvet Strand",
-            "Amethyst Violet Weave",
-            "Lavender Dusk Silk Spool",
-            "Warm Amber Linen Fiber",
-            "Espresso Oak Natural Cord",
-            "Rustic Unbleached Jute Strand",
-            "Warm Alabaster Silk Spool",
-            "Vintage Gold & Charcoal Hybrid Weave",
-            "Bronze & Platinum Dual-Spindle Strand",
-            "Smoked Quartz Gray Thread",
-            "Phosphorescent Neon Glow string",
-            "Holographic Aurora Spectral Fiber",
-            "Eggshell Cream Organic Woolen Blend",
-            "Pearl White Luster Monofilament",
-            "Gilded Topaz Yellow Weave",
-            "Chrysolite Green Metallic Weave",
-            "Azure Sky High-strength Thread",
-            "Deep Indigo Shadow-Map Cord",
-            "Burgundy Velvet Rich Formulation",
-            "Sienna Brown Earth Cotton",
-            "Tuscan Ochre Linen Spool",
-            "Duo-Tone Forest Mint & Teal",
-            "Tri-Tone Desert Clay Symphony",
-            "Prismatic Rainbow Silk Blend",
-            "Titanium Gray Tough Core Line",
-            "Platinum Plated Copper Wire Core",
-            "Warm Sand Luxury Linen",
-            "Ethereal Silver-Gold Hybrid String",
-            "Pitch Black High-Absorption Thread",
-            "Soft Rose Petal Silk Thread",
-            "Aegis Deep Sea Blue Protection String",
-            "Crystalline Clear Reflective Monofilament",
-            "Obsidian Black & Silver Core Duo"
+      // Replaced with exact requested thread types
+        const threadTypes = [
+            "Cotton Thread",
+            "Silk Thread",
+            "Polyester Thread",
+            "Embroidery Thread",
+            "Metallic Thread",
+            "Jute Thread",
+            "Nylon Thread",
+            "Glow in the Dark Thread"
         ];
 
         // Default Catalog Data Base (Used if localStorage is empty)
@@ -816,7 +751,7 @@
             return Number.isInteger(ft) ? `${ft}ft` : `${ft.toFixed(1)}ft`;
         }
 
-        // Populate Customization Selectors dynamically
+       // Populate Customization Selectors dynamically
         function populateCustomSelectors() {
             const sizeSelector = document.getElementById('custom-size');
             sizeSelector.innerHTML = '';
@@ -851,21 +786,21 @@
                 option.innerText = `${type} - ${h}"x${l}" (${formatToFt(h)} x ${formatToFt(l)}) (H${h}" x L${l}")`;
                 
                 if (h === 36 && l === 36) {
-                    option.selected = true; // Selects 3ft x 3ft as base standard entry
+                    option.selected = true;
                 }
                 sizeSelector.appendChild(option);
             });
 
+            // Populate Thread Selector using the new threadTypes array
             const threadSelector = document.getElementById('custom-thread');
             threadSelector.innerHTML = '';
-            premiumThreads.forEach((th, idx) => {
+            threadTypes.forEach((th, idx) => {
                 const option = document.createElement('option');
                 option.value = `thread-style-${idx + 1}`;
                 option.innerText = th;
                 threadSelector.appendChild(option);
             });
         }
-
         // Currency Switcher Logic
         function switchCurrency() {
             activeCurrency = document.getElementById('currency-switcher').value;
@@ -874,6 +809,7 @@
             showToast(`Currency switched to ${activeCurrency}`);
         }
 
+        // Format Currency Values
         function formatVal(inrVal) {
             const rate = exchangeRates[activeCurrency];
             const converted = inrVal * rate;
@@ -952,7 +888,7 @@
             }
         }
 
-        // Live Custom Studio Calculations (Fully Priceless, adjusted for giant 3ft - 8ft canvases)
+        // Simplified Live Specs calculation
         function updateLiveStudio() {
             const sizeSelector = document.getElementById('custom-size');
             if (!sizeSelector.value) return;
@@ -962,95 +898,11 @@
             const h = parseInt(dims[0]);
             const l = parseInt(dims[1]);
 
-            // Formulate scaling specs specifically tailored to large luxury models
             const estimatedNails = Math.round((h + l) * 5 + 100);
             const estimatedThreads = Math.round(estimatedNails * 12);
 
             document.getElementById('studio-nails').innerText = `${estimatedNails} Nails`;
             document.getElementById('studio-threads').innerText = `~${estimatedThreads.toLocaleString()} Meters`;
-
-            // Frame Styling Visualizer Frame
-            const frameSelector = document.getElementById('custom-frame');
-            const previewBorder = document.getElementById('mockup-frame-border');
-            const frameVal = frameSelector.value;
-            
-            if (frameVal === 'black') {
-                previewBorder.style.borderColor = '#111';
-            } else if (frameVal === 'gold') {
-                previewBorder.style.borderColor = '#d4af37';
-            } else if (frameVal === 'white') {
-                previewBorder.style.borderColor = '#eaeaea';
-            } else if (frameVal === 'walnut') {
-                previewBorder.style.borderColor = '#4a2c11';
-            } else if (frameVal === 'oak') {
-                previewBorder.style.borderColor = '#c29d66';
-            } else {
-                previewBorder.style.borderColor = '#333';
-            }
-        }
-
-        // HIGH-FIDELITY LIVE VECTOR CHROMATIC SIMULATOR
-        function generateSimulator(event) {
-            const input = event.target;
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const canvas = document.getElementById('simulator-canvas');
-                    const placeholder = document.getElementById('mockup-placeholder');
-                    const ctx = canvas.getContext('2d');
-                    
-                    const img = new Image();
-                    img.onload = function() {
-                        placeholder.classList.add('hidden');
-                        canvas.classList.remove('hidden');
-                        
-                        canvas.width = 400;
-                        canvas.height = 500;
-                        
-                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                        const d = imgData.data;
-                        for (let i = 0; i < d.length; i += 4) {
-                            const r = d[i], g = d[i+1], b = d[i+2];
-                            const val = (r * 0.3 + g * 0.59 + b * 0.11);
-                            const contrast = 1.4;
-                            const factor = (259 * (contrast + 255)) / (255 * (259 - contrast));
-                            const finalGray = factor * (val - 128) + 128;
-                            d[i] = d[i+1] = d[i+2] = finalGray;
-                        }
-                        ctx.putImageData(imgData, 0, 0);
-                        
-                        ctx.strokeStyle = 'rgba(212, 175, 55, 0.45)';
-                        ctx.lineWidth = 0.25;
-                        
-                        const nailsCount = parseInt(document.getElementById('studio-nails').innerText) || 400;
-                        const pins = [];
-                        const center = { x: canvas.width / 2, y: canvas.height / 2 };
-                        const radius = Math.min(canvas.width, canvas.height) / 2 - 10;
-                        
-                        for (let i = 0; i < nailsCount; i++) {
-                            const angle = (i / nailsCount) * Math.PI * 2;
-                            pins.push({
-                                x: center.x + Math.cos(angle) * radius,
-                                y: center.y + Math.sin(angle) * radius
-                            });
-                        }
-                        
-                        ctx.beginPath();
-                        let currentPin = 0;
-                        for (let step = 0; step < 2600; step++) {
-                            const nextPin = (currentPin + 101) % nailsCount;
-                            ctx.moveTo(pins[currentPin].x, pins[currentPin].y);
-                            ctx.lineTo(pins[nextPin].x, pins[nextPin].y);
-                            currentPin = nextPin;
-                        }
-                        ctx.stroke();
-                        showToast("Vector string art preview reconstructed");
-                    };
-                    img.src = e.target.result;
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
         }
 
         function dispatchCustomOrder() {
@@ -1283,6 +1135,7 @@
             });
         }
 
+        // Add Product from Admin
         function handleAdminAddProduct(event) {
             event.preventDefault();
             const name = document.getElementById('admin-p-name').value;
