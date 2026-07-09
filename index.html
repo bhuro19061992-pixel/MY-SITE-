@@ -2030,3 +2030,61 @@
             link.setAttribute("href", encodedUri);
             link.setAttribute("download", "SC03_Catalog_Backup.csv");
             document.body
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast("Portfolio backup downloaded!");
+        }
+
+        function triggerCSVImport() {
+            document.getElementById('csv-import-file').click();
+        }
+
+        function importCatalog(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const text = e.target.result;
+                const lines = text.split('\n');
+                const importedList = [];
+                
+                for (let i = 1; i < lines.length; i++) {
+                    const row = lines[i].trim();
+                    if (!row) continue;
+                    
+                    const cols = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
+                    if (cols.length >= 8) {
+                        importedList.push({
+                            id: cols[0].replace(/"/g, '').trim(),
+                            name: cols[1].replace(/"/g, '').trim(),
+                            category: cols[2].replace(/"/g, '').trim(),
+                            price: parseInt(cols[3]),
+                            hours: cols[4].replace(/"/g, '').trim(),
+                            nails: parseInt(cols[5]),
+                            threads: parseInt(cols[6]),
+                            img: cols[7].replace(/"/g, '').trim(),
+                            multiImages: cols[8] ? cols[8].replace(/"/g, '').trim() : "",
+                            video: cols[9] ? cols[9].replace(/"/g, '').trim() : "",
+                            desc: cols[10] ? cols[10].replace(/"/g, '').trim() : ""
+                        });
+                    }
+                }
+                
+                if (importedList.length > 0) {
+                    products = importedList;
+                    saveToStorage();
+                    renderGallery();
+                    renderAdminProducts();
+                    renderAdminDragList();
+                    showToast(`Imported ${products.length} products`);
+                } else {
+                    alert("Invalid CSV Format. Ensure matching schema header.");
+                }
+            };
+            reader.readAsText(file);
+        }
+    </script>
+</body>
+</html>
