@@ -713,15 +713,67 @@ function filterSearchableList(type) {
 
 // Arrow Shifter Logic
 let marqueeManualOffsets = {};
-function shiftMarquee(rowId, direction) {
-    const track = document.getElementById(rowId);
-    if (!track) return;
+// Dynamic Asynchronous Smooth Slider loop (Rule 1 & 2)
+function initMarqueeAutoScroll(rowId) {
+    const container = document.getElementById(rowId);
+    if (!container) return;
 
-    track.style.animationPlayState = 'paused';
+    container.style.scrollBehavior = 'auto'; // Keep scroll auto for linear motion
+    const scrollSpeed = 0.85; // BUTTERY SMOOTH VELOCITY CONTROL (Matches all masterpieces)
 
-    if (!marqueeManualOffsets[rowId]) {
-        marqueeManualOffsets[rowId] = 0;
+    function step() {
+        if (activeMarqueeScrolls[rowId] === 'paused') {
+            requestAnimationFrame(step);
+            return;
+        }
+
+        container.scrollLeft += scrollSpeed;
+
+        // Infinite loop threshold reset cleanly (1/3 of duplicate lists widths)
+        if (container.scrollLeft >= (container.scrollWidth / 3) * 2) {
+            container.scrollLeft = container.scrollWidth / 3;
+        } else if (container.scrollLeft <= 0) {
+            container.scrollLeft = container.scrollWidth / 3;
+        }
+
+        requestAnimationFrame(step);
     }
+
+    // Seed center point offset
+    setTimeout(() => {
+        container.scrollLeft = container.scrollWidth / 3;
+        activeMarqueeScrolls[rowId] = 'running';
+        requestAnimationFrame(step);
+    }, 100);
+
+    // Hover pauses auto scroll
+    container.onmouseenter = () => { activeMarqueeScrolls[rowId] = 'paused'; };
+    container.onmouseleave = () => { activeMarqueeScrolls[rowId] = 'running'; };
+}
+
+// Manual Arrow Toggler with 1.5s Cooldown Resume (Rule 2)
+function shiftMarquee(rowId, direction) {
+    const container = document.getElementById(rowId);
+    if (!container) return;
+
+    // Pause auto scroll to handle click override
+    activeMarqueeScrolls[rowId] = 'paused';
+    container.style.scrollBehavior = 'smooth'; // Smooth horizontal manual transition
+
+    const shiftAmount = 312; // width + grid gap width
+    if (direction === 'left') {
+        container.scrollLeft -= shiftAmount;
+    } else {
+        container.scrollLeft += shiftAmount;
+    }
+
+    // Cooldown resume thread
+    clearTimeout(container.scrollTimeout);
+    container.scrollTimeout = setTimeout(() => {
+        container.style.scrollBehavior = 'auto';
+        activeMarqueeScrolls[rowId] = 'running';
+    }, 1500); 
+}
 
     const shiftLength = 300; 
     if (direction === 'left') {
