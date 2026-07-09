@@ -3,247 +3,183 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Waterfall & Flying Birds with Logo</title>
+  <title>String Creations 03 - Full Background Waterfall</title>
   <style>
-    /* મુખ્ય બોડી સેટિંગ્સ */
-    body {
+    /* મુખ્ય વેબસાઈટ સેટિંગ્સ */
+    html, body {
       margin: 0;
       padding: 0;
-      position: relative;
-      min-height: 100vh; /* પેજ ગમે તેટલું લાંબુ હોય */
-      background-color: #f0f4f8;
-      font-family: sans-serif;
-      overflow-x: hidden;
-    }
-
-    /* --- ૧. વહેતા ઝરણાની CSS (Waterfall) --- */
-    .waterfall-left, .waterfall-right {
-      position: absolute;
-      top: 0;
-      bottom: 0; /* છેક તળિયા સુધી ખેંચાશે */
-      width: 45px;
-      z-index: 5;
-      pointer-events: none; /* કન્ટેન્ટ ક્લિક કરવામાં નડતર ન બને */
-      overflow: hidden;
-    }
-
-    /* ડાબી અને જમણી બાજુ પ્લેસમેન્ટ */
-    .waterfall-left { left: 0; }
-    .waterfall-right { right: 0; }
-
-    /* પાણીનો વહેતો પ્રવાહ */
-    .water-stream {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      /* પાણી જેવો કલર ગ્રેડિએન્ટ */
-      background: linear-gradient(to bottom, rgba(30, 144, 255, 0.7), rgba(0, 191, 255, 0.5));
-      box-shadow: inset -5px 0 10px rgba(255,255,255,0.3), inset 5px 0 10px rgba(0,0,0,0.1);
     }
 
-    /* વહેતી લહેરોનું એનિમેશન */
-    .water-stream::before {
-      content: "";
-      position: absolute;
-      top: -100px;
-      left: 0;
-      width: 100%;
-      height: 200%;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 30px,
-        rgba(255, 255, 255, 0.6) 35px,
-        rgba(255, 255, 255, 0.6) 45px,
-        transparent 50px
-      );
-      animation: flowDown 2.5s linear infinite;
+    body {
+      /* ૧. આખા બેકગ્રાઉન્ડમાં ઓરિજિનલ વોટરફોલ ઈમેજ */
+      background-image: url('waterfall-bg.jpg'); /* અહીં તમારી વોટરફોલ ઈમેજનો પાથ મૂકવો */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      position: relative;
     }
 
-    @keyframes flowDown {
-      0% { transform: translateY(-50%); }
-      100% { transform: translateY(0); }
-    }
-
-    /* ઝરણાની નીચે પાણીના ઉડતા છાંટા (Splash Effect) */
-    .water-splash {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 30px;
-      background: radial-gradient(circle, rgba(255,255,255,0.9) 10%, transparent 70%);
-      animation: splashWave 1s ease-in-out infinite alternate;
-    }
-
-    @keyframes splashWave {
-      0% { transform: scale(0.9); opacity: 0.7; }
-      100% { transform: scale(1.1); opacity: 1; }
-    }
-
-
-    /* --- ૨. ઉડતી ચકલી અને લોગો ઝંડો (Flying Birds & Flag) --- */
-    .sky-container {
+    /* --- ૨. વાસ્તવિક લુક માટે ઝરણાનું ધુમ્મસ (Water Mist Effect) --- */
+    .mist-overlay {
       position: fixed;
-      top: 30px; /* આકાશની ઊંચાઈ */
+      bottom: 0;
       left: 0;
       width: 100%;
-      height: 150px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 80%);
       pointer-events: none;
-      z-index: 100;
+      z-index: 2;
+      animation: mistMove 6s ease-in-out infinite alternate;
     }
 
-    /* ચકલી લાવનાર કન્ટેનર */
-    .bird-carrier {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      /* બેક અને ફોર્થ એનિમેશન સેટિંગ્સ */
-      animation: flyBackAndForth 22s linear infinite;
+    @keyframes mistMove {
+      0% { transform: translateY(10px) scale(0.95); opacity: 0.6; }
+      100% { transform: translateY(-10px) scale(1.05); opacity: 0.9; }
     }
 
-    /* ચકલી ૧ અને ૨ માટે અલગ ઊંચાઈ અને સ્પીડ આપવા માટે */
-    .bird-carrier-2 {
-      top: 60px;
-      animation: flyBackAndForth 16s linear infinite reverse; /* વિરુદ્ધ દિશામાં ચાલશે */
+    /* --- ૩. લાલ હોડીની એનિમેશન (Swaying Red Boat) --- */
+    /* જો તમે ઈચ્છો તો ચિત્રની જેમ નીચે નાની લાલ હોડી ધીમે-ધીમે હલતી મૂકી શકો છો */
+    .red-boat {
+      position: fixed;
+      bottom: 40px;
+      left: 30%;
+      width: 140px;
+      height: auto;
+      pointer-events: none;
+      z-index: 3;
+      filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
+      animation: boatFloat 4s ease-in-out infinite alternate;
     }
 
-    /* ચકલી ઇમોજી અથવા આઇકોન */
-    .bird {
-      font-size: 42px;
-      display: inline-block;
-      /* પાંખો ફફડાવવાનો લુક આપવા માટે */
-      animation: wingFlap 0.4s ease-in-out infinite alternate;
-    }
-
-    /* પાંખો ફફડાવવી */
-    @keyframes wingFlap {
-      0% { transform: translateY(0) rotate(-5deg); }
-      100% { transform: translateY(-5px) rotate(5deg); }
-    }
-
-    /* ચાંચમાંથી લટકતું દોરડું */
-    .beak-rope {
-      width: 3px;
-      height: 25px;
-      background-color: #555;
-      margin-top: -5px;
-      transform-origin: top center;
-      animation: ropeSwing 1.5s ease-in-out infinite alternate;
-    }
-
-    /* લટકતો લોગો વાળો ઝંડો (Logo Flag) */
-    .logo-flag {
-      background: #ffffff;
-      border: 2.5px solid #ff9800;
-      border-radius: 5px;
-      padding: 6px 10px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-      transform-origin: top center;
-      animation: flagSway 1.5s ease-in-out infinite alternate;
-    }
-
-    /* લોગો ઈમેજ સ્ટાઈલ */
-    .flag-logo {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      object-fit: cover;
-      background-color: #eee;
-    }
-
-    /* ઝંડાનું લખાણ */
-    .flag-text {
-      font-size: 11px;
-      font-weight: bold;
-      color: #333;
-      white-space: nowrap;
-    }
-
-    /* દોરડું અને ઝંડો હવામાં લહેરાય તે માટે એનિમેશન */
-    @keyframes ropeSwing {
-      0% { transform: rotate(-8deg); }
-      100% { transform: rotate(8deg); }
-    }
-    @keyframes flagSway {
-      0% { transform: rotate(-5deg) skewX(-3deg); }
-      100% { transform: rotate(5deg) skewX(3deg); }
-    }
-
-    /* --- ૩. ડાબેથી જમણે અને જમણેથી ડાબે જવાની એનિમેશન --- */
-    /* નોંઘ: સ્ટાન્ડર્ડ ચકલી 🐦 નો ફેસ ડાબી બાજુ હોય છે. તેથી જમણી બાજુ ઉડાડવા માટે scaleX(-1) કરવો પડે. */
-    @keyframes flyBackAndForth {
-      0% { left: -150px; transform: scaleX(-1); } /* મોઢું જમણી બાજુ (flipped) */
-      48% { left: 100vw; transform: scaleX(-1); }
-      50% { left: 100vw; transform: scaleX(1); }  /* મોઢું ડાબી બાજુ (normal) */
-      98% { left: -150px; transform: scaleX(1); }
-      100% { left: -150px; transform: scaleX(-1); }
+    @keyframes boatFloat {
+      0% { transform: translateY(0) rotate(-1deg); }
+      100% { transform: translateY(-8px) rotate(2deg); }
     }
 
 
-    /* વેબસાઈટનું કન્ટેન્ટ એરિયા (ટેસ્ટિંગ માટે) */
-    .website-content {
-      max-width: 800px;
-      margin: 80px auto;
-      padding: 30px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    /* --- ૪. બેનર સાથે ઉડતી ચકલીઓ (Flying Birds with Banner) --- */
+    .bird-banner-carrier {
+      position: fixed;
+      top: 40px; /* આકાશની ઉંચાઈ */
+      width: 500px; /* તમારા ક્રોપ કરેલા બેનરની સાઈઝ મુજબ સેટ કરો */
+      height: 250px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 10;
+      pointer-events: none;
+      /* બે એનિમેશન: આડી ઉડાન અને ઉભી ધ્રુજારી (Wobble) */
+      animation: 
+        flyAcross 24s linear infinite, 
+        flyWobble 2s ease-in-out infinite alternate;
+    }
+
+    /* ઉભી ધ્રુજારી (વાસ્તવિક પાંખોની ગતિ દર્શાવવા) */
+    @keyframes flyWobble {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-20px); }
+    }
+
+    /* આડી ઉડાન અને ડાયરેક્શન બદલતી વખતે ઈમેજ સ્વિચિંગ એનિમેશન */
+    @keyframes flyAcross {
+      /* ૧. ડાબેથી જમણે ઉડાન (Left to Right) */
+      0% {
+        left: -550px;
+        background-image: url('birds-ltr.png'); /* ડાબેથી જમણે જતું ક્રોપ કરેલું ટ્રાન્સપરન્ટ ચિત્ર */
+      }
+      49% {
+        left: 100vw;
+        background-image: url('birds-ltr.png');
+      }
+      
+      /* ૨. જમણી કિનારે પહોંચીને પાત્ર બદલવું (સ્મૂથ ફ્લિપ) */
+      50% {
+        left: 100vw;
+        background-image: url('birds-rtl.png'); /* જમણેથી ડાબે આવતું ક્રોપ કરેલું ટ્રાન્સપરન્ટ ચિત્ર */
+      }
+      
+      /* ૩. જમણેથી ડાબે ઉડાન (Right to Left) */
+      99% {
+        left: -550px;
+        background-image: url('birds-rtl.png');
+      }
+      100% {
+        left: -550px;
+        background-image: url('birds-ltr.png');
+      }
+    }
+
+
+    /* --- ૫. વેબસાઈટના લખાણનું કન્ટેન્ટ બોક્સ --- */
+    /* વોટરફોલ બેકગ્રાઉન્ડ સરસ દેખાય તે માટે લખાણ વચ્ચે અર્ધ-પારદર્શક ગ્લાસ બોક્સમાં રહેશે */
+    .main-content {
+      position: relative;
+      z-index: 5;
+      max-width: 700px;
+      margin: 100px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px); /* ગ્લાસ ઈફેક્ટ */
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      color: white;
       text-align: center;
-      min-height: 1200px; /* સ્ક્રોલ ટેસ્ટ કરવા માટે મોટી હાઇટ */
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .main-content h1 {
+      font-size: 38px;
+      margin-top: 0;
+      color: #fff;
+    }
+
+    .main-content p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #e0f2f1;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: linear-gradient(135deg, #00b0ff, #0081cb);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      box-shadow: 0 4px 15px rgba(0, 176, 255, 0.4);
+      transition: transform 0.2s;
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
     }
   </style>
 </head>
 <body>
 
-  <!-- ૧. ડાબી અને જમણી બાજુનું વહેતું જરણું -->
-  <div class="waterfall-left">
-    <div class="water-stream"></div>
-    <div class="water-splash"></div>
-  </div>
-  <div class="waterfall-right">
-    <div class="water-stream"></div>
-    <div class="water-splash"></div>
-  </div>
+  <!-- વાસ્તવિક જળપ્રપાત ધુમ્મસ ઈફેક્ટ -->
+  <div class="mist-overlay"></div>
 
-  <!-- ૨. આકાશમાં ઉડતી ચકલીઓ અને ઝંડા -->
-  <div class="sky-container">
-    
-    <!-- ચકલી ૧ (ડાબેથી જમણે) -->
-    <div class="bird-carrier">
-      <div class="bird">🐦</div>
-      <div class="beak-rope"></div>
-      <div class="logo-flag">
-        <!-- અહીં YOUR_LOGO_IMAGE_URL ની જગ્યાએ તમારા લોગોની લિંક મૂકો -->
-        <img class="flag-logo" src="https://api.dicebear.com/7.x/identicon/svg?seed=Logo1" alt="Logo">
-        <span class="flag-text">MY BRAND</span>
-      </div>
-    </div>
+  <!-- લાલ હોડી (પિક્ચર જેવી ફીલ લાવવા માટે) -->
+  <!-- જો તમારી પાસે લાલ હોડીનું transparent PNG હોય તો લિંક મૂકી શકો છો, અથવા આ લાઈન કાઢી શકો છો -->
+  <img class="red-boat" src="https://images.cf-assets.com/ (અથવા તમારી પોતાની લાલ બોટ ઇમેજ)" alt="" onerror="this.style.display='none'">
 
-    <!-- ચકલી ૨ (જમણેથી ડાબે - વિરુદ્ધ દિશામાં ઉડશે) -->
-    <div class="bird-carrier bird-carrier-2">
-      <div class="bird">🐦</div>
-      <div class="beak-rope"></div>
-      <div class="logo-flag">
-        <img class="flag-logo" src="https://api.dicebear.com/7.x/identicon/svg?seed=Logo2" alt="Logo">
-        <span class="flag-text">WELCOME</span>
-      </div>
-    </div>
+  <!-- બેનર સાથે ઉડતી ચકલીઓ -->
+  <div class="bird-banner-carrier"></div>
 
-  </div>
-
-  <!-- વેબસાઈટનું લખાણ (તમારું હોમ પેજ આ રીતે વચ્ચે દેખાશે) -->
-  <div class="website-content">
-    <h1>મારી વેબસાઈટમાં તમારું સ્વાગત છે</h1>
-    <p>આ પેજમાં ડાબી અને જમણી બાજુએ વહેતું જરણું સેટ કરેલું છે.</p>
-    <p>ઉપર આકાશમાં ચકલીઓ બ્રાન્ડનો ઝંડો લઈને સતત ઉડી રહી છે.</p>
-    <br><br>
-    <p style="color: #777;">(તમે પેજને નીચે સ્ક્રોલ કરીને પણ જોઈ શકો છો, જરણું છેક નીચે સુધી વહેતું રહેશે.)</p>
+  <!-- વેબસાઈટ કન્ટેન્ટ એરિયા -->
+  <div class="main-content">
+    <h1>String Creations 03</h1>
+    <p>અમે લાવ્યા છીએ તમારા માટે અદ્ભુત 3D ગ્રાફિક્સ અને વેબસાઈટ ડિઝાઇન્સ. આખા પેજ પર બેકગ્રાઉન્ડમાં સુંદર કુદરતી જરણું વહી રહ્યું છે અને ઉપર આકાશમાં ચકલીઓ અમારું ઓરિજિનલ બેનર લઈને ઉડી રહી છે.</p>
+    <a href="#" class="cta-button">વધુ જાણો</a>
   </div>
 
 </body>
