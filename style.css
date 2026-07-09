@@ -222,3 +222,98 @@ html {
 .marquee-arrow-right {
     right: 15px;
 }
+/* ==========================================================================
+   STRING CREATIONS 03 - PREMIUM 3D WATERFALL & FLYING BIRDS BACKGROUND
+   ========================================================================== */
+
+/* ૧. ઓરિજિનલ 3D લુક ધરાવતું વોટરફોલ બેકગ્રાઉન્ડ (લાલ હોડી વાળું ચિત્ર) */
+body {
+    background-image: url('waterfall-bg.jpg'); /* લાલ હોડી વાળા ચિત્રનો પાથ */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 0px !important; /* ગૂગલ ટ્રાન્સલેટના ગેપને અટકાવવા */
+}
+
+/* ૨. વોટરફોલ ધુમ્મસ ઇફેક્ટ (Water Mist Overlay) - ઝરણાને લાઈવ લુક આપવા */
+.mist-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 80%);
+    pointer-events: none;
+    z-index: 5;
+    animation: mistMove 6s ease-in-out infinite alternate;
+}
+@keyframes mistMove {
+    0% { transform: translateY(10px) scale(0.95); opacity: 0.5; }
+    100% { transform: translateY(-10px) scale(1.05); opacity: 0.8; }
+}
+
+/* ૩. બેનર સાથે ઉડતી ઓરિજિનલ ચકલીઓ (ત્રીજું ચિત્ર) */
+.bird-banner-carrier {
+    position: fixed;
+    top: 100px;
+    width: 500px; 
+    height: 250px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+    pointer-events: none;
+    /* બે એનિમેશન: આડી ઉડાન અને ઉભી ધ્રુજારી */
+    animation: 
+        flyAcross 24s linear infinite, 
+        flyWobble 2s ease-in-out infinite alternate;
+}
+@keyframes flyWobble {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-15px); }
+}
+@keyframes flyAcross {
+    0% {
+        left: -550px;
+        background-image: url('birds-ltr.png'); /* ડાબેથી જમણે જતી ટ્રાન્સપરન્ટ ઈમેજ */
+    }
+    49% {
+        left: 100vw;
+        background-image: url('birds-ltr.png');
+    }
+    50% {
+        left: 100vw;
+        background-image: url('birds-rtl.png'); /* જમણેથી ડાબે જતી ટ્રાન્સપરન્ટ ઈમેજ */
+    }
+    99% {
+        left: -550px;
+        background-image: url('birds-rtl.png');
+    }
+    100% {
+        left: -550px;
+        background-image: url('birds-ltr.png');
+    }
+}
+
+/* ૪. કાચ જેવા ટ્રાન્સપરન્ટ પ્રીમિયમ કાર્ડ્સ (Glassmorphism Effect) */
+.glass-header {
+    background: rgba(13, 13, 13, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+.glass-card {
+    background: rgba(22, 22, 22, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+/* ૫. ગૂગલ ટ્રાન્સલેટના ડિફોલ્ટ આઇકોન્સ હાઇડ કરવા */
+.skiptranslate, iframe.skiptranslate, #google_translate_element {
+    display: none !important;
+    visibility: hidden !important;
+}
+.goog-te-banner-frame {
+    display: none !important;
+}
