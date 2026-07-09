@@ -18,7 +18,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Tailwind Theme Configuration (Required Inline) -->
+    <!-- Tailwind Theme Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -42,7 +42,7 @@
         }
     </script>
     
-    <!-- Link to the External Custom Style Sheet with Cache Buster -->
+    <!-- Link to the External Custom Style Sheet -->
     <link rel="stylesheet" href="style.css?v=2.0">
 </head>
 <body class="bg-luxuryBlack text-luxuryCream font-sans leading-relaxed selection:bg-luxuryGold selection:text-luxuryBlack">
@@ -54,7 +54,7 @@
     <header class="fixed top-0 inset-x-0 z-50 glass-header border-b border-luxuryGold/10 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- Logo (Left aligned with dynamic Zoom Lightbox feature) -->
+            <!-- Logo (Left aligned with dynamic zoom pop-up feature) -->
             <div class="flex items-center space-x-3 group shrink-0 pr-4">
                 <div class="h-11 w-11 rounded-full overflow-hidden border border-luxuryGold/40 bg-luxuryCharcoal flex items-center justify-center transition-transform duration-300 group-hover:scale-105 cursor-zoom-in" onclick="openLightbox('logo.jpg')">
                     <img src="logo.jpg" alt="String Creations 03 Logo" class="h-full w-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=150'">
@@ -78,10 +78,10 @@
                 <a href="#reviews-section" onclick="showSection('home-view')" class="hover:text-luxuryGold transition">Reviews</a>
             </nav>
 
-            <!-- Utility Controls and Icons Section -->
+            <!-- Utility Controls and Icons Section (Clean Gaps) -->
             <div class="flex items-center gap-4 xl:gap-6 shrink-0 pl-4">
                 
-                <!-- Utilities Frame (Hidden below laptop layout < 1280px) -->
+                <!-- Utilities Frame (Hidden on < 1280px) -->
                 <div class="hidden xl:flex items-center gap-4 xl:gap-5 whitespace-nowrap">
                     <!-- International Language Switcher -->
                     <div class="flex items-center space-x-1.5 text-[10px] uppercase tracking-wider text-gray-400 border-r border-luxuryGold/20 pr-4 shrink-0">
@@ -127,7 +127,7 @@
                         <span id="cart-count" class="absolute -top-2 -right-2 bg-luxuryGold text-luxuryBlack text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
                     </button>
 
-                    <!-- Golden Hamburger Menu Button (Only Visible on Mobile & Tablet < 1280px) -->
+                    <!-- Golden Hamburger Menu Button (Only Visible on Screen Layouts < 1280px) -->
                     <button onclick="toggleMobileMenu()" class="xl:hidden text-luxuryGold hover:text-luxuryCream transition text-xl focus:outline-none pl-1">
                         <i class="fa-solid fa-bars"></i>
                     </button>
@@ -1035,7 +1035,7 @@
         </div>
     </footer>
 
-    <!-- External JavaScript Connections with Cache Buster -->
+    <!-- External JavaScript Connections -->
     <script src="script.js?v=2.0"></script>
 </body>
 </html>
