@@ -52,7 +52,7 @@ const stringArtTypes = [
     { title: "Fractal Mathematical Art", content: "Never-ending geometrical designs built from highly complex, recursive nail configurations.", img: "https://images.unsplash.com/photo-1507208773393-4001fc56622d?auto=format&fit=crop&q=80&w=400" }
 ];
 
-// Complete specifications metadata mapping (Unified)
+// Complete specifications metadata mapping (Unified default data set)
 const defaultProducts = [
     {
         id: "p1",
@@ -67,7 +67,6 @@ const defaultProducts = [
         desc: "Over 4,500 meters of continuous dark silk thread woven meticulously around 3,200 silver pins on premium deep matte wood base.",
         multiImages: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=600, https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600",
         video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        // Upgraded Specifications Fields 
         artType: "Monochromatic Shading Thread Art",
         boardSize: "48 x 36 Inches (Grand Profile)",
         boardColor: "Obsidian Velvet Matte Black",
@@ -97,11 +96,6 @@ const defaultProducts = [
         desc: "An intricate monochrome portrait that utilizes varying degrees of string thickness and shadows to generate a photorealistic depth.",
         multiImages: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600",
         video: "",
-        artType: "Geometric Portrait",
-        nails: 360,
-        hours: "18 Hours",
-        threads: 2400,
-        multiImages: "",
         artType: "Human Contour Design",
         boardSize: "36 x 36 Inches",
         boardColor: "Matte Black",
@@ -133,7 +127,7 @@ const defaultProducts = [
         video: "",
         artType: "Sacred Radial Geometry",
         boardSize: "40 x 40 Inches Symmetrical",
-        boardColor: "Classic Midnight Stained Board",
+        boardColor: "Midnight Stained Indigo Board",
         frameType: "Authentic Stained Hardwood Profile",
         frameColor: "Classic Copper Profile",
         threadMaterial: "Premium Metallic Wire Weft",
@@ -163,7 +157,7 @@ const defaultProducts = [
         artType: "Corporate Branding Geometry",
         boardSize: "60 x 40 Inches (Landscape)",
         boardColor: "Obsidian Stained Solid Wood",
-        frameType: "Seamless Alumnimum Profile",
+        frameType: "Seamless Aluminum Profile",
         frameColor: "Anodized Black Metal Frame",
         threadMaterial: "Reinforced Polyester & Nylon Cord",
         threadThickness: "1.2mm High-strength Cord",
@@ -181,10 +175,7 @@ const defaultProducts = [
 const defaultReviews = [
     { name: "Jaymin Patel", rating: 5, text: "The portrait string art looks remarkably detailed. Custom crafted and delivered with immense protective packaging." },
     { name: "Aarav Mehta", rating: 5, text: "The portrait of Radha Krishna has transformed our foyer completely. Absolutely breath-taking attention to detail." },
-    { name: "Elena Rostova", rating: 5, text: "Unbelievable craftsmanship. Shipped perfectly to Germany in zero-shock wooden crates. Outstanding!" },
-    { name: "Siddharth Sen", rating: 5, text: "A masterpiece that commands attention. Under spotlight, the gold thread reflects a mesmerizing aura." },
-    { name: "Clara Dupont", rating: 5, text: "Exceptional luxury decor. The custom white frame option matched my minimalist apartment beautifully." },
-    { name: "Kavar K", rating: 5, text: "Immensely detailed couple portrait. Excellent support during photo review selection on WhatsApp." }
+    { name: "Elena Rostova", rating: 5, text: "Unbelievable craftsmanship. Shipped perfectly to Germany in zero-shock wooden crates. Outstanding!" }
 ];
 
 // State Variables
@@ -230,7 +221,63 @@ function saveToStorage() {
     localStorage.setItem('sc03_cart', JSON.stringify(cart));
 }
 
-// Initialize Core Functions
+// Local Image Compression and Downscaling Helper to avoid LocalStorage overload
+function compressImagePromise(file) {
+    return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function (e) {
+            const img = new Image();
+            img.src = e.target.result;
+            img.onload = function () {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                let width = img.width;
+                let height = img.height;
+                const max_size = 900; // Optimal HD resolution for web marquee sliders
+                if (width > height) {
+                    if (width > max_size) {
+                        height *= max_size / width;
+                        width = max_size;
+                    }
+                } else {
+                    if (height > max_size) {
+                        width *= max_size / height;
+                        height = max_size;
+                    }
+                }
+                canvas.width = width;
+                canvas.height = height;
+                ctx.drawImage(img, 0, 0, width, height);
+                
+                // Export as lightweight JPEG to keep localized payload small
+                const dataUrl = canvas.toDataURL('image/jpeg', 0.65);
+                resolve(dataUrl);
+            };
+        };
+    });
+}
+
+// Local Video File converter helper
+function readVideoPromise(file) {
+    return new Promise((resolve, reject) => {
+        if (file.size > 15 * 1024 * 1024) { // 15MB Size safety validation
+            reject("Error: Video file is too large! Please limit size to 15MB to secure Storage space.");
+            return;
+        }
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function (e) {
+            resolve(e.target.result);
+        };
+        reader.onerror = function () {
+            reject("Failed to read video format data.");
+        };
+    });
+}
+
+// Initialize Core Functions on Load
 window.addEventListener('DOMContentLoaded', () => {
     if (!localStorage.getItem('sc03_products')) {
         saveToStorage();
@@ -551,7 +598,11 @@ function toggleAccordionSection(idx) {
     const block = document.getElementById(`accordion-content-${idx}`);
     const icon = document.getElementById(`accordion-icon-${idx}`);
     block.classList.toggle('hidden');
-    icon.innerHTML = block.classList.contains('hidden') ? '<i class="fa-solid fa-chevron-down"></i>' : '<i class="fa-solid fa-chevron-up"></i>';
+    if (block.classList.contains('hidden')) {
+        icon.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+    } else {
+        icon.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+    }
 }
 
 function triggerArtClassPreview(title) {
@@ -772,21 +823,41 @@ function closeLightbox() {
 function changeModalMedia(type, url) {
     const imgFrame = document.getElementById('modal-img');
     const videoFrame = document.getElementById('modal-video');
+    const localVideoFrame = document.getElementById('modal-local-video');
+    
+    // Hide all initially
+    imgFrame.classList.add('hidden');
+    videoFrame.classList.add('hidden');
+    localVideoFrame.classList.add('hidden');
+    
+    videoFrame.src = "";
+    localVideoFrame.src = "";
+    if (localVideoFrame.pause) localVideoFrame.pause();
+
     if (type === 'image') {
         imgFrame.src = url;
         imgFrame.classList.remove('hidden');
-        videoFrame.classList.add('hidden');
-        videoFrame.src = "";
-    } else {
-        videoFrame.src = url;
-        videoFrame.classList.remove('hidden');
-        imgFrame.classList.add('hidden');
+    } else if (type === 'video') {
+        // Auto detect if uploaded local raw mp4 file base64 or external embed link
+        if (url.startsWith('data:video/') || url.endsWith('.mp4')) {
+            localVideoFrame.src = url;
+            localVideoFrame.classList.remove('hidden');
+            localVideoFrame.play();
+        } else {
+            videoFrame.src = url;
+            videoFrame.classList.remove('hidden');
+        }
     }
 }
 
 function closeProductModal() {
     document.getElementById('product-modal').classList.add('hidden');
     document.getElementById('modal-video').src = ""; 
+    const localVideo = document.getElementById('modal-local-video');
+    if (localVideo) {
+        localVideo.pause();
+        localVideo.src = "";
+    }
 }
 
 function generateDigitalCertificate() {
@@ -844,16 +915,6 @@ function removeFromCart(id) {
     saveToStorage();
     updateCartCount();
     renderCart();
-}
-
-// Mobile Menu Toggler
-function toggleMobileMenu() {
-    const drawer = document.getElementById('mobile-menu-drawer');
-    const backdrop = document.getElementById('mobile-menu-backdrop');
-    if (drawer && backdrop) {
-        drawer.classList.toggle('translate-x-full');
-        backdrop.classList.toggle('hidden');
-    }
 }
 
 // Admin Session Logic
@@ -1066,28 +1127,92 @@ function renderAdminProducts() {
     });
 }
 
-function handleAdminAddProduct(event) {
+// Advanced Async Local Media Publisher (No URLs required!)
+async function handleAdminAddProduct(event) {
     event.preventDefault();
+
     const name = document.getElementById('admin-p-name').value;
     const category = document.getElementById('admin-p-cat').value;
     const price = parseInt(document.getElementById('admin-p-price').value);
     const hours = document.getElementById('admin-p-hours').value;
     const nails = parseInt(document.getElementById('admin-p-nails').value);
     const threads = parseInt(document.getElementById('admin-p-threads').value);
-    const img = document.getElementById('admin-p-img').value;
-    const multiImages = document.getElementById('admin-p-multi-images').value;
-    const video = document.getElementById('admin-p-video').value;
     const desc = document.getElementById('admin-p-desc').value;
 
-    const newProduct = { id: 'p-' + Date.now(), name, category, price, hours, nails, threads, img, multiImages, video, desc };
-    products.push(newProduct);
-    saveToStorage();
-    renderGallery();
-    renderAdminProducts();
-    renderAdminDragList();
+    // Local files references
+    const primaryImgFile = document.getElementById('admin-p-img-file').files[0];
+    const multiImgFiles = document.getElementById('admin-p-multi-images-file').files;
+    const videoFile = document.getElementById('admin-p-video-file').files[0];
 
-    event.target.reset();
-    showToast('Masterpiece uploaded onto public catalog!');
+    // Check if at least one display element exists
+    if (!primaryImgFile && !videoFile) {
+        alert("Action Required: Please choose at least one Primary Display Photo or Video file to publish.");
+        return;
+    }
+
+    showToast("Publishing local media assets... please wait.");
+
+    try {
+        let primaryImgBase64 = "";
+        if (primaryImgFile) {
+            primaryImgBase64 = await compressImagePromise(primaryImgFile);
+        }
+
+        let multiImagesBase64 = [];
+        if (multiImgFiles.length > 0) {
+            for (let i = 0; i < multiImgFiles.length; i++) {
+                const compressed = await compressImagePromise(multiImgFiles[i]);
+                multiImagesBase64.push(compressed);
+            }
+        }
+
+        let videoBase64 = "";
+        if (videoFile) {
+            videoBase64 = await readVideoPromise(videoFile);
+        }
+
+        // Formulate dynamic masterpiece details object
+        const newProduct = {
+            id: 'p-' + Date.now(),
+            name,
+            category,
+            price,
+            hours,
+            nails,
+            threads,
+            desc,
+            img: primaryImgBase64 || "https://via.placeholder.com/600/161616/d4af37?text=Video+Only",
+            multiImages: multiImagesBase64.join(', '),
+            video: videoBase64,
+            // Specifications parameters defaults
+            artType: "Custom Selected Aesthetics",
+            boardSize: "Tailored to Order",
+            boardColor: "Obsidian Velvet Matte Black",
+            frameType: "Authentic Stained Hardwood Profile",
+            frameColor: "Aesthetic Vintage Gold Trim",
+            threadMaterial: "German Filament Silk & Cotton Core",
+            threadThickness: "0.6mm Micro-tension",
+            threadSize: "No. 3 Archival Weft",
+            threadColor: "Concentric Customized Hue",
+            difficulty: "Custom Grade",
+            dateAdded: new Date().toISOString().split('T')[0],
+            tags: ["Direct Upload", "Aesthetics"],
+            rating: 5,
+            availability: "In Stock (Custom Built to Order)",
+            bullets: ["Custom built specifically to your scale", "Lifetime anti-fade thread filament warranty"]
+        };
+
+        products.push(newProduct);
+        saveToStorage();
+        renderGallery();
+        renderAdminProducts();
+        renderAdminDragList();
+
+        event.target.reset();
+        showToast("Masterpiece uploaded with offline file assets!");
+    } catch (err) {
+        alert(err);
+    }
 }
 
 function deleteProductFromAdmin(id) {
