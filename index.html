@@ -628,19 +628,25 @@
                                 <input type="number" id="admin-p-threads" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
                             </div>
                         </div>
-                        <div>
-                            <label class="block text-[10px] uppercase text-gray-400">Primary Image URL</label>
-                            <input type="text" id="admin-p-img" required placeholder="https://images.unsplash.com/... or base64" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] uppercase text-gray-400">Alternative Slider Images (Comma Separated URLs)</label>
-                            <input type="text" id="admin-p-multi-images" placeholder="URL1, URL2, URL3" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] uppercase text-gray-400">Video Embed link (Embed URL)</label>
-                            <input type="text" id="admin-p-video" placeholder="https://www.youtube.com/embed/..." class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
-                        </div>
-                        <div>
+                       <!-- Direct Local File Upload Framework (No URLs Required) -->
+                        <div class="space-y-3 p-4 bg-luxuryBlack/40 border border-luxuryGold/15 rounded">
+                            <p class="text-[10px] text-luxuryGold uppercase tracking-widest font-bold">Media Upload Console</p>
+                            
+                            <div>
+                                <label class="block text-[10px] uppercase text-gray-400 mb-1">Primary Display Photo (Optional if Video added)</label>
+                                <input type="file" id="admin-p-img-file" accept="image/*" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-1.5 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold rounded">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-[10px] uppercase text-gray-400 mb-1">Alternative Slider Images (Multiple optional select)</label>
+                                <input type="file" id="admin-p-multi-images-file" accept="image/*" multiple class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-1.5 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold rounded">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-[10px] uppercase text-gray-400 mb-1">Direct Video Clip Upload (MP4 optional, Max 15MB)</label>
+                                <input type="file" id="admin-p-video-file" accept="video/*" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-1.5 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold rounded">
+                            </div>
+                        </div>                        <div>
                             <label class="block text-[10px] uppercase text-gray-400">Description</label>
                             <textarea id="admin-p-desc" required rows="2" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold"></textarea>
                         </div>
@@ -742,9 +748,11 @@
                 <!-- Media and Carousel Panel -->
                 <div class="lg:col-span-6 space-y-4">
                     <div class="relative bg-neutral-900/60 rounded-lg border border-luxuryGold/15 overflow-hidden aspect-square flex items-center justify-center p-2 group shadow-2xl">
-                        <img id="modal-img" src="" class="w-full h-full object-cover rounded cursor-zoom-in transition duration-500 hover:scale-105" alt="Active Art Image" onclick="openLightbox(this.src)">
-                        <iframe id="modal-video" class="w-full h-full rounded hidden absolute inset-0" src="" frameborder="0" allowfullscreen></iframe>
-                    </div>
+                    <img id="modal-img" src="" class="w-full h-full object-cover rounded cursor-zoom-in transition duration-500 hover:scale-105" alt="Active Art Image" onclick="openLightbox(this.src)">
+                    <iframe id="modal-video" class="w-full h-full rounded hidden absolute inset-0" src="" frameborder="0" allowfullscreen></iframe>
+                    <!-- Native HTML5 Player to Support Direct local Uploaded MP4 Videos -->
+                    <video id="modal-local-video" class="w-full h-full rounded hidden absolute inset-0 object-cover bg-black" controls src=""></video>
+                </div>
                     
                     <!-- Previews / Slider Navigation -->
                     <div id="modal-media-previews" class="flex space-x-2 overflow-x-auto py-2 scrollbar-none">
