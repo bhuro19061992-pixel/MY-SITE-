@@ -1,0 +1,143 @@
+/* Custom CSS for String Creations 03 */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.glass-header {
+    background: rgba(10, 10, 10, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card {
+    background: rgba(22, 22, 22, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+.brand-string {
+    background: linear-gradient(135deg, #3ad5e0 0%, #1a82e2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-creations {
+    background: linear-gradient(135deg, #1a82e2 0%, #7a1ae2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-03 {
+    background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 50%, #71717a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo-glowing-effect {
+    filter: drop-shadow(0px 2px 10px rgba(26, 130, 226, 0.3));
+}
+
+/* Custom scrollbar config */
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #0d0d0d;
+}
+::-webkit-scrollbar-thumb {
+    background: #1a82e2;
+}
+
+/* Continuous Infinite Horizontal Scrolling Reviews */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+}
+
+.marquee-content {
+    display: inline-flex;
+    animation: marquee 35s linear infinite;
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+/* Clean Carousel-style Auto-Loop Process steps formatting */
+.process-step-card, .heritage-step-card {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    width: 100%;
+}
+
+.process-step-card.active-reveal, .heritage-step-card.active-reveal {
+    display: block !important;
+    opacity: 1 !important;
+    margin: 0 auto;
+    max-width: 450px;
+}
+
+/* Luxury Draggable items and scrolling animation variables */
+@keyframes marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+.gallery-marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+}
+
+.gallery-marquee-content {
+    display: inline-flex;
+    animation: marquee-reverse 35s linear infinite;
+}
+
+.gallery-marquee-content:hover {
+    animation-play-state: paused;
+}
+
+.luxury-border-glow {
+    position: relative;
+    border: 1px solid rgba(212, 175, 55, 0.12);
+    transition: all 0.4s ease;
+}
+
+.luxury-border-glow:hover {
+    border-color: rgba(212, 175, 55, 0.6);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+}
+
+.card-zoom img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-zoom:hover img {
+    transform: scale(1.08);
+}
+
+.z-55 {
+    z-index: 55;
+}
+
+/* Custom scrollbar elimination helper */
+.scrollbar-none::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
