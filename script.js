@@ -1,5 +1,5 @@
-// Dimensions Matrix - Purely ranging from 3 Feet (36 Inches) up to 8 Feet (96 Inches)
-const dimensions = [36, 40, 42, 44, 48, 54, 60, 66, 72, 78, 80, 84, 90, 96];
+// Dimensions Matrix - Purely ranging from 3 Feet (36 Inches) up to 12 Feet (144 Inches)
+const dimensions = [36, 40, 42, 44, 48, 54, 60, 66, 72, 78, 80, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144];
 
 // Searchable Thread Selection values
 const availableThreads = [
@@ -52,7 +52,7 @@ const stringArtTypes = [
     { title: "Fractal Mathematical Art", content: "Never-ending geometrical designs built from highly complex, recursive nail configurations.", img: "https://images.unsplash.com/photo-1507208773393-4001fc56622d?auto=format&fit=crop&q=80&w=400" }
 ];
 
-// Complete specifications metadata mapping
+// Complete specifications metadata mapping (Unified default data set)
 const defaultProducts = [
     {
         id: "p1",
@@ -175,10 +175,7 @@ const defaultProducts = [
 const defaultReviews = [
     { name: "Jaymin Patel", rating: 5, text: "The portrait string art looks remarkably detailed. Custom crafted and delivered with immense protective packaging." },
     { name: "Aarav Mehta", rating: 5, text: "The portrait of Radha Krishna has transformed our foyer completely. Absolutely breath-taking attention to detail." },
-    { name: "Elena Rostova", rating: 5, text: "Unbelievable craftsmanship. Shipped perfectly to Germany in zero-shock wooden crates. Outstanding!" },
-    { name: "Siddharth Sen", rating: 5, text: "A masterpiece that commands attention. Under spotlight, the gold thread reflects a mesmerizing aura." },
-    { name: "Clara Dupont", rating: 5, text: "Exceptional luxury decor. The custom white frame option matched my minimalist apartment beautifully." },
-    { name: "Kavar K", rating: 5, text: "Immensely detailed couple portrait. Excellent support during photo review selection on WhatsApp." }
+    { name: "Elena Rostova", rating: 5, text: "Unbelievable craftsmanship. Shipped perfectly to Germany in zero-shock wooden crates. Outstanding!" }
 ];
 
 // 100% Stable Synchronous LocalStorage Engine Loader
@@ -514,34 +511,6 @@ function renderGalleryGrid(items) {
         return;
     }
 
-    // Protection Threshold: If total unique items are less than 4, render normal centered grids to avoid gaps
-    if (items.length < 4) {
-        const flexGrid = document.createElement('div');
-        flexGrid.className = "flex flex-wrap justify-center gap-8 py-6 w-full max-w-7xl mx-auto animate-fadeIn";
-        flexGrid.innerHTML = items.map(p => `
-            <div class="gallery-card glass-card group overflow-hidden relative transition-all duration-300 rounded luxury-border-glow shrink-0 w-72 select-none">
-                <div class="relative overflow-hidden aspect-square bg-neutral-900 cursor-pointer card-zoom" onclick="openProductModal('${p.id}')">
-                    <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600/161616/d4af37?text=SC03'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack via-transparent opacity-60"></div>
-                    <div class="absolute top-4 right-4 bg-luxuryBlack/85 border border-luxuryGold/20 text-luxuryGold text-[9px] px-3 py-1 uppercase tracking-widest rounded font-semibold">${p.artType || 'String Art'}</div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-serif text-lg text-luxuryCream group-hover:text-luxuryGold transition cursor-pointer truncate" onclick="openProductModal('${p.id}')">${p.name}</h3>
-                    <p class="text-xs text-gray-400 font-light leading-relaxed truncate mt-1">${p.desc || ''}</p>
-                    <p class="text-[9px] text-gray-500 uppercase tracking-widest mt-2">${p.nails || '360'} Nails • ${p.hours || '18 Hours'} Crafted</p>
-                    <div class="flex justify-between items-center mt-5">
-                        <span class="text-luxuryGold font-serif text-base font-bold">${formatVal(p.price)}</span>
-                        <button onclick="addToCart('${p.id}'); event.stopPropagation();" class="bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack text-[10px] uppercase tracking-wider font-semibold px-4 py-2 transition rounded shadow">
-                            Add to Bag
-                        </button>
-                    </div>
-                </div>
-            </div>
-        `).join('');
-        container.appendChild(flexGrid);
-        return;
-    }
-
     const cardsPerRow = 10;
     const rows = [];
     for (let i = 0; i < items.length; i += cardsPerRow) {
@@ -553,8 +522,12 @@ function renderGalleryGrid(items) {
         const rowWrapper = document.createElement('div');
         rowWrapper.className = "relative w-full overflow-hidden";
         
-        // Double items array list to secure continuous loop spacing with no gaps
-        const doubleList = [...rowItems, ...rowItems, ...rowItems];
+        // Auto duplicate list items dynamically to secure continuous Left-to-Right loop spacing with NO gaps under any count
+        let doubleList = [...rowItems];
+        while (doubleList.length < 12) {
+            doubleList = [...doubleList, ...rowItems];
+        }
+        doubleList = [...doubleList, ...doubleList, ...doubleList]; // Triple to maintain flawless wrap bounds
 
         // Overlay manual arrow control buttons outside the scrollbox (Rule 2)
         rowWrapper.innerHTML = `
@@ -594,7 +567,7 @@ function renderGalleryGrid(items) {
     });
 }
 
-// Dynamic Asynchronous Smooth Slider loop (Rule 1 & 2)
+// Dynamic Left-to-Right Loop Engine (Fixed point 1 & 2)
 function initMarqueeAutoScroll(rowId) {
     const container = document.getElementById(rowId);
     if (!container) return;
@@ -608,13 +581,12 @@ function initMarqueeAutoScroll(rowId) {
             return;
         }
 
-        container.scrollLeft += scrollSpeed;
+        // Glides items smoothly from Left to Right (Decreases scrollLeft value over time loop)
+        container.scrollLeft -= scrollSpeed;
 
-        // Infinite loop threshold reset cleanly (1/3 of duplicate lists widths)
-        if (container.scrollLeft >= (container.scrollWidth / 3) * 2) {
-            container.scrollLeft = container.scrollWidth / 3;
-        } else if (container.scrollLeft <= 0) {
-            container.scrollLeft = container.scrollWidth / 3;
+        // Infinite loop threshold reset cleanly (1/3 of duplicate lists widths boundary)
+        if (container.scrollLeft <= container.scrollWidth / 3) {
+            container.scrollLeft = (container.scrollWidth / 3) * 2;
         }
 
         requestAnimationFrame(step);
@@ -622,7 +594,7 @@ function initMarqueeAutoScroll(rowId) {
 
     // Seed center point offset
     setTimeout(() => {
-        container.scrollLeft = container.scrollWidth / 3;
+        container.scrollLeft = (container.scrollWidth / 3) * 2;
         activeMarqueeScrolls[rowId] = 'running';
         requestAnimationFrame(step);
     }, 100);
@@ -641,7 +613,7 @@ function shiftMarquee(rowId, direction) {
     activeMarqueeScrolls[rowId] = 'paused';
     container.style.scrollBehavior = 'smooth'; // Smooth horizontal manual transition
 
-    const shiftAmount = 312; // width + grid gap width
+    const shiftAmount = 312; // card width + grid gap width
     if (direction === 'left') {
         container.scrollLeft -= shiftAmount;
     } else {
@@ -694,7 +666,7 @@ function handleDragDrop(e, targetIdx) {
     }
 }
 
-// Advanced 35+ Types Accordion
+// 35+ Types Accordion
 function renderStringArtDirectory() {
     const container = document.getElementById('string-art-index-accordion');
     if (!container) return;
@@ -725,11 +697,7 @@ function toggleAccordionSection(idx) {
     const block = document.getElementById(`accordion-content-${idx}`);
     const icon = document.getElementById(`accordion-icon-${idx}`);
     block.classList.toggle('hidden');
-    if (block.classList.contains('hidden')) {
-        icon.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
-    } else {
-        icon.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
-    }
+    icon.innerHTML = block.classList.contains('hidden') ? '<i class="fa-solid fa-chevron-down"></i>' : '<i class="fa-solid fa-chevron-up"></i>';
 }
 
 function triggerArtClassPreview(title) {
@@ -781,6 +749,32 @@ function filterSearchableList(type) {
             item.style.display = text.includes(query) ? 'flex' : 'none';
         });
     }
+}
+
+// Custom Studio Submission Handler (English Only)
+function dispatchCustomOrder() {
+    const sizeSelector = document.getElementById('custom-size');
+    const sizeText = sizeSelector.options[sizeSelector.selectedIndex].text;
+    const frameSelector = document.getElementById('custom-frame');
+    const frameText = frameSelector.options[frameSelector.selectedIndex].text;
+    
+    const checkedThreads = Array.from(document.querySelectorAll('input[name="custom-threads"]:checked')).map(el => el.value);
+    const selectedThreadsText = checkedThreads.length > 0 ? checkedThreads.join(", ") : "Standard Thread Formulation";
+
+    const checkedColors = Array.from(document.querySelectorAll('input[name="custom-colors"]:checked')).map(el => el.value);
+    const selectedColorsText = checkedColors.length > 0 ? checkedColors.join(", ") : "Standard Dynamic Palette";
+
+    const customDetails = document.getElementById('custom-details-msg').value.trim() || "No extra instructions provided.";
+
+    const msg = `Hello String Creations 03! I am interested in ordering a Custom Masterpiece:\n\n` + 
+                `• Dimension: ${sizeText}\n` +
+                `• Frame Style: ${frameText}\n` +
+                `• Thread Formulation(s): ${selectedThreadsText}\n` +
+                `• Color Selection(s): ${selectedColorsText}\n\n` +
+                `• Extra Instructions:\n"${customDetails}"\n\n` +
+                `Please calculate the pricing structure and design layout based on these parameters.`;
+    
+    window.open("https://wa.me/918140125772?text=" + encodeURIComponent(msg), '_blank');
 }
 
 // Upgraded Premium Media Slide and Metadata popup controls
