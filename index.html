@@ -101,18 +101,23 @@
         .marquee-content:hover {
             animation-play-state: paused;
         }
-        /* Looping sequential transition reveal for step modules in both tabs */
-        .process-step-card, .heritage-step-card {
+        /* Steps progressive fade-in animation style */
+        .process-step-card {
             opacity: 0.15;
-            transform: scale(0.96);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(0.95);
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
             border-color: rgba(212, 175, 55, 0.05);
         }
-        .process-step-card.active-reveal, .heritage-step-card.active-reveal {
+        .process-step-card.active-reveal {
             opacity: 1 !important;
             transform: scale(1.03) !important;
             border-color: rgba(212, 175, 55, 0.7) !important;
             box-shadow: 0 12px 30px -5px rgba(212, 175, 55, 0.25) !important;
+        }
+        .process-step-card.past-reveal {
+            opacity: 0.85 !important;
+            transform: scale(1) !important;
+            border-color: rgba(212, 175, 55, 0.15) !important;
         }
     </style>
 </head>
@@ -249,10 +254,10 @@
                 <!-- Luxury Sub-Tabs for Process Navigation -->
                 <div class="flex justify-center gap-4 mb-12">
                     <button onclick="switchProcessTab('step-by-step')" id="btn-proc-1" class="process-tab-btn active px-5 py-2 border border-brandTeal text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition">Creation Philosophy</button>
-                    <button onclick="switchProcessTab('checklist')" id="btn-proc-2" class="process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition">15-Step Master Craftsmanship</button>
+                    <button onclick="showCustomSpecsTab()" id="btn-proc-2" class="process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition">15-Step Master Craftsmanship</button>
                 </div>
 
-                <!-- Tab Content 1: The 7-Step Journey with dynamic progressive classes -->
+                <!-- 7-Step Premium Web UX Journey with dynamic progressive classes -->
                 <div id="process-tab-content-1" class="animate-fadeIn">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <!-- Step 1 -->
@@ -307,66 +312,66 @@
                     </div>
                 </div>
 
-                <!-- Tab Content 2: 15-Step Professional Heritage Checklist with Loop Animation Target Classes -->
+                <!-- Tab Content 2: 15-Step Professional Heritage Checklist -->
                 <div id="process-tab-content-2" class="hidden animate-fadeIn">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandTeal/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-brandTeal/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 1: Design Mapping</h4>
                             <p class="text-xs text-gray-400 mt-2">Converting design structures mathematically into high-density coordinates.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandBlue/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-brandBlue/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 2: Base Selection</h4>
                             <p class="text-xs text-gray-400 mt-2">Selecting premium warp-resistant MDF or sustainable natural pine wood sheets.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 3: Surface Treatment</h4>
                             <p class="text-xs text-gray-400 mt-2">Executing precision sanding followed by matte obsidian prime coat applications.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandTeal/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-brandTeal/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 4: Grid Transfer</h4>
                             <p class="text-xs text-gray-400 mt-2">Securing vector alignments onto wood boards to guide nail insertion maps.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandBlue/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-brandBlue/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 5: Nail Calibration</h4>
                             <p class="text-xs text-gray-400 mt-2">Individually hammering nails to matching depth parameters.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 6: Fiber Formulation</h4>
                             <p class="text-xs text-gray-400 mt-2">Choosing cotton, metallic wires, or silk strings to match aesthetic guidelines.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandTeal/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-brandTeal/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 7: Structural Anchoring</h4>
                             <p class="text-xs text-gray-400 mt-2">Securing the base starter knot onto anchor nails.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandBlue/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-brandBlue/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 8: Geometric Weaving</h4>
                             <p class="text-xs text-gray-400 mt-2">Interlacing threads across coordinates over long artisan sessions.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 9: Layer Splitting</h4>
                             <p class="text-xs text-gray-400 mt-2">Individually overlaying dark and light layers to finalize shadow densities.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandTeal/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-brandTeal/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 10: Tension Realignment</h4>
                             <p class="text-xs text-gray-400 mt-2">Tightening loose strands and concealing final structural knots.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandBlue/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-brandBlue/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 11: Surface Restoration</h4>
                             <p class="text-xs text-gray-400 mt-2">Vacuuming lint and applying finishing polishes onto wood margins.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 12: Protective Framing</h4>
                             <p class="text-xs text-gray-400 mt-2">Encasing the board with premium custom wooden configurations.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandTeal/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-brandTeal/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 13: Mounting Setup</h4>
                             <p class="text-xs text-gray-400 mt-2">Affixing heavy-duty steel mounting fixtures and hanging wires.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-brandBlue/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-brandBlue/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 14: Certificate Registry</h4>
                             <p class="text-xs text-gray-400 mt-2">Validating thread tightness and pasting the signed Certificate of Authenticity seal.</p>
                         </div>
-                        <div class="heritage-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
+                        <div class="process-step-card glass-card p-6 border-l-2 border-[#d4af37]/35">
                             <h4 class="font-serif text-base text-luxuryGold font-semibold">Step 15: Museum Packing</h4>
                             <p class="text-xs text-gray-400 mt-2">Wrapping in protective paper layers and shipping in secure, shockproof boxing.</p>
                         </div>
@@ -409,15 +414,15 @@
             <div class="w-16 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <!-- Left Half Screen: Form Specs Panel (lg:col-span-6) -->
-            <div class="lg:col-span-6 glass-card p-8 space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <!-- Form Specs Panel -->
+            <div class="lg:col-span-5 glass-card p-8 space-y-6">
                 <h3 class="font-serif text-xl text-luxuryGold tracking-wide">Configure Specifications</h3>
                 
                 <div>
                     <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Canvas Archetype & Size (From 3ft to 8ft)</label>
                     <select id="custom-size" class="w-full bg-luxuryBlack border border-luxuryGold/20 text-luxuryCream px-4 py-3 text-xs focus:outline-none focus:border-luxuryGold">
-                        <!-- Populated dynamically via JS -->
+                        <!-- Populated dynamically via JS loop -->
                     </select>
                 </div>
 
@@ -517,7 +522,7 @@
                 <!-- Additional Message Details Textarea -->
                 <div>
                     <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Additional Custom Details & Instructions</label>
-                    <textarea id="custom-details-msg" rows="4" placeholder="Enter custom names, dates, references or specific color requirements here..." class="w-full bg-luxuryBlack border border-luxuryGold/20 p-3 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold placeholder-gray-600"></textarea>
+                    <textarea id="custom-details-msg" rows="3" placeholder="Enter custom names, dates, or specific requirements here..." class="w-full bg-luxuryBlack border border-luxuryGold/20 p-3 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold placeholder-gray-600"></textarea>
                 </div>
 
                 <div class="border-t border-luxuryGold/10 pt-4">
@@ -532,14 +537,14 @@
             </div>
 
             <!-- Detailed Main Types of String Art Directory Section -->
-            <div class="lg:col-span-6 space-y-6 glass-card p-8">
+            <div class="lg:col-span-7 space-y-6">
                 <div class="border-b border-luxuryGold/10 pb-4 flex justify-between items-center">
                     <h3 class="font-serif text-xl text-luxuryGold uppercase tracking-wide">Main Types of String Art</h3>
                     <span class="text-[10px] uppercase text-gray-500 tracking-widest">Interactive Index</span>
                 </div>
                 
                 <div id="string-art-index-accordion" class="space-y-3 max-h-[600px] overflow-y-auto pr-2">
-                    <!-- Populated dynamically with detailed accordion below -->
+                    <!-- Populated dynamically with detailed tree below -->
                 </div>
             </div>
         </div>
@@ -618,7 +623,7 @@
                     </div>
                     <div>
                         <label class="block text-[10px] uppercase text-gray-400">Image URL</label>
-                        <input type="text" id="admin-p-img" required placeholder="https://images.unsplash.com/..." class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
+                        <input type="text" id="admin-p-img" required placeholder="https://images.unsplash.com/... or base64" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
                     </div>
                     <div>
                         <label class="block text-[10px] uppercase text-gray-400">Description</label>
@@ -638,13 +643,13 @@
         </div>
     </div>
 
-    <!-- Track Order Popup Modal (Completed and Fixed) -->
+    <!-- Interactive Track Order Popup Modal -->
     <div id="track-modal" class="fixed inset-0 bg-luxuryBlack/90 z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card max-w-lg w-full p-8 relative space-y-6 rounded-lg border border-luxuryGold/20 animate-fadeIn">
+        <div class="glass-card max-w-lg w-full p-8 relative space-y-6 rounded-lg border border-luxuryGold/20">
             <button onclick="toggleTrackModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
             <div class="text-center space-y-2">
                 <h3 class="font-serif text-2xl text-luxuryGold uppercase tracking-widest">Track Order Phase</h3>
-                <p class="text-[10px] text-gray-400 uppercase tracking-widest">Enter reference code to view production state</p>
+                <p class="text-[10px] text-gray-400 uppercase tracking-widest">Enter reference code to view spatial loops</p>
             </div>
             
             <div class="space-y-4">
@@ -655,122 +660,330 @@
             <!-- Dynamic Track Results -->
             <div id="track-result" class="hidden glass-card p-4 space-y-4 border border-luxuryGold/20 rounded">
                 <div class="flex justify-between text-xs pb-2 border-b border-luxuryGold/10">
-                    <span class="text-gray-400">Order ID:</span>
-                    <span id="track-order-id" class="text-luxuryGold font-bold"></span>
+                    <span class="text-gray-400">Order Ref: <b id="track-display-id" class="text-luxuryGold"></b></span>
+                    <span class="text-luxuryGold font-bold">Phase: <span id="track-display-phase" class="text-luxuryCream">Threading</span></span>
                 </div>
-                <div class="flex justify-between text-xs pb-2 border-b border-luxuryGold/10">
-                    <span class="text-gray-400">Current Phase:</span>
-                    <span id="track-phase" class="text-luxuryCream font-medium"></span>
-                </div>
-                <div class="flex justify-between text-xs">
-                    <span class="text-gray-400">Estimated Delivery:</span>
-                    <span id="track-delivery" class="text-luxuryCream font-medium"></span>
-                </div>
-                <!-- Progress Line -->
-                <div class="w-full bg-neutral-800 h-1.5 rounded-full overflow-hidden mt-2">
-                    <div id="track-progress-bar" class="bg-luxuryGold h-full transition-all duration-500" style="width: 0%"></div>
+                <div class="grid grid-cols-3 gap-2 text-center text-[9px] uppercase tracking-wider">
+                    <div id="track-step-1" class="p-2 bg-luxuryGold/10 border border-luxuryGold/30 text-luxuryGold rounded">1. Mapping</div>
+                    <div id="track-step-2" class="p-2 bg-luxuryGold/10 border border-luxuryGold/30 text-luxuryGold rounded">2. Weaving</div>
+                    <div id="track-step-3" class="p-2 bg-neutral-900 text-gray-600 rounded">3. Dispatch</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Shopping Cart Drawer Overlay -->
-    <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full max-w-md bg-luxuryBlack/95 z-50 transform translate-x-full transition-transform duration-300 ease-in-out border-l border-luxuryGold/20 flex flex-col">
-        <!-- Cart Header -->
-        <div class="p-6 border-b border-luxuryGold/15 flex justify-between items-center">
-            <h3 class="font-serif text-xl text-luxuryGold uppercase tracking-wider">Your Art Bag</h3>
-            <button onclick="toggleCart()" class="text-xl text-gray-400 hover:text-luxuryGold transition"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <!-- Cart Items Scroll Area -->
-        <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4">
-            <!-- Dynamic Items -->
-        </div>
-        <!-- Cart Footer -->
-        <div class="p-6 border-t border-luxuryGold/15 bg-luxuryCharcoal/50 space-y-4">
-            <div class="flex justify-between items-center text-sm">
-                <span class="text-gray-400 uppercase tracking-widest text-xs">Subtotal:</span>
-                <span id="cart-subtotal" class="font-serif text-lg text-luxuryGold font-bold">₹0</span>
-            </div>
-            <p class="text-[10px] text-gray-500">Shipping and custom framing updates are finalized during WhatsApp consultation.</p>
-            <button onclick="checkoutCart()" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack text-center py-3.5 text-xs uppercase tracking-widest font-bold transition">
-                Checkout on WhatsApp
-            </button>
-        </div>
-    </div>
-    <!-- Drawer backdrop overlay -->
-    <div id="cart-backdrop" onclick="toggleCart()" class="fixed inset-0 bg-black/60 z-40 hidden transition-opacity duration-300"></div>
-
-    <!-- Review Submission Modal -->
+    <!-- Review Submission Form Modal -->
     <div id="review-modal" class="fixed inset-0 bg-luxuryBlack/90 z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card max-w-lg w-full p-8 relative space-y-6 rounded-lg border border-luxuryGold/20">
+        <div class="glass-card max-w-lg w-full p-8 relative rounded-lg border border-luxuryGold/20">
             <button onclick="toggleReviewModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
-            <div class="text-center space-y-2">
-                <h3 class="font-serif text-2xl text-luxuryGold uppercase tracking-widest">Share Your Experience</h3>
-                <p class="text-[10px] text-gray-400 uppercase tracking-widest">Help us continue our legacy of precision craftsmanship</p>
-            </div>
-            <form id="review-form" onsubmit="handleReviewSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-[10px] uppercase text-gray-400 mb-1">Your Name</label>
-                    <input type="text" id="review-author" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
+            <h3 class="font-serif text-2xl text-luxuryGold text-center mb-6">Submit Your Experience</h3>
+            <form onsubmit="handleReviewSubmit(event)" class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Your Name</label>
+                        <input type="text" id="review-form-name" required class="w-full bg-luxuryBlack border border-luxuryGold/20 px-4 py-2 text-xs focus:outline-none focus:border-luxuryGold text-luxuryCream">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Stars Selection</label>
+                        <select id="review-form-rating" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-4 py-2 text-xs focus:outline-none focus:border-luxuryGold text-luxuryCream">
+                            <option value="5">⭐⭐⭐⭐⭐ 5 Stars</option>
+                            <option value="4">⭐⭐⭐⭐ 4 Stars</option>
+                            <option value="3">⭐⭐⭐ 3 Stars</option>
+                            <option value="2">⭐⭐ 2 Stars</option>
+                            <option value="1">⭐ 1 Star</option>
+                        </select>
+                    </div>
                 </div>
                 <div>
-                    <label class="block text-[10px] uppercase text-gray-400 mb-1">Rating</label>
-                    <select id="review-rating" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold">
-                        <option value="5">★★★★★ (5 Stars)</option>
-                        <option value="4">★★★★☆ (4 Stars)</option>
-                        <option value="3">★★★☆☆ (3 Stars)</option>
-                    </select>
+                    <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Your Review</label>
+                    <textarea id="review-form-text" required rows="4" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-4 py-2 text-xs focus:outline-none focus:border-luxuryGold text-luxuryCream"></textarea>
                 </div>
-                <div>
-                    <label class="block text-[10px] uppercase text-gray-400 mb-1">Your Review</label>
-                    <textarea id="review-text" required rows="4" placeholder="How did the artwork transform your space?" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack py-3 text-xs uppercase tracking-widest font-bold transition">Submit Review</button>
+                <button type="submit" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack py-3 text-xs uppercase tracking-widest font-bold transition">Publish Experience</button>
             </form>
         </div>
     </div>
 
-    <!-- Luxury Footer -->
-    <footer class="bg-luxuryBlack border-t border-luxuryGold/10 py-16 px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="space-y-4">
-                <div class="font-serif text-lg font-bold tracking-wider text-luxuryGold">STRING CREATIONS 03</div>
-                <p class="text-xs text-gray-500 leading-relaxed font-light">
-                    Crafting museum-quality luxury string art commissions for elite homes, collectors, and corporate spaces worldwide. Handcrafted with passion, mathematical precision, and pure dedication in India.
-                </p>
-            </div>
-            <div class="space-y-3">
-                <h4 class="text-xs uppercase tracking-widest text-luxuryGold font-bold">Discover</h4>
-                <ul class="space-y-2 text-xs text-gray-400">
-                    <li><a href="#" onclick="showSection('home-view')" class="hover:text-luxuryGold transition">The Masterpiece Gallery</a></li>
-                    <li><a href="#" onclick="showSection('custom-view')" class="hover:text-luxuryGold transition">Interactive Design Studio</a></li>
-                    <li><a href="#process-section" onclick="showSection('home-view')" class="hover:text-luxuryGold transition">Our Production Line</a></li>
-                </ul>
-            </div>
-            <div class="space-y-3">
-                <h4 class="text-xs uppercase tracking-widest text-luxuryGold font-bold">Inquiries & Support</h4>
-                <p class="text-xs text-gray-400 leading-relaxed">
-                    Have custom sizes or international exhibition plans? Connect with our Lead Curator directly on WhatsApp.<br>
-                    <span class="text-luxuryGold font-semibold"><i class="fa-solid fa-phone mr-1"></i> +91 98765 43210</span>
-                </p>
-            </div>
-            <div class="space-y-3">
-                <h4 class="text-xs uppercase tracking-widest text-luxuryGold font-bold">Operator Portal</h4>
-                <p class="text-xs text-gray-500">Access administrative catalog management and custom inventory configuration panels.</p>
-                <button onclick="showSection('admin-view')" class="text-[10px] uppercase tracking-widest text-luxuryGold font-bold hover:text-luxuryCream transition flex items-center space-x-1.5 border border-luxuryGold/20 px-3 py-1.5">
-                    <i class="fa-solid fa-user-shield"></i> <span>Secure Executive Panel</span>
+    <!-- Dynamic Product Details Popup Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-luxuryBlack/90 z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="glass-card max-w-4xl w-full p-6 sm:p-8 relative grid grid-cols-1 md:grid-cols-2 gap-8 my-8 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="flex flex-col items-center justify-center bg-neutral-900 rounded border border-luxuryGold/10 p-2 relative">
+                <img id="modal-img" src="" class="w-full aspect-square object-cover" alt="Art Detail">
+                <button onclick="generateDigitalCertificate()" class="mt-4 text-[10px] uppercase bg-luxuryGold/15 hover:bg-luxuryGold/30 text-luxuryGold border border-luxuryGold/40 py-2 px-4 tracking-widest w-full">
+                    <i class="fa-solid fa-file-signature mr-1"></i> Download Certificate of Authenticity
                 </button>
             </div>
+            
+            <div class="space-y-6 flex flex-col justify-between">
+                <div>
+                    <span id="modal-tag" class="text-luxuryGold font-serif tracking-widest text-[10px] uppercase">Original Masterpiece</span>
+                    <h3 id="modal-title" class="font-serif text-3xl text-luxuryCream mt-1">Symphony of Grace</h3>
+                    <p id="modal-price" class="text-2xl text-luxuryGold font-bold font-serif mt-2">₹4,499</p>
+                    <p id="modal-desc" class="text-xs text-gray-400 mt-4 leading-relaxed"></p>
+                </div>
+                
+                <div class="border-t border-luxuryGold/10 pt-4 space-y-2 text-[10px] uppercase tracking-wider text-gray-500">
+                    <div class="flex justify-between"><span>Precision Nails:</span><span id="modal-nails" class="text-luxuryCream font-bold"></span></div>
+                    <div class="flex justify-between"><span>Threading Hours:</span><span id="modal-hours" class="text-luxuryCream font-bold"></span></div>
+                    <div class="flex justify-between"><span>Thread Length:</span><span id="modal-threads" class="text-luxuryCream font-bold"></span></div>
+                    <div class="flex justify-between"><span>Certification:</span><span class="text-emerald-500 font-bold"><i class="fa-solid fa-square-check mr-1"></i> Authentic Signed Seal Included</span></div>
+                </div>
+
+                <div class="flex space-x-4 pt-4 border-t border-luxuryGold/10">
+                    <button id="modal-add-to-cart-btn" class="flex-1 bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack py-3 text-xs uppercase tracking-widest font-bold transition">Add to Bag</button>
+                </div>
+            </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-luxuryGold/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-500 tracking-widest uppercase">
-            <span>© 2026 String Creations 03. All Rights Reserved.</span>
-            <span>Designed with Absolute Precision</span>
+    </div>
+
+    <!-- Category Visualizer Mock Popup -->
+    <div id="art-class-modal" class="fixed inset-0 bg-luxuryBlack/95 z-50 hidden flex items-center justify-center p-6">
+        <div class="glass-card max-w-md w-full p-8 relative text-center space-y-6 border border-luxuryGold/30">
+            <button onclick="toggleArtClassModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="class-modal-title" class="font-serif text-2xl text-luxuryGold uppercase tracking-wider">Geometric Art</h3>
+            <p id="class-modal-desc" class="text-xs text-gray-300 leading-relaxed">Sample specification parameters and luxury string pattern previews.</p>
+            
+            <div class="w-48 h-48 mx-auto rounded-full bg-neutral-900 border border-luxuryGold/20 flex items-center justify-center p-2">
+                <svg viewBox="0 0 100 100" class="w-full h-full text-luxuryGold" fill="none" stroke="currentColor">
+                    <circle cx="50" cy="50" r="45" stroke-dasharray="2 2" />
+                    <polygon points="50,12 85,80 15,80" stroke-width="0.7"/>
+                    <line x1="50" y1="12" x2="50" y2="80" stroke-width="0.3"/>
+                    <line x1="85" y1="80" x2="15" y2="80" stroke-width="0.3"/>
+                </svg>
+            </div>
+            
+            <button onclick="toggleArtClassModal()" class="border border-luxuryGold/30 hover:border-luxuryGold px-6 py-2 text-xs uppercase tracking-widest text-luxuryGold transition">Dismiss Preview</button>
+        </div>
+    </div>
+
+    <!-- Slide-out Shopping Drawer -->
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 max-w-md w-full bg-luxuryCharcoal border-l border-luxuryGold/20 z-50 transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
+        <div class="p-6 border-b border-luxuryGold/10 flex justify-between items-center bg-luxuryBlack">
+            <h3 class="font-serif text-xl text-luxuryGold tracking-wide">Selected Masterpieces</h3>
+            <button onclick="toggleCart()" class="text-luxuryCream hover:text-luxuryGold"><i class="fa-solid fa-xmark text-xl"></i></button>
+        </div>
+        
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <p id="cart-empty-msg" class="text-xs text-gray-500 text-center py-8">Your collection container is empty.</p>
+        </div>
+
+        <div class="p-6 border-t border-luxuryGold/10 bg-luxuryBlack space-y-4">
+            <div class="flex justify-between items-center text-xs uppercase tracking-wider">
+                <span>Value:</span>
+                <span id="cart-total-price" class="font-serif text-xl text-luxuryGold font-bold">₹0</span>
+            </div>
+            <button onclick="dispatchCartCheckout()" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack text-center py-4 font-bold text-xs uppercase tracking-widest transition">
+                Proceed Order to WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Digital Certificate Popup/Modal -->
+    <div id="certificate-modal" class="fixed inset-0 bg-luxuryBlack/95 z-50 hidden flex flex-col items-center justify-center p-6">
+        <button onclick="closeCertificate()" class="absolute top-8 right-8 text-3xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
+        <div class="max-w-2xl w-full bg-[#fcfbf9] text-[#111111] p-12 border-[12px] border-[#d4af37] shadow-2xl space-y-8 relative font-serif text-center">
+            <div class="absolute top-2 left-2 text-[#d4af37] text-2xl">⚜</div>
+            <div class="absolute top-2 right-2 text-[#d4af37] text-2xl">⚜</div>
+            <div class="absolute bottom-2 left-2 text-[#d4af37] text-2xl">⚜</div>
+            <div class="absolute bottom-2 right-2 text-[#d4af37] text-2xl">⚜</div>
+
+            <h3 class="text-2xl uppercase tracking-[0.2em] text-[#d4af37] font-bold font-cinzel">Certificate of Authenticity</h3>
+            <div class="w-16 h-[2px] bg-[#d4af37] mx-auto"></div>
+            
+            <p class="text-xs uppercase tracking-widest text-gray-500">This certifies that the original thread-mapping creation entitled</p>
+            <h4 id="cert-title" class="text-3xl font-bold my-4">Symphony of Grace</h4>
+            <p class="text-xs max-w-md mx-auto leading-relaxed text-gray-600">is an authentic hand-hammered and woven string art formulation under registry of String Creations 03, incorporating premium threads, custom wooden profiles, and lifetime archival pigments.</p>
+            
+            <div class="grid grid-cols-2 gap-8 pt-8 border-t border-gray-200 text-xs">
+                <div>
+                    <p class="font-sans font-bold text-gray-800" id="cert-registry-id">ID: SC03-38291</p>
+                    <p class="text-[10px] uppercase text-gray-400 mt-1">Registry Seal No</p>
+                </div>
+                <div>
+                    <p class="italic text-base">String Creations 03</p>
+                    <p class="text-[10px] uppercase text-gray-400 mt-1">Artist Signature Stamp</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Widget connected to 918140125772 -->
+    <a href="https://wa.me/918140125772" target="_blank" class="fixed bottom-6 right-6 bg-emerald-500 hover:bg-emerald-600 text-luxuryCream h-14 w-14 rounded-full flex items-center justify-center text-2xl shadow-xl hover:scale-110 transition duration-300 z-40">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-luxuryBlack border-t border-luxuryGold/10 py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
+            
+            <div class="space-y-4">
+                <div class="flex items-center space-x-3 group">
+                    <div class="h-10 w-10 rounded-full overflow-hidden border border-luxuryGold/40 bg-luxuryCharcoal flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                        <img src="logo.jpg" alt="String Creations 03 Logo" class="h-full w-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=150'">
+                    </div>
+                    <div class="font-serif text-base lg:text-lg font-bold tracking-[0.08em] flex items-center space-x-1 logo-glowing-effect">
+                        <span class="brand-string">STRING</span>
+                        <span class="brand-creations italic font-normal">Creations</span>
+                        <span class="brand-03">03</span>
+                    </div>
+                </div>
+                <p class="text-[11px] text-gray-500 leading-relaxed">International-caliber handcrafted luxury string art pieces based out of India, crafted for modern interiors and elite collectors.</p>
+                <div class="text-[11px] text-gray-400 space-y-1">
+                    <p><i class="fa-solid fa-envelope text-luxuryGold mr-2"></i> <a href="mailto:stringcreations03@gmail.com" class="hover:text-luxuryGold">stringcreations03@gmail.com</a></p>
+                    <p><i class="fa-solid fa-phone text-luxuryGold mr-2"></i> <a href="https://wa.me/918140125772" target="_blank" class="hover:text-luxuryGold">+91 81401 25772</a></p>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-xs uppercase tracking-widest font-bold text-luxuryGold mb-4">Aesthetics Directory</h4>
+                <ul class="space-y-2 text-xs text-gray-400">
+                    <li><a href="#gallery-section" class="hover:text-luxuryGold">Custom Portraits</a></li>
+                    <li><a href="#gallery-section" class="hover:text-luxuryGold">Sacred Mandala Art</a></li>
+                    <li><a href="#gallery-section" class="hover:text-luxuryGold">Couple Milestones</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-xs uppercase tracking-widest font-bold text-luxuryGold mb-4">Collector Support</h4>
+                <ul class="space-y-2 text-xs text-gray-400">
+                    <li><a href="#" onclick="toggleTrackModal()" class="hover:text-luxuryGold">Track Order</a></li>
+                    <li><a href="https://wa.me/918140125772" target="_blank" class="hover:text-luxuryGold font-semibold text-luxuryGold"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp Inquiry</a></li>
+                    <li><button onclick="showSection('admin-view')" class="hover:text-luxuryGold text-left focus:outline-none">🔒 Admin Console</button></li>
+                </ul>
+            </div>
+            
+            <!-- Instagram Connect Box with QR Code -->
+            <div class="space-y-4">
+                <h4 class="text-xs uppercase tracking-widest font-bold text-luxuryGold">Follow Our Art</h4>
+                <div class="flex items-start space-x-4">
+                    <div class="w-20 h-20 bg-white p-1 rounded-md shadow-lg flex items-center justify-center shrink-0">
+                        <img src="instagram_qr.jpg" alt="Scan Instagram QR Code" class="w-full h-full object-contain" onerror="this.src='https://via.placeholder.com/150/ffffff/000000?text=Instagram'">
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-gray-400 leading-tight">Scan the QR code with your camera or click below to explore reels & daily designs.</p>
+                        <a href="https://instagram.com/stringcreations03" target="_blank" class="inline-flex items-center space-x-1 text-xs text-luxuryGold hover:text-luxuryGoldHover font-semibold mt-2">
+                            <i class="fa-brands fa-instagram text-sm"></i>
+                            <span>@string_creations03</span>
+                        </a>
+                    </div>
+                </div>
+                <p class="text-[10px] text-gray-500 pt-2">© 2026 String Creations 03. All Rights Reserved.</p>
+            </div>
+            
         </div>
     </footer>
 
-    <!-- MAIN APP CONTROLLER JAVASCRIPT -->
+    <!-- JavaScript Core Script -->
     <script>
-        // Static and Persistent Database Arrays
+        // Dimensions Matrix - Ranging purely from 3 Feet (36 Inches) up to 8 Feet (96 Inches)
+        const dimensions = [36, 40, 42, 44, 48, 54, 60, 66, 72, 78, 80, 84, 90, 96];
+        
+        // Exact requested thread types list
+        const threadTypes = [
+            "Cotton Thread",
+            "Silk Thread",
+            "Polyester Thread",
+            "Embroidery Thread",
+            "Metallic Thread",
+            "Jute Thread",
+            "Nylon Thread",
+            "Glow in the Dark Thread"
+        ];
+
+        // Comprehensive Hierarchical String Art Types Database
+        const artTypesDirectory = [
+            {
+                category: "Geometric String Art",
+                subtypes: ["Triangle", "Square", "Polygon", "Hexagon"]
+            },
+            {
+                category: "Portrait String Art",
+                subtypes: ["Human Face", "Celebrity", "Couple", "Family", "Pet"]
+            },
+            {
+                category: "Silhouette String Art",
+                subtypes: ["Animal", "Bird", "Tree", "City Skyline"]
+            },
+            {
+                category: "Mandala String Art",
+                subtypes: ["Classic Geometric", "Lotus Symmetrical Core"]
+            },
+            {
+                category: "Spiral / Curve String Art",
+                subtypes: ["Circle Illusion", "Parabolic Curves", "Wave Patterns"]
+            },
+            {
+                category: "Abstract String Art",
+                subtypes: ["Modern Abstract", "Kinetic Illusions"]
+            },
+            {
+                category: "Typography / Name String Art",
+                subtypes: ["Name", "Initial", "Quote", "Logo"]
+            },
+            {
+                category: "Heart & Love String Art",
+                subtypes: ["Interlocking Hearts", "Love Symbols"]
+            },
+            {
+                category: "Nature String Art",
+                subtypes: ["Flower", "Leaf", "Mountain", "Forest"]
+            },
+            {
+                category: "Animal String Art",
+                subtypes: ["Lion", "Horse", "Elephant", "Wolf", "Deer"]
+            },
+            {
+                category: "Religious String Art",
+                subtypes: ["Om", "Ganesh", "Krishna", "Cross", "Allah Calligraphy"]
+            },
+            {
+                category: "3D Layered String Art",
+                subtypes: ["Multi-plane Depth Formations"]
+            },
+            {
+                category: "Negative Space String Art",
+                subtypes: ["Inverted Pattern Weaving"]
+            },
+            {
+                category: "Gradient / Multi-Color String Art",
+                subtypes: ["Chroma Shifts", "Spectral Blending"]
+            },
+            {
+                category: "Glow / LED String Art",
+                subtypes: ["Active Backlit Designs"]
+            },
+            {
+                category: "Low Poly String Art",
+                subtypes: ["Angular Geodesic Structures"]
+            },
+            {
+                category: "Radial String Art",
+                subtypes: ["Spoke and Pivot Formations"]
+            },
+            {
+                category: "Circular String Art",
+                subtypes: ["Infinite Circle Matrix Loops"]
+            },
+            {
+                category: "Mixed Media String Art",
+                subtypes: ["Wood + Resin", "Wood + LED", "Wood + Paint"]
+            },
+            {
+                category: "Custom AI Generated String Art",
+                subtypes: ["Photo to String Art", "Logo to String Art", "QR Code String Art"]
+            },
+            {
+                category: "Classification by Thread Formulation",
+                subtypes: [
+                    "Single Color", "Dual Color", "Multi Color", "Metallic", "Neon", 
+                    "Matte", "Glossy", "Cotton", "Silk", "Polyester", "Reflective", 
+                    "Glow in Dark", "Gradient", "Rainbow", "UV Reactive"
+                ]
+            }
+        ];
+
+        // Combined Masterpiece Catalog Database
         const defaultProducts = [
             {
                 id: "p1",
@@ -785,28 +998,39 @@
             },
             {
                 id: "p2",
-                name: "Vedic Mandala of Harmony",
+                name: "Symphony of Grace",
+                category: "portrait",
+                price: 14499,
+                hours: "18 Hours",
+                nails: 360,
+                threads: 2400,
+                img: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=600",
+                desc: "An intricate monochrome portrait that utilizes varying degrees of string thickness and shadows to generate a photorealistic depth."
+            },
+            {
+                id: "p3",
+                name: "Eternal Lotus Mandala",
                 category: "mandala",
                 price: 24500,
                 hours: "35 Hours",
                 nails: 2800,
-                threads: 3800,
+                threads: 4000,
                 img: "https://images.unsplash.com/photo-1507208773393-4001fc56622d?auto=format&fit=crop&q=80&w=800",
                 desc: "Symmetrical geometric mandala woven in dual gold and copper metallic threads. Perfect statement piece for main reception rooms."
             },
             {
-                id: "p3",
-                name: "Corporate Linear Identity Art",
+                id: "p4",
+                name: "Corporate Crest Legacy",
                 category: "custom",
                 price: 45000,
                 hours: "60 Hours",
                 nails: 4100,
-                threads: 6000,
+                threads: 5200,
                 img: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800",
                 desc: "High-density string projection of contemporary branding architecture on warp-resistant reinforced luxury backing panel."
             },
             {
-                id: "p4",
+                id: "p5",
                 name: "Ethereal Monochrome Portrait",
                 category: "portrait",
                 price: 29000,
@@ -817,7 +1041,7 @@
                 desc: "Monochromatic micro-threads layered to cast soft, continuous shadow tones resembling dynamic fine-art graphite portraits."
             },
             {
-                id: "p5",
+                id: "p6",
                 name: "Cosmic Aura Sphere Mandala",
                 category: "mandala",
                 price: 18500,
@@ -829,548 +1053,632 @@
             }
         ];
 
+        // Combined Collector Reviews Database
         const defaultReviews = [
+            { name: "Jaymin Patel", rating: 5, text: "The portrait string art looks remarkably detailed. Custom crafted and delivered with immense protective packaging." },
             { name: "Aarav Mehta", rating: 5, text: "The portrait of Radha Krishna has transformed our foyer completely. Absolutely breath-taking attention to detail." },
             { name: "Elena Rostova", rating: 5, text: "Unbelievable craftsmanship. Shipped perfectly to Germany in zero-shock wooden crates. Outstanding!" },
-            { name: "Devansh Patel", rating: 5, text: "Ordered a custom brand mandala for our headquarters. Every client stops to admire the continuous metallic line flow." },
             { name: "Siddharth Sen", rating: 5, text: "A masterpiece that commands attention. Under spotlight, the gold thread reflects a mesmerizing aura." },
-            { name: "Clara Dupont", rating: 5, text: "Exceptional luxury decor. The custom white frame option matched my minimalist apartment beautifully." }
-        ];
-
-        const sizeSpecs = [
-            { code: "3ft-sq", label: "3ft x 3ft - Collector Square (Approx ₹18,000+)" },
-            { code: "4ft-sq", label: "4ft x 4ft - Grande Square (Approx ₹28,000+)" },
-            { code: "3ft-port", label: "3ft x 4ft - Heritage Portrait Dimension (Approx ₹25,000+)" },
-            { code: "4ft-port", label: "4ft x 5ft - Museum Portrait Dimension (Approx ₹42,000+)" },
-            { code: "5ft-sq", label: "5ft x 5ft - Signature Monumental Canvas (Approx ₹60,000+)" },
-            { code: "8ft-wide", label: "8ft x 4ft - Sovereign Panoramic Statement (Approx ₹95,000+)" }
-        ];
-
-        const stringArtTypes = [
-            {
-                title: "Portrait String Art (મોનોક્રોમ પોટ્રેટ્સ)",
-                content: "આ કલા ઉત્કૃષ્ટ ફોટોગ્રાફ્સને હજારો ઝીણા કાળા અને સફેદ રેશમી તાંતણાઓના પરસ્પર જોડાણથી અદભુત ચિત્રમાં પરિવર્તિત કરે છે. બોર્ડ પર હજારો ખીલીઓ લગાવીને આ મોનોક્રોમ ડેન્સિટી મેળવવામાં આવે છે જે જીવંત ચિત્ર રજૂ કરે છે."
-            },
-            {
-                title: "Sacred Geometry & Mandalas (પવિત્ર ભૌમિતિક મંડલા)",
-                content: "ગોળાકાર પેટર્નમાં સુવર્ણ, તાંબા અને સિલ્વર રંગના ધાતુના વાયર્સ અથવા રેશમી દોરાનો ઉપયોગ કરીને બ્રહ્માંડ અને આધ્યાત્મિક શાંતિના પ્રતિક સમી પવિત્ર જ્યોમેટ્રી બનાવવામાં આવે છે. આ પેટર્ન આસપાસના વાતાવરણમાં સકારાત્મક ઉર્જા ફેલાવે છે."
-            },
-            {
-                title: "Corporate Icons & Custom Typography (કંપની લોગો અને નામ)",
-                content: "વ્યાવસાયિક સ્પેસ અથવા ઓફિસો માટે વિશેષ બ્રાન્ડ લોગો અને આધુનિક ફોન્ટ્સ સાથે તૈયાર થતી આ થ્રેડ આર્ટ અદભુત આકર્ષણ ઊભું કરે છે. તેમાં ચોક્કસ એન્ગલ પર અને ચોક્કસ થીમ પ્રમાણે દોરાઓ વણવામાં આવે છે."
-            },
-            {
-                title: "Multi-Layered Color Art (મલ્ટી લેયર કલર આર્ટ)",
-                content: "અલગ અલગ રંગીન દોરાઓના મિશ્રણથી બનતી રેઈન્બો અથવા થ્રી-ડી ઈફેક્ટ ધરાવતી આર્ટ ક્રાફ્ટ છે, જે વિવિધ લાઈટિંગ કન્ડિશનમાં અલગ દ્રશ્યમાન આભા ઉભી કરે છે. આ એક અત્યંત જટિલ અને લાંબી કારીગરી ધરાવતી પ્રક્રિયા છે."
-            }
+            { name: "Clara Dupont", rating: 5, text: "Exceptional luxury decor. The custom white frame option matched my minimalist apartment beautifully." },
+            { name: "Kavar K", rating: 5, text: "Immensely detailed couple portrait. Excellent support during photo review selection on WhatsApp." }
         ];
 
         // State variables
-        let products = [];
-        let reviews = [];
-        let cart = [];
-        let currentFilter = 'all';
+        let products = JSON.parse(localStorage.getItem('sc03_products')) || defaultProducts;
+        let reviews = JSON.parse(localStorage.getItem('sc03_reviews')) || defaultReviews;
+        let cart = JSON.parse(localStorage.getItem('sc03_cart')) || [];
+        let activeCurrency = "INR";
+        const currencySymbols = { INR: "₹", USD: "$", EUR: "€" };
+        const exchangeRates = { INR: 1, USD: 0.012, EUR: 0.011 }; 
 
-        // Load Initial State
-        window.onload = function() {
-            if (!localStorage.getItem('sc03_products')) {
-                localStorage.setItem('sc03_products', JSON.stringify(defaultProducts));
-            }
-            if (!localStorage.getItem('sc03_reviews')) {
-                localStorage.setItem('sc03_reviews', JSON.stringify(defaultReviews));
-            }
-            if (!localStorage.getItem('sc03_cart')) {
-                localStorage.setItem('sc03_cart', JSON.stringify([]));
-            }
+        // Toast alert helper
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'glass-card text-xs text-luxuryGold font-medium px-5 py-3 shadow-2xl uppercase tracking-widest animate-fadeIn pointer-events-auto';
+            toast.innerText = message;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.add('animate-fadeOut');
+                setTimeout(() => { toast.remove(); }, 400);
+            }, 3000);
+        }
 
-            products = JSON.parse(localStorage.getItem('sc03_products'));
-            reviews = JSON.parse(localStorage.getItem('sc03_reviews'));
-            cart = JSON.parse(localStorage.getItem('sc03_cart'));
-
-            // Initializing View Displays
-            renderGallery();
-            renderReviews();
-            renderCart();
-            populateCustomSelectors();
-            populateStringArtAccordion();
-            renderAdminProducts();
-
-            // Run automated process timeline highlights
-            startProcessAnimationCycle();
-        };
-
-        // Routing System
-        function showSection(sectionId) {
-            document.querySelectorAll('.app-route-view').forEach(view => {
-                view.classList.add('hidden');
-            });
-            const targeted = document.getElementById(sectionId);
+        // Routing engine
+        function showSection(viewId) {
+            const views = document.querySelectorAll('.app-route-view');
+            views.forEach(v => v.classList.add('hidden'));
+            
+            const targeted = document.getElementById(viewId);
             if (targeted) {
                 targeted.classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Price formatting helper
-        function formatPrice(amountInINR) {
-            const currency = document.getElementById('currency-switcher').value;
-            if (currency === 'USD') {
-                return '$' + (amountInINR * 0.012).toFixed(2);
-            } else if (currency === 'EUR') {
-                return '€' + (amountInINR * 0.011).toFixed(2);
-            } else {
-                return '₹' + amountInINR.toLocaleString('en-IN');
-            }
+        // Save collections helper
+        function saveToStorage() {
+            localStorage.setItem('sc03_products', JSON.stringify(products));
+            localStorage.setItem('sc03_reviews', JSON.stringify(reviews));
+            localStorage.setItem('sc03_cart', JSON.stringify(cart));
         }
 
-        function switchCurrency() {
+        // Initialize App
+        window.addEventListener('DOMContentLoaded', () => {
+            if (!localStorage.getItem('sc03_products')) {
+                saveToStorage();
+            }
+            populateCustomSelectors();
             renderGallery();
-            renderCart();
-            showToast("Currency converted to " + document.getElementById('currency-switcher').value);
+            renderReviews();
+            renderStringArtDirectory();
+            updateCartCount();
+            renderAdminProducts();
+
+            // Scroll Detection for Sequential Reveal Animation
+            const processSection = document.getElementById('process-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startProcessSequentialReveal();
+                        observer.unobserve(processSection); 
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            if (processSection) observer.observe(processSection);
+        });
+
+        // Format Inches to Feet (Helper)
+        function formatToFt(inch) {
+            const ft = inch / 12;
+            return Number.isInteger(ft) ? `${ft}ft` : `${ft.toFixed(1)}ft`;
         }
 
-        // Render Masterpiece Gallery Grid
-        function renderGallery(filterQuery = '') {
-            const grid = document.getElementById('gallery-grid');
-            if (!grid) return;
-
-            let displayed = products;
-            if (currentFilter !== 'all') {
-                displayed = products.filter(p => p.category === currentFilter);
-            }
-
-            if (filterQuery) {
-                displayed = displayed.filter(p => 
-                    p.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
-                    p.desc.toLowerCase().includes(filterQuery.toLowerCase())
-                );
-            }
-
-            if (displayed.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500 uppercase tracking-widest text-xs">No matching masterpieces found in this collection</div>`;
-                return;
-            }
-
-            grid.innerHTML = displayed.map(p => `
-                <div class="glass-card group relative overflow-hidden flex flex-col justify-between h-full transition duration-500 hover:shadow-2xl hover:border-luxuryGold/40">
-                    <div class="relative overflow-hidden h-80">
-                        <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=400'">
-                        <div class="absolute top-4 right-4 bg-luxuryBlack/85 border border-luxuryGold/20 px-3 py-1.5 text-[10px] uppercase tracking-widest text-luxuryGold font-semibold">
-                            ${p.hours} Crafted
-                        </div>
-                    </div>
-                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                        <div class="space-y-2">
-                            <h3 class="font-serif text-xl tracking-wider text-luxuryCream group-hover:text-luxuryGold transition duration-300">${p.name}</h3>
-                            <p class="text-xs text-gray-400 font-light leading-relaxed">${p.desc}</p>
-                            <div class="grid grid-cols-2 gap-2 text-[10px] text-gray-500 uppercase tracking-widest pt-2">
-                                <span><i class="fa-solid fa-circle-dot mr-1"></i> ${p.nails.toLocaleString()} Nails</span>
-                                <span><i class="fa-solid fa-bezier-curve mr-1"></i> ${p.threads.toLocaleString()}m Thread</span>
-                            </div>
-                        </div>
-                        <div class="pt-4 border-t border-luxuryGold/10 flex justify-between items-center mt-auto">
-                            <span class="font-serif text-lg font-bold text-luxuryGold">${formatPrice(p.price)}</span>
-                            <button onclick="addToCart('${p.id}')" class="bg-transparent border border-luxuryGold/30 hover:border-luxuryGold text-luxuryGold hover:text-luxuryBlack hover:bg-luxuryGold px-4 py-2 text-[10px] uppercase tracking-widest font-bold transition duration-300">
-                                Acquire Artwork
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // Filter Controls
-        function filterGallery(category, query = '') {
-            currentFilter = category;
-            document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
-                btn.className = "gallery-filter-btn px-6 py-2 border border-transparent text-[11px] uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition";
-            });
+        // Populate Customization Selectors dynamically
+        function populateCustomSelectors() {
+            const sizeSelector = document.getElementById('custom-size');
+            sizeSelector.innerHTML = '';
             
-            const activeBtn = document.getElementById(`filter-${category}`) || document.getElementById('filter-all');
-            if (activeBtn) {
-                activeBtn.className = "gallery-filter-btn px-6 py-2 border border-luxuryGold text-[11px] uppercase tracking-widest text-luxuryGold bg-luxuryGold/10 transition";
-            }
+            let list = [];
+            dimensions.forEach(h => {
+                dimensions.forEach(l => {
+                    const ratio = h / l;
+                    if (ratio >= 0.5 && ratio <= 2) {
+                        list.push({ h, l, area: h * l });
+                    }
+                });
+            });
 
-            renderGallery(query);
+            list.sort((a, b) => a.area - b.area);
+
+            list.forEach(item => {
+                const h = item.h;
+                const l = item.l;
+                const option = document.createElement('option');
+                option.value = `${h}x${l}`;
+                
+                let type = "Custom Canvas";
+                if (h === l) {
+                    type = "Square Profile";
+                } else if (h > l) {
+                    type = "Portrait Aspect";
+                } else {
+                    type = "Landscape Aspect";
+                }
+                
+                option.innerText = `${type} - ${h}"x${l}" (${formatToFt(h)} x ${formatToFt(l)}) (H${h}" x L${l})`;
+                
+                if (h === 36 && l === 36) {
+                    option.selected = true;
+                }
+                sizeSelector.appendChild(option);
+            });
         }
 
-        // Global Search overlay toggler
-        function toggleSearch() {
-            const overlay = document.getElementById('search-overlay');
-            if (overlay) {
-                overlay.classList.toggle('hidden');
-                if (!overlay.classList.contains('hidden')) {
-                    document.getElementById('search-input').focus();
+        // Progressive fade-in timeline loop
+        function startProcessSequentialReveal() {
+            const cards = document.querySelectorAll('.process-step-card');
+            if (cards.length === 0) return;
+
+            cards.forEach(card => {
+                card.classList.remove('active-reveal', 'past-reveal');
+            });
+
+            let index = 0;
+
+            function nextStep() {
+                if (index > 0) {
+                    cards[index - 1].classList.remove('active-reveal');
+                    cards[index - 1].classList.add('past-reveal');
+                }
+
+                if (index < cards.length) {
+                    cards[index].classList.add('active-reveal');
+                    index++;
+                    setTimeout(nextStep, 2500); 
+                } else {
+                    cards.forEach(card => {
+                        card.classList.add('past-reveal');
+                    });
                 }
             }
+            nextStep();
+        }
+
+        // Custom Studio Order Submission
+        function dispatchCustomOrder() {
+            const sizeSelector = document.getElementById('custom-size');
+            const sizeText = sizeSelector.options[sizeSelector.selectedIndex].text;
+            
+            const frameSelector = document.getElementById('custom-frame');
+            const frameText = frameSelector.options[frameSelector.selectedIndex].text;
+            
+            // Multiple select thread types
+            const checkedThreads = Array.from(document.querySelectorAll('input[name="custom-threads"]:checked')).map(el => el.value);
+            const selectedThreadsText = checkedThreads.length > 0 ? checkedThreads.join(", ") : "None Selected";
+
+            // Multiple select art colors
+            const checkedColors = Array.from(document.querySelectorAll('input[name="custom-colors"]:checked')).map(el => el.value);
+            const selectedColorsText = checkedColors.length > 0 ? checkedColors.join(", ") : "None Selected";
+
+            const customDetails = document.getElementById('custom-details-msg').value.trim() || "No extra details provided.";
+
+            const msg = `Hello String Creations 03! I am interested in ordering a Custom Masterpiece with these configurations:\n\n` + 
+                        `• Dimension: ${sizeText}\n` +
+                        `• Frame Style: ${frameText}\n` +
+                        `• Thread Formulation(s): ${selectedThreadsText}\n` +
+                        `• Color Selection(s): ${selectedColorsText}\n\n` +
+                        `• Extra Custom Details:\n"${customDetails}"\n\n` +
+                        `Please calculate the pricing structure and design layout based on these parameters.`;
+            
+            window.open("https://wa.me/918140125772?text=" + encodeURIComponent(msg), '_blank');
+        }
+
+        // Currency Switcher Logic
+        function switchCurrency() {
+            activeCurrency = document.getElementById('currency-switcher').value;
+            renderGallery();
+            renderCart();
+            showToast(`Currency switched to ${activeCurrency}`);
+        }
+
+        // Format Currency Values
+        function formatVal(inrVal) {
+            const rate = exchangeRates[activeCurrency];
+            const converted = inrVal * rate;
+            return `${currencySymbols[activeCurrency]}${Math.round(converted).toLocaleString('en-IN')}`;
+        }
+
+        // Search Handlers
+        function toggleSearch() {
+            document.getElementById('search-overlay').classList.toggle('hidden');
         }
 
         function handleSearch(event) {
             if (event.key === 'Enter') {
-                const query = document.getElementById('search-input').value.trim();
+                const query = document.getElementById('search-input').value.toLowerCase().trim();
+                const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
+                renderGalleryGrid(filtered);
                 toggleSearch();
-                showSection('home-view');
                 document.getElementById('gallery-section').scrollIntoView({ behavior: 'smooth' });
-                filterGallery('all', query);
             }
         }
 
-        // Cart Drawer Logic
-        function toggleCart() {
-            const drawer = document.getElementById('cart-drawer');
-            const backdrop = document.getElementById('cart-backdrop');
-            if (drawer && backdrop) {
-                drawer.classList.toggle('translate-x-full');
-                backdrop.classList.toggle('hidden');
-            }
+        // Gallery Rendering & Filter
+        function renderGallery() {
+            renderGalleryGrid(products);
         }
 
-        function addToCart(productId) {
-            const p = products.find(prod => prod.id === productId);
-            if (!p) return;
-            cart.push(p);
-            localStorage.setItem('sc03_cart', JSON.stringify(cart));
-            renderCart();
-            showToast(`${p.name} added to your art bag.`);
-            // Open cart drawer for premium response confirmation
-            toggleCart();
-        }
-
-        function removeFromCart(index) {
-            const removedItem = cart[index];
-            cart.splice(index, 1);
-            localStorage.setItem('sc03_cart', JSON.stringify(cart));
-            renderCart();
-            showToast(`Removed from art bag.`);
-        }
-
-        function renderCart() {
-            const countSpan = document.getElementById('cart-count');
-            const cartItemsContainer = document.getElementById('cart-items');
-            const cartSubtotalSpan = document.getElementById('cart-subtotal');
+        // Generate Gallery Elements
+        function renderGalleryGrid(items) {
+            const grid = document.getElementById('gallery-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
             
-            if (countSpan) countSpan.textContent = cart.length;
-            if (!cartItemsContainer) return;
-
-            if (cart.length === 0) {
-                cartItemsContainer.innerHTML = `
-                    <div class="flex flex-col items-center justify-center h-48 space-y-3">
-                        <i class="fa-solid fa-box-open text-gray-600 text-3xl"></i>
-                        <p class="text-xs uppercase tracking-widest text-gray-500">Your bag is empty</p>
-                    </div>
-                `;
-                cartSubtotalSpan.textContent = formatPrice(0);
+            if (items.length === 0) {
+                grid.innerHTML = `<p class="col-span-full text-center text-xs text-gray-500 uppercase tracking-widest py-12">No masterpieces match your criteria.</p>`;
                 return;
             }
 
-            let subtotal = 0;
-            cartItemsContainer.innerHTML = cart.map((item, idx) => {
-                subtotal += item.price;
-                return `
-                    <div class="flex items-center space-x-4 pb-4 border-b border-luxuryGold/10">
-                        <img src="${item.img}" alt="${item.name}" class="h-16 w-16 object-cover rounded border border-luxuryGold/20" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=150'">
-                        <div class="flex-1 min-w-0">
-                            <h4 class="text-xs font-semibold text-luxuryCream truncate uppercase tracking-wider">${item.name}</h4>
-                            <p class="text-[10px] text-gray-500 uppercase tracking-widest">${item.category}</p>
-                            <p class="text-xs text-luxuryGold font-serif font-bold mt-1">${formatPrice(item.price)}</p>
+            items.forEach(p => {
+                const card = document.createElement('div');
+                card.className = `gallery-item ${p.category} glass-card group overflow-hidden relative transition-all duration-300`;
+                card.innerHTML = `
+                    <div class="relative overflow-hidden aspect-square bg-neutral-900 cursor-pointer" onclick="openProductModal('${p.id}')">
+                        <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/600/161616/d4af37?text=SC03'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack via-transparent opacity-60"></div>
+                        <div class="absolute top-4 right-4 bg-luxuryBlack/85 border border-luxuryGold/20 text-luxuryGold text-[9px] px-3 py-1 uppercase tracking-widest">Handcrafted</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl text-luxuryCream group-hover:text-luxuryGold transition cursor-pointer" onclick="openProductModal('${p.id}')">${p.name}</h3>
+                        <p class="text-[9px] text-gray-500 uppercase tracking-widest mt-1">${p.nails} Nails • ${p.hours} • ${p.threads}m Thread</p>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-luxuryGold font-serif text-lg font-bold">${formatVal(p.price)}</span>
+                            <div class="flex space-x-2">
+                                <button onclick="addToCart('${p.id}')" class="bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack text-[10px] uppercase tracking-wider font-semibold px-4 py-2 transition">
+                                    Add to Bag
+                                </button>
+                            </div>
                         </div>
-                        <button onclick="removeFromCart(${idx})" class="text-gray-500 hover:text-red-400 transition"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                 `;
-            }).join('');
-
-            cartSubtotalSpan.textContent = formatPrice(subtotal);
-        }
-
-        function checkoutCart() {
-            if (cart.length === 0) {
-                showToast("Your art bag is empty!", "error");
-                return;
-            }
-            let text = `नमस्कार String Creations 03! 🛍️\n\nહું તમારી ગેલેરીમાંથી નીચેના આર્ટવર્ક ખરીદવા માંગુ છું:\n\n`;
-            let total = 0;
-            cart.forEach((item, index) => {
-                text += `👉 *${index + 1}. ${item.name}*\n   - કિંમત: ${formatPrice(item.price)}\n   - શ્રેણી: ${item.category}\n\n`;
-                total += item.price;
+                grid.appendChild(card);
             });
-            text += `💰 *કુલ અંદાજિત કિંમત:* ${formatPrice(total)}\n\nકૃપા કરીને મારો ઓર્ડર કન્ફર્મ કરવા અને પેમેન્ટ તથા ડિલિવરી વિગતો શેર કરવા વિનંતી.`;
-            const encodedText = encodeURIComponent(text);
-            const waUrl = `https://wa.me/919876543210?text=${encodedText}`;
-            window.open(waUrl, '_blank');
-            showToast("Order summary prepared! Redirecting to WhatsApp...");
         }
 
-        // Custom visualization studio config
-        function populateCustomSelectors() {
-            const customSizeSel = document.getElementById('custom-size');
-            if (customSizeSel) {
-                customSizeSel.innerHTML = sizeSpecs.map(s => `
-                    <option value="${s.label}" class="bg-luxuryBlack">${s.label}</option>
-                `).join('');
-            }
-        }
+        function filterGallery(category) {
+            const buttons = document.querySelectorAll('.gallery-filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'bg-luxuryGold/10', 'text-luxuryGold', 'border-luxuryGold');
+                btn.classList.add('border-transparent', 'text-gray-400');
+            });
+            event.target.classList.add('active', 'bg-luxuryGold/10', 'text-luxuryGold', 'border-luxuryGold');
+            event.target.classList.remove('border-transparent', 'text-gray-400');
 
-        function populateStringArtAccordion() {
-            const accordion = document.getElementById('string-art-index-accordion');
-            if (!accordion) return;
-
-            accordion.innerHTML = stringArtTypes.map((t, idx) => `
-                <div class="border border-luxuryGold/10 rounded overflow-hidden">
-                    <button onclick="toggleAccordion(${idx})" class="w-full bg-luxuryCharcoal/50 hover:bg-luxuryCharcoal text-left px-5 py-4 flex justify-between items-center transition focus:outline-none">
-                        <span class="font-serif text-sm text-luxuryGold uppercase tracking-wider">${t.title}</span>
-                        <i id="acc-icon-${idx}" class="fa-solid fa-chevron-down text-xs text-luxuryGold transition-transform duration-300"></i>
-                    </button>
-                    <div id="acc-body-${idx}" class="hidden p-5 bg-luxuryBlack/40 text-xs text-gray-400 leading-relaxed border-t border-luxuryGold/5">
-                        ${t.content}
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function toggleAccordion(index) {
-            const body = document.getElementById(`acc-body-${index}`);
-            const icon = document.getElementById(`acc-icon-${index}`);
-            if (body && icon) {
-                body.classList.toggle('hidden');
-                icon.classList.toggle('rotate-180');
-            }
-        }
-
-        function dispatchCustomOrder() {
-            const sizeVal = document.getElementById('custom-size').value;
-            const frameVal = document.getElementById('custom-frame').value;
-            
-            const threadCheckboxes = document.querySelectorAll('input[name="custom-threads"]:checked');
-            let threads = Array.from(threadCheckboxes).map(cb => cb.value).join(', ');
-            
-            const colorCheckboxes = document.querySelectorAll('input[name="custom-colors"]:checked');
-            let colors = Array.from(colorCheckboxes).map(cb => cb.value).join(', ');
-            
-            const detailsMsg = document.getElementById('custom-details-msg').value.trim();
-            
-            if (!threads) threads = "Standard Silk/Cotton Thread";
-            if (!colors) colors = "Standard Theme Colors";
-            
-            const text = `नमस्कार String Creations 03! 🎨✨\n\nહું એક નવું કસ્ટમ આર્ટવર્ક ઓર્ડર કરવા માંગુ છું:\n\n📍 *Canvas Size:* ${sizeVal}\n📍 *Frame Style:* ${frameVal}\n📍 *Thread Selection:* ${threads}\n📍 *Selected Colors:* ${colors}\n📝 *Extra Instructions:* ${detailsMsg || "None"}\n\nકૃપા કરીને મને આ સ્પષ્ટીકરણો માટે અંદાજિત કિંમત અને સમય જણાવો. આભાર!`;
-            
-            const encodedText = encodeURIComponent(text);
-            const waUrl = `https://wa.me/919876543210?text=${encodedText}`;
-            window.open(waUrl, '_blank');
-            showToast("Design details configured! Redirecting to WhatsApp...");
-        }
-
-        // Sequential Interactive Process Highlighting
-        let currentHighlightIdx = 0;
-        function startProcessAnimationCycle() {
-            setInterval(() => {
-                const stepCards = document.querySelectorAll('.process-step-card');
-                if (stepCards.length === 0) return;
-                
-                stepCards.forEach(card => card.classList.remove('active-reveal'));
-                stepCards[currentHighlightIdx].classList.add('active-reveal');
-                
-                currentHighlightIdx = (currentHighlightIdx + 1) % stepCards.length;
-            }, 3000);
-        }
-
-        function switchProcessTab(tabType) {
-            const tab1 = document.getElementById('process-tab-content-1');
-            const tab2 = document.getElementById('process-tab-content-2');
-            const btn1 = document.getElementById('btn-proc-1');
-            const btn2 = document.getElementById('btn-proc-2');
-            
-            if (tabType === 'step-by-step') {
-                tab1.classList.remove('hidden');
-                tab2.classList.add('hidden');
-                btn1.className = "process-tab-btn active px-5 py-2 border border-brandTeal text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition";
-                btn2.className = "process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition";
+            if (category === 'all') {
+                renderGalleryGrid(products);
             } else {
-                tab1.classList.add('hidden');
-                tab2.classList.remove('hidden');
-                btn2.className = "process-tab-btn active px-5 py-2 border border-brandTeal text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition";
-                btn1.className = "process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition";
-                
-                // Active status reveal for heritage list
-                const heritageCards = document.querySelectorAll('.heritage-step-card');
-                heritageCards.forEach((hc, index) => {
-                    setTimeout(() => {
-                        hc.classList.add('active-reveal');
-                    }, index * 200);
-                });
+                const filtered = products.filter(p => p.category === category);
+                renderGalleryGrid(filtered);
             }
         }
 
-        // Track Order system
+        // Render Dynamic String Art Classification Index
+        function renderStringArtDirectory() {
+            const container = document.getElementById('string-art-index-accordion');
+            if (!container) return;
+            container.innerHTML = '';
+
+            artTypesDirectory.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'glass-card p-4 transition-all duration-300 border border-luxuryGold/10 hover:border-luxuryGold/35';
+                
+                let subButtonsHTML = item.subtypes.map(sub => `
+                    <button onclick="triggerArtClassPreview('${sub}', '${item.category}')" class="bg-neutral-900 hover:bg-luxuryGold hover:text-luxuryBlack text-[11px] text-gray-300 font-semibold uppercase px-3 py-1.5 rounded transition tracking-wider border border-luxuryGold/5">
+                        ${sub}
+                    </button>
+                `).join('');
+
+                itemDiv.innerHTML = `
+                    <div class="flex justify-between items-center cursor-pointer select-none pb-2 border-b border-luxuryGold/5" onclick="toggleAccordionSection(${index})">
+                        <span class="font-serif text-base text-luxuryGold font-semibold uppercase tracking-wider">${item.category}</span>
+                        <span id="accordion-icon-${index}" class="text-luxuryGold text-xs"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <div id="accordion-content-${index}" class="hidden pt-4 flex flex-wrap gap-2 animate-fadeIn">
+                        ${subButtonsHTML}
+                    </div>
+                `;
+                container.appendChild(itemDiv);
+            });
+        }
+
+        function toggleAccordionSection(idx) {
+            const block = document.getElementById(`accordion-content-${idx}`);
+            const icon = document.getElementById(`accordion-icon-${idx}`);
+            block.classList.toggle('hidden');
+            if (block.classList.contains('hidden')) {
+                icon.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+            } else {
+                icon.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+            }
+        }
+
+        function triggerArtClassPreview(name, parentCategory) {
+            document.getElementById('class-modal-title').innerText = name;
+            document.getElementById('class-modal-desc').innerText = `Handcrafted custom loops specifically calibrated for modern ${parentCategory}. Fully customizable dynamic thread densities.`;
+            document.getElementById('art-class-modal').classList.remove('hidden');
+        }
+
+        function toggleArtClassModal() {
+            document.getElementById('art-class-modal').classList.toggle('hidden');
+        }
+
+        // Header Track Modal
         function toggleTrackModal() {
-            const modal = document.getElementById('track-modal');
-            if (modal) modal.classList.toggle('hidden');
+            document.getElementById('track-modal').classList.toggle('hidden');
+            document.getElementById('track-result').classList.add('hidden');
         }
 
         function trackArtwork() {
-            const inputId = document.getElementById('order-track-id').value.trim().toUpperCase();
-            if (!inputId) {
-                showToast("Please enter a valid tracking ID", "error");
+            const id = document.getElementById('order-track-id').value.trim().toUpperCase();
+            if (!id) {
+                alert('Please enter an Order ID.');
                 return;
             }
-            const trackResult = document.getElementById('track-result');
-            const trackOrderId = document.getElementById('track-order-id');
-            const trackPhase = document.getElementById('track-phase');
-            const trackDelivery = document.getElementById('track-delivery');
-            const trackProgressBar = document.getElementById('track-progress-bar');
             
-            trackResult.classList.remove('hidden');
+            document.getElementById('track-display-id').innerText = id;
+            const res = document.getElementById('track-result');
+            const step2 = document.getElementById('track-step-2');
+            const step3 = document.getElementById('track-step-3');
+            const phaseTxt = document.getElementById('track-display-phase');
             
-            if (inputId === 'SC03-2415') {
-                trackOrderId.textContent = inputId;
-                trackPhase.textContent = "Phase 4 - Thread Weaving Process";
-                trackDelivery.textContent = "July 16, 2026";
-                trackProgressBar.style.width = "65%";
-                showToast("Live progress loaded.");
-            } else if (inputId === 'SC03-8821') {
-                trackOrderId.textContent = inputId;
-                trackPhase.textContent = "Phase 6 - Quality Certification & Packing";
-                trackDelivery.textContent = "July 12, 2026";
-                trackProgressBar.style.width = "90%";
-                showToast("Live progress loaded.");
+            res.classList.remove('hidden');
+
+            if (id === 'SC03-2415') {
+                phaseTxt.innerText = "Threading Layers";
+                step2.className = "p-2 bg-luxuryGold/10 border border-luxuryGold/30 text-luxuryGold rounded";
+                step3.className = "p-2 bg-neutral-900 text-gray-600 rounded";
+            } else if (id === 'SC03-8821') {
+                phaseTxt.innerText = "Dispatched and Shipped";
+                step2.className = "p-2 bg-luxuryGold/10 border border-luxuryGold/30 text-luxuryGold rounded";
+                step3.className = "p-2 bg-luxuryGold/10 border border-luxuryGold/30 text-luxuryGold rounded";
             } else {
-                // Deterministic calculation based on code input
+                // Deterministic calculation based on string hash
                 let sum = 0;
-                for(let i=0; i<inputId.length; i++) sum += inputId.charCodeAt(i);
-                const phases = [
-                    "Phase 1 - Design Mapping",
-                    "Phase 2 - Frame Custom Treatment",
-                    "Phase 3 - Precision Hardwood Surface Sanding",
-                    "Phase 4 - Geometric Tension Weaving Setup",
-                    "Phase 5 - Outer Luxury Framing Assembly",
-                    "Phase 6 - Quality Inspection Certification"
-                ];
-                const phaseIndex = sum % phases.length;
-                const progressPercent = Math.max(15, Math.min(95, ((phaseIndex + 1) / phases.length) * 100));
-                const deliveryDays = Math.max(3, (8 - phaseIndex) * 2);
-                
-                trackOrderId.textContent = inputId;
-                trackPhase.textContent = phases[phaseIndex];
-                trackDelivery.textContent = `Within ${deliveryDays} Working Days`;
-                trackProgressBar.style.width = `${progressPercent}%`;
-                showToast(`Production simulation loaded for code: ${inputId}`);
+                for(let i=0; i<id.length; i++) sum += id.charCodeAt(i);
+                if (sum % 2 === 0) {
+                    phaseTxt.innerText = "Digital Alignment & Vector Mapping";
+                    step2.className = "p-2 bg-neutral-900 text-gray-600 rounded";
+                    step3.className = "p-2 bg-neutral-900 text-gray-600 rounded";
+                } else {
+                    phaseTxt.innerText = "Frame Framing Setup";
+                    step2.className = "p-2 bg-luxuryGold/10 border border-luxuryGold/30 text-luxuryGold rounded";
+                    step3.className = "p-2 bg-neutral-900 text-gray-600 rounded";
+                }
             }
         }
 
-        // Testimonial Reviews System
+        // Review Modal Operations
         function toggleReviewModal() {
-            const m = document.getElementById('review-modal');
-            if (m) m.classList.toggle('hidden');
+            document.getElementById('review-modal').classList.toggle('hidden');
         }
 
-        function handleReviewSubmit(e) {
-            e.preventDefault();
-            const author = document.getElementById('review-author').value.trim();
-            const rating = parseInt(document.getElementById('review-rating').value);
-            const text = document.getElementById('review-text').value.trim();
+        // Product Details Modal
+        let activeProductForCertificate = null;
+        function openProductModal(id) {
+            const item = products.find(p => p.id.toString() === id.toString());
+            if (!item) return;
 
-            if (!author || !text) {
-                showToast("Please fill all review options", "error");
+            activeProductForCertificate = item;
+            document.getElementById('modal-img').src = item.img;
+            document.getElementById('modal-title').innerText = item.name;
+            document.getElementById('modal-price').innerText = formatVal(item.price);
+            document.getElementById('modal-desc').innerText = item.desc;
+            document.getElementById('modal-nails').innerText = item.nails;
+            document.getElementById('modal-hours').innerText = item.hours;
+            document.getElementById('modal-threads').innerText = `${item.threads} Meters`;
+
+            const addBtn = document.getElementById('modal-add-to-cart-btn');
+            addBtn.onclick = () => { addToCart(item.id); closeProductModal(); };
+
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        // Digital Certificate Generator Popup
+        function generateDigitalCertificate() {
+            if (!activeProductForCertificate) return;
+            document.getElementById('cert-title').innerText = activeProductForCertificate.name;
+            document.getElementById('cert-registry-id').innerText = `REGISTRY SECURE NO: SC03-${Math.floor(Math.random() * 900000 + 100000)}`;
+            document.getElementById('certificate-modal').classList.remove('hidden');
+        }
+
+        function closeCertificate() {
+            document.getElementById('certificate-modal').classList.add('hidden');
+        }
+
+        // Cart Drawer Operations
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('translate-x-full');
+            renderCart();
+        }
+
+        function addToCart(id) {
+            const item = products.find(p => p.id.toString() === id.toString());
+            if (!item) return;
+
+            const exists = cart.find(cartItem => cartItem.id.toString() === id.toString());
+            if (!exists) {
+                cart.push(item);
+                saveToStorage();
+                updateCartCount();
+                showToast(`"${item.name}" added to bag`);
+            } else {
+                alert('Item is already added.');
+            }
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id.toString() !== id.toString());
+            saveToStorage();
+            updateCartCount();
+            renderCart();
+        }
+
+        function updateCartCount() {
+            const countEl = document.getElementById('cart-count');
+            if (countEl) countEl.innerText = cart.length;
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cart-items-container');
+            const emptyMsg = document.getElementById('cart-empty-msg');
+            const totalVal = document.getElementById('cart-total-price');
+
+            if (!container) return;
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                emptyMsg.classList.remove('hidden');
+                container.appendChild(emptyMsg);
+                totalVal.innerText = formatVal(0);
                 return;
             }
 
-            reviews.unshift({ name: author, rating, text });
-            localStorage.setItem('sc03_reviews', JSON.stringify(reviews));
-            renderReviews();
-            toggleReviewModal();
-            showToast("Thank you for sharing your experience!");
-            document.getElementById('review-form').reset();
+            emptyMsg.classList.add('hidden');
+            let sum = 0;
+
+            cart.forEach(item => {
+                sum += item.price;
+                const div = document.createElement('div');
+                div.className = 'flex justify-between items-center bg-luxuryBlack/40 p-4 border border-luxuryGold/10';
+                div.innerHTML = `
+                    <div>
+                        <h4 class="text-xs uppercase font-bold text-luxuryCream tracking-wider">${item.name}</h4>
+                        <p class="text-xs text-luxuryGold font-serif font-semibold mt-1">${formatVal(item.price)}</p>
+                    </div>
+                    <button onclick="removeFromCart('${item.id}')" class="text-red-500 hover:text-red-700 text-sm"><i class="fa-regular fa-trash-can"></i></button>
+                `;
+                container.appendChild(div);
+            });
+
+            totalVal.innerText = formatVal(sum);
         }
 
+        function dispatchCartCheckout() {
+            if (cart.length === 0) {
+                alert('Cart is empty.');
+                return;
+            }
+
+            let orderList = cart.map(item => `• ${item.name} (${formatVal(item.price)})`).join('\n');
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+            const msg = `Greetings String Creations 03! I would like to order the following masterpieces:\n\n` + 
+                        `${orderList}\n\n` + 
+                        `Grand Total Value: ${formatVal(total)}\n\n` + 
+                        `Please verify delivery times and shipping coordinates.`;
+            
+            window.open("https://wa.me/918140125772?text=" + encodeURIComponent(msg), '_blank');
+        }
+
+        // Infinite Horizontal Reviews Render Loop
         function renderReviews() {
             const container = document.getElementById('reviews-container');
             if (!container) return;
+            container.innerHTML = '';
 
-            // Double/triple the list to keep infinite loop continuous inside marquee
-            const extendedList = [...reviews, ...reviews, ...reviews];
-            container.innerHTML = extendedList.map(r => `
-                <div class="glass-card p-6 w-80 shrink-0 space-y-3 rounded-lg border border-luxuryGold/10 inline-block whitespace-normal">
-                    <div class="flex items-center space-x-1 text-luxuryGold text-xs">
-                        ${Array(r.rating).fill('<i class="fa-solid fa-star"></i>').join('')}
-                        ${Array(5 - r.rating).fill('<i class="fa-regular fa-star"></i>').join('')}
+            // Double data items to secure continuous loop with CSS marquee
+            const doubleList = [...reviews, ...reviews, ...reviews];
+
+            doubleList.forEach(r => {
+                const card = document.createElement('div');
+                card.className = 'glass-card p-8 space-y-4 shrink-0 w-80 inline-block whitespace-normal';
+                
+                let stars = '';
+                for (let i = 0; i < r.rating; i++) stars += '<i class="fa-solid fa-star"></i>';
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <div class="flex text-luxuryGold gap-1 text-xs">${stars}</div>
+                        <span class="text-[9px] uppercase tracking-widest text-emerald-500 flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> Verified</span>
                     </div>
-                    <p class="text-xs text-gray-300 leading-relaxed italic font-light">"${r.text}"</p>
-                    <div class="flex justify-between items-center text-[10px] text-gray-500 font-semibold tracking-wider uppercase">
-                        <span>— ${r.name}</span>
-                        <span class="text-luxuryGold/60">Verified Collector</span>
+                    <p class="font-serif text-base text-gray-300 italic">"${r.text}"</p>
+                    <div>
+                        <h4 class="text-xs uppercase tracking-wider font-bold">${r.name}</h4>
+                        <p class="text-[9px] text-gray-500">Verified Collector</p>
                     </div>
-                </div>
-            `).join('');
+                `;
+                container.appendChild(card);
+            });
         }
 
-        // SECURED ADMINISTRATIVE CONTROL CENTRE LOGIC
-        function handleAdminAddProduct(e) {
-            e.preventDefault();
-            const name = document.getElementById('admin-p-name').value.trim();
-            const category = document.getElementById('admin-p-cat').value;
-            const price = parseFloat(document.getElementById('admin-p-price').value);
-            const hours = document.getElementById('admin-p-hours').value.trim();
-            const nails = parseInt(document.getElementById('admin-p-nails').value);
-            const threads = parseInt(document.getElementById('admin-p-threads').value);
-            const img = document.getElementById('admin-p-img').value.trim();
-            const desc = document.getElementById('admin-p-desc').value.trim();
+        function handleReviewSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('review-form-name').value;
+            const rating = parseInt(document.getElementById('review-form-rating').value);
+            const text = document.getElementById('review-form-text').value;
 
-            const newId = 'p-' + Date.now();
-            const newProd = { id: newId, name, category, price, hours, nails, threads, img, desc };
-            
-            products.push(newProd);
-            localStorage.setItem('sc03_products', JSON.stringify(products));
-            
-            renderGallery();
-            renderAdminProducts();
-            showToast(`${name} added to the curated catalog.`);
-            e.target.reset();
+            reviews.unshift({ name, rating, text });
+            saveToStorage();
+            renderReviews();
+
+            document.getElementById('review-form-name').value = '';
+            document.getElementById('review-form-text').value = '';
+            toggleReviewModal();
+            showToast('Review submitted successfully');
         }
 
-        function deleteAdminProduct(id) {
-            const idx = products.findIndex(p => p.id === id);
-            if (idx === -1) return;
-            const name = products[idx].name;
-            products.splice(idx, 1);
-            localStorage.setItem('sc03_products', JSON.stringify(products));
-            renderGallery();
-            renderAdminProducts();
-            showToast(`${name} deleted from catalog.`);
+        // Tab Switchers for Our Process Section
+        function switchProcessTab(tabName) {
+            document.getElementById('process-tab-content-1').classList.remove('hidden');
+            document.getElementById('process-tab-content-2').classList.add('hidden');
+            
+            document.getElementById('btn-proc-1').className = "process-tab-btn active px-5 py-2 border border-[#1a82e2] text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition";
+            document.getElementById('btn-proc-2').className = "process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition";
+            startProcessSequentialReveal();
+        }
+
+        function showCustomSpecsTab() {
+            document.getElementById('process-tab-content-1').classList.add('hidden');
+            document.getElementById('process-tab-content-2').classList.remove('hidden');
+            
+            document.getElementById('btn-proc-1').className = "process-tab-btn px-5 py-2 border border-transparent text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryCream hover:border-luxuryGold/30 transition";
+            document.getElementById('btn-proc-2').className = "process-tab-btn active px-5 py-2 border border-[#1a82e2] text-xs uppercase tracking-widest text-brandTeal bg-brandBlue/10 transition";
         }
 
         function renderAdminProducts() {
             const list = document.getElementById('admin-products-list');
             if (!list) return;
+            list.innerHTML = '';
 
-            list.innerHTML = products.map(p => `
-                <div class="flex items-center justify-between p-3 bg-luxuryBlack/60 border border-luxuryGold/10 rounded">
-                    <div class="flex items-center space-x-3 truncate">
-                        <img src="${p.img}" alt="${p.name}" class="h-10 w-10 object-cover rounded" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=150'">
-                        <div class="truncate">
-                            <p class="text-xs font-semibold text-luxuryCream truncate uppercase">${p.name}</p>
-                            <p class="text-[9px] text-gray-500 uppercase tracking-widest">${p.category} | ${formatPrice(p.price)}</p>
-                        </div>
+            products.forEach(p => {
+                const div = document.createElement('div');
+                div.className = 'flex justify-between items-center bg-luxuryBlack/50 p-3 border border-luxuryGold/15';
+                div.innerHTML = `
+                    <div>
+                        <h4 class="text-xs font-bold text-luxuryCream">${p.name}</h4>
+                        <p class="text-[10px] text-luxuryGold">${formatVal(p.price)}</p>
                     </div>
-                    <button onclick="deleteAdminProduct('${p.id}')" class="text-red-400 hover:text-red-500 transition px-2"><i class="fa-solid fa-trash-can"></i></button>
-                </div>
-            `).join('');
+                    <button onclick="deleteProductFromAdmin('${p.id}')" class="text-red-500 hover:text-red-700 text-xs uppercase font-bold tracking-wider"><i class="fa-regular fa-trash-can"></i></button>
+                `;
+                list.appendChild(div);
+            });
         }
 
-        // CSV Export/Import Configuration
+        // Add Product from Admin
+        function handleAdminAddProduct(event) {
+            event.preventDefault();
+            const name = document.getElementById('admin-p-name').value;
+            const category = document.getElementById('admin-p-cat').value;
+            const price = parseInt(document.getElementById('admin-p-price').value);
+            const hours = document.getElementById('admin-p-hours').value;
+            const nails = parseInt(document.getElementById('admin-p-nails').value);
+            const threads = parseInt(document.getElementById('admin-p-threads').value);
+            const img = document.getElementById('admin-p-img').value;
+            const desc = document.getElementById('admin-p-desc').value;
+
+            const newId = 'p-' + Date.now();
+            const newProduct = { id: newId, name, category, price, hours, nails, threads, img, desc };
+
+            products.push(newProduct);
+            saveToStorage();
+            renderGallery();
+            renderAdminProducts();
+
+            event.target.reset();
+            showToast('Published new artwork to live catalog');
+        }
+
+        function deleteProductFromAdmin(id) {
+            if (confirm('Are you sure you want to remove this art piece from your live catalog?')) {
+                products = products.filter(p => p.id.toString() !== id.toString());
+                saveToStorage();
+                renderGallery();
+                renderAdminProducts();
+            }
+        }
+
+        // CSV DATA EXPORT / IMPORT ENGINE
         function exportCatalog() {
-            let csvContent = "data:text/csv;charset=utf-8,";
-            csvContent += "ID,Name,Category,Price,Hours,Nails,Threads,Image,Description\n";
+            let csvContent = "data:text/csv;charset=utf-8,ID,Name,Category,Price,Hours,Nails,Threads,ImageURL,Description\n";
             products.forEach(p => {
-                let row = `"${p.id}","${p.name}","${p.category}",${p.price},"${p.hours}",${p.nails},${p.threads},"${p.img}","${p.desc.replace(/"/g, '""')}"`;
-                csvContent += row + "\n";
+                let escapedDesc = `"${p.desc.replace(/"/g, '""')}"`;
+                csvContent += `${p.id},"${p.name}",${p.category},${p.price},"${p.hours}",${p.nails},${p.threads},"${p.img}",${escapedDesc}\n`;
             });
             const encodedUri = encodeURI(csvContent);
             const link = document.createElement("a");
             link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "string_creations_03_catalog.csv");
+            link.setAttribute("download", "SC03_Catalog_Backup.csv");
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            showToast("Catalog CSV exported.");
+            showToast("Catalog backup downloaded");
         }
 
         function triggerCSVImport() {
@@ -1380,68 +1688,44 @@
         function importCatalog(event) {
             const file = event.target.files[0];
             if (!file) return;
+
             const reader = new FileReader();
             reader.onload = function(e) {
                 const text = e.target.result;
-                const lines = text.split("\n");
-                let imported = [];
-                // Skip header line
+                const lines = text.split('\n');
+                const importedList = [];
+                
                 for (let i = 1; i < lines.length; i++) {
-                    if (!lines[i].trim()) continue;
-                    let parts = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-                    if (parts.length >= 9) {
-                        let id = parts[0].replace(/"/g, '').trim();
-                        let name = parts[1].replace(/"/g, '').trim();
-                        let category = parts[2].replace(/"/g, '').trim();
-                        let price = parseFloat(parts[3]) || 15000;
-                        let hours = parts[4].replace(/"/g, '').trim();
-                        let nails = parseInt(parts[5]) || 2000;
-                        let threads = parseInt(parts[6]) || 3000;
-                        let img = parts[7].replace(/"/g, '').trim();
-                        let desc = parts[8].replace(/"/g, '').trim();
-                        imported.push({ id, name, category, price, hours, nails, threads, img, desc });
+                    const row = lines[i].trim();
+                    if (!row) continue;
+                    
+                    const cols = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
+                    if (cols.length >= 8) {
+                        importedList.push({
+                            id: cols[0].replace(/"/g, '').trim(),
+                            name: cols[1].replace(/"/g, ''),
+                            category: cols[2],
+                            price: parseInt(cols[3]),
+                            hours: cols[4].replace(/"/g, ''),
+                            nails: parseInt(cols[5]),
+                            threads: parseInt(cols[6]),
+                            img: cols[7].replace(/"/g, ''),
+                            desc: cols[8] ? cols[8].replace(/"/g, '') : ""
+                        });
                     }
                 }
-                if (imported.length > 0) {
-                    products = imported;
-                    localStorage.setItem('sc03_products', JSON.stringify(products));
+                
+                if (importedList.length > 0) {
+                    products = importedList;
+                    saveToStorage();
                     renderGallery();
                     renderAdminProducts();
-                    showToast(`Successfully imported ${imported.length} items.`);
+                    showToast(`Imported ${products.length} products`);
                 } else {
-                    showToast("No valid CSV lines found.", "error");
+                    alert("Invalid CSV Format. Ensure matching schema header.");
                 }
             };
             reader.readAsText(file);
-        }
-
-        // Global Toast Notification triggers
-        function showToast(message, type = 'success') {
-            const container = document.getElementById('toast-container');
-            if (!container) return;
-            const toast = document.createElement('div');
-            toast.className = `p-4 rounded-lg shadow-xl text-xs uppercase tracking-wider font-semibold border transition-all duration-300 transform translate-x-12 opacity-0 flex items-center justify-between space-x-4 pointer-events-auto bg-luxuryCharcoal `;
-            if (type === 'success') {
-                toast.className += 'border-luxuryGold text-luxuryGold';
-            } else {
-                toast.className += 'border-red-500/50 text-red-400';
-            }
-            toast.innerHTML = `
-                <span>${message}</span>
-                <button onclick="this.parentElement.remove()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
-            `;
-            container.appendChild(toast);
-            
-            // Trigger animation in
-            setTimeout(() => {
-                toast.classList.remove('translate-x-12', 'opacity-0');
-            }, 10);
-            
-            // Trigger animation out
-            setTimeout(() => {
-                toast.classList.add('translate-x-12', 'opacity-0');
-                setTimeout(() => toast.remove(), 300);
-            }, 4000);
         }
     </script>
 </body>
