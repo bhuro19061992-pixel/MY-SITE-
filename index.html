@@ -3,40 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>કાર્ટૂન રિવ્યુ એનિમેશન સિસ્ટમ</title>
+  <title>3D કાર્ટૂન રિવ્યુ એનિમેશન</title>
   <style>
-    /* બેઝિક પેજ સેટિંગ્સ */
+    /* બેઝિક પેજ સ્ટાઈલ */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f7f6;
+      background: #eef2f3;
       overflow-x: hidden;
       height: 100vh;
+      perspective: 1000px; /* 3D ઇફેક્ટ માટે પર્સ્પેક્ટિવ */
     }
 
-    /* રિવ્યુ બટન (Floating Button) */
+    /* રિવ્યુ મોકલવા માટેનું બટન (3D લુક) */
     .review-trigger-btn {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 12px 24px;
-      background-color: #ff5722;
+      bottom: 25px;
+      right: 25px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #ff5722, #ff7043);
       color: white;
       border: none;
-      border-radius: 30px;
+      border-radius: 50px;
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4), inset 0 -3px 0 rgba(0,0,0,0.2);
       z-index: 999;
-      transition: transform 0.2s;
+      transition: all 0.2s ease;
     }
     .review-trigger-btn:hover {
-      transform: scale(1.05);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(255, 87, 34, 0.5);
     }
 
-    /* રિવ્યુ પોપઅપ મોડલ (Popup Modal) */
+    /* રિવ્યુ પોપઅપ મોડલ */
     .modal {
       display: none;
       position: fixed;
@@ -44,7 +46,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(5px);
       z-index: 1000;
       justify-content: center;
       align-items: center;
@@ -52,10 +55,10 @@
     .modal-content {
       background: white;
       padding: 30px;
-      border-radius: 15px;
+      border-radius: 20px;
       width: 90%;
       max-width: 450px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
       position: relative;
       max-height: 85vh;
       overflow-y: auto;
@@ -74,11 +77,11 @@
     }
     .modal h2 {
       margin-top: 0;
-      color: #333;
+      color: #222;
       text-align: center;
     }
 
-    /* ફોર્મ સ્ટાઇલ */
+    /* ફોર્મ ડિઝાઇન */
     .form-group {
       margin-bottom: 15px;
     }
@@ -86,15 +89,20 @@
       display: block;
       margin-bottom: 5px;
       font-weight: 600;
-      color: #555;
+      color: #444;
     }
     .form-group input, .form-group textarea, .form-group select {
       width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
       box-sizing: border-box;
       font-size: 14px;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: #ff5722;
+      outline: none;
     }
     .form-group textarea {
       resize: vertical;
@@ -102,20 +110,21 @@
     }
     .submit-btn {
       width: 100%;
-      padding: 12px;
-      background-color: #4CAF50;
+      padding: 14px;
+      background: linear-gradient(135deg, #4CAF50, #45a049);
       color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 16px;
       cursor: pointer;
       font-weight: bold;
+      box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
     }
     .submit-btn:hover {
-      background-color: #45a049;
+      box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
     }
 
-    /* ગૂગલ રિવ્યુ વિભાગ */
+    /* ગુગલ રિવ્યુ વિભાગ */
     .google-section {
       margin-top: 20px;
       border-top: 1px dashed #ccc;
@@ -132,78 +141,77 @@
       font-weight: bold;
       font-size: 14px;
       margin-top: 8px;
-    }
-    .google-link-btn:hover {
-      background-color: #357ae8;
+      box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3);
     }
 
-    /* એનિમેશન કન્ટેનર (બેકગ્રાઉન્ડ લૂપ માટે) */
+    /* એનિમેશન કન્ટેનર */
     #animation-container {
       position: fixed;
-      bottom: 50px;
+      bottom: 20px;
       left: 0;
       width: 100%;
-      height: 250px;
-      pointer-events: none; /* જેથી વેબસાઇટના અન્ય બટનો ક્લિક કરી શકાય */
+      height: 280px;
+      pointer-events: none;
       z-index: 10;
       overflow: hidden;
     }
 
-    /* રનર અને કેરેક્ટર એનિમેશન સેટિંગ્સ */
+    /* રનર અને 3D ઇફેક્ટ સેટિંગ્સ */
     .review-runner {
       position: absolute;
       display: flex;
       align-items: flex-end;
       white-space: nowrap;
       will-change: transform;
+      transform-style: preserve-3d;
     }
 
-    /* ડાબેથી જમણે જવાની ગતિ (પ્રોગ્રામેટીકલી સેટ થશે છતાં કીફ્રેમ્સ જરૂરી છે) */
+    /* જમણેથી ડાબે જવાની એનિમેશન */
     @keyframes walkLeft {
       0% { transform: translateX(100vw); }
-      100% { transform: translateX(-100%); }
+      100% { transform: translateX(-120%); }
     }
 
-    /* અલગ-અલગ નખરાં (Antics) માટે કીફ્રેમ્સ */
-    @keyframes jump {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-40px); }
+    /* 3D નખરાં (Antics) એનિમેશન્સ */
+    @keyframes jump3D {
+      0%, 100% { transform: translateY(0) rotateX(0deg); }
+      50% { transform: translateY(-45px) rotateY(15deg); }
     }
-    @keyframes wiggle {
-      0%, 100% { transform: rotate(-10deg); }
-      50% { transform: rotate(10deg); }
+    @keyframes wiggle3D {
+      0%, 100% { transform: rotateY(-15deg) rotateZ(-5deg); }
+      50% { transform: rotateY(15deg) rotateZ(5deg); }
     }
-    @keyframes spin {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(15deg); }
+    @keyframes float3D {
+      0%, 100% { transform: translateY(0) rotateZ(0); }
+      50% { transform: translateY(-20px) rotateX(10deg); }
     }
-    @keyframes skip {
-      0%, 100% { transform: translateY(0) scaleY(1); }
-      50% { transform: translateY(-15px) scaleY(0.85); }
+    @keyframes step3D {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-10px) scale(1.05) rotateY(10deg); }
     }
 
-    /* નખરાં ક્લાસ એપ્લાય કરવા માટે */
-    .antic-jump { animation: jump 1.5s infinite ease-in-out; }
-    .antic-wiggle { animation: wiggle 1s infinite ease-in-out; }
-    .antic-spin { animation: spin 2s infinite ease-in-out; }
-    .antic-skip { animation: skip 1.2s infinite ease-in-out; }
+    .antic-jump { animation: jump3D 1.8s infinite ease-in-out; }
+    .antic-wiggle { animation: wiggle3D 1.2s infinite ease-in-out; }
+    .antic-float { animation: float3D 2s infinite ease-in-out; }
+    .antic-step { animation: step3D 1.4s infinite ease-in-out; }
 
-    /* કેરેક્ટર અને ધ્વજનું માળખું */
+    /* 3D કેરેક્ટર બોક્સ */
     .character-box {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-right: -10px;
+      transform-style: preserve-3d;
     }
     
-    /* કેરેક્ટર ઇમેજ અથવા ઇમોજી */
+    /* 3D કેરેક્ટર વિઝ્યુઅલ */
     .character-visual {
-      font-size: 50px; /* જો ઇમોજી વાપરો તો */
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       display: flex;
       justify-content: center;
       align-items: center;
+      filter: drop-shadow(5px 10px 8px rgba(0,0,0,0.3)); /* 3D શેડો */
     }
     .character-visual img {
       width: 100%;
@@ -211,49 +219,61 @@
       object-fit: contain;
     }
 
-    /* ધ્વજનો લાકડો/પોલ */
+    /* ધ્વજનો લાકડો/પોલ (3D સિલિન્ડર લુક) */
     .flag-pole {
-      width: 6px;
-      height: 140px;
-      background: #8B4513; /* કથ્થઈ કલર */
+      width: 8px;
+      height: 150px;
+      background: linear-gradient(90deg, #5c2d16, #8B4513, #b86532);
+      border-radius: 4px;
       position: relative;
+      box-shadow: 3px 5px 10px rgba(0,0,0,0.2);
     }
 
-    /* ધ્વજ (Review Flag) */
+    /* 3D લુક આપતો ધ્વજ (Review Flag) */
     .review-flag {
       position: absolute;
-      top: 10px;
-      left: 6px;
-      background: #ffeb3b;
-      border: 3px solid #ff9800;
-      padding: 10px 15px;
-      border-radius: 4px 20px 20px 4px;
-      box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
-      max-width: 220px;
+      top: 15px;
+      left: 8px;
+      background: linear-gradient(135deg, #fff176, #ffd54f);
+      border: 3px solid #ffb300;
+      padding: 12px 18px;
+      border-radius: 6px 25px 25px 6px;
+      box-shadow: 5px 10px 15px rgba(0,0,0,0.25);
+      max-width: 240px;
       white-space: normal;
       word-wrap: break-word;
+      transform: rotateY(-10deg) rotateZ(-2deg); /* 3D રિટિલ્ટ */
+      transform-origin: left center;
+      transition: transform 0.3s;
+    }
+    /* પવનની લહેરો દર્શાવવા ધ્વજની વાઇબ્રેશન ઇફેક્ટ */
+    @keyframes wave {
+      0%, 100% { transform: rotateY(-10deg) skewY(-2deg); }
+      50% { transform: rotateY(5deg) skewY(2deg); }
+    }
+    .review-flag {
+      animation: wave 3s infinite ease-in-out;
     }
     .review-flag .text {
-      font-size: 12px;
-      font-weight: bold;
-      color: #333;
+      font-size: 13px;
+      font-weight: 700;
+      color: #2c3e50;
       margin: 0;
+      line-height: 1.4;
     }
     .review-flag .char-name {
-      font-size: 10px;
-      color: #777;
-      margin-top: 5px;
+      font-size: 11px;
+      color: #c0392b;
+      margin-top: 8px;
       text-align: right;
-      font-style: italic;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <!-- રિવ્યુ આપવા માટેનું બટન -->
   <button class="review-trigger-btn" id="open-btn">અહીં રિવ્યુ આપો 💬</button>
 
-  <!-- બેકગ્રાઉન્ડ એનિમેશન એરિયા -->
   <div id="animation-container"></div>
 
   <!-- પોપઅપ મોડલ -->
@@ -274,90 +294,87 @@
         </div>
 
         <div class="form-group">
-          <label for="cartoon-select">પસંદગીનું કાર્ટૂન કેરેક્ટર (ફરજિયાત):</label>
+          <label for="cartoon-select">પસંદગીનું 3D કાર્ટૂન (ફરજિયાત):</label>
           <select id="cartoon-select" required>
             <option value="" disabled selected>-- કેરેક્ટર પસંદ કરો --</option>
-            <!-- JS થી ૫૦+ કાર્ટૂન ઉમેરવામાં આવશે -->
           </select>
         </div>
 
         <button type="submit" class="submit-btn">રિવ્યુ સબમિટ કરો</button>
       </form>
 
-      <!-- ગુગલ રિવ્યુ સેકશન -->
       <div class="google-section">
-        <p style="margin: 0; font-size: 14px; color: #555;">અમને ગૂગલ પર સપોર્ટ કરવા માટે નીચે ક્લિક કરો:</p>
-        <!-- અહીં YOUR_GOOGLE_REVIEW_LINK_HERE ની જગ્યાએ તમારી લિંક મૂકો -->
+        <p style="margin: 0; font-size: 14px; color: #555;">અમને ગૂગલ પર સપોર્ટ કરો:</p>
         <a href="YOUR_GOOGLE_REVIEW_LINK_HERE" target="_blank" class="google-link-btn">Google Review આપો ⭐️</a>
       </div>
     </div>
   </div>
 
   <script>
-    // ૫૦+ કેરેક્ટર્સનું લિસ્ટ (નામ, ઇમોજી પ્લેસહોલ્ડર, અને જો તમારી પાસે ઈમેજ હોય તો તેનો પાથ)
+    // ૫૦+ કેરેક્ટર્સનું લિસ્ટ. લાઈવ ડેમો ચાલતો જોવા માટે સુંદર 'Dicebear 3D Adventurer API' ની લિસ્ટિંગ્સ વાપરી છે.
+    // તમે ઇચ્છો ત્યારે `img` સેક્શનમાં તમારા ડાઉનલોડ કરેલા 3D PNG ચિત્રો મૂકી શકો છો.
     const cartoonCharacters = [
-      { name: "Tom", emoji: "🐱", img: "" },
-      { name: "Jerry", emoji: "🐭", img: "" },
-      { name: "Chhota Bheem", emoji: "👦", img: "" },
-      { name: "Chutki", emoji: "👧", img: "" },
-      { name: "Jaggu", emoji: "🐒", img: "" },
-      { name: "Mighty Raju", emoji: "🦸‍♂️", img: "" },
-      { name: "Kaliya", emoji: "🧒", img: "" },
-      { name: "Dholu-Bholu", emoji: "👬", img: "" },
-      { name: "Oggy", emoji: "🐱", img: "" },
-      { name: "Jack", emoji: "🐱", img: "" },
-      { name: "Dee Dee (Cockroach)", emoji: "🪳", img: "" },
-      { name: "Marky (Cockroach)", emoji: "🪳", img: "" },
-      { name: "Joey (Cockroach)", emoji: "🪳", img: "" },
-      { name: "Bob Dog", emoji: "🐶", img: "" },
-      { name: "Blossom (Super Girl 1)", emoji: "💗", img: "" },
-      { name: "Bubbles (Super Girl 2)", emoji: "💙", img: "" },
-      { name: "Buttercup (Super Girl 3)", emoji: "💚", img: "" },
-      { name: "Phineas", emoji: "📐", img: "" },
-      { name: "Ferb", emoji: "🔨", img: "" },
-      { name: "Candace (Ferb's Sister)", emoji: "👱‍♀️", img: "" },
-      { name: "Gwen Tennyson", emoji: "🔮", img: "" },
-      { name: "Kevin Levin", emoji: "⛓️", img: "" },
-      { name: "Ben Tennyson", emoji: "⌚", img: "" },
-      { name: "Grandpa Max", emoji: "👴", img: "" },
-      { name: "Finn", emoji: "🗡️", img: "" },
-      { name: "Jake", emoji: "🐕", img: "" },
-      { name: "Baby Groot", emoji: "🌱", img: "" },
-      { name: "Mr. Bean", emoji: "🐻", img: "" },
-      { name: "Tun Tun Mausi", emoji: "👵", img: "" },
-      { name: "Ninja Hattori", emoji: "🥷", img: "" },
-      { name: "Doraemon", emoji: "🔵", img: "" },
-      { name: "Nobita", emoji: "🤓", img: "" },
-      { name: "Shizuka", emoji: "👧", img: "" },
-      { name: "Suneo", emoji: "💇‍♂️", img: "" },
-      { name: "Pink Panther", emoji: "🐆", img: "" },
-      { name: "Road Runner", emoji: "🐦", img: "" },
-      { name: "Shinchan", emoji: "🥔", img: "" },
-      { name: "Kazama", emoji: "👦", img: "" },
-      { name: "Masao", emoji: "🍙", img: "" },
-      { name: "Nene", emoji: "🐰", img: "" },
-      { name: "Bochan", emoji: "💧", img: "" },
-      { name: "Mickey Mouse", emoji: "🐭", img: "" },
-      { name: "Donald Duck", emoji: "🦆", img: "" },
-      { name: "Goofy", emoji: "🐶", img: "" },
-      { name: "Scooby-Doo", emoji: "🐕", img: "" },
-      { name: "Shaggy", emoji: "🧔", img: "" },
-      { name: "Bugs Bunny", emoji: "🐰", img: "" },
-      { name: "Daffy Duck", emoji: "🦆", img: "" },
-      { name: "Popeye", emoji: "💪", img: "" },
-      { name: "Pikachu", emoji: "⚡", img: "" },
-      { name: "Sonic", emoji: "🦔", img: "" },
-      { name: "Mario", emoji: "👨‍🔧", img: "" }
+      { name: "Tom", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Tom" },
+      { name: "Jerry", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Jerry" },
+      { name: "Chhota Bheem", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Bheem" },
+      { name: "Chutki", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Chutki" },
+      { name: "Jaggu", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Jaggu" },
+      { name: "Mighty Raju", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Raju" },
+      { name: "Kaliya", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Kaliya" },
+      { name: "Dholu-Bholu", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Dholu" },
+      { name: "Oggy", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Oggy" },
+      { name: "Jack", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Jack" },
+      { name: "Dee Dee (Cockroach)", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=DeeDee" },
+      { name: "Marky (Cockroach)", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Marky" },
+      { name: "Joey (Cockroach)", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Joey" },
+      { name: "Bob Dog", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Bob" },
+      { name: "Blossom (Super Girl 1)", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Blossom" },
+      { name: "Bubbles (Super Girl 2)", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Bubbles" },
+      { name: "Buttercup (Super Girl 3)", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Buttercup" },
+      { name: "Phineas", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Phineas" },
+      { name: "Ferb", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Ferb" },
+      { name: "Candace (Ferb's Sister)", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Candace" },
+      { name: "Gwen Tennyson", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Gwen" },
+      { name: "Kevin Levin", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Kevin" },
+      { name: "Ben Tennyson", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Ben" },
+      { name: "Grandpa Max", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Max" },
+      { name: "Finn", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Finn" },
+      { name: "Jake", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Jake" },
+      { name: "Baby Groot", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Groot" },
+      { name: "Mr. Bean", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Bean" },
+      { name: "Tun Tun Mausi", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=TunTun" },
+      { name: "Ninja Hattori", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Hattori" },
+      { name: "Doraemon", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Doraemon" },
+      { name: "Nobita", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Nobita" },
+      { name: "Shizuka", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Shizuka" },
+      { name: "Suneo", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Suneo" },
+      { name: "Pink Panther", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Panther" },
+      { name: "Road Runner", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Runner" },
+      { name: "Shinchan", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Shinchan" },
+      { name: "Kazama", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Kazama" },
+      { name: "Masao", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Masao" },
+      { name: "Nene", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Nene" },
+      { name: "Bochan", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Bochan" },
+      { name: "Mickey Mouse", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Mickey" },
+      { name: "Donald Duck", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Donald" },
+      { name: "Goofy", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Goofy" },
+      { name: "Scooby-Doo", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Scooby" },
+      { name: "Shaggy", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Shaggy" },
+      { name: "Bugs Bunny", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Bugs" },
+      { name: "Daffy Duck", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Daffy" },
+      { name: "Popeye", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Popeye" },
+      { name: "Pikachu", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Pikachu" },
+      { name: "Sonic", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Sonic" },
+      { name: "Mario", img: "https://api.dicebear.com/7.x/adventurer/svg?seed=Mario" }
     ];
 
-    // ડિફોલ્ટ રિવ્યુઝ (શરૂઆતમાં સ્ક્રીન પર દેખાડવા માટે)
+    // ડિફોલ્ટ 3D રિવ્યુઝ
     let reviewsDatabase = [
-      { name: "રાહુલ", text: "ખૂબ જ સરસ અને આકર્ષક વેબસાઈટ છે!", charName: "Tom" },
-      { name: "આરતી", text: "મને અહીંનું લુક ખુબ ગમ્યું.", charName: "Jerry" },
-      { name: "મિતેશ", text: "બધા જ કાર્ટૂન પાત્રો મજા કરાવી દે છે!", charName: "Chhota Bheem" }
+      { name: "અમન", text: "ખૂબ જ જોરદાર 3D ઇફેક્ટ છે, મજા આવી ગઈ!", charName: "Tom" },
+      { name: "નેહલ", text: "વેબસાઇટ ખરેખર અદ્ભુત લાગે છે.", charName: "Jerry" },
+      { name: "દક્ષ", text: "આ કાર્ટૂનની મોજ તો કંઇક અલગ જ છે!", charName: "Chhota Bheem" }
     ];
 
-    // DOM Elements
     const modal = document.getElementById("review-modal");
     const openBtn = document.getElementById("open-btn");
     const closeBtn = document.getElementById("close-btn");
@@ -365,22 +382,20 @@
     const reviewForm = document.getElementById("review-form");
     const animationContainer = document.getElementById("animation-container");
 
-    // ડ્રોપડાઉન લિસ્ટ ભરવું
+    // ડ્રોપડાઉન લિસ્ટ પૉપ્યુલેટ કરવું
     cartoonCharacters.forEach(char => {
       const option = document.createElement("option");
       option.value = char.name;
-      option.textContent = `${char.emoji} ${char.name}`;
+      option.textContent = `⭐ ${char.name}`;
       cartoonSelect.appendChild(option);
     });
 
-    // મોડલ ખોલવા/બંધ કરવાના ઇવેન્ટ્સ
     openBtn.addEventListener("click", () => modal.style.display = "flex");
     closeBtn.addEventListener("click", () => modal.style.display = "none");
     window.addEventListener("click", (e) => {
       if (e.target === modal) modal.style.display = "none";
     });
 
-    // રિવ્યુ સબમિટ હેન્ડલર
     reviewForm.addEventListener("submit", (e) => {
       e.preventDefault();
       
@@ -391,48 +406,41 @@
       const newReview = { name, text, charName };
       reviewsDatabase.push(newReview);
 
-      // ફોર્મ ક્લીયર કરો અને મોડલ બંધ કરો
       reviewForm.reset();
       modal.style.display = "none";
 
-      // નવો રિવ્યુ તુરંત એનિમેશન લૂપમાં મોકલો
-      spawnRunner(newReview);
+      spawn3DRunner(newReview);
     });
 
-    // નખરાં (Antic Animations) ની યાદી
-    const anticAnimations = ["antic-jump", "antic-wiggle", "antic-spin", "antic-skip"];
+    // 3D સ્ટાઈલના અલગ-અલગ નખરાં
+    const anticAnimations = ["antic-jump", "antic-wiggle", "antic-float", "antic-step"];
 
-    // એનિમેશન રનર બનાવવાનું ફંક્શન
-    function spawnRunner(reviewData) {
+    function spawn3DRunner(reviewData) {
       const characterObj = cartoonCharacters.find(c => c.name === reviewData.charName) || cartoonCharacters[0];
       
       const runner = document.createElement("div");
       runner.className = "review-runner";
       
-      // રેન્ડમ સ્પીડ (15 સેકન્ડ થી 25 સેકન્ડ વચ્ચે)
-      const speed = Math.random() * 10 + 15; 
+      // રેન્ડમ સ્પીડ (15 થી 22 સેકન્ડ)
+      const speed = Math.random() * 7 + 15; 
       runner.style.animation = `walkLeft ${speed}s linear forwards`;
       
-      // સ્ક્રીનની ઊંચાઈ પર રેન્ડમ પોઝિશન (જેથી રિવ્યુ એકબીજાની ઉપર ઓવરલેપ ન થાય)
-      const randomY = Math.random() * 80; 
+      // એકબીજાની ઉપર કટ ન થાય તે માટે અલગ-અલગ ઊંચાઈ
+      const randomY = Math.random() * 40; 
       runner.style.bottom = `${randomY}px`;
 
-      // કેરેક્ટર માટે રેન્ડમ નખરું નક્કી કરવું
+      // કેરેક્ટર માટે રેન્ડમ 3D નખરું
       const randomAntic = anticAnimations[Math.floor(Math.random() * anticAnimations.length)];
-
-      // કેરેક્ટર વિઝ્યુઅલ સેટ કરવું (જો ઈમેજ પાથ ખાલી હોય તો ઈમોજી વાપરવું)
-      let visualContent = characterObj.emoji;
-      if (characterObj.img !== "") {
-        visualContent = `<img src="${characterObj.img}" alt="${characterObj.name}">`;
-      }
 
       runner.innerHTML = `
         <div class="character-box ${randomAntic}">
-          <div class="character-visual">${visualContent}</div>
+          <div class="character-visual">
+            <img src="${characterObj.img}" alt="${characterObj.name}">
+          </div>
           <div class="flag-pole">
             <div class="review-flag">
               <p class="text">"${reviewData.text}"</p>
-              <p class="char-name">- ${reviewData.name} (${characterObj.name} સાથે)</p>
+              <p class="char-name">- ${reviewData.name}</p>
             </div>
           </div>
         </div>
@@ -440,29 +448,26 @@
 
       animationContainer.appendChild(runner);
 
-      // એનિમેશન પૂર્ણ થયા બાદ એલિમેન્ટને ડિલીટ કરી દેવું જેથી મેમરી ન ભરાય
+      // પૂરું થતાં રીમુવ કરી દેવું
       runner.addEventListener("animationend", () => {
         runner.remove();
       });
     }
 
-    // સતત લૂપ ચલાવવા માટેનું ફંક્શન
+    // સતત લૂપિંગ માટે
     function startReviewLoop() {
-      // દર ૬ સેકન્ડે એક નવું કેરેક્ટર રિવ્યુ લઈને દોડશે
       setInterval(() => {
         if (reviewsDatabase.length > 0) {
           const randomIndex = Math.floor(Math.random() * reviewsDatabase.length);
-          spawnRunner(reviewsDatabase[randomIndex]);
+          spawn3DRunner(reviewsDatabase[randomIndex]);
         }
-      }, 6000);
+      }, 7000); // દર 7 સેકન્ડે નવું પાત્ર આવશે
     }
 
-    // પેજ લોડ થતા જ એનિમેશન ચાલુ કરો
     window.onload = () => {
-      // શરૂઆતમાં જ ૧-૨ રનર્સ છોડી દેવા જેથી સ્ક્રીન ખાલી ન લાગે
       if (reviewsDatabase.length > 0) {
-        spawnRunner(reviewsDatabase[0]);
-        setTimeout(() => spawnRunner(reviewsDatabase[1]), 3000);
+        spawn3DRunner(reviewsDatabase[0]);
+        setTimeout(() => spawn3DRunner(reviewsDatabase[1]), 3500);
       }
       startReviewLoop();
     };
