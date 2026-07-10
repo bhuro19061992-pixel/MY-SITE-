@@ -30,30 +30,7 @@
         }
     </script>
     
-    <!-- Tailwind Theme Configuration -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        luxuryBlack: '#0d0d0d',
-                        luxuryCharcoal: '#161616',
-                        luxuryGold: '#d4af37',
-                        luxuryGoldHover: '#b89428',
-                        luxuryCream: '#fbf9f5',
-                        brandTeal: '#3ad5e0',
-                        brandBlue: '#1a82e2'
-                    },
-                    fontFamily: {
-                        serif: ['Cormorant Garamond', 'serif'],
-                        sans: ['Montserrat', 'sans-serif'],
-                        cinzel: ['Cinzel', 'serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <link class="bg-body-custom" rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-luxuryBlack text-luxuryCream font-sans leading-relaxed selection:bg-luxuryGold selection:text-luxuryBlack">
 
@@ -143,6 +120,9 @@
         </div>
     </header>
 
+    <!-- Invisible Google Translate Placement element -->
+    <div id="google_translate_element" style="opacity: 0; position: absolute; pointer-events: none; width: 0; height: 0; overflow: hidden;"></div>
+
     <!-- Slide-over Premium Mobile Navigation Menu Drawer -->
     <div id="mobile-menu-drawer" class="fixed inset-y-0 right-0 w-full max-w-xs bg-luxuryBlack border-l border-luxuryGold/20 z-55 transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col justify-between">
         <div class="p-6 space-y-8 flex-1 overflow-y-auto">
@@ -206,7 +186,7 @@
     
     <!-- VIEW A: HOME & MAIN LANDING -->
     <div id="home-view" class="app-route-view pt-20">
-        <!-- Hero Section (Seamless match with global background image) -->
+        <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             <div class="absolute inset-0 z-0">
                 <img src="background.jpg" class="w-full h-full object-cover filter brightness-[0.25]" alt="Background Art">
@@ -318,7 +298,7 @@
                             <span class="font-serif text-5xl text-luxuryGold font-light">03</span>
                             <div class="text-luxuryGold text-2xl"><i class="fa-solid fa-hammer"></i></div>
                             <h4 class="font-serif text-xl text-luxuryCream uppercase tracking-wider">3. Precision Hammering</h4>
-                            <p class="text-sm text-gray-300 mt-4 max-w-md mx-auto">Nails are placed and manually aligned on premium hardwood bases with absolute spatial accuracy.</p>
+                            <p class="text-sm text-gray-400 leading-relaxed max-w-md mx-auto">Nails are placed and manually aligned on premium hardwood bases with absolute spatial accuracy.</p>
                         </div>
                         <div class="process-step-card glass-card p-8 space-y-4 text-center rounded-lg border border-luxuryGold/20">
                             <span class="font-serif text-5xl text-brandTeal font-light">04</span>
@@ -468,21 +448,18 @@
                     </select>
                 </div>
 
-                <!-- Searchable Multi-Select Thread Types Options -->
                 <div class="space-y-2">
                     <label class="block text-[10px] uppercase tracking-wider text-gray-400">Select Thread Materials (Select Multiple)</label>
                     <input type="text" id="thread-search" onkeyup="filterSearchableList('thread')" placeholder="Search Thread..." class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs focus:outline-none focus:border-luxuryGold text-luxuryCream rounded">
                     <div id="thread-list" class="grid grid-cols-2 gap-2 bg-luxuryBlack/50 p-3 border border-luxuryGold/10 max-h-32 overflow-y-auto text-[11px] rounded"></div>
                 </div>
 
-                <!-- Searchable Multi-Select Color Options -->
                 <div class="space-y-2">
                     <label class="block text-[10px] uppercase tracking-wider text-gray-400">Select Art Colors (Select Multiple)</label>
                     <input type="text" id="color-search" onkeyup="filterSearchableList('color')" placeholder="Search Color..." class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-2 text-xs focus:outline-none focus:border-luxuryGold text-luxuryCream rounded">
                     <div id="color-list" class="grid grid-cols-2 gap-2 bg-luxuryBlack/50 p-3 border border-luxuryGold/10 max-h-32 overflow-y-auto text-[11px] rounded"></div>
                 </div>
 
-                <!-- Additional Message Details Textarea -->
                 <div>
                     <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-2">Additional Custom Details & Instructions</label>
                     <textarea id="custom-details-msg" rows="3" placeholder="Enter custom names, dates, references or specific color requirements here..." class="w-full bg-luxuryBlack border border-luxuryGold/20 p-3 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold placeholder-gray-600 rounded"></textarea>
@@ -603,7 +580,7 @@
                                 <input type="file" id="admin-p-multi-images-file" accept="image/*" multiple class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-1.5 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold rounded">
                             </div>
                             <div>
-                                <label class="block text-[10px] uppercase text-gray-400 mb-1">Direct Video Clip Upload (MP4, Max 2MB)</label>
+                                <label class="block text-[10px] uppercase text-gray-400 mb-1">Direct Video Clip Upload (MP4 optional, Max 2MB)</label>
                                 <input type="file" id="admin-p-video-file" accept="video/*" class="w-full bg-luxuryBlack border border-luxuryGold/20 px-3 py-1.5 text-xs text-luxuryCream focus:outline-none focus:border-luxuryGold rounded">
                             </div>
                         </div>
@@ -798,7 +775,7 @@
         </div>
     </div>
 
-    <!-- Upgraded Floating Multi-Channel Social Hub Widget (Point 4 Fix) -->
+    <!-- Upgraded Floating Multi-Channel Social Hub Widget -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-center">
         <!-- Expanding upward list -->
         <div id="social-hub-menu" class="flex flex-col items-center gap-3 mb-3 scale-y-0 opacity-0 translate-y-10 transition-all duration-300 origin-bottom pointer-events-none">
@@ -827,7 +804,203 @@
         </button>
     </div>
 
-    <!-- Bottom Scripts Connection -->
+    <!-- Product Details Modal with share tools -->
+    <div id="product-modal" class="fixed inset-0 bg-luxuryBlack/95 z-50 hidden flex items-center justify-center p-4 overflow-y-auto animate-fadeIn">
+        <div class="glass-card max-w-5xl w-full p-6 md:p-10 relative rounded-xl border border-luxuryGold/20 max-h-[95vh] overflow-y-auto space-y-6">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 text-3xl text-gray-400 hover:text-luxuryGold transition z-10"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-6 space-y-4">
+                    <div class="relative bg-neutral-900/60 rounded-lg border border-luxuryGold/15 overflow-hidden aspect-square flex items-center justify-center p-2 group shadow-2xl">
+                        <img id="modal-img" src="" class="w-full h-full object-cover rounded cursor-zoom-in transition duration-500 hover:scale-105" alt="Active Art Image" onclick="openLightbox(this.src)">
+                        <iframe id="modal-video" class="w-full h-full rounded hidden absolute inset-0" src="about:blank" frameborder="0" allowfullscreen></iframe>
+                        <video id="modal-local-video" class="w-full h-full rounded hidden absolute inset-0 object-cover bg-black" controls src=""></video>
+                    </div>
+                    
+                    <div id="modal-media-previews" class="flex space-x-2 overflow-x-auto py-2 scrollbar-none"></div>
+
+                    <div class="flex justify-between items-center pt-2">
+                        <button id="prev-product-btn" class="text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryGold transition font-bold"><i class="fa-solid fa-chevron-left mr-2"></i> Previous Art</button>
+                        <button id="next-product-btn" class="text-xs uppercase tracking-widest text-gray-400 hover:text-luxuryGold transition font-bold">Next Art <i class="fa-solid fa-chevron-right mr-2"></i></button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <div>
+                        <div class="flex justify-between items-start gap-4">
+                            <span id="modal-tag" class="text-luxuryGold font-serif tracking-[0.2em] text-[10px] uppercase">Unique Artisan Commission</span>
+                            <div class="flex items-center text-luxuryGold text-xs gap-1" id="modal-stars-container"></div>
+                        </div>
+                        <h3 id="modal-title" class="font-serif text-3xl md:text-4xl text-luxuryCream mt-2 leading-tight font-bold">Masterpiece</h3>
+                        <div class="flex items-baseline space-x-4 mt-3">
+                            <span id="modal-price" class="text-3xl text-luxuryGold font-bold font-serif">₹0</span>
+                            <span id="modal-discount-price" class="text-lg text-gray-500 line-through font-serif"></span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <p id="modal-desc" class="text-xs text-gray-300 leading-relaxed font-light"></p>
+                        <ul id="modal-bullet-list" class="text-xs text-gray-400 space-y-1 list-disc list-inside leading-relaxed font-light"></ul>
+                    </div>
+
+                    <div class="border border-luxuryGold/10 rounded-lg overflow-hidden bg-luxuryBlack/50">
+                        <div class="bg-luxuryCharcoal/80 px-4 py-2 border-b border-luxuryGold/10 text-[10px] uppercase tracking-wider text-luxuryGold font-bold">Technical Parameters Index</div>
+                        <table class="w-full text-left text-[11px] text-gray-300">
+                            <tbody class="divide-y divide-luxuryGold/5" id="specs-table-body"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- Action and Share Buttons -->
+                    <div class="space-y-4 pt-4 border-t border-luxuryGold/10">
+                        <div class="grid grid-cols-2 gap-4">
+                            <button id="modal-whatsapp-btn" class="bg-emerald-600 hover:bg-emerald-700 text-white py-3 text-xs uppercase tracking-widest font-bold transition rounded shadow flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Inquiry
+                            </button>
+                            <button id="modal-instagram-btn" class="bg-pink-600 hover:bg-pink-700 text-white py-3 text-xs uppercase tracking-widest font-bold transition rounded shadow flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-instagram text-sm"></i> Instagram DM
+                            </button>
+                        </div>
+                        
+                        <div class="grid grid-cols-3 gap-2">
+                            <button id="modal-share-wa-btn" onclick="shareItem('whatsapp')" class="bg-neutral-800 hover:bg-neutral-700 text-luxuryCream py-2 text-[10px] uppercase tracking-wider font-bold transition rounded flex items-center justify-center gap-1.5 border border-luxuryGold/10">
+                                <i class="fa-brands fa-whatsapp text-emerald-500"></i> WhatsApp
+                            </button>
+                            <button id="modal-share-copy-btn" onclick="copyShareLink()" class="bg-neutral-800 hover:bg-neutral-700 text-luxuryCream py-2 text-[10px] uppercase tracking-wider font-bold transition rounded flex items-center justify-center gap-1.5 border border-luxuryGold/10">
+                                <i class="fa-regular fa-copy text-luxuryGold"></i> Copy Link
+                            </button>
+                            <button id="modal-cert-btn" onclick="generateDigitalCertificate()" class="bg-neutral-800 hover:bg-neutral-700 text-luxuryCream py-2 text-[10px] uppercase tracking-wider font-bold transition rounded flex items-center justify-center gap-1.5 border border-luxuryGold/10">
+                                <i class="fa-solid fa-certificate text-luxuryGold"></i> Certificate
+                            </button>
+                        </div>
+
+                        <button id="modal-add-to-cart-btn" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack py-3 text-xs uppercase tracking-widest font-bold transition rounded shadow">
+                            Add to Collector Container
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dynamic String Art Type Details Modal -->
+    <div id="sat-details-modal" class="fixed inset-0 bg-luxuryBlack/95 z-55 hidden flex items-center justify-center p-4 overflow-y-auto animate-fadeIn">
+        <div class="glass-card max-w-4xl w-full p-6 md:p-10 relative rounded-xl border border-luxuryGold/20 max-h-[90vh] overflow-y-auto space-y-6">
+            <button onclick="closeSatDetailsModal()" class="absolute top-4 right-4 text-3xl text-gray-400 hover:text-luxuryGold transition z-10"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div class="space-y-4">
+                    <div class="relative bg-neutral-900/60 rounded-lg border border-luxuryGold/15 overflow-hidden aspect-square flex items-center justify-center p-2">
+                        <img id="sat-modal-img" src="" class="w-full h-full object-cover rounded cursor-zoom-in" alt="Active Image" onclick="openLightbox(this.src)">
+                        <video id="sat-modal-local-video" class="w-full h-full rounded hidden absolute inset-0 object-cover bg-black" controls src=""></video>
+                    </div>
+                    <div id="sat-modal-media-previews" class="flex space-x-2 overflow-x-auto py-2 scrollbar-none"></div>
+                </div>
+                <div class="space-y-6">
+                    <span class="text-luxuryGold font-serif tracking-[0.2em] text-[10px] uppercase">Custom Studio Category</span>
+                    <h3 id="sat-modal-title" class="font-serif text-2xl md:text-3xl text-luxuryCream leading-tight font-bold">Art Type Title</h3>
+                    <p id="sat-modal-desc" class="text-xs text-gray-300 leading-relaxed font-light"></p>
+                    
+                    <div class="pt-4 border-t border-luxuryGold/10">
+                        <button id="sat-modal-inquire-btn" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack py-3 text-xs uppercase tracking-widest font-bold transition rounded shadow">
+                            Inquire for this Style on WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 bg-black/95 z-55 hidden flex items-center justify-center p-4 cursor-zoom-out" onclick="closeLightbox()">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-3xl text-gray-400 hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
+        <img id="lightbox-img" class="max-h-[90vh] max-w-full object-contain rounded shadow-2xl transition-transform duration-300" src="" alt="Enlarged Masterpiece View">
+    </div>
+
+    <!-- Shopping Drawer -->
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 max-w-md w-full bg-luxuryCharcoal border-l border-luxuryGold/20 z-50 transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
+        <div class="p-6 border-b border-luxuryGold/10 flex justify-between items-center bg-luxuryBlack">
+            <h3 class="font-serif text-xl text-luxuryGold tracking-wide">Selected Masterpieces</h3>
+            <button onclick="toggleCart()" class="text-luxuryCream hover:text-luxuryGold"><i class="fa-solid fa-xmark text-xl"></i></button>
+        </div>
+        
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <p id="cart-empty-msg" class="text-xs text-gray-500 text-center py-8">Your collection container is empty.</p>
+        </div>
+
+        <div class="p-6 border-t border-luxuryGold/10 bg-luxuryBlack space-y-4">
+            <div class="flex justify-between items-center text-xs uppercase tracking-wider">
+                <span>Value:</span>
+                <span id="cart-total-price" class="font-serif text-xl text-luxuryGold font-bold">₹0</span>
+            </div>
+            <button onclick="dispatchCartCheckout()" class="w-full bg-luxuryGold hover:bg-luxuryGoldHover text-luxuryBlack text-center py-4 font-bold text-xs uppercase tracking-widest transition">
+                Proceed Order to WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-luxuryBlack border-t border-luxuryGold/10 py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
+            
+            <div class="space-y-4">
+                <div class="flex items-center space-x-3 group" onclick="openLightbox('logo.jpg')">
+                    <div class="h-10 w-10 rounded-full overflow-hidden border border-luxuryGold/40 bg-luxuryCharcoal flex items-center justify-center transition-transform duration-300 group-hover:scale-105 cursor-zoom-in">
+                        <img src="logo.jpg" alt="String Creations 03 Logo" class="h-full w-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=150'">
+                    </div>
+                    <div class="font-serif text-base lg:text-lg font-bold tracking-[0.08em] flex items-center space-x-1 logo-glowing-effect cursor-zoom-in">
+                        <span class="brand-string">STRING</span>
+                        <span class="brand-creations italic font-normal text-luxuryCream">Creations</span>
+                        <span class="brand-03">03</span>
+                    </div>
+                </div>
+                <p class="text-[11px] text-gray-500 leading-relaxed">International-caliber handcrafted luxury string art pieces based out of India, crafted for modern interiors and elite collectors.</p>
+                
+                <div class="text-[11px] text-gray-400 space-y-2 pt-2">
+                    <p><a href="https://wa.me/918140125772" target="_blank" class="hover:text-luxuryGold flex items-center"><i class="fa-brands fa-whatsapp text-emerald-500 w-5 text-sm"></i> <span>+91 81401 25772</span></a></p>
+                    <p><a href="mailto:stringcreations03@gmail.com" class="hover:text-luxuryGold flex items-center"><i class="fa-solid fa-envelope text-red-400 w-5 text-sm"></i> <span>stringcreations03@gmail.com</span></a></p>
+                    <p><a href="https://instagram.com/stringcreations03" target="_blank" class="hover:text-luxuryGold flex items-center"><i class="fa-brands fa-instagram text-pink-500 w-5 text-sm"></i> <span>@string_creations03</span></a></p>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-xs uppercase tracking-widest font-bold text-luxuryGold mb-4">Aesthetics Directory</h4>
+                <ul class="space-y-2 text-xs text-gray-400">
+                    <li><a href="#gallery-section" class="hover:text-luxuryGold">Custom Portraits</a></li>
+                    <li><a href="#gallery-section" class="hover:text-luxuryGold">Sacred Mandala Art</a></li>
+                    <li><a href="#gallery-section" class="hover:text-luxuryGold">Couple Milestones</a></li>
+                    <li><a href="#gallery-section" class="hover:text-luxuryGold">Corporate Identity Art</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-xs uppercase tracking-widest font-bold text-luxuryGold mb-4">Collector Support</h4>
+                <ul class="space-y-2 text-xs text-gray-400">
+                    <li><a href="#" onclick="toggleTrackModal()" class="hover:text-luxuryGold">Track Order</a></li>
+                    <li><a href="https://wa.me/918140125772" target="_blank" class="hover:text-luxuryGold font-semibold text-luxuryGold"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp Inquiry</a></li>
+                    <li><button onclick="requestAdminAccess()" class="hover:text-luxuryGold text-left focus:outline-none">🔒 Secure Executive Panel</button></li>
+                </ul>
+            </div>
+            
+            <div class="space-y-4">
+                <h4 class="text-xs uppercase tracking-widest font-bold text-luxuryGold">Follow Our Art</h4>
+                <div class="flex items-start space-x-4">
+                    <div class="w-20 h-20 bg-white p-1 rounded-md shadow-lg flex items-center justify-center shrink-0 cursor-zoom-in" onclick="openLightbox('instagram_qr.jpg')">
+                        <img src="instagram_qr.jpg" alt="Scan Instagram QR Code" class="w-full h-full object-contain" onerror="this.src='https://via.placeholder.com/150/ffffff/000000?text=Instagram'">
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-gray-400 leading-tight">Scan the QR code with your camera or click below to explore reels & daily designs.</p>
+                        <a href="https://instagram.com/stringcreations03" target="_blank" class="inline-flex items-center space-x-1 text-xs text-luxuryGold hover:text-luxuryGoldHover font-semibold mt-2">
+                            <i class="fa-brands fa-instagram text-sm"></i>
+                            <span>@string_creations03</span>
+                        </a>
+                    </div>
+                </div>
+                <p class="text-[10px] text-gray-500 pt-2">© 2026 String Creations 03. All Rights Reserved.</p>
+            </div>
+            
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
