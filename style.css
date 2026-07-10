@@ -6,12 +6,12 @@ html {
 
 /* Luxury fixed background style across the entire page (With Solid Dark Fallback - Point 1, 2, 3, 4 fully solved) */
 body {
-    background-color: #0d0d0d; /* Guarantees dark theme fallback to prevent white screen flash */
-    background-image: linear-gradient(rgba(13, 13, 13, 0.75), rgba(13, 13, 13, 0.75)), url('background.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #0d0d0d !important;
+    background-image: linear-gradient(rgba(13, 13, 13, 0.75), rgba(13, 13, 13, 0.75)), url('background.jpg') !important;
+    background-attachment: fixed !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
 }
 
 .glass-header {
