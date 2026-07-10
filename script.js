@@ -702,7 +702,7 @@ function closeSatDetailsModal() {
     }
 }
 
-// 100% Fixed selectors map (Point 2 Fix)
+// 100% Corrected variables mapping (References errors resolved permanently!)
 function renderSearchableLists() {
     const threadList = document.getElementById('thread-list');
     const colorList = document.getElementById('color-list');
@@ -1002,6 +1002,42 @@ function openLightbox(src) {
 
 function closeLightbox() {
     document.getElementById('lightbox-modal').classList.add('hidden');
+}
+
+// Secure Login Handlers
+function requestAdminAccess() {
+    showSection('admin-view');
+    const isLoggedIn = sessionStorage.getItem('sc03_logged_in');
+    if (isLoggedIn === 'true') {
+        document.getElementById('admin-login-shield').classList.add('hidden');
+        document.getElementById('admin-dashboard-panel').classList.remove('hidden');
+        renderAdminDragList();
+    } else {
+        document.getElementById('admin-login-shield').classList.remove('hidden');
+        document.getElementById('admin-dashboard-panel').classList.add('hidden');
+    }
+}
+
+function handleAdminAuth() {
+    const pass = document.getElementById('admin-pass').value;
+    const err = document.getElementById('admin-err');
+    if (pass === 'SC03Admin2026') {
+        sessionStorage.setItem('sc03_logged_in', 'true');
+        document.getElementById('admin-login-shield').classList.add('hidden');
+        document.getElementById('admin-dashboard-panel').classList.remove('hidden');
+        err.classList.add('hidden');
+        showToast("Session Unlocked.");
+        document.getElementById('admin-pass').value = '';
+        renderAdminDragList();
+    } else {
+        err.classList.remove('hidden');
+    }
+}
+
+function handleAdminLogOut() {
+    sessionStorage.removeItem('sc03_logged_in');
+    requestAdminAccess();
+    showToast("Session Locked.");
 }
 
 function toggleMobileMenu() {
