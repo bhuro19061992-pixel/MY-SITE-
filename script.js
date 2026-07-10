@@ -13,7 +13,7 @@ const availableColors = [
     "Green", "Yellow", "Purple", "Orange", "Pink", "Brown", "Gray"
 ];
 
-// All 35+ Original Art Types fully preserved (Point 2 and 3 Fix)
+// All 35+ Original Art Types fully preserved
 const defaultStringArtTypes = [
     { id: "sat1", title: "Corporate Logos & Business Branding", content: "Designed with corporate vector alignments utilizing metallic copper or industrial steel cables to generate dimensional geometric projections.", img: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=400", multiImages: "", video: "" },
     { id: "sat2", title: "Company Name Art & Signboards", content: "Meticulous linear letters designed to provide depth refraction for high-end office reception structures.", img: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=400", multiImages: "", video: "" },
@@ -768,6 +768,7 @@ function updateCartCount() {
     if (el) el.innerText = cart.length;
 }
 
+// Toggle Cart
 function toggleCart() {
     const drawer = document.getElementById('cart-drawer');
     if (drawer) drawer.classList.toggle('translate-x-full');
@@ -1034,10 +1035,6 @@ function handleAdminLogOut() {
     sessionStorage.removeItem('sc03_logged_in');
     requestAdminAccess();
     showToast("Session Locked.");
-}
-
-function closeLightbox() {
-    document.getElementById('lightbox-modal').classList.add('hidden');
 }
 
 function toggleMobileMenu() {
